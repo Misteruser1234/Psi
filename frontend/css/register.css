@@ -1,0 +1,14 @@
+body{
+    background-color: rgba(80, 79, 27, 0.2);
+}
+
+.register-content{
+    height:90vh;
+    width: 100vw;
+    min-height: 550px;
+}
+
+.register-form{
+    border: 1px solid #aaa;
+    border-radius: 15px;
+}
