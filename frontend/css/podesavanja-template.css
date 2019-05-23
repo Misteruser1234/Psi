@@ -1,0 +1,49 @@
+body{
+    background-color: rgba(80, 79, 27, 0.2);
+}
+
+.submenu{
+    margin-left :-15px !important;
+    margin-right :-15px !important;
+    background-color: #212529;
+}
+
+.sub-link{
+    display: block;
+    background-color: #007bff;
+    text-align: center;
+    padding: 10px 0;
+    text-decoration: none;
+    color: white;
+}
+
+.sub-link-container{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.sub-link-wraper{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sub-link:hover{
+    text-decoration: none;
+    color:white;
+    background-color:#00b0ff;
+}
+
+.trenutna-stranica{
+    background-color:#0000af;
+}
+
+@media screen and (min-width: 992px) {
+    .submenu{
+        height: 90vh;
+    }
+
+    .sub-link{
+        margin: 10px 15px;
+        padding: 10px 0;
+    }
+}
