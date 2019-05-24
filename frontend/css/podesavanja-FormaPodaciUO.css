@@ -1,0 +1,9 @@
+.uo-polje{
+    border-radius: 15px;
+}
+
+@media screen and (min-width: 992px) {
+    .submenu{
+        height: inherit;
+    }
+}
