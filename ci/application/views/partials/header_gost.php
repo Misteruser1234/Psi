@@ -10,9 +10,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link rel="stylesheet" href="css/nav.css">
-		<link rel="stylesheet" href="css/footer.css">
-		<link rel="stylesheet" href="css/login.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+		<!-- UCITAVA SVE CSS FAJLOVE IZ NIZA, NOVE CSS FAJLOVE DODATI U NIZ -->
+		<?php
+			$css_fajlovi = [
+				'nav.css', 
+				'footer.css', 
+				'login.css', 
+				'np.css', 
+				'podesavanja-formaPodaciUO.css', 
+				'podesavanja-spisakUO.css', 
+				'podesavanja-template.css', 
+				'register.css'
+			];
+
+			foreach ($css_fajlovi as $key => $value) {
+				$css_link = base_url('css/'.$value);
+				echo '<link rel="stylesheet" href="'.$css_link.'">';
+			}
+		?>
+		
 		<title>Click and Chill</title>
 	</head>
 	<body>
@@ -39,10 +57,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<a class="nav-link" href="#">Brza hrana</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">Napredna pretraga</a>
+				<a class="nav-link" href=" <?php echo site_url('Gost/napredna_pretraga'); ?> ">Napredna pretraga</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">O nama</a>
+				<a class="nav-link" href=" <?php echo site_url('Gost/o_nama'); ?> ">O nama</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#">Kontakt</a>
@@ -50,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</ul>
 		</div>
 		<div class="login-btn">
-			<a class="btn btn-success my-2 my-sm-0 " href="#">Login</a>
+			<a class="btn btn-success my-2 my-sm-0 " href=" <?php echo site_url('Gost/login'); ?> ">Login</a>
 		</div>
 			
 	</div>
