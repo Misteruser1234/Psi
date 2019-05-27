@@ -57,10 +57,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<a class="nav-link" href="#">Brza hrana</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Napredna pretraga</a>
+					<a class="nav-link" href=" <?php echo site_url('Gost/napredna_pretraga'); ?> ">Napredna pretraga</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">O nama</a>
+					<a class="nav-link" href=" <?php echo site_url('Gost/o_nama'); ?> ">O nama</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">Kontakt</a>

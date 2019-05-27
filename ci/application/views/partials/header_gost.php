@@ -57,10 +57,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<a class="nav-link" href="#">Brza hrana</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">Napredna pretraga</a>
+				<a class="nav-link" href=" <?php echo site_url('Gost/napredna_pretraga'); ?> ">Napredna pretraga</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">O nama</a>
+				<a class="nav-link" href=" <?php echo site_url('Gost/o_nama'); ?> ">O nama</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#">Kontakt</a>
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</ul>
 		</div>
 		<div class="login-btn">
-			<a class="btn btn-success my-2 my-sm-0 " href="#">Login</a>
+			<a class="btn btn-success my-2 my-sm-0 " href=" <?php echo site_url('Gost/login'); ?> ">Login</a>
 		</div>
 			
 	</div>
