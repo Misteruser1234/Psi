@@ -1,1 +1,31 @@
 .DS_Store
+
+ci/application/cache/*
+!ci/application/cache/index.html
+
+ci/application/logs/*
+!ci/application/logs/index.html
+
+!ci/application/*/.htaccess
+
+ci/composer.lock
+
+ci/user_guide_src/build/*
+ci/user_guide_src/cilexer/build/*
+ci/user_guide_src/cilexer/dist/*
+ci/user_guide_src/cilexer/pycilexer.egg-info/*
+/ci/vendor/
+
+# IDE Files
+#-------------------------
+/ci/nbproject/
+.idea/*
+
+## Sublime Text cache files
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+/ci/tests/tests/
+/ci/tests/results/
