@@ -19,6 +19,13 @@ nav{
     padding: 0px 10px;
     margin: 12px 0px;
 }
+
+.nav-landing{
+    border-right: 0px solid white;
+    padding: 0px 10px;
+    margin: 12px 0px;
+}
+
 .navbar-brand{
     border-right: 1px solid white;
     padding-right: 20px;
