@@ -49,6 +49,6 @@ class Gost extends CI_Controller {
 		$this->prikazi("kontakt.php");
 	}
 	public function rezultat_pretrage(){
-        $this->prikazi("rezultatPretrage.php")
+        $this->prikazi("rezultatPretrage.php");
     }
 }
