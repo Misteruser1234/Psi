@@ -57,4 +57,7 @@ class RK extends CI_Controller {
     public function podaci_korisnika(){
         $this->podesavanja("podesavanja-PodaciKorisnika.php");
     }
+    public function rezultat_pretrage(){
+        $this->prikazi("rezultatPretrage.php");
+    }
 }
