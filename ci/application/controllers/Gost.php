@@ -68,4 +68,7 @@ class Gost extends CI_Controller {
 		$this->loginGreska();
 	}
 
+	public function rezultat_pretrage(){
+        $this->prikazi("rezultatPretrage.php");
+    }
 }

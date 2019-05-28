@@ -1,60 +1,4 @@
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link rel="stylesheet" href="css/nav.css">
-		<link rel="stylesheet" href="css/footer.css">
-		<link rel="stylesheet" href="css/np.css">
-		<link rel="stylesheet" href="css/podesavanja-PodaciKorisnika.css">
-		<link rel="stylesheet" href="css/rezultatPretrage.css">
-		<title>Click and Chill</title>
-	</head>
-	<body>
-
-
-<!-- NAVIGACIJA -->
-
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
-	<a class="navbar-brand" href="#">Click and Chill</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<div class="mr-auto">
-		<ul class="navbar-nav">
-			<li class="nav-item">
-				<a class="nav-link" href="#">Restorani</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">Kafici</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">Brza hrana</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">Napredna pretraga</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">O nama</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">Kontakt</a>
-			</li>
-		</ul>
-		</div>
-		<div class="login-btn">
-			<a class="btn btn-success my-2 my-sm-0 " href="#">Login</a>
-		</div>
-			
-	</div>
-</nav>
 
 <!-- END NAVIGACIJA -->
 
@@ -67,14 +11,14 @@
 			<div class="row">
 				<div class="col-md-4 mb-4 slika">
 					<div class="col-sm-12  slika-korisnika">
-						<img class="img-fluid img-thumbnail" src="img/restoran.jpg" alt>
+						<img class="img-fluid img-thumbnail" src="<?php echo base_url('img/restoran.jpg');?>" alt>
 					</div>
 				</div>
 				<div class="col-md-8 mb-8 px">
 					<div class="col-sm-12">
 						<div class="col-sm">
 							<div class="row">
-								<div class=" col-sm-6">
+								<div class=" col-sm-5">
 									<div class="row">
 										<div class="h4">
 											Naziv lokala
@@ -87,7 +31,7 @@
 									</div>
 								</div>	
 								
-								<div class="col-sm-6">
+								<div class="col-sm-7">
 									<div class="row">
 										<div class="h6">
 											Adresa XX
@@ -107,14 +51,14 @@
 								</div>		
 							</div>
 							<div class="row">
-								<div class="col-sm-6">
+								<div class="col-sm-5">
 									<div class="row">
 										<div class="h5">
 											Radno vreme:
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-sm-3">
+										<div class="col-sm-6">
 											<div class="row">
 												<div class="h6">
 													pon-pet:
@@ -131,7 +75,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="col-sm-4">
+										<div class="col-sm-6">
 										<div class="row">
 											<div class="h6">
 												09:00 - 23:00
@@ -152,7 +96,7 @@
 									
 								</div>
 								
-								<div class="col-sm-6">
+								<div class="col-sm-7">
 									<div class="row">
 										<div class="h5">
 											Opis:
@@ -192,19 +136,20 @@
 					Kafić
 				</span>
 			</div>	
+			<div class="row"></div>
 		</div>
-		<div class="row">
+		<div class="row rez-uo">
 			<div class="row">
 				<div class="col-md-4 mb-4 slika">
 					<div class="col-sm-12  slika-korisnika">
-						<img class="img-fluid img-thumbnail" src="img/restoran.jpg" alt>
+						<img class="img-fluid img-thumbnail" src="<?php echo base_url('img/restoran.jpg');?>" alt>
 					</div>
 				</div>
 				<div class="col-md-8 mb-8 px">
 					<div class="col-sm-12">
 						<div class="col-sm">
 							<div class="row">
-								<div class=" col-sm-6">
+								<div class=" col-sm-5">
 									<div class="row">
 										<div class="h4">
 											Naziv lokala
@@ -217,7 +162,7 @@
 									</div>
 								</div>	
 								
-								<div class="col-sm-6">
+								<div class="col-sm-7">
 									<div class="row">
 										<div class="h6">
 											Adresa XX
@@ -237,14 +182,14 @@
 								</div>		
 							</div>
 							<div class="row">
-								<div class="col-sm-6">
+								<div class="col-sm-5">
 									<div class="row">
 										<div class="h5">
 											Radno vreme:
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-sm-3">
+										<div class="col-sm-6">
 											<div class="row">
 												<div class="h6">
 													pon-pet:
@@ -261,7 +206,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="col-sm-4">
+										<div class="col-sm-6">
 										<div class="row">
 											<div class="h6">
 												09:00 - 23:00
@@ -282,7 +227,7 @@
 									
 								</div>
 								
-								<div class="col-sm-6">
+								<div class="col-sm-7">
 									<div class="row">
 										<div class="h5">
 											Opis:
@@ -300,7 +245,7 @@
 				</div>
 			</div>
 			<div class="row h3">
-				<div class="h5">
+				<div class="h5 py-2">
 					Tagovi:   
 				</div>						
 				<span class="badge badge-pill badge-info">
@@ -322,7 +267,7 @@
 					Kafić
 				</span>
 			</div>	
-			
+			<div class="row"></div>
 		</div>
 	</div>
 </div>
@@ -330,18 +275,3 @@
 
 
 <!-- FOOTER -->
-
-<footer class = "bg-primary text-white fixed-bottom footer">
-	<div> Tim Kasnioci &copy; 2019</div>
-</footer>
-
-<!-- END FOOTER -->
-
-
-		<!-- Optional JavaScript -->
-		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	</body>
-</html>
