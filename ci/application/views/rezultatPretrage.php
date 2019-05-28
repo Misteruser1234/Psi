@@ -18,7 +18,7 @@
 					<div class="col-sm-12">
 						<div class="col-sm">
 							<div class="row">
-								<div class=" col-sm-6">
+								<div class=" col-sm-5">
 									<div class="row">
 										<div class="h4">
 											Naziv lokala
@@ -31,7 +31,7 @@
 									</div>
 								</div>	
 								
-								<div class="col-sm-6">
+								<div class="col-sm-7">
 									<div class="row">
 										<div class="h6">
 											Adresa XX
@@ -51,7 +51,7 @@
 								</div>		
 							</div>
 							<div class="row">
-								<div class="col-sm-6">
+								<div class="col-sm-5">
 									<div class="row">
 										<div class="h5">
 											Radno vreme:
@@ -96,7 +96,7 @@
 									
 								</div>
 								
-								<div class="col-sm-6">
+								<div class="col-sm-7">
 									<div class="row">
 										<div class="h5">
 											Opis:
