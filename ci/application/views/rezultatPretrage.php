@@ -58,7 +58,7 @@
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-sm-3">
+										<div class="col-sm-6">
 											<div class="row">
 												<div class="h6">
 													pon-pet:
@@ -75,7 +75,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="col-sm-4">
+										<div class="col-sm-6">
 										<div class="row">
 											<div class="h6">
 												09:00 - 23:00
