@@ -4,7 +4,7 @@ class Gost extends CI_Controller {
 
 	public function __construct() {
         parent::__construct();
-
+		$this->load->model("ModelKorisnik");
     
 	}
 
@@ -16,9 +16,9 @@ class Gost extends CI_Controller {
 	// 4. Dodati link gde treba (pogledati u header fajlovima nav linkove) 
 	
 	//pomocna metoda koja sluzi za ucitavanje stranice posto nam se svaka stranica sadrzi iz tri dela
-    private function prikazi($glavniDeo=NULL){
+    private function prikazi($glavniDeo=NULL, $data=NULL){
         $this->load->view("partials/header_gost.php");
-		if ($glavniDeo != NULL) $this->load->view($glavniDeo);
+		if ($glavniDeo != NULL) $this->load->view($glavniDeo, $data);
         $this->load->view("partials/footer.php");
 	}
 	
@@ -48,4 +48,24 @@ class Gost extends CI_Controller {
 	public function kontakt(){
 		$this->prikazi("kontakt.php");
 	}
+
+	public function loginGreska(){
+		$podaci['poruka'] = "Neispravni podaci!";
+		$this->prikazi('login.php',$podaci);
+	}
+
+	public function ulogujse(){
+		$korisnikPostoji = $this->ModelKorisnik->korisnikPostoji($this->input->post('username'));
+		
+		if ($korisnikPostoji) {
+			$passwordIspravan = $this->ModelKorisnik->ispravanPassword($this->input->post('password'));
+			if ($passwordIspravan){
+				$korisnik = $this->Modelkorisnik->korisnik;
+				$this->session->set_userdata('korisnik',$korisnik);
+				redirect("RK");
+			}
+		}
+		$this->loginGreska();
+	}
+
 }
