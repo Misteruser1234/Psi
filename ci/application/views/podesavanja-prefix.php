@@ -5,7 +5,7 @@
 				<div class="h3 py-lg-5 pt-2">Podesavanja</div>
 				<div class="row sub-link-container">
 					<div class="col-lg-12 col-md-3 col-sm-6 col-12 sub-link-wraper"> 
-						<a class="sub-link trenutna-stranica" href="#">
+						<a class="sub-link trenutna-stranica" href=" <?php echo site_url('RK/podaci_korisnika'); ?> ">
 							Podaci korisnika
 						</a> 
 					</div>
