@@ -16,10 +16,10 @@ class RK extends CI_Controller {
     }
     
     //dodaje submeni
-    public function podesavanja($podStranica=NULL){
+    public function podesavanja($podStranica="podesavanja-PodaciKorisnika.php"){
 		$this->load->view("partials/header_ulogovan_korisnik.php");
         $this->load->view("podesavanja-prefix.php");
-        if ($podStranica != NULL) $this->load->view($podStranica);
+        $this->load->view($podStranica);
         $this->load->view("podesavanja-postfix.php");
         $this->load->view("partials/footer.php");
     }
