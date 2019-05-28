@@ -38,5 +38,8 @@ class Gost extends CI_Controller {
 	public function login(){
 		$this->prikazi("login.php");
 	}
-    
+	
+	public function kontakt(){
+		$this->prikazi("kontakt.php");
+	}
 }

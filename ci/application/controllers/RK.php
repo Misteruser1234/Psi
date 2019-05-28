@@ -45,4 +45,7 @@ class RK extends CI_Controller {
         $this->podesavanja("podesavanja-FormaPodaciUO.php");
     }
     
+    public function kontakt(){
+		$this->prikazi("kontakt.php");
+	}
 }

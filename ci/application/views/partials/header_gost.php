@@ -22,7 +22,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				'podesavanja-formaPodaciUO.css', 
 				'podesavanja-spisakUO.css', 
 				'podesavanja-template.css', 
-				'register.css'
+				'register.css',
+				'kontakt.css'
 			];
 
 			foreach ($css_fajlovi as $key => $value) {
@@ -63,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<a class="nav-link" href=" <?php echo site_url('Gost/o_nama'); ?> ">O nama</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">Kontakt</a>
+				<a class="nav-link" href="<?php echo site_url('Gost/kontakt'); ?>">Kontakt</a>
 			</li>
 		</ul>
 		</div>
