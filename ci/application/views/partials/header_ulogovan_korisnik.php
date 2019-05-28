@@ -57,10 +57,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<a class="nav-link" href="#">Brza hrana</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href=" <?php echo site_url('Gost/napredna_pretraga'); ?> ">Napredna pretraga</a>
+					<a class="nav-link" href=" <?php echo site_url('RK/napredna_pretraga'); ?> ">Napredna pretraga</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href=" <?php echo site_url('Gost/o_nama'); ?> ">O nama</a>
+					<a class="nav-link" href=" <?php echo site_url('RK/o_nama'); ?> ">O nama</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">Kontakt</a>
@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<i class="fas fa-user-cog"></i>
 			</button>
 			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-				<a class="dropdown-item" href="#">Podesavanja</a>
+				<a class="dropdown-item" href=" <?php echo site_url('RK/podesavanja'); ?> ">Podesavanja</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="#">Logout</a>
 			</div>
