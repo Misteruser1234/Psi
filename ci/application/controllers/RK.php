@@ -16,19 +16,25 @@ class RK extends CI_Controller {
     }
     
     //dodaje submeni
-    public function podesavanja($podStranica=NULL){
+    public function podesavanja($podStranica="podesavanja-PodaciKorisnika.php"){
 		$this->load->view("partials/header_ulogovan_korisnik.php");
         $this->load->view("podesavanja-prefix.php");
-        if ($podStranica != NULL) $this->load->view($podStranica);
+        $this->load->view($podStranica);
         $this->load->view("podesavanja-postfix.php");
         $this->load->view("partials/footer.php");
     }
 	
-	
-	public function index(){
-		$this->prikazi();
+	public function lp(){
+		$this->load->view("partials/header_ulogovan_korisnik.php");
+        $this->load->view("lp.php");
+        $this->load->view("partials/rk_dp.php");
+		$this->load->view("partials/footer.php");
 	}
 
+	public function index(){
+		$this->lp();
+    }
+    
 	public function o_nama(){
 		$this->prikazi("onama.php");
 	}
