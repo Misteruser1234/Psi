@@ -22,15 +22,9 @@ class Gost extends CI_Controller {
         $this->load->view("partials/footer.php");
 	}
 	
-	public function lp(){
-		$this->load->view("partials/header_lp.php");
-		$this->load->view("lp.php");
-		$this->load->view("partials/gost_dp.php");
-		$this->load->view("partials/footer.php");
-	}
-
+	
 	public function index(){
-		$this->lp();
+		$this->prikazi();
 	}
 
 	public function o_nama(){
