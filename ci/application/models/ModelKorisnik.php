@@ -44,8 +44,11 @@ class ModelKorisnik extends CI_Model {
         $query=$this->db->query("update Korisnik SET Password='$password' where Username='".$username."'");
     }
 
-    // public function dohvatiAutore(){
-    //     return $this->db->get('autor')->result();
-    // }
+    public function dodajKorisnika($username, $password, $tip){
+        $this->db->set("Username", $username);
+        $this->db->set("Password", $password);
+        $this->db->set("Tip", $tip);
+        $this->db->insert("korisnik");
+    }
     
 }

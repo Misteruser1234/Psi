@@ -46,7 +46,7 @@
 						<div>
 							<label> 
 									&nbsp &nbsp
-									<input type="radio" name="tipKorisnika" id="standardni" value="standardni" checked>
+									<input type="radio" name="tipKorisnika" id="standardni" value="korisnik" checked>
 								Standardni korisnik
 							</label>
 						</div>
@@ -68,3 +68,5 @@
 		</div>
 	</div>
 </div>
+
+

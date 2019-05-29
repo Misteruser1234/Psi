@@ -120,12 +120,22 @@ class Gost extends CI_Controller {
 		if ($korisnikPostoji) $error['username'] = "postoji";
 
 		if ( count($error) > 0 ) $this->registerGreska($error, $data);
+		else {
+			//Ubacivanje u bazu
+			$username = $this->input->post('username');
+			$password = $this->input->post('password');
+			$confirmpass = $this->input->post('passwordconfirm');
+			$tip = $this->input->post('tipKorisnika');
 
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-		$confirmpass = $this->input->post('passwordconfirm');
-		$tip = $this->input->post('tipKorisnika');
+			$this->ModelKorisnik->dodajKorisnika($username, $password, $tip);
 
+			$this->load->view("partials/header.php");
+			$this->load->view("partials/poruka-register.php");
+			$this->load->view("partials/footer.php");
+
+			header('Refresh: 3; URL=http://localhost/psi/ci/index.php/Gost/login');
+		}
+	}
 	
 	public function nadji(){
 		$this->ModelLokal->naprednaPretragaLokala(3,3,2,2);
