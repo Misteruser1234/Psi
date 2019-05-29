@@ -60,6 +60,9 @@ class RK extends CI_Controller {
     public function rezultat_pretrage(){
         $this->prikazi("rezultatPretrage.php");
     }
+    public function stranica_lokala(){
+        $this->prikazi("stranicaLokala.php");
+    }
 
     public function logout(){
         $this->session->unset_userdata("korisnik");// brise se podatak o autoru iz sesije
