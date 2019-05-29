@@ -5,13 +5,13 @@
 				<div id="carouselExampleControls" class="carousel slide  granica" data-ride="carousel" data-interval="false">
 					<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img class="d-block w-100" src="img/restoran.jpg" alt="First slide">
+					<img class="d-block w-100" src="<?php echo base_url('img/restoran.jpg');?>" alt="First slide">
 				</div>
 				<div class="carousel-item">
-				<img class="d-block w-100" src="img/restoran.jpg" alt="Second slide">
+				<img class="d-block w-100" src="<?php echo base_url('img/restoran.jpg');?>" alt="Second slide">
 				</div>
 					<div class="carousel-item">
-				<img class="d-block w-100" src="img/restoran.jpg" alt="Third slide">
+				<img class="d-block w-100" src="<?php echo base_url('img/restoran.jpg');?>" alt="Third slide">
 					</div>
 				</div>
 				<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -84,7 +84,7 @@
 							
 						</div>
 							</div>
-							<div class="col-sm-6"><img class="img-fluid padding-right-5" src="img/restoran.jpg"  alt="First slide"></div>
+							<div class="col-sm-6"><img class="img-fluid padding-right-5" src="<?php echo base_url('img/restoran.jpg');?>"  alt="First slide"></div>
 							
 							
 							
@@ -117,16 +117,16 @@
 		<!--THUMBNAILOVI-->
 		
 		<div class="row ml-5 mr-5 mt-5 mb-5 justify-content-center">
-			<div class="col-sm-1 ml-1 mr-1"><a href=""><img src="img/restoran.jpg" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-1"></a></div>
-				<div class="col-sm-1  ml-1 mr-1"><a href=""><img src="img/restoran.jpg" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-2"></a></div>
-					<div class="col-sm-1  ml-1 mr-1"><a href=""><img src="img/restoran.jpg" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-3"></a></div>
-						<div class="col-sm-1  ml-1 mr-1"><a href=""><img src="img/restoran.jpg" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-4"></a></div>
-							<div class="col-sm-1  ml-1 mr-1"><a href=""><img src="img/restoran.jpg" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-5"></a></div>
-								<div class="col-sm-1  ml-1 mr-1"><a href=""><img src="img/restoran.jpg" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-6"></a></div>
-									<div class="col-sm-1  ml-1 mr-1"><a href=""><img src="img/restoran.jpg" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-7"></a></div>
-										<div class="col-sm-1  ml-1 mr-1"><a href=""><img src="img/restoran.jpg" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-8"></a></div>
-											<div class="col-sm-1  ml-1 mr-1"><a href=""><img src="img/restoran.jpg" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-9"></a></div>
-												<div class="col-sm-1  ml-1 mr-1"><a href=""><img src="img/restoran.jpg" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-10"></a></div>
+			<div class="col-sm-1 ml-1 mr-1"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-1"></a></div>
+				<div class="col-sm-1  ml-1 mr-1"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-2"></a></div>
+					<div class="col-sm-1  ml-1 mr-1"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-3"></a></div>
+						<div class="col-sm-1  ml-1 mr-1"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-4"></a></div>
+							<div class="col-sm-1  ml-1 mr-1"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-5"></a></div>
+								<div class="col-sm-1  ml-1 mr-1"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-6"></a></div>
+									<div class="col-sm-1  ml-1 mr-1"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-7"></a></div>
+										<div class="col-sm-1  ml-1 mr-1"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-8"></a></div>
+											<div class="col-sm-1  ml-1 mr-1"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-9"></a></div>
+												<div class="col-sm-1  ml-1 mr-1"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-10"></a></div>
 		
 		
 		</div>
@@ -173,7 +173,7 @@
 			
 			<div class="row">
 					<div class="col-sm-2">
-						<img src="img/restoran.jpg" alt="..." class="img-thumbnail" id="userpic">
+						<img src="<?php echo base_url('img/restoran.jpg');?>" alt="..." class="img-thumbnail" id="userpic">
 					</div>
 					
 					<div class="col-sm-7">
@@ -188,7 +188,7 @@
 			<hr class="linija">
 				<div class="row">
 					<div class="col-sm-2">
-						<img src="img/restoran.jpg" alt="..." class="img-thumbnail" id="userpic">
+						<img src="<?php echo base_url('img/restoran.jpg');?>" alt="..." class="img-thumbnail" id="userpic">
 					</div>
 					
 					<div class="col-sm-7">
@@ -240,4 +240,5 @@
 						</div>
 		
 				</form>
+		
 </div>

@@ -7,7 +7,7 @@
 		<div class="naslov">
 			Rezultat pretrege:
 		</div>
-		<a href="<?php echo site_url('RK/stranica_lokala');?>" class="a">
+		<a href="<?php echo site_url('Gost/stranica_lokala');?>" class="a">
 			<div class="row rez-uo rez-form jumbotron py-3" >
 				<div class="row a">
 					<div class="col-md-4 mb-4 slika">

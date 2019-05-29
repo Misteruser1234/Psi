@@ -74,5 +74,8 @@ class Gost extends CI_Controller {
 
 	public function rezultat_pretrage(){
         $this->prikazi("rezultatPretrage.php");
-    }
+	}
+	public function stranica_lokala(){
+		$this->prikazi("stranicaLokala.php");
+	}
 }
