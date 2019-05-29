@@ -1,0 +1,25 @@
+.granica{
+	border:3px solid black;
+	border-radius:5px;
+}
+.granica-dugme{
+	border-radius:15px;
+}
+
+.granica-dugme-2{
+	border-radius:15px;
+	border:1px solid black;
+}
+
+.body{
+    background-color: rgba(80, 79, 27, 0.2);
+}
+
+.linija{
+	border: 1px solid gray;
+}
+
+.granica-3{
+	border:1px solid black;
+	border-radius:5px;
+}
