@@ -6,7 +6,6 @@ class Gost extends CI_Controller {
         parent::__construct();
 		$this->load->model("ModelKorisnik");
 
-		if (($this->session->userdata('username')) != NULL) redirect("RK");
     
 	}
 
@@ -19,7 +18,7 @@ class Gost extends CI_Controller {
 	
 	//pomocna metoda koja sluzi za ucitavanje stranice posto nam se svaka stranica sadrzi iz tri dela
     private function prikazi($glavniDeo=NULL, $data=NULL){
-        $this->load->view("partials/header_gost.php");
+        $this->load->view("partials/header.php");
 		if ($glavniDeo != NULL) $this->load->view($glavniDeo, $data);
         $this->load->view("partials/footer.php");
 	}
@@ -67,7 +66,7 @@ class Gost extends CI_Controller {
 				
 				$this->session->set_userdata('username',$korisnik->Username);
 				$this->session->set_userdata('tip',$korisnik->Tip);
-				redirect("RK");
+				redirect("Gost");
 			}
 		}
 		$this->loginGreska();

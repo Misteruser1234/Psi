@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- NAVIGACIJA -->
 
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
-<a class="navbar-brand" href=" <?php echo site_url('RK/lp'); ?> ">Click and Chill</a>
+<a class="navbar-brand" href=" <?php echo site_url('Gost/lp'); ?> ">Click and Chill</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
@@ -53,42 +53,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="mr-auto">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" href=" <?php echo site_url('RK/rezultat_pretrage'); ?> ">Restorani</a>
+					<a class="nav-link" href=" <?php echo site_url('Gost/rezultat_pretrage'); ?> ">Restorani</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href=" <?php echo site_url('RK/rezultat_pretrage'); ?> ">Kafici</a>
+					<a class="nav-link" href=" <?php echo site_url('Gost/rezultat_pretrage'); ?> ">Kafici</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href=" <?php echo site_url('RK/rezultat_pretrage'); ?> ">Brza hrana</a>
+					<a class="nav-link" href=" <?php echo site_url('Gost/rezultat_pretrage'); ?> ">Brza hrana</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href=" <?php echo site_url('RK/napredna_pretraga'); ?> ">Napredna pretraga</a>
+					<a class="nav-link" href=" <?php echo site_url('Gost/napredna_pretraga'); ?> ">Napredna pretraga</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href=" <?php echo site_url('RK/o_nama'); ?> ">O nama</a>
+					<a class="nav-link" href=" <?php echo site_url('Gost/o_nama'); ?> ">O nama</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="<?php echo site_url('RK/kontakt'); ?>">Kontakt</a>
+					<a class="nav-link" href="<?php echo site_url('Gost/kontakt'); ?>">Kontakt</a>
 				</li>
 				
 			</ul>
 		</div>
 
-		<!-- OVO JE DROPDOWN KOJI VIDE ULOGOVANI KORISNICI -->
-		<div class="dropdown">
-			<button class="btn btn-outline-light my-sm-0" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<!-- OVDE TREBA UBACITI USERNAME KORISNIKA -->
-				<span class="mr-2 text-capitalize">
-					<?php  echo $this->session->userdata('username'); ?>
-				</span>
-				<i class="fas fa-user-cog"></i>
-			</button>
-			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-				<a class="dropdown-item" href=" <?php echo site_url('RK/podesavanja'); ?> ">Podesavanja</a>
-				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="<?php echo site_url('RK/logout'); ?>">Logout</a>
-			</div>
-		</div>
+		<!-- UBACUjE U NAVBAR LOGIN DUGME ILI USER MENU U ZAVISNOSTI OD TOGA DA LI JE KORISNIK LOGINOVAN -->
+		<?php 
+			if ($this->session->userdata("username") == NULL) $this->load->view("partials/login_btn.php");
+			else $this->load->view("partials/user_menu.php");
+		?>
 			
 	</div>
 </nav>

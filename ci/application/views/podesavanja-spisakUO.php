@@ -58,12 +58,19 @@
 				<div class="col-1"> <a href="#"><i class="far fa-trash-alt"></i></a> </div>
 			</div>
 			<!-- END Jedan red u spisku ugostiteljskih objekata -->
-			<div class="px-3">
-				<a class ="btn btn-primary text-white w-100 text-center mt-5 py-2" href=" <?php echo site_url('RK/dodaj_uo'); ?> "> 
-					<i class="fas fa-plus mx-3"></i>
-					Dodaj ugostiteljski objekat
-				</a>
-			</div>
+			
+			<?php
+				if ($this->session->userdata('tip') == 'vlasnik'){
+					$linkDodajStranicuUo = site_url('Vlasnik/dodaj_uo');
+					echo '<div class="px-3">
+					<a class ="btn btn-primary text-white w-100 text-center mt-5 py-2" href="'.$linkDodajStranicuUo.'"> 
+						<i class="fas fa-plus mx-3"></i>
+						Dodaj ugostiteljski objekat
+					</a>
+				</div>';
+				}
+			?>
+			
 
 		</div>
 		<!-- END Spisak ugostiteljskih objekata -->
