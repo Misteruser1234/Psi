@@ -3,13 +3,13 @@
 <!-- END NAVIGACIJA -->
 
 <div id="np-content">
-	<div class="container">
+	<div class="container" >
 		<div class="naslov">
 			Rezultat pretrege:
 		</div>
-		<a href="<?php echo site_url('RK/stranica_lokala');?>">
-			<div class="row rez-uo">
-				<div class="row">
+		<a href="<?php echo site_url('RK/stranica_lokala');?>" class="a">
+			<div class="row rez-uo rez-form jumbotron py-3" >
+				<div class="row a">
 					<div class="col-md-4 mb-4 slika">
 						<div class="col-sm-12  slika-korisnika">
 							<img class="img-fluid img-thumbnail" src="<?php echo base_url('img/restoran.jpg');?>" alt>
@@ -137,12 +137,12 @@
 						Kafić
 					</span>
 				</div>	
-				<div class="row"></div>
+				
 			
 			</div>
 		</a>
-		<a href="<?php echo site_url('RK/stranica_lokala');?>">
-			<div class="row rez-uo">
+		<a href="<?php echo site_url('RK/stranica_lokala');?>" class="a">
+			<div class="row rez-uo rez-form jumbotron py-3">
 				<div class="row">
 					<div class="col-md-4 mb-4 slika">
 						<div class="col-sm-12  slika-korisnika">
