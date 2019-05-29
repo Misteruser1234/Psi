@@ -8,11 +8,6 @@ body{
     min-height: 500px;
 }
 
-.contact-form{
-    border: 1px solid #aaa;
-    height: 30vh;
-    border-radius: 15px;
-}
 
 .mail-kontakt-border{
     border-left: 1px solid #aaa;
