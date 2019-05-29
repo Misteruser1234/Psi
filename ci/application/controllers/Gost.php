@@ -5,7 +5,7 @@ class Gost extends CI_Controller {
 	public function __construct() {
         parent::__construct();
 		$this->load->model("ModelKorisnik");
-
+		$this->load->model("ModelLokal");
     
 	}
 
@@ -126,5 +126,8 @@ class Gost extends CI_Controller {
 		$confirmpass = $this->input->post('passwordconfirm');
 		$tip = $this->input->post('tipKorisnika');
 
+	
+	public function nadji(){
+		$this->ModelLokal->naprednaPretragaLokala(3,3,2,2);
 	}
 }

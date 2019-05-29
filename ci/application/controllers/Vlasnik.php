@@ -4,6 +4,8 @@ class Vlasnik extends CI_Controller {
 
 	public function __construct() {
         parent::__construct();
+        $this->load->model("ModelUO");
+      
 
         // PRISTUP DOZVOLJEN SAMO AKO JE USER TIP VLASNIK
         if (($this->session->userdata('username')) == NULL) redirect("Gost");
@@ -28,6 +30,12 @@ class Vlasnik extends CI_Controller {
 
     public function dodaj_uo(){
         $this->podesavanja("podesavanja-FormaPodaciUO.php");
+    }
+
+    public function ubaciUO(){
+        redirect(Gost);
+        $this->ModelUO->insertUO();
+
     }
 
 }
