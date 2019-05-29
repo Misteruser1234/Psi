@@ -29,3 +29,10 @@
     border: 1px solid #aaa;
     border-radius: 15px;
 }
+
+.tag{
+	border-radius: 15px;
+	border:1px solid white;
+	color:white;
+	line-height: inherit;
+}

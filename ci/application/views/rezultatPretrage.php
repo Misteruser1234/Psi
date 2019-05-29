@@ -114,26 +114,26 @@
 						</div>
 					</div>
 				</div>
-				<div class="row h3">
-					<div class="h5 py-2">
+				<div class="row">
+					<div class="h5 mr-2">
 						Tagovi:   
 					</div>						
-					<span class="badge badge-pill badge-info">
+					<span class="tag bg-info h6 ml-1 px-3">
 						Kafić
 					</span>
-					<span class="badge badge-pill badge-info">
+					<span class="tag bg-info h6 ml-1 px-3">
 						Kafić
 					</span>
-					<span class="badge badge-pill badge-info">
+					<span class="tag bg-info h6 ml-1 px-3">
 						Kafić
 					</span>
-					<span class="badge badge-pill badge-info">
+					<span class="tag bg-info h6 ml-1 px-3">
 						Kafić
 					</span>
-					<span class="badge badge-pill badge-info">
+					<span class="tag bg-info h6 ml-1 px-3">
 						Kafić
 					</span>
-					<span class="badge badge-pill badge-info">
+					<span class="tag bg-info h6 ml-1 px-3">
 						Kafić
 					</span>
 				</div>	
