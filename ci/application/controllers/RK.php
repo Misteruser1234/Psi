@@ -18,18 +18,14 @@ class RK extends CI_Controller {
 
 	public function index(){
 		redirect("Gost");
-    }
-    
-    public function spisak_uo(){
-        $this->podesavanja("podesavanja-spisakUO.php");
-    }
-
-    public function dodaj_uo(){
-        $this->podesavanja("podesavanja-FormaPodaciUO.php");
-    }
+    }    
 
     public function podaci_korisnika(){
         $this->podesavanja("podesavanja-PodaciKorisnika.php");
+    }
+
+    public function promeni_lozinku(){
+        // TODO: Ovde ide implementacija za promenu lozinke
     }
 
     public function logout(){
