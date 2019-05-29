@@ -4,10 +4,11 @@
 	</div>
 </div>
 <form id="komentar" action="<?php echo site_url('RK/upis_komentara') ?>" method="post">
+	<input type="hidden" id="uoid" name="uoid" value="0">
 	<div class="row mt-2">
 		<div class="col-md-9">
 			<div class="form-group">
-				<textarea class="form-control granica-3" name="comment" rows="6" id="comment"></textarea>
+				<textarea class="form-control granica-3" required name="comment" rows="6" id="comment"></textarea>
 			</div>
 		</div>
 		<div class="col-sm-1 ml-1 mr-5 justify-content-center">
