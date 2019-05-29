@@ -7,7 +7,7 @@
 			<div class="form-group">
 				<div class="row">
 					<div class="col-lg-3 col-md-6">
-						<div class="jumbotron">
+						<div class="jumbotron np-form">
 							<h1 class="h3">Pice:</h1>
 							<div class="form-check np-polje">
 								<input type="checkbox" class="form-check-input" id="s1v1">
@@ -44,7 +44,7 @@
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6">
-						<div class="jumbotron">
+						<div class="jumbotron np-form">
 							<h1 class="h3">Hrana:</h1>
 							<div class="form-check np-polje">
 								<input type="checkbox" class="form-check-input" id="s2v1">
@@ -81,7 +81,7 @@
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6">
-						<div class="jumbotron">
+						<div class="jumbotron np-form">
 							<h1 class="h3">Ambijent:</h1>
 							<div class="form-check np-polje">
 								<input type="checkbox" class="form-check-input" id="s3v1">
@@ -118,7 +118,7 @@
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6">
-						<div class="jumbotron">
+						<div class="jumbotron np-form">
 							<h1 class="h3">Extra:</h1>
 							<div class="form-check np-polje">
 								<input type="checkbox" class="form-check-input" id="s4v1">

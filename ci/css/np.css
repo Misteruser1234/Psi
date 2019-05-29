@@ -9,6 +9,11 @@ body{
     padding-bottom: 2%;
 }
 
+.np-form{
+    border: 1px solid #aaa;
+    border-radius: 15px;
+}
+
 .nadji{
     text-align: center;
     letter-spacing: 2px;
