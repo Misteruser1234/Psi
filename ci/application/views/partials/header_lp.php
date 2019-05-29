@@ -37,10 +37,11 @@
 			</li>
 		</ul>
 		</div>
-		<div class="login-btn">
-			<a class="btn btn-success my-2 my-sm-0 "href=" <?php echo site_url('Gost/login'); ?> ">Login</a>
-		</div>
-			
+		<!-- UBACUjE U NAVBAR LOGIN DUGME ILI USER MENU U ZAVISNOSTI OD TOGA DA LI JE KORISNIK LOGINOVAN -->
+		<?php 
+			if ($this->session->userdata("username") == NULL) $this->load->view("partials/login_btn.php");
+			else $this->load->view("partials/user_menu.php");
+		?>
 	</div>
 </nav>
 

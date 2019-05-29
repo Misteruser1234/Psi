@@ -6,7 +6,6 @@ class Gost extends CI_Controller {
         parent::__construct();
 		$this->load->model("ModelKorisnik");
 
-		if (($this->session->userdata('username')) != NULL) redirect("RK");
     
 	}
 
@@ -67,7 +66,7 @@ class Gost extends CI_Controller {
 				
 				$this->session->set_userdata('username',$korisnik->Username);
 				$this->session->set_userdata('tip',$korisnik->Tip);
-				redirect("RK");
+				redirect("Gost");
 			}
 		}
 		$this->loginGreska();
