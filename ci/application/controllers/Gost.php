@@ -77,4 +77,8 @@ class Gost extends CI_Controller {
 	public function stranica_lokala(){
 		$this->prikazi("stranicaLokala.php");
 	}
+
+	public function registracija(){
+		$this->prikazi("register.php");
+	}
 }
