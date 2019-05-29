@@ -1,7 +1,7 @@
 <div class="row mt-3">
 	<div class="h4"> Ostavite komentar:</div>
 </div>
-	<form id="komentar" action="<?php echo site_url('RK/dodaj_komentar') ?>">
+	<form id="komentar" action="<?php echo site_url('RK/dodaj_komentar') ?>" method="post">
 		<div class="row mt-2">
 			<div class="col-md-9">
 				<div class="form-group">

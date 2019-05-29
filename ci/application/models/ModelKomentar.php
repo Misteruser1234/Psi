@@ -1,11 +1,11 @@
 <?php
 
-class ModelaKomentar extends CI_Model{
+class ModelKomentar extends CI_Model{
     public $korisnik;
 
     public function __construct() {
         parent::__construct();
-        $this->$korisnik = $this->sesion->userdata('username');
+        $this->korisnik = $this->session->userdata('username');
     }
 
     public function citaj_komentar($komentar, $ocena){
