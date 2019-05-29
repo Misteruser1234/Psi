@@ -78,6 +78,6 @@ class Gost extends CI_Controller {
 		$this->prikazi("stranicaLokala.php");
 	}
 	public function nadji(){
-		$this->ModelLokal->naprednaPretragaLokala(3,3,3,3);
+		$this->ModelLokal->naprednaPretragaLokala(3,3,2,2);
 	}
 }
