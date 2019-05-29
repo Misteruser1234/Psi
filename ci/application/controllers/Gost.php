@@ -81,4 +81,50 @@ class Gost extends CI_Controller {
 	public function registracija(){
 		$this->prikazi("register.php");
 	}
+
+	public function registerGreska($tip, $data){
+		$podaci = [];
+		if (isset($tip['username'])){
+			if ($tip['username'] == 'empty') $poruka['username']   = "Polje ne sme biti prazno!";
+			if ($tip['username'] == 'postoji') $poruka['username'] = "Korisnik sa unetim username vec postoji!";
+		}		
+
+		if (isset($tip['emptypass'])) $poruka['password']   = "Polje ne sme biti prazno!";
+
+		if (isset($tip['confirm'])){
+			if ($tip['confirm'] == 'empty') 	$poruka['confirm']   = "Polje ne sme biti prazno!";
+			if ($tip['confirm'] == 'razlicito') $poruka['confirm']   = "Unete sifre se razlikuju";
+		}	
+		
+		$this->prikazi('register.php', array ('data'=>$data, 'poruka'=>$poruka));
+	}
+
+	public function reg(){
+		
+
+		// VALIDACIJA FORME
+		$error = [];
+		$data  = [];
+
+		if (!$this->input->post('username')) $error['username'] = "empty";
+		else $data['username'] = $this->input->post('username');
+
+		if (!$this->input->post('password')) $error['emptypass'] = TRUE;
+		else $data['password'] = $this->input->post('password');
+
+		if (!$this->input->post('passwordconfirm'))	$error['confirm'] = "empty";
+
+		if ( $this->input->post('passwordconfirm') != $this->input->post('password')) $error['confirm'] = "razlicito";
+
+		$korisnikPostoji = $this->ModelKorisnik->korisnikPostoji($this->input->post('username'));
+		if ($korisnikPostoji) $error['username'] = "postoji";
+
+		if ( count($error) > 0 ) $this->registerGreska($error, $data);
+
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		$confirmpass = $this->input->post('passwordconfirm');
+		$tip = $this->input->post('tipKorisnika');
+
+	}
 }
