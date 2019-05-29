@@ -10,14 +10,14 @@ class RK extends CI_Controller {
 	
 	//pomocna metoda koja sluzi za ucitavanje stranice posto nam se svaka stranica sadrzi iz tri dela
     private function prikazi($glavniDeo=NULL){
-        $this->load->view("partials/header_ulogovan_korisnik.php");
+        $this->load->view("partials/header.php");
 		if ($glavniDeo != NULL) $this->load->view($glavniDeo);
         $this->load->view("partials/footer.php");
     }
     
     //dodaje submeni
     public function podesavanja($podStranica="podesavanja-PodaciKorisnika.php"){
-		$this->load->view("partials/header_ulogovan_korisnik.php");
+		$this->load->view("partials/header.php");
         $this->load->view("podesavanja-prefix.php");
         $this->load->view($podStranica);
         $this->load->view("podesavanja-postfix.php");
@@ -25,7 +25,7 @@ class RK extends CI_Controller {
     }
 	
 	public function lp(){
-		$this->load->view("partials/header_ulogovan_korisnik.php");
+		$this->load->view("partials/header.php");
         $this->load->view("lp.php");
         $this->load->view("partials/rk_dp.php");
 		$this->load->view("partials/footer.php");
