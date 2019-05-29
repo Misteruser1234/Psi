@@ -26,7 +26,7 @@
 				<div class="row mt-4">
 					<div class="col text-left">Nemate nalog?</div>
 					<div class="col text-right">
-						<a href="#" class="text-right" ><i>Registruj se!<i></a>
+						<a href="<?php echo site_url('Gost/registracija'); ?>" class="text-right" ><i>Registruj se!</i></a>
 					</div>
 				</div>
 			</form>

@@ -105,8 +105,9 @@ class RK extends CI_Controller {
         redirect("Gost");//kako vise nije ulogovan, treba da se ponasa kao sto je definisano u kontroleru gost
     }
     public function upis_komentara(){
-        $korisnik = $this->input->post('comment');
+        $komentar = $this->input->post('comment');
         $ocena = $this->input->post('ocena');
-        $this->ModelKomentar->dodaj_komentar($korisnik,$ocena);
+        $iduo = $this->input->post('uoid');
+        $this->ModelKomentar->dodaj_komentar($komentar,$ocena,$iduo);
     }
 }
