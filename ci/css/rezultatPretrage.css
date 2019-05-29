@@ -32,7 +32,6 @@
 
 .tag{
 	border-radius: 15px;
-	border:1px solid white;
-	color:white;
+	color:#ccc;
 	line-height: inherit;
 }
