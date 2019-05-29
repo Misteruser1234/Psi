@@ -5,7 +5,7 @@ class Gost extends CI_Controller {
 	public function __construct() {
         parent::__construct();
 		$this->load->model("ModelKorisnik");
-
+		$this->load->model("ModelLokal");
     
 	}
 
@@ -76,5 +76,8 @@ class Gost extends CI_Controller {
 	}
 	public function stranica_lokala(){
 		$this->prikazi("stranicaLokala.php");
+	}
+	public function nadji(){
+		$this->ModelLokal->naprednaPretragaLokala(3,3,3,3);
 	}
 }

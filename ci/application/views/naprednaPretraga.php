@@ -4,7 +4,7 @@
 			<div class="naslov">
 				Napredna pretraga
 			</div>
-			<div class="form-group">
+			<div class="form-group mb-0">
 				<div class="row">
 					<div class="col-lg-3 col-md-6">
 						<div class="jumbotron np-form">
@@ -156,8 +156,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="nadji">
-					<a class="btn btn-primary btn-lg" href="#" role="button">Nadji</a>
+			<div class="nadji mt-0 pt-0">
+				<a class="btn btn-primary btn-lg" role="button" href="<?php echo site_url('Gost/nadji'); ?>">Nadji</a>
 			</div>
 		</form>
 	</div>
