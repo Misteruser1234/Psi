@@ -5,7 +5,7 @@ class RK extends CI_Controller {
 	public function __construct() {
         parent::__construct();
 
-    
+        if (($this->session->userdata('username')) == NULL) redirect("Gost");
 	}
 	
 	//pomocna metoda koja sluzi za ucitavanje stranice posto nam se svaka stranica sadrzi iz tri dela
@@ -59,5 +59,13 @@ class RK extends CI_Controller {
     }
     public function rezultat_pretrage(){
         $this->prikazi("rezultatPretrage.php");
+    }
+
+    public function logout(){
+        $this->session->unset_userdata("korisnik");// brise se podatak o autoru iz sesije
+        $this->session->unset_userdata("username");
+        $this->session->unset_userdata("tip");
+        $this->session->sess_destroy(); //brise se sesija
+        redirect("Gost");//kako vise nije ulogovan, treba da se ponasa kao sto je definisano u kontroleru gost
     }
 }
