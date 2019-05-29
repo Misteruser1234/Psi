@@ -5,7 +5,7 @@
 		<div class="form-group row mb-1">
 		<label for="naziv" class="col-sm-4 col-form-label text-right">Naizv:</label>
 		<div class="col-sm-4">
-			<input type="text" class="form-control uo-polje" id="naziv" value="">
+			<input type="text" class="form-control uo-polje" id="naziv" value="" required>
 		</div>
 		</div>
 
