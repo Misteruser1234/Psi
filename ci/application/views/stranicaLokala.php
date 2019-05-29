@@ -1,4 +1,5 @@
-<div class="container-fluid">
+<div class="container">
+<input type="hidden" id="uoid" name="uoid" value="0">
 		<!-- GALERIJA -->
 		<div class="row mt-5 mb-1 ml-2">
 			 <div class="col-5 " >
