@@ -5,7 +5,7 @@
 		<div class="row mt-2">
 			<div class="col-md-9">
 				<div class="form-group">
-					<textarea class="form-control granica-3" rows="6" id="comment"></textarea>
+					<textarea class="form-control granica-3" rows="6" id="comment" name="comment"></textarea>
 				</div>
 			</div>
 			<div class="col-sm-2 ml-1 mr-5 justify-content-center">
