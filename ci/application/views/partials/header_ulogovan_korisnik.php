@@ -26,7 +26,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				'kontakt.css',
 				'podesavanja-PodaciKorisnika.css',
 				'lp.css',
-				'rezultatPretrage.css'
+				'rezultatPretrage.css',
+				'border.css'
 			];
 
 			foreach ($css_fajlovi as $key => $value) {
