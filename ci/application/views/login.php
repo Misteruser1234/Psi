@@ -8,11 +8,11 @@
 				</div>
 				<div class="form-group">
 					<label for="username">Korisnicko ime:</label>
-					<input type="text" class="form-control" name="username" id="username" placeholder="">
+					<input type="text" class="form-control" name="username" id="username" placeholder="" required>
 				</div>
 				<div class="form-group">
 					<label for="password">Lozinka:</label>
-					<input type="password" class="form-control" name="password" id="password" placeholder="">
+					<input type="password" class="form-control" name="password" id="password" placeholder="" required>
 				</div>
 
 				<!-- PORUKA O GRESCI -->
