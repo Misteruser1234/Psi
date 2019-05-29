@@ -3,7 +3,7 @@
 <!-- END NAVIGACIJA -->
 
 <div id="np-content">
-	<div class="container" >
+	<div class="container mb-5" >
 		<div class="naslov">
 			Rezultat pretrege:
 		</div>
