@@ -26,7 +26,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				'kontakt.css',
 				'podesavanja-PodaciKorisnika.css',
 				'lp.css',
-				'rezultatPretrage.css'
+				'rezultatPretrage.css',
+				'border.css'
 			];
 
 			foreach ($css_fajlovi as $key => $value) {
@@ -52,13 +53,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="mr-auto">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" href=" <?php echo site_url('Gost/rezultat_pretrage'); ?> ">Restorani</a>
+					<a class="nav-link" href=" <?php echo site_url('RK/rezultat_pretrage'); ?> ">Restorani</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href=" <?php echo site_url('Gost/rezultat_pretrage'); ?> ">Kafici</a>
+					<a class="nav-link" href=" <?php echo site_url('RK/rezultat_pretrage'); ?> ">Kafici</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href=" <?php echo site_url('Gost/rezultat_pretrage'); ?> ">Brza hrana</a>
+					<a class="nav-link" href=" <?php echo site_url('RK/rezultat_pretrage'); ?> ">Brza hrana</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href=" <?php echo site_url('RK/napredna_pretraga'); ?> ">Napredna pretraga</a>
