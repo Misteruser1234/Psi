@@ -5,24 +5,45 @@
         <div class="form-group row mb-1 mt-5">
         <label for="oldpass" class="col-sm-4 col-form-label text-right">Unesite staru lozinku:</label>
         <div class="col-sm-4">
-            <input type="password" class="form-control uo-polje" id="oldpass" value="">
+            <input type="password" class="form-control uo-polje" name="oldpass" id="oldpass" value="">
         </div>
         <div class='text-center' style='color:red; height:24px;'>
-			<?php if (isset($oldpassporuka)) echo "Neispravni podaci!"; ?>
+            <?php 
+                $poruka = $this->session->userdata("oldpassporuka");
+                if ($poruka != NULL) echo $poruka; 
+            ?>
 		</div>
         </div>
             <div class="form-group row mb-1 mt-5">
         <label for="newpass" class="col-sm-4 col-form-label text-right">Unesite novu lozinku:</label>
         <div class="col-sm-4">
-            <input type="password" class="form-control uo-polje" id="newpass" value="">
+            <input type="password" class="form-control uo-polje" name="newpass" id="newpass" value="">
+        </div>
+        <div class='text-center' style='color:red; height:24px;'>
+        <?php 
+                $poruka = $this->session->userdata("passgreska");
+                if ($poruka != NULL) echo $poruka; 
+            ?>
         </div>
         </div>
             <div class="form-group row mb-1 mt-5">
         <label for="oldpass" class="col-sm-4 col-form-label text-right">Potvrdite novu lozinku:</label>
         <div class="col-sm-4">
-            <input type="password" class="form-control uo-polje" id="confnewpass" value="">
+            <input type="password" class="form-control uo-polje" name="confnewpass" id="confnewpass" value="">
         </div>
+        <div class='text-center' style='color:red; height:24px;'>
+        <?php 
+                $poruka = $this->session->userdata("comppassgreska");
+                if ($poruka != NULL) echo $poruka; 
+            ?>
+		</div>
         </div>
+        <div class='text-center' style='color:green; height:24px;'>
+        <?php 
+                $poruka = $this->session->userdata("uspesnapromena");
+                if ($poruka != NULL) echo $poruka; 
+            ?>
+		</div>
     <div class="form-group row mb-1 mt-5 justify-content-center">
         <button type="submit" class="btn btn-primary w-100 mt-3 col-sm-4">Promeni</button>
     </div>

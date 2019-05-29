@@ -8,6 +8,18 @@ class ModelKorisnik extends CI_Model {
         $this->korisnik=NULL;
     }
     
+    public function promenaPasswordaProvera($oldpass){
+        $username = $this->session->userdata("username");
+        $result=$this->db->where('username',$username)->get('korisnik');
+        $korisnik=$result->row();
+
+        if($korisnik->Password == $oldpass){ 
+           return TRUE;
+        }else{
+            return FALSE;
+        }
+    }
+
     public function korisnikPostoji($username){
         $result=$this->db->where('username',$username)->get('korisnik');
         $korisnik=$result->row();
@@ -19,6 +31,7 @@ class ModelKorisnik extends CI_Model {
         }
     }
 
+
     public function ispravanPassword($password){
         if ($this->korisnik->Password == $password) {
             return TRUE;
@@ -27,6 +40,10 @@ class ModelKorisnik extends CI_Model {
         }
     }
     
+    function updatePassword($username,$password){
+        $query=$this->db->query("update Korisnik SET Password='$password' where Username='".$username."'");
+    }
+
     // public function dohvatiAutore(){
     //     return $this->db->get('autor')->result();
     // }
