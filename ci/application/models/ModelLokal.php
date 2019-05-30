@@ -17,7 +17,7 @@ class ModelLokal extends CI_Model {
                 echo $row->IDUO;
 
             }*/
-        $query2 = $this->db->query("SELECT * FROM UO as U, PHAE AS P  WHERE P.Pice='".$data1."' AND P.Hrana='".$data2."' AND P.Ambijent='".$data3."' AND P.Ekstra='".$data4."' AND P.IDUO = U.IDUO");
+        $query2 = $this->db->query("SELECT * FROM UO as U, PHAE AS P  WHERE P.Pice>='".$data1."' AND P.Hrana>='".$data2."' AND P.Ambijent>='".$data3."' AND P.Ekstra>='".$data4."' AND P.IDUO = U.IDUO");
         
         return $query2;
    }
