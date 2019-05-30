@@ -140,16 +140,28 @@ class Gost extends CI_Controller {
 	public function nadji(){
 		$this->load->view("partials/header.php");
 		$this->load->view("rezultat_pretrage_prefix.php");
-		$data['slika'] = site_url('Gost/stranica_lokala');
-		$data['heading'] = "Heading";
-		$this->load->view("partials/rezultat_pretrage_lokal_box.php",$data);
-		//$this->ispisLokalaNaprednaPretraga();
+
+		$query = $this->ModelLokal->naprednaPretragaLokala(3,3,3,3);
+		foreach($query->result() as $row){
+			if($row->Vidljivost != 0){
+
+				$data['slika'] = site_url('Gost/stranica_lokala');
+				$data['naziv'] = $row->Naziv;
+				$data['avgocena'] = $row->AvgOcena;
+				$data['adresa'] = $row->Adresa;
+				$data['rv_ponpet'] = $row->PonPet;
+				$data['rv_subota'] = $row->Sub;
+				$data['rv_nedelja'] = $row->Ned;
+				$data['opis'] = $row->Opis;
+				$data['jerestoran'] = $row->JeRestoran;
+				$data['jekafic'] = $row->JeKafic;
+				$data['jebrzahrana'] = $row->JeBrzaHrana;
+
+				$this->load->view("partials/rezultat_pretrage_lokal_box.php",$data);
+			}
+		}
+		
         $this->load->view("rezultat_pretrage_postfix.php");
         $this->load->view("partials/footer.php");
-		//$this->ModelLokal->naprednaPretragaLokala(3,3,2,2);
-	}
-
-	public function ispisLokalaNaprednaPretraga(){
-	echo '<h2> ovo je h2 </h2>';	
 	}
 }

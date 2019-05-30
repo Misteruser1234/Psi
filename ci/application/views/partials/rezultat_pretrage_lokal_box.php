@@ -13,13 +13,13 @@
 									<div class=" col-sm-5">
 										<div class="row">
 											<div class="h4">
-												Naziv lokala
+                                            <?php echo $naziv;?>
 											</div>
 										</div>
 										<div class="row h5 mt-1">
 											Ocena:
 											<span class="tag text-white h6 ml-2 px-3 py-1 bg-success">
-												XX.X
+                                            <?php if($avgocena != NULL){ echo $avgocena;} else { echo '0';}?>
 											</span>
 										</div>
 									</div>	
@@ -27,17 +27,17 @@
 									<div class="col-sm-7">
 										<div class="row">
 											<div class="h6">
-												Adresa XX
+                                                <?php echo $adresa;?>
 											</div>
 										</div>
 										<div class="row">
-											<span class="tag h6 ml-2 px-3 py-1 bg-primary text-white">
+											<span class="tag h6 ml-2 px-3 py-1 bg-<?php if($jerestoran) {echo 'primary text-white';}else{echo 'light';}?>">
 												Kafić
 											</span>
-											<span class="tag h6 ml-2 px-3 py-1 bg-light">
+											<span class="tag h6 ml-2 px-3 py-1 bg-<?php if($jekafic) {echo 'primary text-white';}else{echo 'light';}?>">
 												Restoran
 											</span>
-											<span class="tag h6 ml-2 px-3 py-1 bg-light">
+											<span class="tag h6 ml-2 px-3 py-1 bg-<?php if($jebrzahrana) {echo 'primary text-white';}else{echo 'light';}?>">
 												Brza hrana
 											</span>
 										</div>
@@ -71,17 +71,17 @@
 											<div class="col-sm-6">
 											<div class="row">
 												<div class="h6">
-													09:00 - 23:00
+                                                    <?php echo $rv_ponpet;?>
 												</div>
 											</div>	
 											<div class="row">
 												<div class="h6">
-													09:00 - 23:00
+                                                    <?php echo $rv_subota;?>
 												</div>
 											</div>
 											<div class="row">
 												<div class="h6">
-													09:00 - 23:00
+                                                    <?php echo $rv_nedelja;?>
 												</div>
 											</div>
 										</div>
@@ -97,7 +97,7 @@
 										</div>
 										<div class="row">
 											<p>
-											Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...
+                                            <?php echo $opis;?>
 											</p>
 										</div>
 									</div>
@@ -130,7 +130,7 @@
 					</span>
 				</div>	
 			</div>
-    </a> -->
-    <h1><?php echo $heading;?></h1>
+    </a> 
+
         
 
