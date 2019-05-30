@@ -1,6 +1,6 @@
 <div id="np-content">
 	<div class="container">
-		<form method="post" name="naprednaPretragaForm" action="<?php echo site_url('Gost/nadji');?>">
+		<form method="post" name="naprednaPretragaForm" action="<?php echo site_url('Gost/naprednaPretraga');?>">
 			<div class="naslov">
 				Napredna pretraga
 			</div>

@@ -100,8 +100,6 @@ class Gost extends CI_Controller {
 	}
 
 	public function reg(){
-		
-
 		// VALIDACIJA FORME
 		$error = [];
 		$data  = [];
@@ -137,7 +135,7 @@ class Gost extends CI_Controller {
 		}
 	}
 	
-	public function nadji(){
+	public function naprednaPretraga(){
 		$this->load->view("partials/header.php");
 		$this->load->view("rezultat_pretrage_prefix.php");
 
@@ -216,5 +214,77 @@ class Gost extends CI_Controller {
 
 		return $values = array($pice,$hrana,$ambijent,$ekstra);
 		
+	}
+
+	public function pretragaRestorani(){
+		$this->load->view("partials/header.php");
+		$this->load->view("rezultat_pretrage_prefix.php");
+
+		$query = $this->ModelLokal->getRestorani();
+		foreach($query->result() as $row){
+			$data['slika'] = site_url('Gost/stranica_lokala');
+			$data['naziv'] = $row->Naziv;
+			$data['avgocena'] = $row->AvgOcena;
+			$data['adresa'] = $row->Adresa;
+			$data['rv_ponpet'] = $row->PonPet;
+			$data['rv_subota'] = $row->Sub;
+			$data['rv_nedelja'] = $row->Ned;
+			$data['opis'] = $row->Opis;
+			$data['jerestoran'] = $row->JeRestoran;
+			$data['jekafic'] = $row->JeKafic;
+			$data['jebrzahrana'] = $row->JeBrzaHrana;
+
+			$this->load->view("partials/rezultat_pretrage_lokal_box.php",$data);
+		}	
+        $this->load->view("rezultat_pretrage_postfix.php");
+        $this->load->view("partials/footer.php");
+	}
+
+	public function pretragaKafici(){
+		$this->load->view("partials/header.php");
+		$this->load->view("rezultat_pretrage_prefix.php");
+
+		$query = $this->ModelLokal->getKafici();
+		foreach($query->result() as $row){
+			$data['slika'] = site_url('Gost/stranica_lokala');
+			$data['naziv'] = $row->Naziv;
+			$data['avgocena'] = $row->AvgOcena;
+			$data['adresa'] = $row->Adresa;
+			$data['rv_ponpet'] = $row->PonPet;
+			$data['rv_subota'] = $row->Sub;
+			$data['rv_nedelja'] = $row->Ned;
+			$data['opis'] = $row->Opis;
+			$data['jerestoran'] = $row->JeRestoran;
+			$data['jekafic'] = $row->JeKafic;
+			$data['jebrzahrana'] = $row->JeBrzaHrana;
+
+			$this->load->view("partials/rezultat_pretrage_lokal_box.php",$data);
+		}	
+        $this->load->view("rezultat_pretrage_postfix.php");
+        $this->load->view("partials/footer.php");
+	}
+
+	public function pretragaBrzaHrana(){
+		$this->load->view("partials/header.php");
+		$this->load->view("rezultat_pretrage_prefix.php");
+
+		$query = $this->ModelLokal->getBrzaHrana();
+		foreach($query->result() as $row){
+			$data['slika'] = site_url('Gost/stranica_lokala');
+			$data['naziv'] = $row->Naziv;
+			$data['avgocena'] = $row->AvgOcena;
+			$data['adresa'] = $row->Adresa;
+			$data['rv_ponpet'] = $row->PonPet;
+			$data['rv_subota'] = $row->Sub;
+			$data['rv_nedelja'] = $row->Ned;
+			$data['opis'] = $row->Opis;
+			$data['jerestoran'] = $row->JeRestoran;
+			$data['jekafic'] = $row->JeKafic;
+			$data['jebrzahrana'] = $row->JeBrzaHrana;
+
+			$this->load->view("partials/rezultat_pretrage_lokal_box.php",$data);
+		}	
+        $this->load->view("rezultat_pretrage_postfix.php");
+        $this->load->view("partials/footer.php");
 	}
 }

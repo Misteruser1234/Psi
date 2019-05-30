@@ -32,10 +32,10 @@
 										</div>
 										<div class="row">
 											<span class="tag h6 ml-2 px-3 py-1 bg-<?php if($jerestoran) {echo 'primary text-white';}else{echo 'light';}?>">
-												Kafić
+												Restoran
 											</span>
 											<span class="tag h6 ml-2 px-3 py-1 bg-<?php if($jekafic) {echo 'primary text-white';}else{echo 'light';}?>">
-												Restoran
+												Kafić
 											</span>
 											<span class="tag h6 ml-2 px-3 py-1 bg-<?php if($jebrzahrana) {echo 'primary text-white';}else{echo 'light';}?>">
 												Brza hrana
