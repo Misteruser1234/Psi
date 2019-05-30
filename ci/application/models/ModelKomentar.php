@@ -22,8 +22,8 @@
         
     }
     public function nadji_komentar($iduo){
-        //$query=$this->db->query("SELECT * from Komiocena as ko, korisnik as k where ko.IDUO='".$iduo."' and ko.idkorisnik ='k.idkorisnik'");
-        $query=$this->db->query("SELECT * from pom where IDUO='".$iduo."'");
+        $query=$this->db->query("SELECT username, komentar, ocena from Komiocena as ko, korisnik as k where ko.IDUO='".$iduo."' and ko.idkorisnik ='k.idkorisnik'");
+       // $query=$this->db->query("SELECT * from pom where IDUO='".$iduo."'");
         return $query;
         
     }
