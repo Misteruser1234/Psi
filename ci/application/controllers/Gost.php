@@ -229,11 +229,10 @@ class Gost extends CI_Controller {
     public function ispis_komentara(){
 	   $query = $this->ModelKomentar->nadji_komentar(1);
 	   foreach($query->result() as $row){
-		   //echo $row->komentar;
+		   echo $row->komentar;
 		   $data['username'] = $row->username;
 		   $data['ocena'] = $row->ocena;
 		   $data['komentar'] = $row->komentar;
-
 		   $this->load->view("partials/komentari.php", $data);
 	   }
 	//    //$this->load->view("partials/komentari.php");

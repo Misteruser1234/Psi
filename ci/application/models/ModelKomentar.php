@@ -23,9 +23,10 @@
     }
     public function nadji_komentar($iduo){
         $query=$this->db->query("SELECT username, komentar, ocena from Komiocena as ko, korisnik as k where ko.IDUO='".$iduo."' and ko.idkorisnik ='k.idkorisnik'");
-       // $query=$this->db->query("SELECT * from pom where IDUO='".$iduo."'");
+        //$query=$this->db->query("SELECT * from pom where IDUO='".$iduo."'");
         return $query;
-        
+        // $kk = $query->result();
+        // echo $kk->row()->komentar;
     }
     public function avg_ocena($iduo){
         $query=$this->db->query("SELECT avg(ocena) as average from komiocena where IDUO='".$iduo."'");
