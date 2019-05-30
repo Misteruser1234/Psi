@@ -1,79 +1,9 @@
-<div class="container" style="border:1px solid black;">
-	<input type="hidden" id="uoid" name="uoid" value="0">
-	<!-- GALERIJA -->
-	<div class="row mt-5 mb-1 ml-2">
-		<div class="col-5 ">
-		</div>
-		<!-- INFO -->
-		<div class="col-7">
-			<div>
-				<div class="ml-5" >
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="h3" id="naziv-ocena-lokala">Naziv Lokala &#40 Ocena &#41</div>
-							<div class="row mt-4">
-								<div class="col-sm">
-									<div class="h4" id="ulica-lokala">Ulica i broj</div>
-								</div>
-							</div>
-							<div class="row mt-4 mb-1">
-								<div class="col-sm-4 ">
-									<button type="button" class="btn btn-success btn-block granica-dugme" id="restoran">Restoran</button>
-								</div>
-								<div class="col-sm-4">
-									<button type="button" class="btn btn-success btn-block granica-dugme" id="kafic">Kafic</button>
-								</div>
-								<div class="col-sm-4">
-									<button type="button" class="btn btn-success btn-block granica-dugme" id="brza">Brza Hrana</button>
-								</div>
-							</div>
-							<div class="row mt-4">
-								<div class="col-sm">
-									<div class="h4" id="radno">Radno vreme:</div>
-								</div>
-							</div>
-							<div class="row mt-4">
-								<div class="col-sm">
-									<div class="h5" id="radno-vreme-pon">pon-pet: od 09 do 23</div>
-								</div>
-							</div>
-							<div class="row mt-4">
-								<div class="col-sm">
-									<div class="h5" id="radno-vreme-pon">sub: od 09 do 23</div>
-								</div>
-							</div>
-							<div class="row mt-4">
-								<div class="col-sm">
-									<div class="h5" id="radno-vreme-pon">ned: od 09 do 23</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6"><img class="img-fluid padding-right-5" src="<?php echo base_url('img/restoran.jpg');?>"  alt="First slide"></div>
-					</div>
-					
-					<!-- TAGOVI -->
-					<div class="row mt-2">
-						<div class="col-sm-1 h3 mt-2">Tagovi:</div>
-						<div class="col-sm-10 mt-2 ml-5">
-							<div class="row">
-								<div class="col-sm-3 "><button type="button" class="btn btn-light btn-block granica-dugme-2" id="tag1">Tag1</button></div>
-								<div class="col-sm-3"><button type="button" class="btn btn-light btn-block granica-dugme-2" id="tag2">Tag2</button></div>
-								<div class="col-sm-3"><button type="button" class="btn btn-light btn-block granica-dugme-2" id="tag3">Tag3</button></div>
-								<div class="col-sm-3"><button type="button" class="btn btn-light btn-block granica-dugme-2" id="tag4">Tag4</button></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<input type="hidden" id="uoid" name="uoid" value="0">
 
 <!-- HEADER STRANICE LOKALA -->
-<div class="container">
-	<div class="row rez-uo rez-form jumbotron py-3" >
+<div class="container mt-3">
+	<div class="rez-form jumbotron pt-3 pb-2" >
 		<div class="row">
-
 			<!-- LEVI DEO ZAGLAVLJA -->
 			<div class="col-md-5 pr-5 pl-0">
 				<!-- CAROUSEL -->
@@ -164,88 +94,64 @@
 					<span class="tag text-white bg-info h6 mr-1 px-3">Craft pivo</span>
 				</div>
 				<!-- END TAGOVI -->
+			</div>
+			<!-- DESNI DEO ZAGLAVLJA -->
 
-				<div class="col-sm-12">
-					<div class="col-sm">
-						<div class="row">
-							<div class=" col-sm-5">
-								
-								
-							</div>	
-							
-							<div class="col-sm-7">
-								
-								
-							</div>		
-						</div>
-						<div class="row">
-							<div class="col-sm-5">
+			<!--THUMBNAILOVI-->
 
-							
-
-							</div>
-							
-							<div class="col-sm-7">
-								
-								
-							</div>
-						</div>
-					</div>	
+			<div class="container mt-3" style="border-top: 1px solid #aaa;">
+				<div class="row justify-content-between my-3">
+					<div class="col"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-4"></a></div>
+					<div class="col"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-5"></a></div>
+					<div class="col"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-6"></a></div>
+					<div class="col"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-7"></a></div>
+					<div class="col"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-8"></a></div>
+					<div class="col"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-8"></a></div>
+					<div class="col"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-8"></a></div>
+					<div class="col"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-8"></a></div>
+					<div class="col"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-9"></a></div>
 				</div>
+				<!--END THUMBNAILOVI-->
 			</div>
 		</div>
-		
 	</div>
 </div>
+<!-- END HEADER STRANICE LOKALA -->
 
-<div class="container" style="border:1px solid black;">
-		<!--THUMBNAILOVI-->
-		
-		<div class="row ml-5 mr-5 mt-5 mb-5 justify-content-center">
-			<div class="col-sm-1 ml-1 mr-1"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-1"></a></div>
-			<div class="col-sm-1 ml-1 mr-1"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-2"></a></div>
-			<div class="col-sm-1 ml-1 mr-1"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-3"></a></div>
-			<div class="col-sm-1 ml-1 mr-1"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-4"></a></div>
-			<div class="col-sm-1 ml-1 mr-1"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-5"></a></div>
-			<div class="col-sm-1 ml-1 mr-1"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-6"></a></div>
-			<div class="col-sm-1 ml-1 mr-1"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-7"></a></div>
-			<div class="col-sm-1 ml-1 mr-1"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-8"></a></div>
-			<div class="col-sm-1 ml-1 mr-1"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-9"></a></div>
-		</div>
-		
-		
+<div class="container">
+	<div class="rez-form jumbotron ">
+		<div class="h3">Opis:</div>
+		<div id="opis"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></div>
+	</div>
+</div>	
 		
 		
 		<!--Opis-->
 		
-		<div class="jumbotron mt-5 mb-5 ml-5 mr-5">
-				<div class="h3">Opis:</div>
-				<div id="opis"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></div>
 		
-		</div>
 		<!--OSTALE-->
-		<div class="row mt-5 mb-5 ml-5 mr-5 justify-content-center">
-			<div class="col-sm-3 ml-4 mr-4 jumbotron">
-				<div >
-					<div class="h3">Izdvajamo sa menija:</div>
-					<div class="mt-3 text-center" id="samenija">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fi</div>
+		<div class="container">
+			<div class="row">
+				<div class="col" style="height:inherit;">
+					<div class="jumbotron rez-form  mb-0 h-100" style="height:inherit;">
+						<div class="h4 text-center">Izdvajamo sa menija:</div>
+						<div class="mt-4 text-center" id="samenija">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fi</div>
+					</div>
+				</div>
+				<div class="col" style="height:inherit;">
+					<div class="jumbotron rez-form  mb-0 h-100" style="height:inherit;">
+						<div class="h4 text-center">Po cemu se razlikujemo od drugih:</div>
+						<div class="mt-4 text-center" id="razlike">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fi</div>
+					</div>
+				</div>
+				<div class="col" style="height:inherit;">
+					<div class="jumbotron rez-form  mb-0 h-100" style="height:inherit;">
+						<div class="h4 text-center">Zasto da dodjete kod nas:</div>
+						<div class="mt-4 text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fi</div>
+					</div>
 				</div>
 			</div>
-			<div class="col-sm-3 ml-4 mr-4 jumbotron">
-				<div >
-					<div class="h3">Po cemu se razlikujemo od drugih:</div>
-					<div class="mt-3 text-center" id="razlike">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fi</div>
-				</div>
-			</div>
-		<div class="col-sm-3 ml-4 mr-4 jumbotron">
-				<div >
-					<div class="h3">Zasto da dodjete kod nas:</div>
-					<div class="mt-3 text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fi</div>
-				</div>
-			</div>
-				
 		</div>
-		
 		
 		<!--Komentari-->
 		
