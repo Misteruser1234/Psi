@@ -3,8 +3,8 @@
 		Ostavite komentar:
 	</div>
 </div>
-<form id="komentar" action="<?php echo site_url('RK/upis_komentara') ?>" method="post">
-	<input type="hidden" id="uoid" name="uoid" value="0">
+<form id="komentar" name="komentari" action="<?php echo site_url('RK/upis_komentara') ?>" method="post">
+	<input type="hidden" id="uoid" name="uoid" value="1">
 	<div class="row mt-2">
 		<div class="col-md-9">
 			<div class="form-group">
@@ -15,7 +15,7 @@
 			<div class="h5">
 					Ocena:
 			</div>
-			<select class="form-control" name="ocena" id="exampleFormControlSelect1">
+			<select class="form-control px-2" name="ocena" id="exampleFormControlSelect1">
      			 <option>1</option>
      			 <option>2</option>
     			 <option>3</option>
