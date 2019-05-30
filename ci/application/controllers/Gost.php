@@ -294,7 +294,7 @@ class Gost extends CI_Controller {
 		}	
         $this->load->view("rezultat_pretrage_postfix.php");
         $this->load->view("partials/footer.php");
-	
+	}	
     public function ispis_komentara(){
 	   $query = $this->ModelKomentar->nadji_komentar(1);
 	   foreach($query->result() as $row){

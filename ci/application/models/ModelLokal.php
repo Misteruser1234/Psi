@@ -41,7 +41,7 @@ class ModelLokal extends CI_Model {
         $query = $this->db->query("SELECT * FROM UO WHERE JeBrzaHrana = '1'");
         return $query;
     }
-   }
+   
 
 
    #    VRACA STRING ARRAY TAGOVA UO SA DATIM $ID
