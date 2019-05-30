@@ -4,14 +4,14 @@
 	</div>
 	<div class="col-sm-7">
 		<div class="h6" id="username">
-            USERNAME
+            <?php echo $username; ?>
         </div>
 		<div class="text py-1" id="komentar">
-            asdihoasihdoiahsofhsfoghiaosfigpoahfsgoahifoghaofhjoafhaipjhpojafhpojapdohjpofaj[oiahpguhafgph
+            <?php echo $komentar;?>
         </div>
 	</div>
 	<div class="col-sm-1-off h5">
-        Ocena:X.XX
+        Ocena:<?php echo $ocena;?>
     </div>
 </div>
 <hr class="linija">
