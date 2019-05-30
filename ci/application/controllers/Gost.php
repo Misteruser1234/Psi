@@ -141,27 +141,81 @@ class Gost extends CI_Controller {
 		$this->load->view("partials/header.php");
 		$this->load->view("rezultat_pretrage_prefix.php");
 
-		$query = $this->ModelLokal->naprednaPretragaLokala(3,3,3,3);
+		$values = $this->pokupiPodatke();
+		$pice = $values[0];
+		$hrana = $values[1];
+		$ambijent = $values[2];
+		$ekstra = $values[3];
+
+		$query = $this->ModelLokal->naprednaPretragaLokala($pice,$hrana,$ambijent,$ekstra);
 		foreach($query->result() as $row){
-			if($row->Vidljivost != 0){
+			if( ($row->Pice & $pice) > 0 && ($row->Hrana & $hrana) > 0 && ($row->Ambijent & $ambijent) > 0 && ($row->Ekstra & $ekstra) > 0){
+				if($row->Vidljivost != 0){
 
-				$data['slika'] = site_url('Gost/stranica_lokala');
-				$data['naziv'] = $row->Naziv;
-				$data['avgocena'] = $row->AvgOcena;
-				$data['adresa'] = $row->Adresa;
-				$data['rv_ponpet'] = $row->PonPet;
-				$data['rv_subota'] = $row->Sub;
-				$data['rv_nedelja'] = $row->Ned;
-				$data['opis'] = $row->Opis;
-				$data['jerestoran'] = $row->JeRestoran;
-				$data['jekafic'] = $row->JeKafic;
-				$data['jebrzahrana'] = $row->JeBrzaHrana;
+					$data['slika'] = site_url('Gost/stranica_lokala');
+					$data['naziv'] = $row->Naziv;
+					$data['avgocena'] = $row->AvgOcena;
+					$data['adresa'] = $row->Adresa;
+					$data['rv_ponpet'] = $row->PonPet;
+					$data['rv_subota'] = $row->Sub;
+					$data['rv_nedelja'] = $row->Ned;
+					$data['opis'] = $row->Opis;
+					$data['jerestoran'] = $row->JeRestoran;
+					$data['jekafic'] = $row->JeKafic;
+					$data['jebrzahrana'] = $row->JeBrzaHrana;
 
-				$this->load->view("partials/rezultat_pretrage_lokal_box.php",$data);
+					$this->load->view("partials/rezultat_pretrage_lokal_box.php",$data);
+				}
 			}
 		}
 		
         $this->load->view("rezultat_pretrage_postfix.php");
         $this->load->view("partials/footer.php");
+	}
+
+	public function pokupiPodatke(){
+		$pice1 = $this->input->post('s1v1');
+        $pice2 = $this->input->post('s1v2');
+        $pice3 = $this->input->post('s1v3');
+        $pice4 = $this->input->post('s1v4');
+        $pice5 = $this->input->post('s1v5');
+        $pice6 = $this->input->post('s1v6');
+        $pice7 = $this->input->post('s1v7');
+		$pice8 = $this->input->post('s1v8');
+		
+		$hrana1 = $this->input->post('s2v1');
+        $hrana2 = $this->input->post('s2v2');
+        $hrana3 = $this->input->post('s2v3');
+        $hrana4 = $this->input->post('s2v4');
+        $hrana5 = $this->input->post('s2v5');
+        $hrana6 = $this->input->post('s2v6');
+        $hrana7 = $this->input->post('s2v7');
+		$hrana8 = $this->input->post('s2v8');
+		
+		$ambijent1 = $this->input->post('s3v1');
+        $ambijent2 = $this->input->post('s3v2');
+        $ambijent3 = $this->input->post('s3v3');
+        $ambijent4 = $this->input->post('s3v4');
+        $ambijent5 = $this->input->post('s3v5');
+        $ambijent6 = $this->input->post('s3v6');
+        $ambijent7 = $this->input->post('s3v7');
+		$ambijent8 = $this->input->post('s3v8');
+		
+		$ekstra1 = $this->input->post('s4v1');
+        $ekstra2 = $this->input->post('s4v2');
+        $ekstra3 = $this->input->post('s4v3');
+        $ekstra4 = $this->input->post('s4v4');
+        $ekstra5 = $this->input->post('s4v5');
+        $ekstra6 = $this->input->post('s4v6');
+        $ekstra7 = $this->input->post('s4v7');
+		$ekstra8 = $this->input->post('s4v8');
+		
+		$pice = $pice1 + $pice2 + $pice3 + $pice4 + $pice5 + $pice6 + $pice7 + $pice8;
+		$hrana = $hrana1 + $hrana2 + $hrana3 + $hrana4 + $hrana5 + $hrana6 + $hrana7 + $hrana8;
+		$ambijent = $ambijent1 + $ambijent2 + $ambijent3 + $ambijent4 + $ambijent5 + $ambijent6 + $ambijent7 + $ambijent8;
+		$ekstra = $ekstra1 + $ekstra2 + $ekstra3 + $ekstra4 + $ekstra5 + $ekstra6 + $ekstra7 + $ekstra8;
+
+		return $values = array($pice,$hrana,$ambijent,$ekstra);
+		
 	}
 }
