@@ -6,6 +6,7 @@ class Gost extends CI_Controller {
         parent::__construct();
 		$this->load->model("ModelKorisnik");
 		$this->load->model("ModelLokal");
+		$this->load->model("ModelKomentar");
     
 	}
 
@@ -75,7 +76,12 @@ class Gost extends CI_Controller {
         $this->prikazi("rezultatPretrage.php");
 	}
 	public function stranica_lokala(){
-		$this->prikazi("stranicaLokala.php");
+		$this->load->view("partials/header.php");
+		$this->load->view("partials/komentari-prefix.php");
+		//$this->load->view("partials/komentari.php");
+		//$this->ispis_komentara();
+		$this->load->view("partials/komentari-postfix.php");
+		$this->load->view("partials/footer.php");
 	}
 
 	public function registracija(){
@@ -140,4 +146,17 @@ class Gost extends CI_Controller {
 	public function nadji(){
 		$this->ModelLokal->naprednaPretragaLokala(3,3,2,2);
 	}
+
+	
+    public function ispis_komentara(){
+       $this->ModelKomentar->nadji_komentar(1);
+	//    //$this->load->view("partials/komentari.php");
+	//    $rez = $query->row();
+	//    $pom = $rez->Username;
+	//    echo $pom;
+
+	//    foreach ($query->result() as $row){
+	// 	   echo "$row->Username";
+	//    }$idkor = $result->row();
+    }
 }
