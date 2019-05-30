@@ -149,9 +149,8 @@ class Gost extends CI_Controller {
 
 		$query = $this->ModelLokal->naprednaPretragaLokala($pice,$hrana,$ambijent,$ekstra);
 		foreach($query->result() as $row){
-			if( ($row->Pice & $pice) > 0 && ($row->Hrana & $hrana) > 0 && ($row->Ambijent & $ambijent) > 0 && ($row->Ekstra & $ekstra) > 0){
+			if( ($row->Pice & $pice) > 0 || ($row->Hrana & $hrana) > 0 || ($row->Ambijent & $ambijent) > 0 || ($row->Ekstra & $ekstra) > 0){
 				if($row->Vidljivost != 0){
-
 					$data['slika'] = site_url('Gost/stranica_lokala');
 					$data['naziv'] = $row->Naziv;
 					$data['avgocena'] = $row->AvgOcena;
