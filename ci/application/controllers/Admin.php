@@ -26,4 +26,8 @@ class Admin extends CI_Controller {
         $this->podesavanja("podesavanja-spisakUO.php");
     }
 
+    public function odobri_stranicu(){
+        $this->podesavanja("odobri-stranicu.php");
+    }
+
 }
