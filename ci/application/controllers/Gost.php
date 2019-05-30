@@ -83,6 +83,18 @@ class Gost extends CI_Controller {
 	}
 	
 	public function nadji(){
-		$this->ModelLokal->naprednaPretragaLokala(3,3,2,2);
+		$this->load->view("partials/header.php");
+		$this->load->view("rezultat_pretrage_prefix.php");
+		$data['slika'] = site_url('Gost/stranica_lokala');
+		$data['heading'] = "Heading";
+		$this->load->view("partials/rezultat_pretrage_lokal_box.php",$data);
+		//$this->ispisLokalaNaprednaPretraga();
+        $this->load->view("rezultat_pretrage_postfix.php");
+        $this->load->view("partials/footer.php");
+		//$this->ModelLokal->naprednaPretragaLokala(3,3,2,2);
+	}
+
+	public function ispisLokalaNaprednaPretraga(){
+	echo '<h2> ovo je h2 </h2>';	
 	}
 }
