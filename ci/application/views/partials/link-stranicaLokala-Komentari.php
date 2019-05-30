@@ -15,7 +15,7 @@
 			<div class="h5">
 					Ocena:
 			</div>
-			<select class="form-control" name="ocena" id="exampleFormControlSelect1">
+			<select class="form-control px-2" name="ocena" id="exampleFormControlSelect1">
      			 <option>1</option>
      			 <option>2</option>
     			 <option>3</option>
