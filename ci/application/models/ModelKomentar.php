@@ -14,10 +14,16 @@
         
         $idkor = $result->row();
        
-        $query=$this->db->query("INSERT into komiocena(idkomiocena, idkorisnik, iduo, komentar,ocena) values ('8','".$idkor->IDKorisnik."','".$iduo."','".$komentar."','".$ocena."')");
+        $query=$this->db->query("INSERT into komiocena(idkorisnik, iduo, komentar,ocena) values ('".$idkor->IDKorisnik."','".$iduo."','".$komentar."','".$ocena."')");
     }
-    public function ispis_komentara($komentar,$ocena,$iduo){
+    public function nadji_komentar($iduo){
+        //$query=$this->db->query("SELECT * from Komiocena as ko, korisnik as k where ko.IDUO='".$iduo."' and ko.idkorisnik ='k.idkorisnik'");
+        $query=$this->db->query("SELECT * from pom where IDUO='".$iduo."'");
         
+        foreach ($query->result() as $row)
+            {
+                echo $row->IDUO;
+            }
     }
 }
 
@@ -25,4 +31,5 @@
     // this->db->query("select * from phae where pice='"$.data."' ande hrane = '".dat1."', )
     //echo $idkor->IDKorisnik;
     //foreach($idkor->result() as $row)echo $row->IDKorisnik;
+    //$query=$this->db->query("SELECT * from Komiocena as ko, korisnik as k where ko.IDUO='".$iduo."' and ko.idkorisnik ='k.idkorisnik'");
 ?>
