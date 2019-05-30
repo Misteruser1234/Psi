@@ -1,40 +1,61 @@
-<div class="container">
-
+<div class="container ">
+	<div class="jumbotron px-0 py-1 my-4">
 		<!-- GALERIJA -->
 		<div class="row mt-5 mb-1 ml-2">
-			 <div class="col-5 " >
+			 <div class="col-5 ">
 				<div id="carouselExampleControls" class="carousel slide  granica" data-ride="carousel" data-interval="false">
 					<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img class="d-block w-100" src="<?php echo base_url('img/restoran.jpg');?>" alt="First slide">
-				</div>
-				<div class="carousel-item">
-				<img class="d-block w-100" src="<?php echo base_url('img/restoran.jpg');?>" alt="Second slide">
-				</div>
+						<div class="carousel-item active">
+							<img class="d-block w-100 img-thumbnail" src="<?php echo base_url('img/restoran.jpg');?>" alt="First slide">
+						</div>
 					<div class="carousel-item">
-				<img class="d-block w-100" src="<?php echo base_url('img/restoran.jpg');?>" alt="Third slide">
+						<img class="d-block w-100" src="<?php echo base_url('img/restoran.jpg');?>" alt="Second slide">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="<?php echo base_url('img/restoran.jpg');?>" alt="Third slide">
 					</div>
 				</div>
 				<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 						<span class="sr-only">Previous</span>
-							</a>
-						<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-							<span class="carousel-control-next-icon" aria-hidden="true"></span>
-								<span class="sr-only">Next</span>
 				</a>
-					</div>
-
-			 
-			 </span>
+				<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		<!-- </span> -->
 			 </div>
 			<!-- INFO -->
-			<div class="col-7">
-				<div>
+			<div class="col-sm-7">
+				<div class="row">
+					<div class="col-sm-5 h2">
+						Naziv Lokala 
+					</div>
+					<div class="col-sm-7 px-0">
+					<div class="row h5">
+						<span class="tag ml-2 px-3 py-1 bg-primary text-white">
+							Kafić
+						</span>
+						<span class="tag ml-2 px-3 py-1 bg-light">
+							Restoran
+						</span>
+						<span class="tag ml-2 px-3 py-1 bg-light">
+							Brza hrana
+						</span>
+					</div>
+					</div>
+				</div>
+				<div class="row">
+
+				</div>
+
+
+				<!-- Milica kod  -->
 					<div class="ml-5" >
 						<div class="row">
 							<div class="col-sm-6">
-								<div class="h3" id="naziv-ocena-lokala">Naziv Lokala </div>
+								
 								<div class="row">
 									<?php echo $ocena; ?>
 								</div>
@@ -46,15 +67,6 @@
 							
 						</div>
 						<div class="row mt-4 mb-1">
-							<div class="col-sm-4 ">
-								<button type="button" class="btn btn-success btn-block granica-dugme" id="restoran">Restoran</button>
-							</div>
-							<div class="col-sm-4">
-									<button type="button" class="btn btn-success btn-block granica-dugme" id="kafic">Kafic</button>
-							</div>
-							<div class="col-sm-4">
-									<button type="button" class="btn btn-success btn-block granica-dugme" id="brza">Brza Hrana</button>
-							</div>
 							
 							
 						</div>
@@ -88,7 +100,8 @@
 							
 						</div>
 							</div>
-							<div class="col-sm-6"><img class="img-fluid padding-right-5" src="<?php echo base_url('img/restoran.jpg');?>"  alt="First slide"></div>
+							<div class="col-sm-5 px-0 ">
+								<img class="img-fluid img-thumbnail w-100" src="<?php echo base_url('img/restoran.jpg');?>"  alt="First slide"></div>
 							
 							
 							
