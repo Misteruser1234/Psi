@@ -5,7 +5,7 @@
 		<div class="form-group row mb-1">
 		<label for="naziv" class="col-sm-4 col-form-label text-right">Naziv:</label>
 		<div class="col-sm-4">
-			<input type="text" class="form-control uo-polje" id="naziv" name="naziv" value="" required>
+			<input type="text" class="form-control uo-polje" id="naziv" name="naziv" value="" >
 		</div>
 		</div>
 
@@ -13,7 +13,7 @@
 		<div class="form-group row mb-1">
 			<label for="adresa" class="col-sm-4 col-form-label text-right">Adresa:</label>
 			<div class="col-sm-4">
-				<input type="text" class="form-control uo-polje" id="adresa" name="adresa" value="" required>
+				<input type="text" class="form-control uo-polje" id="adresa" name="adresa" value="" >
 			</div>
 		</div>
 
@@ -21,7 +21,7 @@
 		<div class="form-group row mb-1">
 			<label for="gmaps" class="col-sm-4 col-form-label text-right">Google maps:</label>
 			<div class="col-sm-4">
-				<input type="text" class="form-control uo-polje" id="gmaps"  name="mapa" value="" required>
+				<input type="text" class="form-control uo-polje" id="gmaps"  name="mapa" value="" >
 			</div>
 		</div>
 
@@ -50,19 +50,70 @@
 			<div class="form-group row mb-1">
 				<label for="naziv" class="col-sm-4 col-form-label text-right">Pon - Pet:</label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control uo-polje" id="pon-pet" name="ponpet" value="">
+					<div class="row justify-content-center">
+						<label for="nesto" class=" col-sm-1 col-form-label text-right mr-3">od: </label>
+							<select class="form-control col-sm-2 " name="ocena" id="exampleFormControlSelect1">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+							</select>
+							<label for="nesto" class=" col-sm-1 col-form-label text-right mr-3">do: </label>
+						<select class="form-control col-sm-2 " name="ocena" id="exampleFormControlSelect1">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+						</select>
+					</div>
 				</div>
 			</div>
 			<div class="form-group row mb-1">
 				<label for="adresa" class="col-sm-4 col-form-label text-right">Subota:</label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control uo-polje" id="subota" name="subota" value="">
+				<div class="row justify-content-center">
+						<label for="nesto" class=" col-sm-1 col-form-label text-right mr-3">od: </label>
+							<select class="form-control col-sm-2 " name="ocena" id="exampleFormControlSelect1">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+							</select>
+							<label for="nesto" class=" col-sm-1 col-form-label text-right mr-3">do: </label>
+						<select class="form-control col-sm-2 " name="ocena" id="exampleFormControlSelect1">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+						</select>
+					</div>
 				</div>
 			</div>
 			<div class="form-group row mb-1">
 				<label for="gmaps" class="col-sm-4 col-form-label text-right">Nedelja:</label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control uo-polje" id="nedelja" name="nedelja" value="">
+				<div class="row justify-content-center">
+						<label for="nesto" class=" col-sm-1 col-form-label text-right mr-3">od: </label>
+							<select class="form-control col-sm-2 " name="ocena" id="exampleFormControlSelect1">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+							</select>
+							<label for="nesto" class=" col-sm-1 col-form-label text-right mr-3">do: </label>
+						<select class="form-control col-sm-2 " name="ocena" id="exampleFormControlSelect1">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+						</select>
+					</div>
 				</div>
 			</div>
 		</div>
