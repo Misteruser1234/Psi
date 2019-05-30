@@ -18,6 +18,7 @@
         // this->db->query("select * from phae where pice='"$.data."' ande hrane = '".dat1."', );
 
         $query=$this->db->query("INSERT into komiocena(idkorisnik,iduo,komentar,ocena) values ('".$idkor->IDKorisnik."','".$iduo."','".$komentar."','".$ocena."')");
+      
     }
 }
 
