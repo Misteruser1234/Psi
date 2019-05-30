@@ -107,7 +107,9 @@ class RK extends CI_Controller {
     public function upis_komentara(){
         $komentar = $this->input->post('comment');
         $ocena = $this->input->post('ocena');
-        $iduo = $this->input->post('uoid');
+        $iduo = $this->input->post('uoid');                            //na stranici lokala postoji hidden polje uoid
         $this->ModelKomentar->dodaj_komentar($komentar,$ocena,$iduo);
+        $this->ModelKomentara->ispis_komentara($komentar,$ocena,$iduo);
+        redirect("Gost/stranica_lokala");
     }
 }

@@ -11,15 +11,18 @@
     public function dodaj_komentar($komentar,$ocena,$iduo){
 
         $result=$this->db->query("SELECT * from Korisnik where Username='".$this->korisnik."'");
-        //foreach($idkor->result() as $row)echo $row->IDKorisnik;
+        
         $idkor = $result->row();
-        //echo $idkor->IDKorisnik;
-
-        // this->db->query("select * from phae where pice='"$.data."' ande hrane = '".dat1."', );
-
-        $query=$this->db->query("INSERT into komiocena(idkorisnik,iduo,komentar,ocena) values ('".$idkor->IDKorisnik."','".$iduo."','".$komentar."','".$ocena."')");
-      
+       
+        $query=$this->db->query("INSERT into komiocena(idkomiocena, idkorisnik, iduo, komentar,ocena) values ('8','".$idkor->IDKorisnik."','".$iduo."','".$komentar."','".$ocena."')");
+    }
+    public function ispis_komentara($komentar,$ocena,$iduo){
+        
     }
 }
 
+    // ne treba da pise idkom i ocena, popraviti kad se sredi autoinc
+    // this->db->query("select * from phae where pice='"$.data."' ande hrane = '".dat1."', )
+    //echo $idkor->IDKorisnik;
+    //foreach($idkor->result() as $row)echo $row->IDKorisnik;
 ?>
