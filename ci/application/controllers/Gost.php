@@ -77,11 +77,12 @@ class Gost extends CI_Controller {
 	}
 	public function stranica_lokala(){
 		$this->load->view("partials/header.php");
-		$this->prosecna_ocena();
-		//$this->load->view("partials/komentari-prefix.php");
-		//$this->load->view("partials/komentari.php");
-		$this->ispis_komentara();
-		$this->load->view("partials/komentari-postfix.php");
+		$this->load->view("stranicaLokala.php");
+		#$this->prosecna_ocena();
+		#$this->load->view("partials/komentari-prefix.php");
+		#$this->load->view("partials/komentari.php");
+		#$this->ispis_komentara();
+		#$this->load->view("partials/komentari-postfix.php");
 		$this->load->view("partials/footer.php");
 	}
 
