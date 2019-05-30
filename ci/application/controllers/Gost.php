@@ -77,9 +77,10 @@ class Gost extends CI_Controller {
 	}
 	public function stranica_lokala(){
 		$this->load->view("partials/header.php");
+		$this->prosecna_ocena();
 		$this->load->view("partials/komentari-prefix.php");
 		//$this->load->view("partials/komentari.php");
-		//$this->ispis_komentara();
+		$this->ispis_komentara();
 		$this->load->view("partials/komentari-postfix.php");
 		$this->load->view("partials/footer.php");
 	}
@@ -226,7 +227,15 @@ class Gost extends CI_Controller {
 
 	
     public function ispis_komentara(){
-       $this->ModelKomentar->nadji_komentar(1);
+	   $query = $this->ModelKomentar->nadji_komentar(1);
+	   foreach($query->result() as $row){
+		   //echo $row->komentar;
+		   $data['username'] = $row->username;
+		   $data['ocena'] = $row->ocena;
+		   $data['komentar'] = $row->komentar;
+
+		   $this->load->view("partials/komentari.php", $data);
+	   }
 	//    //$this->load->view("partials/komentari.php");
 	//    $rez = $query->row();
 	//    $pom = $rez->Username;
@@ -235,5 +244,10 @@ class Gost extends CI_Controller {
 	//    foreach ($query->result() as $row){
 	// 	   echo "$row->Username";
 	//    }$idkor = $result->row();
-    }
+	}
+	public function prosecna_ocena(){
+		$avg['ocena'] = $this->ModelKomentar->doh_avg_ocena(1);
+		//echo $avg;
+		$this->load->view("partials/komentari-prefix.php", $avg);
+	}
 }

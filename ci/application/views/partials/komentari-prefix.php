@@ -34,7 +34,10 @@
 					<div class="ml-5" >
 						<div class="row">
 							<div class="col-sm-6">
-								<div class="h3" id="naziv-ocena-lokala">Naziv Lokala &#40 Ocena &#41</div>
+								<div class="h3" id="naziv-ocena-lokala">Naziv Lokala </div>
+								<div class="row">
+									<?php echo $ocena; ?>
+								</div>
 								<div class="row mt-4">
 							<div class="col-sm">
 								<div class="h4" id="ulica-lokala">Ulica i broj</div>
@@ -171,5 +174,4 @@
 		
 		<div class="containter-fluid mb-5 ml-5 mr-5 mt-5 justify-content-center">
 			<div class="h2 mb-4" > Komentari:</div>
-			
 			
