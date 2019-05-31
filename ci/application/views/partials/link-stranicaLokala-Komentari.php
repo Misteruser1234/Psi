@@ -1,7 +1,7 @@
 <div class="row mt-3">
 	<div class="h4"> 
 		Ostavite komentar:
-	</div>
+	</div>x
 </div>
 <form id="komentar" name="komentari" action="<?php echo site_url('RK/upis_komentara') ?>" method="post">
 	<input type="hidden" id="uoid" name="uoid" value="1">

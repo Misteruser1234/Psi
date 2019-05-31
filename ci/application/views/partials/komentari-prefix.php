@@ -66,16 +66,16 @@
 					</div>
 					<div class="row col-sm-12 mx-0 px-0">
 						<div class="row col-sm-12 mx-0 px-0">
-							<div class="col-sm-4 px-0">pon-pet: </div>
-							<div class="col-sm-8 px-0">09:00 - 23:00 </div>	
+							<div class="col-sm-5 px-0">pon-pet: </div>
+							<div class="col-sm-7 px-0">&nbsp;09:00 - 23:00 </div>	
 						</div>
 						<div class="row col-sm-12 mx-0 px-0">
-							<div class="col-sm-4 px-0">subota: </div>
-							<div class="col-sm-8 px-0">09:00 - 23:00 </div>	
+							<div class="col-sm-5 px-0">subota: </div>
+							<div class="col-sm-7 px-0">&nbsp;09:00 - 23:00 </div>	
 						</div>
 						<div class="row col-sm-12 mx-0 px-0">
-							<div class="col-sm-4 px-0">nedelja: </div>
-							<div class="col-sm-8 px-0">09:00 - 23:00 </div>	
+							<div class="col-sm-5 px-0">nedelja: </div>
+							<div class="col-sm-7 px-0">&nbsp;09:00 - 23:00 </div>	
 						</div>
 					</div>
 				</div>

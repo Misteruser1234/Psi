@@ -10,8 +10,13 @@
             <?php echo $komentar;?>
         </div>
 	</div>
-	<div class="col-sm-1-off h5">
-        Ocena:<?php echo $ocena;?>
+	<div class="col-sm-1-off h5 bg-succes">
+	<div class="row h5 mx-0 my-2">
+						<div class="my-1">Ocena:</div>
+						<span class="tag text-white h5 ml-2 px-3 py-1 bg-success">
+							<?php echo $ocena; ?>
+						</span>			
+					</div>
     </div>
 </div>
 <hr class="linija">
