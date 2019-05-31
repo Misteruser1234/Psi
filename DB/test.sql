@@ -28,6 +28,9 @@ SET time_zone = "+00:00";
 -- Table structure for table `jevlasnik`
 --
 
+create database test;
+use test;
+
 DROP TABLE IF EXISTS `jevlasnik`;
 CREATE TABLE IF NOT EXISTS `jevlasnik` (
   `IDKorisnik` int(11) NOT NULL,
