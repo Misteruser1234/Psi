@@ -32,12 +32,12 @@ class ModelSearchKeywords extends CI_Model {
         #Dodaj reci u $allWords ukoliko ne postoje
         foreach ($words as $index => $word) {
 
+            #Konvertuje da sve budu mala slova
+            $word = strtolower($word);
+
             #Provera da li se rac vec nalazi u nizu $allwords
             if (array_search($word, $allWords) === FALSE) {
-
-                #Konvertuje da sve budu mala slova
-                $word = strtolower($word);
-
+                
                 #Dodaje u array $allWords
                 array_push($allWords, $word);
             }
@@ -49,14 +49,16 @@ class ModelSearchKeywords extends CI_Model {
     function dodajTagove($allWords, $IDUO){
         $tagovi = $this->ModelLokal->dohvatiTagoveUO($IDUO);
 
+        if (!isset($tagovi)) return $allWords;
+
         #Dodaj reci u $allWords ukoliko ne postoje
         foreach ($tagovi as $index => $tag) {
 
+            #Konvertuje da sve budu mala slova
+            $tag = strtolower($tag);
+
             #Provera da li se tag vec nalazi u nizu $allwords
             if (array_search($tag, $allWords) === FALSE) {
-
-                #Konvertuje da sve budu mala slova
-                $tag = strtolower($tag);
 
                 #Dodaje u array $allWords
                 array_push($allWords, $tag);
@@ -65,7 +67,52 @@ class ModelSearchKeywords extends CI_Model {
         return $allWords;
     }
 
-    public function generisiKeywordZaUO($IDUO=0){
+
+    # Ukoliko rec postoji u tabeli vraca njen ID u suprotnom dodaje rec u tabelu i vraca ID
+    function dohvatiWordID($word=NULL){
+        if ($word==NULL) return;
+
+        #Provera da li rec vec postoji u bazi
+        $query = $this->db->where('Word',$word)->get('searchkeywords');
+            
+        if ($query->num_rows()) {
+
+            #Ako rec vec postoji dohvati njen ID
+            $wordID = $query->row()->IDSearchKeywords;
+        }
+        else{
+
+            #Ako rec ne postoji dodaj je u bazu
+            $this->db->set("Word", $word);
+            $this->db->insert("searchkeywords");
+
+            #Dohvati ID nakon INSERT
+            $wordID = $this->db->where('Word',$word)->get('searchkeywords')->row()->IDSearchKeywords;
+        }
+
+        return $wordID;
+
+    }
+
+    public function dodajKeywordsUBazu($allWords=NULL, $IDUO=NULL){
+        if ($allWords==NULL) return;
+        if ($IDUO==NULL) return;
+
+        foreach ($allWords as $index => $word){
+
+            #Ukoliko rec postoji u tabeli vraca njen ID u suprotnom dodaje rec u tabelu i vraca ID
+            $wordID = $this->dohvatiWordID($word);
+
+            #Dodaje par WordID i IDUO u tabelu sadrzi
+            $this->db->set("IDSearchKeywords", $wordID);
+            $this->db->set("IDUO", $IDUO);
+            $this->db->insert("sadrzi");
+
+        }
+
+    }
+
+    public function izvuciKeywordsZaUO($IDUO=0){
         $allWords = NULL;
 
         #dohvati podatke o UO
@@ -94,8 +141,45 @@ class ModelSearchKeywords extends CI_Model {
         return $allWords;
     }
 
+    public function obrisiKeyWordsZaUO($IDUO=NULL){
+        if ($IDUO == NULL) return;
+
+        #Dohvata ID svih reci koje se koriste za UO sa ID -> $IDUO
+        $results = $this->db->query("SELECT IDSearchKeywords FROM sadrzi WHERE IDUO = $IDUO;")->result();
+
+        $WordIDzaIDUO = [];
+
+        #Filtrira rezultat query-ja i stavlja samo ID reci u niz $WordIDzaIDUO
+        foreach ($results as $key => $value) {
+           array_push($WordIDzaIDUO, $value->IDSearchKeywords);
+        }
+
+        #Brise sve redove iz tabele sadrzi za UO sa ID -> $IDUO
+        $this->db->delete('sadrzi', array('IDUO' => $IDUO));
 
 
+        #Proverava za svaku rec koja se koristila za dati UO da li jos neki UO koristi istu rec
+        foreach ($WordIDzaIDUO as $key => $WordID) {
+            $brojRedova = $this->db->where('IDSearchKeywords',$WordID)->get('sadrzi')->num_rows();
+
+            #Ako je broj redova = 0, to znaci da je UO bio jedini koji je koristio tu rec i rec moze da se obrise
+            if ($brojRedova == 0) $this->db->delete('searchkeywords', array('IDSearchKeywords' => $WordID));
+        }
+        
+    }
+
+    public function generisiKeywordsZaUO($IDUO=NULL){
+		if ($IDUO==NULL) return;
+
+		#Brise iz baze sve veze iz sadrzi i same Key words ukoliko ni jedan drugi UO ih ne koristi
+		$this->obrisiKeyWordsZaUO($IDUO);
+
+		#Izvlaci iz podataka o UO unikatne key words i vraca kao niz stringova
+		$keyWords = $this->izvuciKeywordsZaUO($IDUO);
+
+		#Dodaju u bazu key words ukoliko vec ne postoje i spaja odredjeni key word sa UO u tabeli sadrzi
+		$this->dodajKeywordsUBazu($keyWords, $IDUO);
+	}
 
 }
  
