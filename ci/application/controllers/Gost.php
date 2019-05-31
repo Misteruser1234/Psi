@@ -278,25 +278,10 @@ class Gost extends CI_Controller {
 		$this->load->view("rezultat_pretrage_prefix.php");
 
 		$query = $this->ModelLokal->getRestorani();
-		foreach($query->result() as $row){
-			$data['id'] = $row->IDUO;
-			$data['slika'] = site_url('Gost/stranica_lokala');
-			$data['naziv'] = $row->Naziv;
-			$data['avgocena'] = $row->AvgOcena;
-			$data['adresa'] = $row->Adresa;
-			$data['rv_ponpet'] = $row->PonPet;
-			$data['rv_subota'] = $row->Sub;
-			$data['rv_nedelja'] = $row->Ned;
-			$data['opis'] = $row->Opis;
-			$data['tagovi'] = $this->ModelLokal->dohvatiTagoveUO($row->IDUO);
-			$data['info1'] = $row->Info1;
-			$data['info2'] = $row->Info2;
-			$data['info3'] = $row->Info3;
-			$data['jerestoran'] = $row->JeRestoran;
-			$data['jekafic'] = $row->JeKafic;
-			$data['jebrzahrana'] = $row->JeBrzaHrana;
 
-			$this->load->view("partials/rezultat_pretrage_lokal_box.php",$data);
+		foreach($query->result() as $uoData){
+			$tagovi = $this->ModelLokal->dohvatiTagoveUO($uoData->IDUO);
+			$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi));
 		}	
         $this->load->view("rezultat_pretrage_postfix.php");
         $this->load->view("partials/footer.php");
@@ -307,25 +292,9 @@ class Gost extends CI_Controller {
 		$this->load->view("rezultat_pretrage_prefix.php");
 
 		$query = $this->ModelLokal->getKafici();
-		foreach($query->result() as $row){
-			$data['id'] = $row->IDUO;
-			$data['slika'] = site_url('Gost/stranica_lokala');
-			$data['naziv'] = $row->Naziv;
-			$data['avgocena'] = $row->AvgOcena;
-			$data['adresa'] = $row->Adresa;
-			$data['rv_ponpet'] = $row->PonPet;
-			$data['rv_subota'] = $row->Sub;
-			$data['rv_nedelja'] = $row->Ned;
-			$data['tagovi'] = $this->ModelLokal->dohvatiTagoveUO($row->IDUO);
-			$data['opis'] = $row->Opis;
-			$data['info1'] = $row->Info1;
-			$data['info2'] = $row->Info2;
-			$data['info3'] = $row->Info3;
-			$data['jerestoran'] = $row->JeRestoran;
-			$data['jekafic'] = $row->JeKafic;
-			$data['jebrzahrana'] = $row->JeBrzaHrana;
-
-			$this->load->view("partials/rezultat_pretrage_lokal_box.php",$data);
+		foreach($query->result() as $uoData){
+			$tagovi = $this->ModelLokal->dohvatiTagoveUO($uoData->IDUO);
+			$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi));
 		}	
         $this->load->view("rezultat_pretrage_postfix.php");
         $this->load->view("partials/footer.php");
@@ -336,27 +305,10 @@ class Gost extends CI_Controller {
 		$this->load->view("rezultat_pretrage_prefix.php");
 
 		$query = $this->ModelLokal->getBrzaHrana();
-		foreach($query->result() as $row){
-			$data['id'] = $row->IDUO;
-			$data['id'] = $row->IDUO;
-			$data['slika'] = site_url('Gost/stranica_lokala');
-			$data['naziv'] = $row->Naziv;
-			$data['avgocena'] = $row->AvgOcena;
-			$data['adresa'] = $row->Adresa;
-			$data['rv_ponpet'] = $row->PonPet;
-			$data['rv_subota'] = $row->Sub;
-			$data['rv_nedelja'] = $row->Ned;
-			$data['tagovi'] = $this->ModelLokal->dohvatiTagoveUO($row->IDUO);
-			$data['opis'] = $row->Opis;
-			$data['info1'] = $row->Info1;
-			$data['info2'] = $row->Info2;
-			$data['info3'] = $row->Info3;
-			$data['jerestoran'] = $row->JeRestoran;
-			$data['jekafic'] = $row->JeKafic;
-			$data['jebrzahrana'] = $row->JeBrzaHrana;
-
-			$this->load->view("partials/rezultat_pretrage_lokal_box.php",$data);
-		}	
+		foreach($query->result() as $uoData){
+			$tagovi = $this->ModelLokal->dohvatiTagoveUO($uoData->IDUO);
+			$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi));
+		}
         $this->load->view("rezultat_pretrage_postfix.php");
         $this->load->view("partials/footer.php");
 	}	

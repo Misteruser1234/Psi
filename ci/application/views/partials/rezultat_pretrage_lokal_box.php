@@ -1,5 +1,5 @@
-<input type="hidden" id="uoid" name="uoid" value="<?php $id?>">
-<a href="<?php echo site_url('Gost/ispisiStranicu/'.$id);?>" class="a"> 
+<input type="hidden" id="uoid" name="uoid" value="<?php $data->IDUO?>">
+<a href="<?php echo site_url('Gost/stranica_lokala/'.$data->IDUO);?>" class="a"> 
 			<div class="row rez-uo rez-form jumbotron py-3" >
 				<div class="row">
 					<div class="col-md-3 slika">
@@ -14,13 +14,13 @@
 									<div class=" col-sm-5">
 										<div class="row">
 											<div class="h4">
-                                            <?php echo $naziv;?>
+                                            <?php echo $data->Naziv;?>
 											</div>
 										</div>
 										<div class="row h5 mt-1">
 											Ocena:
 											<span class="tag text-white h6 ml-2 px-3 py-1 bg-success">
-                                            <?php if($avgocena != NULL){ echo $avgocena;} else { echo '0';}?>
+                                            <?php if($data->AvgOcena != NULL){ echo $data->AvgOcena;} else { echo '0';}?>
 											</span>
 										</div>
 									</div>	
@@ -28,17 +28,17 @@
 									<div class="col-sm-7">
 										<div class="row">
 											<div class="h6">
-                                                <?php echo $adresa;?>
+                                                <?php echo $data->Adresa;?>
 											</div>
 										</div>
 										<div class="row">
-											<span class="tag h6 ml-2 px-3 py-1 bg-<?php if($jerestoran) {echo 'primary text-white';}else{echo 'light';}?>">
+											<span class="tag h6 ml-2 px-3 py-1 bg-<?php if($data->JeRestoran) {echo 'primary text-white';}else{echo 'light';}?>">
 												Restoran
 											</span>
-											<span class="tag h6 ml-2 px-3 py-1 bg-<?php if($jekafic) {echo 'primary text-white';}else{echo 'light';}?>">
+											<span class="tag h6 ml-2 px-3 py-1 bg-<?php if($data->JeKafic) {echo 'primary text-white';}else{echo 'light';}?>">
 												Kafić
 											</span>
-											<span class="tag h6 ml-2 px-3 py-1 bg-<?php if($jebrzahrana) {echo 'primary text-white';}else{echo 'light';}?>">
+											<span class="tag h6 ml-2 px-3 py-1 bg-<?php if($data->JeBrzaHrana) {echo 'primary text-white';}else{echo 'light';}?>">
 												Brza hrana
 											</span>
 										</div>
@@ -72,17 +72,17 @@
 											<div class="col-sm-6">
 											<div class="row">
 												<div class="h6">
-                                                    <?php echo $rv_ponpet;?>
+                                                    <?php echo $data->PonPet;?>
 												</div>
 											</div>	
 											<div class="row">
 												<div class="h6">
-                                                    <?php echo $rv_subota;?>
+                                                    <?php echo $data->Sub;?>
 												</div>
 											</div>
 											<div class="row">
 												<div class="h6">
-                                                    <?php echo $rv_nedelja;?>
+                                                    <?php echo $data->Ned;?>
 												</div>
 											</div>
 										</div>
@@ -98,7 +98,7 @@
 										</div>
 										<div class="row">
 											<p>
-                                            <?php echo $opis;?>
+                                            <?php echo $data->Opis;?>
 											</p>
 										</div>
 									</div>
@@ -112,10 +112,7 @@
 						Tagovi:   
 					</div>						
 					<?php 
-						foreach ( $tagovi as $tag){
-							$data['tag'] = $tag;
-							$this->load->view('partials/tag.php',$data);
-						}
+							$this->load->view('partials/tag.php',$tagovi);
 					?>
 				</div>	
 			</div>

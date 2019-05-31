@@ -38,8 +38,8 @@
 				<!-- NAZIV LOKALA I OCENA -->
 				<div class="row">
 					<div class="h4">
-						<?php echo $naziv ?>
-						<span class="tag h6 py-1 text-white ml-2 px-3 bg-success"><?php echo $avgocena ?></span>	
+						<?php echo $data->Naziv ?>
+						<span class="tag h6 py-1 text-white ml-2 px-3 bg-success"><?php echo $data->AvgOcena ?></span>	
 					</div>
 				</div>
 				<!-- END NAZIV LOKALA I OCENA -->
@@ -48,15 +48,15 @@
 					<div class="col-sm-7">
 						<!-- ADRESA -->
 							<div class="row mb-2">
-								<div class="h6"><?php echo $adresa ?></div>
+								<div class="h6"><?php echo $data->Adresa ?></div>
 							</div>	
 						<!-- END ADRESA -->
 
 						<!-- TAG VRSTA UO -->
 						<div class="row mb-2">
-							<span class="tag mr-2 px-3 bg-<?php if($jerestoran) {echo 'primary text-white';}else{echo 'light';}?>">Restoran</span>
-							<span class="tag mr-2 px-3 bg-<?php if($jekafic) {echo 'primary text-white';}else{echo 'light';}?>">Kafić</span>
-							<span class="tag mr-2 px-3 bg-<?php if($jebrzahrana) {echo 'primary text-white';}else{echo 'light';}?>">Brza hrana</span>
+							<span class="tag mr-2 px-3 bg-<?php if($data->JeRestoran) {echo 'primary text-white';}else{echo 'light';}?>">Restoran</span>
+							<span class="tag mr-2 px-3 bg-<?php if($data->JeKafic) {echo 'primary text-white';}else{echo 'light';}?>">Kafić</span>
+							<span class="tag mr-2 px-3 bg-<?php if($data->JeBrzaHrana) {echo 'primary text-white';}else{echo 'light';}?>">Brza hrana</span>
 						</div>
 						<!-- END TAG VRSTA UO -->
 
@@ -66,11 +66,11 @@
 						</div>
 						<div class="row mb-2">
 							<div class="h6 col-sm-6">pon-pet:</div>
-							<div class="h6 col-sm-6"><?php echo $rv_ponpet?></div>
+							<div class="h6 col-sm-6"><?php echo $data->PonPet?></div>
 							<div class="h6 col-sm-6">subota:</div>
-							<div class="h6 col-sm-6"><?php echo $rv_subota?></div>
+							<div class="h6 col-sm-6"><?php echo $data->Sub?></div>
 							<div class="h6 col-sm-6">nedelja:</div>
-							<div class="h6 col-sm-6"><?php echo $rv_nedelja?></div>
+							<div class="h6 col-sm-6"><?php echo $data->Ned?></div>
 						</div>
 						<!-- END RADNO VREME BLOCK -->
 					</div>
@@ -84,10 +84,7 @@
 				<div class="row mt-2">
 					<span class="h5 mr-2">Tagovi:</span>
 					<?php 
-						foreach ( $tagovi as $tag){
-							$data['tag'] = $tag;
-							$this->load->view('partials/tag.php',$data);
-						}
+						$this->load->view('partials/tag.php',$tagovi);
 					?>						
 				</div>
 				<!-- END TAGOVI -->
@@ -120,7 +117,7 @@
 <div class="container">
 	<div class="rez-form jumbotron ">
 		<div class="h3">Opis:</div>
-		<div id="opis"><p><?php echo $opis?></p></div>
+		<div id="opis"><p><?php echo $data->Opis?></p></div>
 	</div>
 </div>	
 <!-- END OPIS -->
@@ -131,19 +128,19 @@
 		<div class="col" style="height:inherit;">
 			<div class="jumbotron rez-form  mb-0 h-100" style="height:inherit;">
 				<div class="h4 text-center">Izdvajamo sa menija:</div>
-				<div class="mt-4 text-center" id="samenija"><?php echo $info1?></div>
+				<div class="mt-4 text-center" id="samenija"><?php echo $data->Info1?></div>
 			</div>
 		</div>
 		<div class="col" style="height:inherit;">
 			<div class="jumbotron rez-form  mb-0 h-100" style="height:inherit;">
 				<div class="h4 text-center">Po cemu se razlikujemo od drugih:</div>
-				<div class="mt-4 text-center" id="razlike"><?php echo $info2?></div>
+				<div class="mt-4 text-center" id="razlike"><?php echo $data->Info2?></div>
 			</div>
 		</div>
 		<div class="col" style="height:inherit;">
 			<div class="jumbotron rez-form  mb-0 h-100" style="height:inherit;">
 				<div class="h4 text-center">Zasto da dodjete kod nas:</div>
-				<div class="mt-4 text-center"><?php echo $info3?></div>
+				<div class="mt-4 text-center"><?php echo $data->Info3?></div>
 			</div>
 		</div>
 	</div>
