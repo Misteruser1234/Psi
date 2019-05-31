@@ -24,6 +24,10 @@ class Gost extends CI_Controller {
         $this->load->view("partials/footer.php");
 	}
 	
+	public function ispisiStranicu($data){
+
+	}
+
 	public function lp(){
 		$this->load->view("partials/header_lp.php");
 		$this->load->view("lp.php");
@@ -278,6 +282,7 @@ class Gost extends CI_Controller {
 
 		$query = $this->ModelLokal->getBrzaHrana();
 		foreach($query->result() as $row){
+			$data['id'] = $row->IDUO;
 			$data['slika'] = site_url('Gost/stranica_lokala');
 			$data['naziv'] = $row->Naziv;
 			$data['avgocena'] = $row->AvgOcena;
