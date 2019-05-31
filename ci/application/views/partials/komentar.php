@@ -6,7 +6,7 @@
             </div>
             
             <div class="col-sm-8">
-                <div class="h3" id="username">USERNAME</div>
+                <div class="h3" id="username"><?php echo $username?></div>
                 <div class="text" id="komentar">asdihoasihdoiahsofhsfoghiao sfigpoahfsgoahif oghaofhjoafhaipjhpoj afhpojapdohjpofaj[oiahpguhafgph</div>
             </div>
             

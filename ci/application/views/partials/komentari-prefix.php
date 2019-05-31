@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="jumbotron px-0 py-1 my-4 mb-6">
+	<div class="jumbotron px-0 py-1 my-4 pb-0">
 		<!-- GALERIJA -->
 		<div class="row mt-5 mb-1 ml-2">
 			 <div class="col-5 ">
@@ -66,16 +66,16 @@
 					</div>
 					<div class="row col-sm-12 mx-0 px-0">
 						<div class="row col-sm-12 mx-0 px-0">
-							<div class="col-sm-4 px-0">pon-pet: </div>
-							<div class="col-sm-8 px-0">09:00 - 23:00 </div>	
+							<div class="col-sm-5 px-0">pon-pet: </div>
+							<div class="col-sm-7 px-0">&nbsp;09:00 - 23:00 </div>	
 						</div>
 						<div class="row col-sm-12 mx-0 px-0">
-							<div class="col-sm-4 px-0">subota: </div>
-							<div class="col-sm-8 px-0">09:00 - 23:00 </div>	
+							<div class="col-sm-5 px-0">subota: </div>
+							<div class="col-sm-7 px-0">&nbsp;09:00 - 23:00 </div>	
 						</div>
 						<div class="row col-sm-12 mx-0 px-0">
-							<div class="col-sm-4 px-0">nedelja: </div>
-							<div class="col-sm-8 px-0">09:00 - 23:00 </div>	
+							<div class="col-sm-5 px-0">nedelja: </div>
+							<div class="col-sm-7 px-0">&nbsp;09:00 - 23:00 </div>	
 						</div>
 					</div>
 				</div>
@@ -152,14 +152,15 @@
 					<div class="h3">Zasto da dodjete kod nas:</div>
 					<div class="mt-3 text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fi</div>
 				</div>
-			</div>
-				
 		</div>
+				
+	</div>
+	</div>
 		
 		
 		<!--Komentari-->
-		
-		
-		<div class="containter-fluid mb-5 ml-5 mr-5 mt-5 justify-content-center">
-			<div class="h2 mb-4" > Komentari:</div>
+	<div class=" row jumbotron px-0 py-1 my-4 mb-6">	
+		<div class="row mx-3 py-3">
+			 Komentari:
+			 </div>
 			

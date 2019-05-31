@@ -75,8 +75,8 @@ class Gost extends CI_Controller {
 	public function rezultat_pretrage(){
         $this->prikazi("rezultatPretrage.php");
 	}
-#TODO public function stranica_lokala($IDUO){
-	public function stranica_lokala(){
+	public function stranica_lokala($iduo=NULL){
+	//public function stranica_lokala(){
 		$this->load->view("partials/header.php");
 
 		$this->load->view("stranicaLokala.php");
@@ -84,11 +84,20 @@ class Gost extends CI_Controller {
 //TODO	#Ucitavanje komentara
 //		$komentari = $this->ModelKomentar->dohvatiKomentareZaUO($IDUO);
 //		foreach ( $komentari as $komentar ) $this->load->view("partials/komentar.php", $komentar);
-
-		$this->load->view("partials/komentar.php");
-		$this->load->view("partials/komentar.php");
-		$this->load->view("partials/komentar.php");
-
+		
+		if($iduo == NULL){
+			$this->load->view("partials/komentar.php");
+			$this->load->view("partials/komentar.php");
+			$this->load->view("partials/komentar.php");
+		}
+		else{
+			$komentari = $this->ModelKomentar->dohvatiKomentareZaUO($iduo);
+			foreach ( $komentari as $komentar ) {
+				$this->load->view("partials/komentar.php", (array)$komentar);
+				print_r($komentar);
+			}
+		}
+	
 
 		#Ucitavanje forme za ostavljanje komentara
 		if ($this->session->userdata("tip") != NULL) $this->load->view("partials/link-stranicaLokala-Komentari.php");
@@ -311,16 +320,21 @@ class Gost extends CI_Controller {
         $this->load->view("rezultat_pretrage_postfix.php");
         $this->load->view("partials/footer.php");
 	}	
-    public function ispis_komentara(){
-	   $query = $this->ModelKomentar->nadji_komentar(1);
-	   foreach($query->result() as $row){
-		   //echo $row->komentar;
-		   $data['username'] = $row->username;
-		   $data['ocena'] = $row->ocena;
-		   $data['komentar'] = $row->komentar;
+    public function ispis_komentara($iduo){
+		$komentari = $this->ModelKomentar->dohvatiKomentareZaUO($iduo);
+		foreach ( $komentari as $komentar ) {
+			$this->load->view("partials/komentar.php", (array)$komentar);
+			print_r($komentar);
+		}
+	//    $query = $this->ModelKomentar->nadji_komentar(1);
+	// //    foreach($query->result() as $row){
+	// // 	   //echo $row->komentar;
+	// // 	   $data['username'] = $row->username;
+	// // 	   $data['ocena'] = $row->ocena;
+	// // 	   $data['komentar'] = $row->komentar;
 
-		   $this->load->view("partials/komentari.php", $data);
-	   }
+	// 	   $this->load->view("partials/komentari.php", $data);
+	
 	//    //$this->load->view("partials/komentari.php");
 	//    $rez = $query->row();
 	//    $pom = $rez->Username;

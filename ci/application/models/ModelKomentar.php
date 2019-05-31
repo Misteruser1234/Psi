@@ -21,12 +21,12 @@
         $query=$this->db->query("UPDATE UO SET AvgOcena='".$avg."' WHERE iduo='".$iduo."'");
         
     }
-    public function nadji_komentar($iduo){
-        //$query=$this->db->query("SELECT * from Komiocena as ko, korisnik as k where ko.IDUO='".$iduo."' and ko.idkorisnik ='k.idkorisnik'");
-        $query=$this->db->query("SELECT * from pom where IDUO='".$iduo."'");
-        return $query;
+    // public function nadji_komentar($iduo){
+    //     $query=$this->db->query("SELECT * from Komiocena as ko, korisnik as k where ko.IDUO='".$iduo."' and ko.idkorisnik ='k.idkorisnik'");
+    //     $query=$this->db->query("SELECT * from pom where IDUO='".$iduo."'");
+    //     return $query;
         
-    }
+    // }
     public function avg_ocena($iduo){
         $query=$this->db->query("SELECT avg(ocena) as average from komiocena where IDUO='".$iduo."'");
         $avg = $query->row()->average;
@@ -38,6 +38,11 @@
         $query=$this->db->query("SELECT avgocena from uo where IDUO='".$iduo."'");
         $avg = $query->row()->avgocena;
         return $avg;
+    }
+    public function dohvatiKomentareZaUO($iduo){
+        $komentari=$this->db->query("SELECT username, komentar, ocena from Komiocena as ko, korisnik as k where ko.IDUO='1' and ko.idkorisnik ='k.idkorisnik'");
+        print_r($komentari->result());
+        
     }
 }
 
