@@ -7,7 +7,7 @@
 		<div class="naslov">
 			Rezultat pretrege:
 		</div>
-		<a href="<?php $->this->session->set_userdata('id', $id); echo site_url('Gost/stranica_lokala');?>" class="a">
+		<a href="<?php $this->session->set_userdata('id', $id); echo site_url('Gost/stranica_lokala');?>" class="a">
 			<div class="row rez-uo rez-form jumbotron py-3" >
 				<div class="row">
 					<div class="col-md-3 slika">
