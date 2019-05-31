@@ -56,6 +56,9 @@ public function odbaci(){
 }
 
 
+
+
+
     public function ubaciUO(){
         if (isset($_POST['sacuvaj'])) {
             # Publish-button was clicked
@@ -140,14 +143,33 @@ public function odbaci(){
         $samenija = $this->input->post('samenija');
         $razlike = $this->input->post('razlike');
         $zasto= $this->input->post('zasto');
-        print_r($samenija);
+
+
+        // $config['upload_path']          = APPPATH. '../assets/uploads/';
+		// $config['allowed_types']        = 'gif|jpg|png';
+		// $config['max_size']             = 100;
+ 
+        //     $this->load->library('upload', $config);
+            
+        //     $upload_data = $this->upload->data();
+
+        //     $data['ime_fajla'] = $upload_data['file_name'];
+        //     echo $data[1];
+    
+ 
+
+
+
+        // $slika1 = $upload_data['slika1'];
+ 
+       
 
         $this->pice=$this->calculateInt($pice1,$pice2,$pice3,$pice4,$pice5,$pice6,$pice7,$pice8);
         $this->jela=$this->calculateInt($jela1,$jela2,$jela3,$jela4,$jela5,$jela6,$jela7,$jela8);
         $this->mesto=$this->calculateInt($mesto1,$mesto2,$mesto3,$mesto4,$mesto5,$mesto6,$mesto7,$mesto8);
         $this->ostalo=$this->calculateInt($ostalo1,$ostalo2,$ostalo3,$ostalo4,$ostalo5,$ostalo6,$ostalo7,$ostalo8);
 
-        $this->ModelLokal->insertUoImg($slika1,$slika2,$slika3,$slika4,$slika5,$slika6,$slika7,$slika8,$slika9);
+        //$this->ModelLokal->insertUoImg($data);
         $this->ModelLokal->insertUO($naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja,
         $this->pice,$this->jela,$this->mesto,$this->ostalo,$opis,$samenija,$razlike,$zasto);
         redirect("Vlasnik/spisak_uo");

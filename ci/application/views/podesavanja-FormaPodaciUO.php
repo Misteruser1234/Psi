@@ -1,3 +1,15 @@
+<!-- FUNKCIJA KOJA postavlja preview slike kada se klikne da se promeni-->
+<script>
+function previewImage(idslike,imefajla) {
+    document.getElementById(idslike).style.display = "block";
+    var oFReader = new FileReader();
+     oFReader.readAsDataURL(document.getElementById(imefajla).files[0]);
+
+    oFReader.onload = function(oFREvent) {
+      document.getElementById(idslike).src = oFREvent.target.result;
+    };
+  };
+</script>
 <div class="my-5 mx-5">
 	<div class="h3 mt-5 mb-4">Podaci o ugostiteljskom objektu: </div>
 	<form method="post" name="UOform"  action=" <?php echo site_url('Vlasnik/ubaciUO'); ?> ">
@@ -396,30 +408,30 @@
 				<div class="col-md-4 mb-4">
 					<div class="row">
 						<div class="col-sm-12">
-							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="">
+							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="" id="slika1">
 						</div>
 						<div class="col-sm-12">
-								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika1"></input>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 mb-4">
-					<div class="row">
-						<div class="col-sm-12">
-							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="">
-						</div>
-						<div class="col-sm-12">
-								<input class="btn btn-primary py-2" type="file" style="width:inherit"  name="slika2"></input>
+								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika1"  onchange="previewImage('slika1','slika1src');" id="slika1src"></input>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4 mb-4">
 					<div class="row">
 						<div class="col-sm-12">
-							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="">
+							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="" id="slika2">
 						</div>
 						<div class="col-sm-12">
-								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika3"></input>
+								<input class="btn btn-primary py-2" type="file" style="width:inherit"  name="slika2" onchange="previewImage('slika2','slika2src');" id="slika2src"></input>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 mb-4">
+					<div class="row">
+						<div class="col-sm-12">
+							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="" id="slika3">
+						</div>
+						<div class="col-sm-12">
+								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika3" onchange="previewImage('slika3','slika3src');" id="slika3src"></input>
 						</div>
 					</div>
 				</div>
@@ -430,30 +442,30 @@
 				<div class="col-md-4 mb-4">
 					<div class="row">
 						<div class="col-sm-12">
-							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="">
+							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="" id="slika4">
 						</div>
 						<div class="col-sm-12">
-								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika4"></input>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 mb-4">
-					<div class="row">
-						<div class="col-sm-12">
-							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="">
-						</div>
-						<div class="col-sm-12">
-								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika5"></input>
+								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika4" onchange="previewImage('slika4','slika4src');" id="slika4src"></input>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4 mb-4">
 					<div class="row">
 						<div class="col-sm-12">
-							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="">
+							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="" id="slika5">
 						</div>
 						<div class="col-sm-12">
-								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika6"></input>
+								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika5" onchange="previewImage('slika5','slika5src');" id="slika5src"></input>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 mb-4">
+					<div class="row">
+						<div class="col-sm-12">
+							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="" id="slika6">
+						</div>
+						<div class="col-sm-12">
+								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika6" onchange="previewImage('slika6','slika6src');" id="slika6src"></input>
 						</div>
 					</div>
 				</div>
@@ -464,30 +476,30 @@
 				<div class="col-md-4 mb-4">
 					<div class="row">
 						<div class="col-sm-12">
-							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="">
+							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="" id="slika7">
 						</div>
 						<div class="col-sm-12">
-								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika7"></input>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 mb-4">
-					<div class="row">
-						<div class="col-sm-12">
-							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="">
-						</div>
-						<div class="col-sm-12">
-								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika8"></input>
+								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika7" onchange="previewImage('slika7','slika7src');" id="slika7src"></input>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4 mb-4">
 					<div class="row">
 						<div class="col-sm-12">
-							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="">
+							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="" id="slika8">
 						</div>
 						<div class="col-sm-12">
-								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika9"></input>
+								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika8" onchange="previewImage('slika8','slika8src');" id="slika8src"></input>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 mb-4">
+					<div class="row">
+						<div class="col-sm-12">
+							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="" id="slika9">
+						</div>
+						<div class="col-sm-12">
+								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika9" onchange="previewImage('slika9','slika9src');" id="slika9src"></input>
 						</div>
 					</div>
 				</div>
