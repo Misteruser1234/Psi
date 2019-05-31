@@ -65,7 +65,7 @@ class ModelSearchKeywords extends CI_Model {
         return $allWords;
     }
 
-    public function dodajKeywordZaUO($IDUO=0){
+    public function generisiKeywordZaUO($IDUO=0){
         $allWords = NULL;
 
         #dohvati podatke o UO
