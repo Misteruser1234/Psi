@@ -6,11 +6,11 @@
             </div>
             
             <div class="col-sm-8">
-                <div class="h3" id="username">USERNAME</div>
-                <div class="text" id="komentar">asdihoasihdoiahsofhsfoghiao sfigpoahfsgoahif oghaofhjoafhaipjhpoj afhpojapdohjpofaj[oiahpguhafgph</div>
+                <div class="h3" id="username"><?php echo $Username ?></div>
+                <div class="text" id="komentar"><?php echo $Komentar ?></div>
             </div>
             
-            <div class="col-sm-1 h5">Ocena:X.XX</div>
+            <div class="col-sm-1 h5">Ocena:<?php echo $Ocena ?></div>
     </div>
 </div>	
 <!-- END KOMENTAR -->

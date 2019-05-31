@@ -75,32 +75,22 @@ class Gost extends CI_Controller {
 	public function rezultat_pretrage(){
         $this->prikazi("rezultatPretrage.php");
 	}
-#TODO public function stranica_lokala($IDUO){
-	public function stranica_lokala(){
-		$this->load->view("partials/header.php");
+public function stranica_lokala($IDUO=NULL){
+	$this->load->view("partials/header.php");
 
-		$this->load->view("stranicaLokala.php");
-
-//TODO	#Ucitavanje komentara
-//		$komentari = $this->ModelKomentar->dohvatiKomentareZaUO($IDUO);
-//		foreach ( $komentari as $komentar ) $this->load->view("partials/komentar.php", $komentar);
-
-		$this->load->view("partials/komentar.php");
-		$this->load->view("partials/komentar.php");
-		$this->load->view("partials/komentar.php");
-
-
-		#Ucitavanje forme za ostavljanje komentara
-		if ($this->session->userdata("tip") != NULL) $this->load->view("partials/link-stranicaLokala-Komentari.php");
-		
-		#$this->prosecna_ocena();
-		#$this->load->view("partials/komentari-prefix.php");
-		#$this->load->view("partials/komentari.php");
-		#$this->ispis_komentara();
-		#$this->load->view("partials/komentari-postfix.php");
-		
-		$this->load->view("partials/footer.php");
+	$this->load->view("stranicaLokala.php");
+	
+	#Ucitavanje komentara
+	if ($IDUO != NULL){
+		$komentari = $this->ModelKomentar->dohvatiKomentareZaUO($IDUO);
+		foreach ( $komentari as $komentar ) $this->load->view("partials/komentar.php", (array) $komentar);
 	}
+
+	#Ucitavanje forme za ostavljanje komentara
+	if ($this->session->userdata("tip") != NULL) $this->load->view("partials/link-stranicaLokala-Komentari.php");
+	
+	$this->load->view("partials/footer.php");
+}
 
 	public function registracija(){
 		$this->prikazi("register.php");

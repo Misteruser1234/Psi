@@ -39,6 +39,11 @@
         $avg = $query->row()->avgocena;
         return $avg;
     }
+
+    public function dohvatiKomentareZaUO($IDUO){
+        $query=$this->db->query("SELECT Username, Komentar, Ocena from komiocena, korisnik where komiocena.IDKorisnik = korisnik.IDKorisnik and komiocena.IDUO=".$IDUO);
+        return $query->result();
+    }
 }
 
     // ne treba da pise idkom i ocena, popraviti kad se sredi autoinc
