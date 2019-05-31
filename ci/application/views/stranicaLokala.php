@@ -118,82 +118,41 @@
 </div>
 <!-- END HEADER STRANICE LOKALA -->
 
+
+<!-- OPIS -->
 <div class="container">
 	<div class="rez-form jumbotron ">
 		<div class="h3">Opis:</div>
 		<div id="opis"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></div>
 	</div>
 </div>	
-		
-		
-		<!--Opis-->
-		
-		
-		<!--OSTALE-->
-		<div class="container">
-			<div class="row">
-				<div class="col" style="height:inherit;">
-					<div class="jumbotron rez-form  mb-0 h-100" style="height:inherit;">
-						<div class="h4 text-center">Izdvajamo sa menija:</div>
-						<div class="mt-4 text-center" id="samenija">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fi</div>
-					</div>
-				</div>
-				<div class="col" style="height:inherit;">
-					<div class="jumbotron rez-form  mb-0 h-100" style="height:inherit;">
-						<div class="h4 text-center">Po cemu se razlikujemo od drugih:</div>
-						<div class="mt-4 text-center" id="razlike">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fi</div>
-					</div>
-				</div>
-				<div class="col" style="height:inherit;">
-					<div class="jumbotron rez-form  mb-0 h-100" style="height:inherit;">
-						<div class="h4 text-center">Zasto da dodjete kod nas:</div>
-						<div class="mt-4 text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fi</div>
-					</div>
-				</div>
+<!-- END OPIS -->
+
+<!-- IZDVAJAMO SA MENIA - PO CEMU SE RAZLIKUJEMO OD DRUGIH - ZASTO DA DODJETE KOD NAS -->
+<div class="container">
+	<div class="row">
+		<div class="col" style="height:inherit;">
+			<div class="jumbotron rez-form  mb-0 h-100" style="height:inherit;">
+				<div class="h4 text-center">Izdvajamo sa menija:</div>
+				<div class="mt-4 text-center" id="samenija">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fi</div>
 			</div>
 		</div>
-		
-		<!--Komentari-->
-		
-		
-		<div class="containter-fluid mb-5 ml-5 mr-5 mt-5 justify-content-center">
-			<div class="h2 mb-4" > Komentari:</div>
-			
-			<div class="row">
-					<div class="col-sm-2">
-						<img src="<?php echo base_url('img/restoran.jpg');?>" alt="..." class="img-thumbnail" id="userpic">
-					</div>
-					
-					<div class="col-sm-7">
-						<div class="h3" id="username">USERNAME</div>
-						<div class="text" id="komentar">asdihoasihdoiahsofhsfoghiaosfigpoahfsgoahifoghaofhjoafhaipjhpojafhpojapdohjpofaj[oiahpguhafgph</div>
-					</div>
-					
-					<div class="col-sm-1-off h5">Ocena:X.XX</div>
-			
+		<div class="col" style="height:inherit;">
+			<div class="jumbotron rez-form  mb-0 h-100" style="height:inherit;">
+				<div class="h4 text-center">Po cemu se razlikujemo od drugih:</div>
+				<div class="mt-4 text-center" id="razlike">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fi</div>
 			</div>
-			
-			<hr class="linija">
-				<div class="row">
-					<div class="col-sm-2">
-						<img src="<?php echo base_url('img/restoran.jpg');?>" alt="..." class="img-thumbnail" id="userpic">
-					</div>
-					
-					<div class="col-sm-7">
-						<div class="h3" id="username">USERNAME</div>
-						<div class="text" id="komentar">asdihoasihdoiahsofhsfoghiaosfigpoahfsgoahifoghaofhjoafhaipjhpojafhpojapdohjpofaj[oiahpguhafgph</div>
-					</div>
-					
-					<div class="col-sm-1-off h5">Ocena:X.XX</div>
-			
+		</div>
+		<div class="col" style="height:inherit;">
+			<div class="jumbotron rez-form  mb-0 h-100" style="height:inherit;">
+				<div class="h4 text-center">Zasto da dodjete kod nas:</div>
+				<div class="mt-4 text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fi</div>
 			</div>
-			<hr class="linija">
-			
-			<!--OSTAVLJANJE KOMENTARA FORMA-->
-			
-			<?php 
-			if ($this->session->userdata("tip") != NULL) 
-				$this->load->view("partials/link-stranicaLokala-Komentari.php");
-			?>
-		
+		</div>
+	</div>
 </div>
+<!-- END IZDVAJAMO SA MENIA - PO CEMU SE RAZLIKUJEMO OD DRUGIH - ZASTO DA DODJETE KOD NAS -->	
+		
+	<div class="container my-4 pt-4">
+		<div class="h2 mb-4" > Komentari:</div>
+	</div>
