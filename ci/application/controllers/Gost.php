@@ -24,9 +24,28 @@ class Gost extends CI_Controller {
         $this->load->view("partials/footer.php");
 	}
 	
-	public function ispisiStranicu(){
+	public function ispisiStranicu($id){
 		$this->load->view("partials/header.php");
-		$this->load->view("stranicaLokala.php");
+		$uo = $this->ModelLokal->getUO($id);
+		$tagovi = $this->ModelLokal->dohvatiTagoveUO($id);
+		$data['id'] = $uo->IDUO;
+		$data['naziv'] = $uo->Naziv;
+		$data['avgocena'] = $uo->AvgOcena;
+		$data['adresa'] = $uo->Adresa;
+		$data['rv_ponpet'] = $uo->PonPet;
+		$data['rv_subota'] = $uo->Sub;
+		$data['rv_nedelja'] = $uo->Ned;
+		$data['tagovi'] = $tagovi;
+		$data['opis'] = $uo->Opis;
+		$data['info1'] = $uo->Info1;
+		$data['info2'] = $uo->Info2;
+		$data['info3'] = $uo->Info3;
+		$data['jerestoran'] = $uo->JeRestoran;
+		$data['jekafic'] = $uo->JeKafic;
+		$data['jebrzahrana'] = $uo->JeBrzaHrana;
+		$this->load->view("stranicaLokala.php",$data);
+		$this->load->view("partials/footer.php");
+		
 		
 	}
 
@@ -160,9 +179,12 @@ class Gost extends CI_Controller {
 		$ekstra = $values[3];
 
 		$query = $this->ModelLokal->naprednaPretragaLokala($pice,$hrana,$ambijent,$ekstra);
+		
 		foreach($query->result() as $row){
 			if( ($row->Pice & $pice) > 0 || ($row->Hrana & $hrana) > 0 || ($row->Ambijent & $ambijent) > 0 || ($row->Ekstra & $ekstra) > 0){
 				if($row->Vidljivost != 0){
+					$data['id'] = $row->IDUO;
+					$data['tagovi'] = $this->ModelLokal->dohvatiTagoveUO($row->IDUO);
 					$data['slika'] = site_url('Gost/stranica_lokala');
 					$data['naziv'] = $row->Naziv;
 					$data['avgocena'] = $row->AvgOcena;
@@ -171,6 +193,9 @@ class Gost extends CI_Controller {
 					$data['rv_subota'] = $row->Sub;
 					$data['rv_nedelja'] = $row->Ned;
 					$data['opis'] = $row->Opis;
+					$data['info1'] = $row->Info1;
+					$data['info2'] = $row->Info2;
+					$data['info3'] = $row->Info3;
 					$data['jerestoran'] = $row->JeRestoran;
 					$data['jekafic'] = $row->JeKafic;
 					$data['jebrzahrana'] = $row->JeBrzaHrana;
@@ -236,6 +261,7 @@ class Gost extends CI_Controller {
 
 		$query = $this->ModelLokal->getRestorani();
 		foreach($query->result() as $row){
+			$data['id'] = $row->IDUO;
 			$data['slika'] = site_url('Gost/stranica_lokala');
 			$data['naziv'] = $row->Naziv;
 			$data['avgocena'] = $row->AvgOcena;
@@ -244,6 +270,10 @@ class Gost extends CI_Controller {
 			$data['rv_subota'] = $row->Sub;
 			$data['rv_nedelja'] = $row->Ned;
 			$data['opis'] = $row->Opis;
+			$data['tagovi'] = $this->ModelLokal->dohvatiTagoveUO($row->IDUO);
+			$data['info1'] = $row->Info1;
+			$data['info2'] = $row->Info2;
+			$data['info3'] = $row->Info3;
 			$data['jerestoran'] = $row->JeRestoran;
 			$data['jekafic'] = $row->JeKafic;
 			$data['jebrzahrana'] = $row->JeBrzaHrana;
@@ -260,6 +290,7 @@ class Gost extends CI_Controller {
 
 		$query = $this->ModelLokal->getKafici();
 		foreach($query->result() as $row){
+			$data['id'] = $row->IDUO;
 			$data['slika'] = site_url('Gost/stranica_lokala');
 			$data['naziv'] = $row->Naziv;
 			$data['avgocena'] = $row->AvgOcena;
@@ -267,7 +298,11 @@ class Gost extends CI_Controller {
 			$data['rv_ponpet'] = $row->PonPet;
 			$data['rv_subota'] = $row->Sub;
 			$data['rv_nedelja'] = $row->Ned;
+			$data['tagovi'] = $this->ModelLokal->dohvatiTagoveUO($row->IDUO);
 			$data['opis'] = $row->Opis;
+			$data['info1'] = $row->Info1;
+			$data['info2'] = $row->Info2;
+			$data['info3'] = $row->Info3;
 			$data['jerestoran'] = $row->JeRestoran;
 			$data['jekafic'] = $row->JeKafic;
 			$data['jebrzahrana'] = $row->JeBrzaHrana;
@@ -285,6 +320,7 @@ class Gost extends CI_Controller {
 		$query = $this->ModelLokal->getBrzaHrana();
 		foreach($query->result() as $row){
 			$data['id'] = $row->IDUO;
+			$data['id'] = $row->IDUO;
 			$data['slika'] = site_url('Gost/stranica_lokala');
 			$data['naziv'] = $row->Naziv;
 			$data['avgocena'] = $row->AvgOcena;
@@ -292,7 +328,11 @@ class Gost extends CI_Controller {
 			$data['rv_ponpet'] = $row->PonPet;
 			$data['rv_subota'] = $row->Sub;
 			$data['rv_nedelja'] = $row->Ned;
+			$data['tagovi'] = $this->ModelLokal->dohvatiTagoveUO($row->IDUO);
 			$data['opis'] = $row->Opis;
+			$data['info1'] = $row->Info1;
+			$data['info2'] = $row->Info2;
+			$data['info3'] = $row->Info3;
 			$data['jerestoran'] = $row->JeRestoran;
 			$data['jekafic'] = $row->JeKafic;
 			$data['jebrzahrana'] = $row->JeBrzaHrana;

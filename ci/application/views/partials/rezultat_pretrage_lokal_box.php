@@ -1,4 +1,5 @@
-<a href="<?php echo site_url('Gost/stranica_lokala');?>" class="a">
+<input type="hidden" id="uoid" name="uoid" value="<?php $id?>">
+<a href="<?php echo site_url('Gost/ispisiStranicu/'.$id);?>" class="a"> 
 			<div class="row rez-uo rez-form jumbotron py-3" >
 				<div class="row">
 					<div class="col-md-3 slika">
@@ -110,24 +111,12 @@
 					<div class="h5 mr-2">
 						Tagovi:   
 					</div>						
-					<span class="tag text-white bg-info h6 ml-1 px-3">
-						Kafić
-					</span>
-					<span class="tag text-white bg-info h6 ml-1 px-3">
-						Kafić
-					</span>
-					<span class="tag text-white bg-info h6 ml-1 px-3">
-						Kafić
-					</span>
-					<span class="tag text-white bg-info h6 ml-1 px-3">
-						Kafić
-					</span>
-					<span class="tag text-white bg-info h6 ml-1 px-3">
-						Kafić
-					</span>
-					<span class="tag text-white bg-info h6 ml-1 px-3">
-						Kafić
-					</span>
+					<?php 
+						foreach ( $tagovi as $tag){
+							$data['tag'] = $tag;
+							$this->load->view('partials/tag.php',$data);
+						}
+					?>
 				</div>	
 			</div>
     </a> 

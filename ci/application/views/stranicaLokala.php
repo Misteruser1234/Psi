@@ -1,5 +1,4 @@
 <input type="hidden" id="uoid" name="uoid" value="0">
-
 <!-- HEADER STRANICE LOKALA -->
 <div class="container mt-3">
 	<div class="rez-form jumbotron pt-3 pb-2" >
@@ -39,8 +38,8 @@
 				<!-- NAZIV LOKALA I OCENA -->
 				<div class="row">
 					<div class="h4">
-						Naziv lokala
-						<span class="tag h6 py-1 text-white ml-2 px-3 bg-success">XX.X</span>	
+						<?php echo $naziv ?>
+						<span class="tag h6 py-1 text-white ml-2 px-3 bg-success"><?php echo $avgocena ?></span>	
 					</div>
 				</div>
 				<!-- END NAZIV LOKALA I OCENA -->
@@ -49,15 +48,15 @@
 					<div class="col-sm-7">
 						<!-- ADRESA -->
 							<div class="row mb-2">
-								<div class="h6">Adresa XX</div>
+								<div class="h6"><?php echo $adresa ?></div>
 							</div>	
 						<!-- END ADRESA -->
 
 						<!-- TAG VRSTA UO -->
 						<div class="row mb-2">
-							<span class="tag mr-2 px-3 bg-primary text-white">Kafić</span>
-							<span class="tag mr-2 px-3 bg-light">Restoran</span>
-							<span class="tag mr-2 px-3 bg-light">Brza hrana</span>
+							<span class="tag mr-2 px-3 bg-<?php if($jerestoran) {echo 'primary text-white';}else{echo 'light';}?>">Restoran</span>
+							<span class="tag mr-2 px-3 bg-<?php if($jekafic) {echo 'primary text-white';}else{echo 'light';}?>">Kafić</span>
+							<span class="tag mr-2 px-3 bg-<?php if($jebrzahrana) {echo 'primary text-white';}else{echo 'light';}?>">Brza hrana</span>
 						</div>
 						<!-- END TAG VRSTA UO -->
 
@@ -67,11 +66,11 @@
 						</div>
 						<div class="row mb-2">
 							<div class="h6 col-sm-6">pon-pet:</div>
-							<div class="h6 col-sm-6">9:00 - 23:00</div>
+							<div class="h6 col-sm-6"><?php echo $rv_ponpet?></div>
 							<div class="h6 col-sm-6">subota:</div>
-							<div class="h6 col-sm-6">9:00 - 23:00</div>
+							<div class="h6 col-sm-6"><?php echo $rv_subota?></div>
 							<div class="h6 col-sm-6">nedelja:</div>
-							<div class="h6 col-sm-6">9:00 - 23:00</div>
+							<div class="h6 col-sm-6"><?php echo $rv_nedelja?></div>
 						</div>
 						<!-- END RADNO VREME BLOCK -->
 					</div>
@@ -83,15 +82,13 @@
 				</div>
 				<!-- TAGOVI -->
 				<div class="row mt-2">
-					<span class="h5 mr-2">Tagovi:</span>						
-					<span class="tag text-white bg-info h6 mr-1 px-3">Bezalkoholna pica</span>
-					<span class="tag text-white bg-info h6 mr-1 px-3">Likeri</span>
-					<span class="tag text-white bg-info h6 mr-1 px-3">Vitaminski napici</span>
-					<span class="tag text-white bg-info h6 mr-1 px-3">Kokteli</span>
-					<span class="tag text-white bg-info h6 mr-1 px-3">Vina</span>
-					<span class="tag text-white bg-info h6 mr-1 px-3">Zestina</span>
-					<span class="tag text-white bg-info h6 mr-1 px-3">Kafa special</span>
-					<span class="tag text-white bg-info h6 mr-1 px-3">Craft pivo</span>
+					<span class="h5 mr-2">Tagovi:</span>
+					<?php 
+						foreach ( $tagovi as $tag){
+							$data['tag'] = $tag;
+							$this->load->view('partials/tag.php',$data);
+						}
+					?>						
 				</div>
 				<!-- END TAGOVI -->
 			</div>
@@ -123,7 +120,7 @@
 <div class="container">
 	<div class="rez-form jumbotron ">
 		<div class="h3">Opis:</div>
-		<div id="opis"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></div>
+		<div id="opis"><p><?php echo $opis?></p></div>
 	</div>
 </div>	
 <!-- END OPIS -->
@@ -134,19 +131,19 @@
 		<div class="col" style="height:inherit;">
 			<div class="jumbotron rez-form  mb-0 h-100" style="height:inherit;">
 				<div class="h4 text-center">Izdvajamo sa menija:</div>
-				<div class="mt-4 text-center" id="samenija">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fi</div>
+				<div class="mt-4 text-center" id="samenija"><?php echo $info1?></div>
 			</div>
 		</div>
 		<div class="col" style="height:inherit;">
 			<div class="jumbotron rez-form  mb-0 h-100" style="height:inherit;">
 				<div class="h4 text-center">Po cemu se razlikujemo od drugih:</div>
-				<div class="mt-4 text-center" id="razlike">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fi</div>
+				<div class="mt-4 text-center" id="razlike"><?php echo $info2?></div>
 			</div>
 		</div>
 		<div class="col" style="height:inherit;">
 			<div class="jumbotron rez-form  mb-0 h-100" style="height:inherit;">
 				<div class="h4 text-center">Zasto da dodjete kod nas:</div>
-				<div class="mt-4 text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fi</div>
+				<div class="mt-4 text-center"><?php echo $info3?></div>
 			</div>
 		</div>
 	</div>
