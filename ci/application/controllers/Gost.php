@@ -23,31 +23,6 @@ class Gost extends CI_Controller {
 		if ($glavniDeo != NULL) $this->load->view($glavniDeo, $data);
         $this->load->view("partials/footer.php");
 	}
-	
-	public function ispisiStranicu($id){
-		$this->load->view("partials/header.php");
-		$uo = $this->ModelLokal->getUO($id);
-		$tagovi = $this->ModelLokal->dohvatiTagoveUO($id);
-		$data['id'] = $uo->IDUO;
-		$data['naziv'] = $uo->Naziv;
-		$data['avgocena'] = $uo->AvgOcena;
-		$data['adresa'] = $uo->Adresa;
-		$data['rv_ponpet'] = $uo->PonPet;
-		$data['rv_subota'] = $uo->Sub;
-		$data['rv_nedelja'] = $uo->Ned;
-		$data['tagovi'] = $tagovi;
-		$data['opis'] = $uo->Opis;
-		$data['info1'] = $uo->Info1;
-		$data['info2'] = $uo->Info2;
-		$data['info3'] = $uo->Info3;
-		$data['jerestoran'] = $uo->JeRestoran;
-		$data['jekafic'] = $uo->JeKafic;
-		$data['jebrzahrana'] = $uo->JeBrzaHrana;
-		$this->load->view("stranicaLokala.php",$data);
-		$this->load->view("partials/footer.php");
-		
-		
-	}
 
 	public function lp(){
 		$this->load->view("partials/header_lp.php");
@@ -108,6 +83,7 @@ class Gost extends CI_Controller {
 		if ( $IDUO!=NULL ){
 			#Ucitavanje podataka za prikaz na stranici
 			$uoData = $this->ModelLokal->getUO($IDUO);
+			if($uoData == NULL) redirect(site_url());
 			$tagovi = $this->ModelLokal->dohvatiTagoveUO($IDUO);
 			$this->load->view("stranicaLokala.php", array ("data"=>$uoData, "tagovi"=>$tagovi));
 		}else $this->load->view("stranicaLokala.php");
@@ -198,27 +174,11 @@ class Gost extends CI_Controller {
 
 		$query = $this->ModelLokal->naprednaPretragaLokala($pice,$hrana,$ambijent,$ekstra);
 		
-		foreach($query->result() as $row){
-			if( ($row->Pice & $pice) > 0 || ($row->Hrana & $hrana) > 0 || ($row->Ambijent & $ambijent) > 0 || ($row->Ekstra & $ekstra) > 0){
-				if($row->Vidljivost != 0){
-					$data['id'] = $row->IDUO;
-					$data['tagovi'] = $this->ModelLokal->dohvatiTagoveUO($row->IDUO);
-					$data['slika'] = site_url('Gost/stranica_lokala');
-					$data['naziv'] = $row->Naziv;
-					$data['avgocena'] = $row->AvgOcena;
-					$data['adresa'] = $row->Adresa;
-					$data['rv_ponpet'] = $row->PonPet;
-					$data['rv_subota'] = $row->Sub;
-					$data['rv_nedelja'] = $row->Ned;
-					$data['opis'] = $row->Opis;
-					$data['info1'] = $row->Info1;
-					$data['info2'] = $row->Info2;
-					$data['info3'] = $row->Info3;
-					$data['jerestoran'] = $row->JeRestoran;
-					$data['jekafic'] = $row->JeKafic;
-					$data['jebrzahrana'] = $row->JeBrzaHrana;
-
-					$this->load->view("partials/rezultat_pretrage_lokal_box.php",$data);
+		foreach($query->result() as $uoData){
+			if( ($uoData->Pice & $pice) > 0 || ($uoData->Hrana & $hrana) > 0 || ($uoData->Ambijent & $ambijent) > 0 || ($uoData->Ekstra & $ekstra) > 0){
+				if($uoData->Vidljivost != 0){
+					$tagovi = $this->ModelLokal->dohvatiTagoveUO($uoData->IDUO);
+					$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi));
 				}
 			}
 		}

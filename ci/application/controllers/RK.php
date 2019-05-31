@@ -110,7 +110,7 @@ class RK extends CI_Controller {
         $iduo = $this->input->post('uoid');                            //na stranici lokala postoji hidden polje uoid
         $this->ModelKomentar->dodaj_komentar($komentar,$ocena,$iduo);
        // $this->ModelKomentara->ispis_komentara($komentar,$ocena,$iduo);
-        redirect("Gost/stranica_lokala");
+        redirect("Gost/stranica_lokala/".$iduo);
     }
 
 }
