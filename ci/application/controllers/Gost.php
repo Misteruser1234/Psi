@@ -100,20 +100,38 @@ class Gost extends CI_Controller {
 	public function rezultat_pretrage(){
         $this->prikazi("rezultatPretrage.php");
 	}
-	public function stranica_lokala(){
+
+
+	public function stranica_lokala($IDUO=NULL){
 		$this->load->view("partials/header.php");
-		$this->load->view("stranicaLokala.php");
-		#$this->prosecna_ocena();
-		#$this->load->view("partials/komentari-prefix.php");
-		#$this->load->view("partials/komentari.php");
-		#$this->ispis_komentara();
-		#$this->load->view("partials/komentari-postfix.php");
+		
+		if ( $IDUO!=NULL ){
+			#Ucitavanje podataka za prikaz na stranici
+			$uoData = $this->ModelLokal->getUO($IDUO);
+			$tagovi = $this->ModelLokal->dohvatiTagoveUO($IDUO);
+			$this->load->view("stranicaLokala.php", array ("data"=>$uoData, "tagovi"=>$tagovi));
+		}else $this->load->view("stranicaLokala.php");
+		
+		
+		#Ucitavanje komentara
+		if ($IDUO != NULL){
+			$komentari = $this->ModelKomentar->dohvatiKomentareZaUO($IDUO);
+			foreach ( $komentari as $komentar ) $this->load->view("partials/komentar.php", (array) $komentar);
+		}
+	
+		#Ucitavanje forme za ostavljanje komentara
+		if ($this->session->userdata("tip") != NULL) {
+			$this->load->view("partials/link-stranicaLokala-Komentari.php", array("ID" => $IDUO));
+		}
+
 		$this->load->view("partials/footer.php");
+
 	}
 
 	public function registracija(){
 		$this->prikazi("register.php");
 	}
+
 
 	public function registerGreska($tip, $data){
 		$podaci = [];
