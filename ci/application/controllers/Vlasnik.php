@@ -7,7 +7,7 @@ public $mesto;
 public $ostalo;
 	public function __construct() {
         parent::__construct();
-        $this->load->model("ModelUO");
+        $this->load->model("ModelLokal");
         $this->pice=0;
         $this->jela=0;
         $this->mesto=0;
@@ -71,9 +71,22 @@ public function odbaci(){
         $kafic = $this->input->post('kafic');
         $brza = $this->input->post('brza');
 
-        $ponpet = $this->input->post('ponpet');
-        $subota = $this->input->post('subota');
-        $nedelja = $this->input->post('nedelja');
+        $ponpetOd = $this->input->post('ponpetOd');
+        $ponpetDo = $this->input->post('ponpetDo');
+
+        $subOd = $this->input->post('subOd');
+        $subDo = $this->input->post('subDo');
+        
+        $nedOd = $this->input->post('nedOd');
+        $nedDo = $this->input->post('nedDo');
+
+        $ponpet = $ponpetOd . "-" . $ponpetDo;
+        $subota = $subOd. "-" . $subDo;
+        $nedelja = $nedOd . "-" . $nedDo;
+
+        if($ponpet="00-00") $ponpet=NULL;
+        if($sub="00-00") $sub=NULL;
+        if($ned="00-00") $nedt=NULL;
 
       
         $pice1 = $this->input->post('craft');
@@ -134,8 +147,8 @@ public function odbaci(){
         $this->mesto=$this->calculateInt($mesto1,$mesto2,$mesto3,$mesto4,$mesto5,$mesto6,$mesto7,$mesto8);
         $this->ostalo=$this->calculateInt($ostalo1,$ostalo2,$ostalo3,$ostalo4,$ostalo5,$ostalo6,$ostalo7,$ostalo8);
 
-        $this->ModelUO->insertUoImg($slika1,$slika2,$slika3,$slika4,$slika5,$slika6,$slika7,$slika8,$slika9);
-        $this->ModelUO->insertUO($naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja,
+        $this->ModelLokal->insertUoImg($slika1,$slika2,$slika3,$slika4,$slika5,$slika6,$slika7,$slika8,$slika9);
+        $this->ModelLokal->insertUO($naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja,
         $this->pice,$this->jela,$this->mesto,$this->ostalo,$opis,$samenija,$razlike,$zasto);
         redirect("Vlasnik/spisak_uo");
          }

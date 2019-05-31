@@ -10,6 +10,7 @@ class ModelLokal extends CI_Model {
 
     public function __construct() {
         parent::__construct();
+        $this->korisnik=$this->session->userdata("username");
     }
     public function naprednaPretragaLokala($data1,$data2,$data3,$data4){
         $query2 = $this->db->query("SELECT * FROM UO as U, PHAE AS P  WHERE P.Pice>='".$data1."' AND P.Hrana>='".$data2."' AND P.Ambijent>='".$data3."' AND P.Ekstra>='".$data4."' AND P.IDUO = U.IDUO");
@@ -73,6 +74,24 @@ class ModelLokal extends CI_Model {
         
         return $res;        
    }
+   public function insertUO($naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja,$pice,$jela,$mesto,$ostalo,$opis,$samenija,$razlike,$zasto){
+    $pom=0;
+    $result=$this->db->query("SELECT * from Korisnik where Username='".$this->korisnik."'");
+    $idkor = $result->row();
+    $query=$this->db->query("INSERT into uo(Opis,PonPet,Sub,Ned,AvgOcena,Adresa,Gmaps,Odobren,Vidljivost,Info1,Info2,Info3,Naziv,JeRestoran,JeKafic,JeBrzaHrana) 
+    values ('".$opis."','".$ponpet."','".$subota."','".$nedelja."','".$pom."','".$adresa."','".$mapa."','".$pom."','".$pom."','".$samenija."','".$razlike."','".$zasto."','".$naziv."','".$restoran."','".$kafic."','".$brza."')");
+    $maxid = $this->db->query('SELECT MAX(IDUO) AS `maxid` FROM `uo`')->row()->maxid;
+    $query=$this->db->query("INSERT into phae(IDUO,Pice,Hrana,Ambijent,Ekstra) values ('".$maxid."','".$pice."','".$jela."','".$mesto."','".$ostalo."')");
+    $query=$this->db->query("INSERT into jevlasnik(IDKorisnik,IDUO) values ('".$idkor->IDKorisnik."','".$maxid."')");
+}
+public function insertUoImg($d1,$d2,$d3,$d4,$d5,$d6,$d7,$d8,$d9){
+    
+
+
+}
+
+
+
 }
  
     
