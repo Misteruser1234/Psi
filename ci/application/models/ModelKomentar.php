@@ -22,9 +22,10 @@
         
     }
     public function nadji_komentar($iduo){
-        $query=$this->db->query("SELECT username, komentar, ocena from Komiocena as ko, korisnik as k where ko.IDUO='".$iduo."' and ko.idkorisnik ='k.idkorisnik'");
-        //$query=$this->db->query("SELECT * from pom where IDUO='".$iduo."'");
-        return $query;
+        //$query=$this->db->query("SELECT username, komentar, ocena from Komiocena as ko, korisnik as k where ko.IDUO='".$iduo."' and ko.idkorisnik ='k.idkorisnik'");
+        $query=$this->db->query("SELECT * from pom where IDUO='".$iduo."'");
+        //print_r($query->result());
+        return $query->result();
         // $kk = $query->result();
         // echo $kk->row()->komentar;
     }
