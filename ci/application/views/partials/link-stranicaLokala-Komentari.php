@@ -5,7 +5,7 @@
 		</div>
 	</div>
 	<form id="komentar" name="komentari" action="<?php echo site_url('RK/upis_komentara') ?>" method="post">
-		<input type="hidden" id="uoid" name="uoid" value="1">
+		<input type="hidden" id="uoid" name="uoid" value="<?php echo $ID ?>">
 		<div class="row mt-2">
 			<div class="col-md-11">
 				<div class="form-group">

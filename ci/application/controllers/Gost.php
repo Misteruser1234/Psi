@@ -87,8 +87,10 @@ public function stranica_lokala($IDUO=NULL){
 	}
 
 	#Ucitavanje forme za ostavljanje komentara
-	if ($this->session->userdata("tip") != NULL) $this->load->view("partials/link-stranicaLokala-Komentari.php");
-	
+	if ($this->session->userdata("tip") != NULL) {
+		$this->load->view("partials/link-stranicaLokala-Komentari.php", array("ID" => $IDUO));
+	}
+
 	$this->load->view("partials/footer.php");
 }
 
