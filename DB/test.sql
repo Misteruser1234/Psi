@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: May 28, 2019 at 11:57 PM
--- Server version: 5.7.24
--- PHP Version: 7.2.10
+-- Host: 127.0.0.1:3306
+-- Generation Time: May 31, 2019 at 02:37 AM
+-- Server version: 5.7.26
+-- PHP Version: 7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `test`
 --
-CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `test`;
 
 -- --------------------------------------------------------
 
@@ -31,9 +29,11 @@ USE `test`;
 --
 
 DROP TABLE IF EXISTS `jevlasnik`;
-CREATE TABLE `jevlasnik` (
+CREATE TABLE IF NOT EXISTS `jevlasnik` (
   `IDKorisnik` int(11) NOT NULL,
-  `IDUO` int(11) NOT NULL
+  `IDUO` int(11) NOT NULL,
+  PRIMARY KEY (`IDKorisnik`,`IDUO`),
+  KEY `R_8` (`IDUO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -43,13 +43,36 @@ CREATE TABLE `jevlasnik` (
 --
 
 DROP TABLE IF EXISTS `komiocena`;
-CREATE TABLE `komiocena` (
-  `IDKomiOcena` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `komiocena` (
+  `IDKomiOcena` int(11) NOT NULL AUTO_INCREMENT,
   `IDKorisnik` int(11) DEFAULT NULL,
   `IDUO` int(11) DEFAULT NULL,
   `Komentar` longtext,
-  `Ocena` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Ocena` int(11) DEFAULT NULL,
+  PRIMARY KEY (`IDKomiOcena`),
+  KEY `R_5` (`IDUO`),
+  KEY `R_4` (`IDKorisnik`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `komiocena`
+--
+
+INSERT INTO `komiocena` (`IDKomiOcena`, `IDKorisnik`, `IDUO`, `Komentar`, `Ocena`) VALUES
+(2, 1, 1, 'proba 1', 1),
+(3, 1, 1, 'proba 2', 3),
+(4, 1, 1, 'proba 3', 5),
+(5, 1, 1, 'proba 4', 2),
+(6, 1, 1, 'proba 5', 5),
+(7, 1, 1, 'lokala je super', 4),
+(8, 1, 1, 'babab', 3),
+(9, 1, 1, 'proba', 1),
+(10, 1, 1, 'cao', 5),
+(11, 1, 1, 'proba 234', 1),
+(12, 1, 1, 'kkk', 1),
+(13, 1, 1, 'kk', 1),
+(14, 1, 1, 'jhjh', 1),
+(15, 1, 1, 'op', 5);
 
 -- --------------------------------------------------------
 
@@ -58,13 +81,14 @@ CREATE TABLE `komiocena` (
 --
 
 DROP TABLE IF EXISTS `korisnik`;
-CREATE TABLE `korisnik` (
-  `IDKorisnik` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `korisnik` (
+  `IDKorisnik` int(11) NOT NULL AUTO_INCREMENT,
   `Username` varchar(20) DEFAULT NULL,
   `Password` varchar(32) DEFAULT NULL,
   `Tip` char(18) DEFAULT NULL,
-  `AvatarPath` varchar(32) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `AvatarPath` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`IDKorisnik`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `korisnik`
@@ -82,13 +106,28 @@ INSERT INTO `korisnik` (`IDKorisnik`, `Username`, `Password`, `Tip`, `AvatarPath
 --
 
 DROP TABLE IF EXISTS `phae`;
-CREATE TABLE `phae` (
+CREATE TABLE IF NOT EXISTS `phae` (
   `IDUO` int(11) NOT NULL,
   `Pice` tinyint(3) UNSIGNED DEFAULT NULL,
   `Hrana` tinyint(3) UNSIGNED DEFAULT NULL,
   `Ambijent` tinyint(3) UNSIGNED DEFAULT NULL,
-  `Ekstra` tinyint(3) UNSIGNED DEFAULT NULL
+  `Ekstra` tinyint(3) UNSIGNED DEFAULT NULL,
+  PRIMARY KEY (`IDUO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `pom`
+-- (See below for the actual view)
+--
+DROP VIEW IF EXISTS `pom`;
+CREATE TABLE IF NOT EXISTS `pom` (
+`iduo` int(11)
+,`username` varchar(20)
+,`komentar` longtext
+,`ocena` int(11)
+);
 
 -- --------------------------------------------------------
 
@@ -97,9 +136,11 @@ CREATE TABLE `phae` (
 --
 
 DROP TABLE IF EXISTS `sadrzi`;
-CREATE TABLE `sadrzi` (
+CREATE TABLE IF NOT EXISTS `sadrzi` (
   `IDSearchKeywords` int(11) NOT NULL,
-  `IDUO` int(11) NOT NULL
+  `IDUO` int(11) NOT NULL,
+  PRIMARY KEY (`IDSearchKeywords`,`IDUO`),
+  KEY `R_12` (`IDUO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -109,9 +150,10 @@ CREATE TABLE `sadrzi` (
 --
 
 DROP TABLE IF EXISTS `searchkeywords`;
-CREATE TABLE `searchkeywords` (
-  `IDSearchKeywords` int(11) NOT NULL,
-  `Word` varchar(32) DEFAULT NULL
+CREATE TABLE IF NOT EXISTS `searchkeywords` (
+  `IDSearchKeywords` int(11) NOT NULL AUTO_INCREMENT,
+  `Word` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`IDSearchKeywords`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -121,8 +163,8 @@ CREATE TABLE `searchkeywords` (
 --
 
 DROP TABLE IF EXISTS `uo`;
-CREATE TABLE `uo` (
-  `IDUO` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `uo` (
+  `IDUO` int(11) NOT NULL AUTO_INCREMENT,
   `Opis` longtext,
   `PonPet` varchar(32) DEFAULT NULL,
   `Sub` varchar(32) DEFAULT NULL,
@@ -138,8 +180,18 @@ CREATE TABLE `uo` (
   `Naziv` varchar(32) DEFAULT NULL,
   `JeRestoran` tinyint(1) DEFAULT NULL,
   `JeKafic` tinyint(1) DEFAULT NULL,
-  `JeBrzaHrana` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `JeBrzaHrana` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`IDUO`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `uo`
+--
+
+INSERT INTO `uo` (`IDUO`, `Opis`, `PonPet`, `Sub`, `Ned`, `AvgOcena`, `Adresa`, `Gmaps`, `Odobren`, `Vidljivost`, `Info1`, `Info2`, `Info3`, `Naziv`, `JeRestoran`, `JeKafic`, `JeBrzaHrana`) VALUES
+(1, NULL, NULL, NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -148,76 +200,22 @@ CREATE TABLE `uo` (
 --
 
 DROP TABLE IF EXISTS `uoslike`;
-CREATE TABLE `uoslike` (
+CREATE TABLE IF NOT EXISTS `uoslike` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `IDUO` int(11) NOT NULL,
-  `Path` varchar(32) DEFAULT NULL
+  `Path` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `R_3` (`IDUO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Indexes for dumped tables
---
+-- --------------------------------------------------------
 
 --
--- Indexes for table `jevlasnik`
+-- Structure for view `pom`
 --
-ALTER TABLE `jevlasnik`
-  ADD PRIMARY KEY (`IDKorisnik`,`IDUO`),
-  ADD KEY `R_8` (`IDUO`);
+DROP TABLE IF EXISTS `pom`;
 
---
--- Indexes for table `komiocena`
---
-ALTER TABLE `komiocena`
-  ADD PRIMARY KEY (`IDKomiOcena`),
-  ADD KEY `R_5` (`IDUO`),
-  ADD KEY `R_4` (`IDKorisnik`);
-
---
--- Indexes for table `korisnik`
---
-ALTER TABLE `korisnik`
-  ADD PRIMARY KEY (`IDKorisnik`);
-
---
--- Indexes for table `phae`
---
-ALTER TABLE `phae`
-  ADD PRIMARY KEY (`IDUO`);
-
---
--- Indexes for table `sadrzi`
---
-ALTER TABLE `sadrzi`
-  ADD PRIMARY KEY (`IDSearchKeywords`,`IDUO`),
-  ADD KEY `R_12` (`IDUO`);
-
---
--- Indexes for table `searchkeywords`
---
-ALTER TABLE `searchkeywords`
-  ADD PRIMARY KEY (`IDSearchKeywords`);
-
---
--- Indexes for table `uo`
---
-ALTER TABLE `uo`
-  ADD PRIMARY KEY (`IDUO`);
-
---
--- Indexes for table `uoslike`
---
-ALTER TABLE `uoslike`
-  ADD PRIMARY KEY (`IDUO`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `korisnik`
---
-ALTER TABLE `korisnik`
-  MODIFY `IDKorisnik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `pom`  AS  select `ko`.`IDUO` AS `iduo`,`k`.`Username` AS `username`,`ko`.`Komentar` AS `komentar`,`ko`.`Ocena` AS `ocena` from (`korisnik` `k` join `komiocena` `ko`) where (`ko`.`IDKorisnik` = `k`.`IDKorisnik`) ;
 
 --
 -- Constraints for dumped tables
