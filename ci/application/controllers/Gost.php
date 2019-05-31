@@ -75,13 +75,20 @@ class Gost extends CI_Controller {
 	public function rezultat_pretrage(){
         $this->prikazi("rezultatPretrage.php");
 	}
-	public function stranica_lokala($IDUO){
+#TODO public function stranica_lokala($IDUO){
+	public function stranica_lokala(){
 		$this->load->view("partials/header.php");
+
 		$this->load->view("stranicaLokala.php");
 
-		#Ucitavanje komentara
-		$komentari = $this->ModelKomentar->dohvatiKomentareZaUO($IDUO);
-		foreach ( $komentari as $komentar ) $this->load->view("partials/komentar.php", $komentar);
+//TODO	#Ucitavanje komentara
+//		$komentari = $this->ModelKomentar->dohvatiKomentareZaUO($IDUO);
+//		foreach ( $komentari as $komentar ) $this->load->view("partials/komentar.php", $komentar);
+
+		$this->load->view("partials/komentar.php");
+		$this->load->view("partials/komentar.php");
+		$this->load->view("partials/komentar.php");
+
 
 		#Ucitavanje forme za ostavljanje komentara
 		if ($this->session->userdata("tip") != NULL) $this->load->view("partials/link-stranicaLokala-Komentari.php");
