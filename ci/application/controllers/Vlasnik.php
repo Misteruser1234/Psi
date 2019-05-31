@@ -7,7 +7,12 @@ public $mesto;
 public $ostalo;
 	public function __construct() {
         parent::__construct();
+
+        #MODELI
         $this->load->model("ModelLokal");
+        $this->load->model("ModelSearchKeywords");
+        
+        
         $this->pice=0;
         $this->jela=0;
         $this->mesto=0;
@@ -59,98 +64,99 @@ public function odbaci(){
     public function ubaciUO(){
         if (isset($_POST['sacuvaj'])) {
             # Publish-button was clicked
+
+            $naziv = $this->input->post('naziv');
+            
+            $adresa = $this->input->post('adresa');
+            $mapa = $this->input->post('mapa');
+
+            $restoran = $this->input->post('restoran');
+            $kafic = $this->input->post('kafic');
+            $brza = $this->input->post('brza');
+
+            $ponpetOd = $this->input->post('ponpetOd');
+            $ponpetDo = $this->input->post('ponpetDo');
+
+            $subOd = $this->input->post('subOd');
+            $subDo = $this->input->post('subDo');
+            
+            $nedOd = $this->input->post('nedOd');
+            $nedDo = $this->input->post('nedDo');
+
+            $ponpet = $ponpetOd . "-" . $ponpetDo;
+            $subota = $subOd. "-" . $subDo;
+            $nedelja = $nedOd . "-" . $nedDo;
+
+            if($ponpet="00-00") $ponpet=NULL;
+            if($sub="00-00") $sub=NULL;
+            if($ned="00-00") $nedt=NULL;
+
         
-       
-
-        $naziv = $this->input->post('naziv');
-        
-        $adresa = $this->input->post('adresa');
-        $mapa = $this->input->post('mapa');
-
-        $restoran = $this->input->post('restoran');
-        $kafic = $this->input->post('kafic');
-        $brza = $this->input->post('brza');
-
-        $ponpetOd = $this->input->post('ponpetOd');
-        $ponpetDo = $this->input->post('ponpetDo');
-
-        $subOd = $this->input->post('subOd');
-        $subDo = $this->input->post('subDo');
-        
-        $nedOd = $this->input->post('nedOd');
-        $nedDo = $this->input->post('nedDo');
-
-        $ponpet = $ponpetOd . "-" . $ponpetDo;
-        $subota = $subOd. "-" . $subDo;
-        $nedelja = $nedOd . "-" . $nedDo;
-
-        if($ponpet="00-00") $ponpet=NULL;
-        if($sub="00-00") $sub=NULL;
-        if($ned="00-00") $nedt=NULL;
-
-      
-        $pice1 = $this->input->post('craft');
-        $pice2 = $this->input->post('kafaspec');
-        $pice3 = $this->input->post('zestina');
-        $pice4 = $this->input->post('vina');
-        $pice5 = $this->input->post('kokteli');
-        $pice6 = $this->input->post('vitaminski');
-        $pice7 = $this->input->post('likeri');
-        $pice8 = $this->input->post('bezalkoholna');
+            $pice1 = $this->input->post('craft');
+            $pice2 = $this->input->post('kafaspec');
+            $pice3 = $this->input->post('zestina');
+            $pice4 = $this->input->post('vina');
+            $pice5 = $this->input->post('kokteli');
+            $pice6 = $this->input->post('vitaminski');
+            $pice7 = $this->input->post('likeri');
+            $pice8 = $this->input->post('bezalkoholna');
 
 
-        $jela1 = $this->input->post('kuvana');
-        $jela2 = $this->input->post('dnevni');
-        $jela3 = $this->input->post('rostilj');
-        $jela4 = $this->input->post('pizza');
-        $jela5 = $this->input->post('salate');
-        $jela6 = $this->input->post('pecenje');
-        $jela7 = $this->input->post('sushi');
-        $jela8 = $this->input->post('sendvici');
+            $jela1 = $this->input->post('kuvana');
+            $jela2 = $this->input->post('dnevni');
+            $jela3 = $this->input->post('rostilj');
+            $jela4 = $this->input->post('pizza');
+            $jela5 = $this->input->post('salate');
+            $jela6 = $this->input->post('pecenje');
+            $jela7 = $this->input->post('sushi');
+            $jela8 = $this->input->post('sendvici');
 
-        $mesto1= $this->input->post('basta');
-        $mesto2 = $this->input->post('pogled');
-        $mesto3 = $this->input->post('reka');
-        $mesto4 = $this->input->post('centar');
-        $mesto5 = $this->input->post('balkon');
-        $mesto6 = $this->input->post('svirka');
-        $mesto7 = $this->input->post('chill');
-        $mesto8 = $this->input->post('splav');
+            $mesto1= $this->input->post('basta');
+            $mesto2 = $this->input->post('pogled');
+            $mesto3 = $this->input->post('reka');
+            $mesto4 = $this->input->post('centar');
+            $mesto5 = $this->input->post('balkon');
+            $mesto6 = $this->input->post('svirka');
+            $mesto7 = $this->input->post('chill');
+            $mesto8 = $this->input->post('splav');
 
-        $ostalo1 = $this->input->post('wifi');
-        $ostalo2 = $this->input->post('pet');
-        $ostalo3 = $this->input->post('parking');
-        $ostalo4 = $this->input->post('baby');
-        $ostalo5 = $this->input->post('nonsmoking');
-        $ostalo6 = $this->input->post('dostava');
-        $ostalo7 = $this->input->post('happy');
-        $ostalo8 = $this->input->post('tv');
+            $ostalo1 = $this->input->post('wifi');
+            $ostalo2 = $this->input->post('pet');
+            $ostalo3 = $this->input->post('parking');
+            $ostalo4 = $this->input->post('baby');
+            $ostalo5 = $this->input->post('nonsmoking');
+            $ostalo6 = $this->input->post('dostava');
+            $ostalo7 = $this->input->post('happy');
+            $ostalo8 = $this->input->post('tv');
 
-        $slika1 = $this->input->post('slika1');
-        $slika2 = $this->input->post('slika2');
-        $slika3 = $this->input->post('slika3');
-        $slika4 = $this->input->post('slika4');
-        $slika5 = $this->input->post('slika5');
-        $slika6 = $this->input->post('slika6');
-        $slika7 = $this->input->post('slika7');
-        $slika8 = $this->input->post('slika8');
-        $slika9 = $this->input->post('slika9');
+            $slika1 = $this->input->post('slika1');
+            $slika2 = $this->input->post('slika2');
+            $slika3 = $this->input->post('slika3');
+            $slika4 = $this->input->post('slika4');
+            $slika5 = $this->input->post('slika5');
+            $slika6 = $this->input->post('slika6');
+            $slika7 = $this->input->post('slika7');
+            $slika8 = $this->input->post('slika8');
+            $slika9 = $this->input->post('slika9');
 
-        $opis = $this->input->post('opis');
-        $samenija = $this->input->post('samenija');
-        $razlike = $this->input->post('razlike');
-        $zasto= $this->input->post('zasto');
-        print_r($samenija);
+            $opis = $this->input->post('opis');
+            $samenija = $this->input->post('samenija');
+            $razlike = $this->input->post('razlike');
+            $zasto= $this->input->post('zasto');
+            print_r($samenija);
 
-        $this->pice=$this->calculateInt($pice1,$pice2,$pice3,$pice4,$pice5,$pice6,$pice7,$pice8);
-        $this->jela=$this->calculateInt($jela1,$jela2,$jela3,$jela4,$jela5,$jela6,$jela7,$jela8);
-        $this->mesto=$this->calculateInt($mesto1,$mesto2,$mesto3,$mesto4,$mesto5,$mesto6,$mesto7,$mesto8);
-        $this->ostalo=$this->calculateInt($ostalo1,$ostalo2,$ostalo3,$ostalo4,$ostalo5,$ostalo6,$ostalo7,$ostalo8);
+            $this->pice=$this->calculateInt($pice1,$pice2,$pice3,$pice4,$pice5,$pice6,$pice7,$pice8);
+            $this->jela=$this->calculateInt($jela1,$jela2,$jela3,$jela4,$jela5,$jela6,$jela7,$jela8);
+            $this->mesto=$this->calculateInt($mesto1,$mesto2,$mesto3,$mesto4,$mesto5,$mesto6,$mesto7,$mesto8);
+            $this->ostalo=$this->calculateInt($ostalo1,$ostalo2,$ostalo3,$ostalo4,$ostalo5,$ostalo6,$ostalo7,$ostalo8);
 
-        $this->ModelLokal->insertUoImg($slika1,$slika2,$slika3,$slika4,$slika5,$slika6,$slika7,$slika8,$slika9);
-        $this->ModelLokal->insertUO($naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja,
-        $this->pice,$this->jela,$this->mesto,$this->ostalo,$opis,$samenija,$razlike,$zasto);
-        redirect("Vlasnik/spisak_uo");
+            $this->ModelLokal->insertUoImg($slika1,$slika2,$slika3,$slika4,$slika5,$slika6,$slika7,$slika8,$slika9);
+            $newID = $this->ModelLokal->insertUO($naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja, $this->pice,$this->jela,$this->mesto,$this->ostalo,$opis,$samenija,$razlike,$zasto);
+
+            #Generise keywords za dati UO i ubaci u bazu
+            $this->ModelSearchKeywords->generisiKeywordsZaUO($newID);
+
+            redirect("Vlasnik/spisak_uo");
          }
 
         elseif (isset($_POST['odbaci'])) {
