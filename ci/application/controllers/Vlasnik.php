@@ -214,5 +214,10 @@ public function UbaciSlike(){
         }
 
     }
+//BRISANJE UGOSTITELJSKOG OBJEKTA
+    public function brisi($iduo){
+        $this->ModelLokal->deleteUO($iduo);
+        redirect("Vlasnik/spisak_uo");
+    }
 
 }

@@ -99,8 +99,10 @@ public function insertUoImg($data,$id){
         $this->db->set("IDUO", $id);
         $this->db->set("Path", $pod);
         $this->db->insert("uoslike");
+    }
 }
-
+public function deleteUO($idou){
+    $query=$this->db->query("DELETE FROM UO where iduo='".$iduo."'");
 }
 }
  

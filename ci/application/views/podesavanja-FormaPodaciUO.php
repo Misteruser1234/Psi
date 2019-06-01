@@ -64,7 +64,7 @@ function previewImage(idslike,imefajla) {
 				<div class="col-sm-4">
 					<div class="row justify-content-center">
 						<label for="nesto" class=" col-sm-1 col-form-label text-right mr-3">od: </label>
-							<select class="form-control col-sm-2 " name="ponpetOd" id="exampleFormControlSelect1">
+							<select class="form-control col-sm-3" name="ponpetOd" id="exampleFormControlSelect1">
 									<option>00</option>
 									<option>01</option>
 									<option>02</option>
@@ -92,7 +92,7 @@ function previewImage(idslike,imefajla) {
 									<option>24</option>
 							</select>
 							<label for="nesto" class=" col-sm-1 col-form-label text-right mr-3">do: </label>
-						<select class="form-control col-sm-2 " name="ponpetDo" id="exampleFormControlSelect1">
+						<select class="form-control col-sm-3 " name="ponpetDo" id="exampleFormControlSelect1">
 						<option>00</option>
 									<option>01</option>
 									<option>02</option>
@@ -127,7 +127,7 @@ function previewImage(idslike,imefajla) {
 				<div class="col-sm-4">
 				<div class="row justify-content-center">
 						<label for="nesto" class=" col-sm-1 col-form-label text-right mr-3">od: </label>
-							<select class="form-control col-sm-2 " name="subOd" id="exampleFormControlSelect1">
+							<select class="form-control col-sm-3 " name="subOd" id="exampleFormControlSelect1">
 							<option>00</option>
 									<option>01</option>
 									<option>02</option>
@@ -155,7 +155,7 @@ function previewImage(idslike,imefajla) {
 									<option>24</option>
 							</select>
 							<label for="nesto" class=" col-sm-1 col-form-label text-right mr-3">do: </label>
-						<select class="form-control col-sm-2 " name="subDo" id="exampleFormControlSelect1">
+						<select class="form-control col-sm-3 " name="subDo" id="exampleFormControlSelect1">
 						<option>00</option>
 									<option>01</option>
 									<option>02</option>
@@ -190,7 +190,7 @@ function previewImage(idslike,imefajla) {
 				<div class="col-sm-4">
 				<div class="row justify-content-center">
 						<label for="nesto" class=" col-sm-1 col-form-label text-right mr-3">od: </label>
-							<select class="form-control col-sm-2 " name="nedOd" id="exampleFormControlSelect1">
+							<select class="form-control col-sm-3 " name="nedOd" id="exampleFormControlSelect1">
 							<option>00</option>
 									<option>01</option>
 									<option>02</option>
@@ -218,7 +218,7 @@ function previewImage(idslike,imefajla) {
 									<option>24</option>
 							</select>
 							<label for="nesto" class=" col-sm-1 col-form-label text-right mr-3">do: </label>
-						<select class="form-control col-sm-2 " name="nedDo" id="exampleFormControlSelect1">
+						<select class="form-control col-sm-3 " name="nedDo" id="exampleFormControlSelect1">
 						<option>00</option>
 									<option>01</option>
 									<option>02</option>
@@ -294,105 +294,105 @@ function previewImage(idslike,imefajla) {
 						<h1 class="h3">Hrana:</h1>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s2v1" name="kuvana" value="1">
-							<label class="form-check-label" for="s1v1">Kuvana jela</label>
+							<label class="form-check-label" for="s2v1">Kuvana jela</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s2v2" name="dnevni" value="1">
-							<label class="form-check-label" for="s1v2">Dnevni meni</label>
+							<label class="form-check-label" for="s2v2">Dnevni meni</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s2v3" name="rostilj" value="1">
-							<label class="form-check-label" for="s1v3">Rostilj</label>
+							<label class="form-check-label" for="s2v3">Rostilj</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s2v4" name="pizza" value="1">
-							<label class="form-check-label" for="s1v4">Pizza</label>
+							<label class="form-check-label" for="s2v4">Pizza</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s2v5" name="salate" value="1">
-							<label class="form-check-label" for="s1v5">Obrok salate</label>
+							<label class="form-check-label" for="s2v5">Obrok salate</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s2v6" name="pecenje" value="1">
-							<label class="form-check-label" for="s1v6">Pecenje</label>
+							<label class="form-check-label" for="s2v6">Pecenje</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s2v7" name="sushi" value="1">
-							<label class="form-check-label" for="s1v7">Sushi</label>
+							<label class="form-check-label" for="s2v7">Sushi</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s2v8" name="sendvici" value="1">
-							<label class="form-check-label" for="s1v8">Sendvici</label>
+							<label class="form-check-label" for="s2v8">Sendvici</label>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6 my-3">
 						<h1 class="h3">Ambijent:</h1>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s3v1" name="basta" value="1">
-							<label class="form-check-label" for="s1v1">Basta</label>
+							<label class="form-check-label" for="s3v1">Basta</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s3v2" name="pogled" value="1">
-							<label class="form-check-label" for="s1v2">Pogled</label>
+							<label class="form-check-label" for="s3v2">Pogled</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s3v3" name="reka" value="1">
-							<label class="form-check-label" for="s1v3">Reka</label>
+							<label class="form-check-label" for="s3v3">Reka</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s3v4" name="centar" value="1">
-							<label class="form-check-label" for="s1v4">Centar</label>
+							<label class="form-check-label" for="s3v4">Centar</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s3v5" name="balkon" value="1">
-							<label class="form-check-label" for="s1v5">Balkon</label>
+							<label class="form-check-label" for="s3v5">Balkon</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s3v6" name="svirka" value="1">
-							<label class="form-check-label" for="s1v6">Ziva svirka</label>
+							<label class="form-check-label" for="s3v6">Ziva svirka</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s3v7" name="chill" value="1">
-							<label class="form-check-label" for="s1v7">Chill</label>
+							<label class="form-check-label" for="s3v7">Chill</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s3v8" name="splav" value="1">
-							<label class="form-check-label" for="s1v8">Splav</label>
+							<label class="form-check-label" for="s3v8">Splav</label>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6 my-3">
 						<h1 class="h3">Extra:</h1>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s4v1" name="wifi" value="1">
-							<label class="form-check-label" for="s1v1">WiFi</label>
+							<label class="form-check-label" for="s4v1">WiFi</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s4v2" name="pet" value="1">
-							<label class="form-check-label" for="s1v2">Pet Frendly</label>
+							<label class="form-check-label" for="s4v2">Pet Frendly</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s4v3" name="parking" value="1">
-							<label class="form-check-label" for="s1v3">Parking</label>
+							<label class="form-check-label" for="s4v3">Parking</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s4v4" name="baby" value="1">
-							<label class="form-check-label" for="s1v4">Baby oprema</label>
+							<label class="form-check-label" for="s4v4">Baby oprema</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s4v5" name="nosmoking" value="1">
-							<label class="form-check-label" for="s1v5">No Smoking zona</label>
+							<label class="form-check-label" for="s4v5">No Smoking zona</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s4v6" name="dostava" value="1">
-							<label class="form-check-label" for="s1v6">Dostava</label>
+							<label class="form-check-label" for="s4v6">Dostava</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s4v7" name="happy" value="1">
-							<label class="form-check-label" for="s1v7">Happy hour</label>
+							<label class="form-check-label" for="s4v7">Happy hour</label>
 						</div>
 						<div class="form-check np-polje">
 							<input type="checkbox" class="form-check-input" id="s4v8" name="tv" value="1">
-							<label class="form-check-label" for="s1v8">TV</label>
+							<label class="form-check-label" for="s4v8">TV</label>
 						</div>
 					</div>
 				</div>
