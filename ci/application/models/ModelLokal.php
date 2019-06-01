@@ -52,10 +52,17 @@ class ModelLokal extends CI_Model {
         return $query->result();
     }
 
-    function updateOdobren($iduo){
+    public function updateOdobren($iduo){
         $query=$this->db->query("UPDATE UO SET Odobren='1' where IDUO='".$iduo."'");
     }
 
+    public function setVidljiva($iduo){
+        $this->db->query("UPDATE UO SET Vidljivost='1' WHERE IDUO='".$iduo."'");
+    }
+
+    public function setPrivatna($iduo){
+        $this->db->query("UPDATE UO SET Vidljivost='0' WHERE IDUO='".$iduo."'");
+    }
 
    #    VRACA STRING ARRAY TAGOVA UO SA DATIM $ID
    public function dohvatiTagoveUO($id){

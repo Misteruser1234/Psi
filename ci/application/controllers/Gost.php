@@ -175,7 +175,7 @@ class Gost extends CI_Controller {
 		$query = $this->ModelLokal->naprednaPretragaLokala($pice,$hrana,$ambijent,$ekstra);
 		
 		foreach($query->result() as $uoData){
-			if( ($uoData->Pice & $pice) > 0 || ($uoData->Hrana & $hrana) > 0 || ($uoData->Ambijent & $ambijent) > 0 || ($uoData->Ekstra & $ekstra) > 0){
+			if( ($uoData->Pice & $pice) >= 0 || ($uoData->Hrana & $hrana) >= 0 || ($uoData->Ambijent & $ambijent) >= 0 || ($uoData->Ekstra & $ekstra) >= 0){
 				if($uoData->Vidljivost != 0){
 					$tagovi = $this->ModelLokal->dohvatiTagoveUO($uoData->IDUO);
 					$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi));

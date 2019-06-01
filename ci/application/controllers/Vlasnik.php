@@ -219,6 +219,17 @@ public $ostalo;
         }
 
     }
+
+    public function postavi_vidljiva($iduo){
+        $this->ModelLokal->setVidljiva($iduo);
+        redirect('Vlasnik/spisak_uo');
+    }
+
+    public function postavi_privatna($iduo){
+        $this->ModelLokal->setPrivatna($iduo);
+        redirect('Vlasnik/spisak_uo');
+    }
+
 //BRISANJE UGOSTITELJSKOG OBJEKTA
     public function brisi_UO($iduo){
         $this->ModelLokal->deleteUO($iduo);
