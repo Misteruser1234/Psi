@@ -53,7 +53,11 @@ public $ostalo;
 
         //foreach ispisivanje vidljivosti lokala
         foreach($uoList as $uo){
-            $this->load->view("partials/podesavanja-spisakUO-single-status.php", array ("data"=>$uo));
+            if($uo->Odobren == 1) {
+                $this->load->view("partials/podesavanja-spisakUO-single-status.php", array ("data"=>$uo));
+            }else{
+                $this->load->view("partials/podesavanja-spisakUO-single-odobrenje.php");
+            }
         }
 
         //ucitavanje postfixa 
