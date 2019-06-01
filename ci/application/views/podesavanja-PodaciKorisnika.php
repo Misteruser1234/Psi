@@ -21,7 +21,7 @@ function previewImage(idslike,imefajla) {
 						<div class="row">
 						<div class="col-md-3 mb-3 px">
 							<div class="col-sm-12  slika-korisnika">
-								<img class="img-fluid img-thumbnail" src="<?php echo base_url('img/account.jpg');?>" alt id="profilna">
+								<img class="img-fluid img-thumbnail" src="<?php echo $data; ?>" id="profilna">
 							</div>
 							<div class="row">
 							<div class="col-sm-12">
