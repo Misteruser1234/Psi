@@ -79,6 +79,7 @@ class Gost extends CI_Controller {
 
 	public function stranica_lokala($IDUO=NULL){
 		$this->load->view("partials/header.php");
+		$this->load->view("galerija.php");
 		
 		if ( $IDUO!=NULL ){
 			#Ucitavanje podataka za prikaz na stranici
