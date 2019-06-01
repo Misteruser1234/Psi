@@ -51,6 +51,12 @@ class ModelKorisnik extends CI_Model {
         $query=$this->db->query("update Korisnik SET Password='$password' where Username='".$username."'");
     }
 
+    function updateProfil($data){
+        $username = $this->session->userdata("username");
+        $query=$this->db->query("update Korisnik SET AvatarPath='$data' where Username='".$username."'");
+
+    }
+
     // public function dohvatiAutore(){
     //     return $this->db->get('autor')->result();
     // }

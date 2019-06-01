@@ -17,6 +17,29 @@ class RK extends CI_Controller {
         $this->load->view("partials/footer.php");
     }
 
+
+    public function promeni(){
+        $config['upload_path'] = './img/profil';
+    $config['allowed_types'] = 'gif|jpg|jpeg|png';
+    $config['max_size']    = '10000';
+    $config['max_width']  = '102400';
+    $config['max_height']  = '76800';
+    $config['overwrite'] = false;
+
+    $this->load->library('upload', $config);
+ 
+    if($this->upload->do_upload("profilnasrc")){
+
+    $fajldata=$this->upload->data();
+ 
+     $path=$fajldata['file_name'];
+     $this->ModelKorisnik->updateProfil($path);
+     $this->podesavanja("podesavanja-PodaciKorisnika.php");
+
+    // Za brisanje stare slike ako budemo hteli unlink($file);
+    }
+}
+
 	public function index(){
 		redirect("Gost");
     }    

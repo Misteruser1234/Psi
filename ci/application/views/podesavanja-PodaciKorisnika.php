@@ -17,15 +17,15 @@ function previewImage(idslike,imefajla) {
 					Podaci korisnika:
 				</div>
 				<div class="py-4">
-					<form>
+					<form method="post" name="userForm"  action=" <?php echo site_url('RK/promeni'); ?> " enctype="multipart/form-data">
 						<div class="row">
 						<div class="col-md-3 mb-3 px">
 							<div class="col-sm-12  slika-korisnika">
-								<img class="img-fluid img-thumbnail" src="<?php echo base_url('img/account.jpg');?>" alt>
+								<img class="img-fluid img-thumbnail" src="<?php echo base_url('img/account.jpg');?>" alt id="profilna">
 							</div>
 							<div class="row">
 							<div class="col-sm-12">
-								<input class="btn btn-primary" type="file" style="width:inherit">
+								<input class="btn btn-primary" type="file" style="width:inherit" name="profilnasrc" id="profilnasrc" onchange="previewImage('profilna','profilnasrc');">
 							</div>
 							</div>
 						</div>
