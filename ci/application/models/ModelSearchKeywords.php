@@ -46,28 +46,6 @@ class ModelSearchKeywords extends CI_Model {
         return $allWords;
     }
 
-    function dodajTagove($allWords, $IDUO){
-        $tagovi = $this->ModelLokal->dohvatiTagoveUO($IDUO);
-
-        if (!isset($tagovi)) return $allWords;
-
-        #Dodaj reci u $allWords ukoliko ne postoje
-        foreach ($tagovi as $index => $tag) {
-
-            #Konvertuje da sve budu mala slova
-            $tag = strtolower($tag);
-
-            #Provera da li se tag vec nalazi u nizu $allwords
-            if (array_search($tag, $allWords) === FALSE) {
-
-                #Dodaje u array $allWords
-                array_push($allWords, $tag);
-            }
-        }
-        return $allWords;
-    }
-
-
     # Ukoliko rec postoji u tabeli vraca njen ID u suprotnom dodaje rec u tabelu i vraca ID
     function dohvatiWordID($word=NULL){
         if ($word==NULL) return;
@@ -130,7 +108,12 @@ class ModelSearchKeywords extends CI_Model {
             $allWords = $this->dodajUnikatneReci($allWords, $podaciUO->Info3);
 
             #Dodavanje tagova UO u $allWords
-            $allWords = $this->dodajTagove($allWords, $IDUO);
+            $tagovi = $this->ModelLokal->dohvatiTagoveUO($IDUO);
+            if (isset($tagovi)){
+                $data = implode(" ", $tagovi);
+                $allWords = $this->dodajUnikatneReci($allWords, $data);
+            }
+            
 
             #Dodavanje tipa UO u $allWords
             if ($podaciUO->JeRestoran)  $allWords = $this->dodajUnikatneReci($allWords, "restoran");
