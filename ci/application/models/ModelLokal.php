@@ -125,6 +125,10 @@ public function insertUoImg($data,$id){
 public function deleteUO($iduo){
     $query=$this->db->query("DELETE FROM UO where iduo='".$iduo."'");
 }
+
+    public function dohvatiIDSvihUO(){
+        return $this->db->query("SELECT IDUO FROM uo")->result();
+    }
 }
  
     
