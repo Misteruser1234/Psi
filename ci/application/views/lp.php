@@ -1,15 +1,16 @@
 <!-- LANDING PAGE -->
 
-
-<div class="col-md-5 ml-auto mr-auto mt-3 mb-3">
+    <div class="col-md-5 ml-auto mr-auto mt-3 mb-3">
         <img class= "d-block w-100"  src=" <?php echo base_url('img/cc.png'); ?> " alt="">
     </div>
-    <div class="col-md-3 ml-auto mr-auto mt-4 " >
+    <form action="<?php echo site_url('Gost/pretragaKeyWords'); ?>" method="post">
+        <div class="col-md-4 ml-auto mr-auto mt-4 " >
         <input type="text" id="pretraga" name="pretraga" class="form-control">
-        <div class="col-4 ml-auto mr-auto mt-2 mb-3 ">
-            <button class="btn btn-primary btn-block text-white" onclick="submit();">Pretrazi</button>
+        <div class="row">
+            <button class="btn btn-primary text-white col-md-4 col-6 ml-auto mr-auto mt-2" type="submit">Pretrazi</button>
         </div>
-    </div>
+        </div>
+    </form>
 	<div class="container my-4 ">
             <div class=" my-2 py-1 row justify-content-center">
                 <div class="jumbotron mx-4 px-2 py-2 my-2 col-3">
