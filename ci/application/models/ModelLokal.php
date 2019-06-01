@@ -74,7 +74,7 @@ class ModelLokal extends CI_Model {
         
         return $res;        
    }
-   public function insertUO($naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja,$pice,$jela,$mesto,$ostalo,$opis,$samenija,$razlike,$zasto){
+public function insertUO($naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja,$pice,$jela,$mesto,$ostalo,$opis,$samenija,$razlike,$zasto){
     $pom=0;
     $result=$this->db->query("SELECT * from Korisnik where Username='".$this->korisnik."'");
     $idkor = $result->row();
@@ -83,15 +83,20 @@ class ModelLokal extends CI_Model {
     $maxid = $this->db->query('SELECT MAX(IDUO) AS `maxid` FROM `uo`')->row()->maxid;
     $query=$this->db->query("INSERT into phae(IDUO,Pice,Hrana,Ambijent,Ekstra) values ('".$maxid."','".$pice."','".$jela."','".$mesto."','".$ostalo."')");
     $query=$this->db->query("INSERT into jevlasnik(IDKorisnik,IDUO) values ('".$idkor->IDKorisnik."','".$maxid."')");
-}
-public function insertUoImg($d1,$d2,$d3,$d4,$d5,$d6,$d7,$d8,$d9){
-    
 
-
+    return $maxid;
 }
 
 
 
+public function insertUoImg($data,$id){ 
+    foreach($data as $pod){
+        $this->db->set("IDUO", $id);
+        $this->db->set("Path", $pod);
+        $this->db->insert("uoslike");
+}
+
+}
 }
  
     

@@ -12,7 +12,7 @@ function previewImage(idslike,imefajla) {
 </script>
 <div class="my-5 mx-5">
 	<div class="h3 mt-5 mb-4">Podaci o ugostiteljskom objektu: </div>
-	<form method="post" name="UOform"  action=" <?php echo site_url('Vlasnik/ubaciUO'); ?> ">
+	<form method="post" name="UOform"  action=" <?php echo site_url('Vlasnik/ubaciUO'); ?> " enctype="multipart/form-data">
 		<!-- NAZIV -->
 		<div class="form-group row mb-1">
 		<label for="naziv" class="col-sm-4 col-form-label text-right">Naziv:</label>
