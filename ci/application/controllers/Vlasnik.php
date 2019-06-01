@@ -77,7 +77,8 @@ public function UbaciSliku($br){
     if($this->upload->do_upload($sl)){
 
     $fajldata=$this->upload->data();
-     return $path=$fajldata['full_path'];
+ 
+     return $path=$fajldata['file_name'];
 
    
   
