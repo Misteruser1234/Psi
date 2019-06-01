@@ -38,6 +38,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		?>
 		
+		<script src=" <?php base_url('js/galerija.js'); ?> "></script>
+
 		<title>Click and Chill</title>
 	</head>
 	<body>
