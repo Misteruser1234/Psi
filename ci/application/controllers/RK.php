@@ -19,7 +19,9 @@ class RK extends CI_Controller {
 
 
     public function promeni(){
-        $config['upload_path'] = './img/profil';
+
+
+    $config['upload_path'] = './img/profil';
     $config['allowed_types'] = 'gif|jpg|jpeg|png';
     $config['max_size']    = '10000';
     $config['max_width']  = '102400';

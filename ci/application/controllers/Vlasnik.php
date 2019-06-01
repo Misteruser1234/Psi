@@ -129,6 +129,7 @@ public $ostalo;
 
             $ponpetOd = $this->input->post('ponpetOd');
             $ponpetDo = $this->input->post('ponpetDo');
+         
 
             $subOd = $this->input->post('subOd');
             $subDo = $this->input->post('subDo');
@@ -139,10 +140,13 @@ public $ostalo;
             $ponpet = $ponpetOd . "-" . $ponpetDo;
             $subota = $subOd. "-" . $subDo;
             $nedelja = $nedOd . "-" . $nedDo;
+      
+            if($ponpet=="00-00") $ponpet=NULL;
+  
+            if($subota=="00-00") $subota=NULL;
+            if($nedelja=="00-00") $nedelja=NULL;
 
-            if($ponpet="00-00") $ponpet=NULL;
-            if($sub="00-00") $sub=NULL;
-            if($ned="00-00") $nedt=NULL;
+          
 
         
             $pice1 = $this->input->post('craft');
