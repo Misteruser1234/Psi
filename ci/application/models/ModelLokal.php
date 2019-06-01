@@ -37,6 +37,11 @@ class ModelLokal extends CI_Model {
         return $query->row();
     }
 
+    public function getUoZaIDVlasnika($idkor){
+        $query = $this->db->query("SELECT U.IDUO, U.Naziv FROM UO AS U, JeVlasnik AS JV WHERE JV.IDKorisnik='".$idkor."' AND U.IDUO=JV.IDUO");
+        return $query->result();
+    }
+
 
    #    VRACA STRING ARRAY TAGOVA UO SA DATIM $ID
    public function dohvatiTagoveUO($id){

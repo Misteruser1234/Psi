@@ -37,7 +37,12 @@ public $ostalo;
     }
     
     public function spisak_uo(){
-        $this->podesavanja("podesavanja-spisakUO.php");
+        // for each iz dohvacenog iz baze load view partial/single uo izlistan
+        $uoList = $this->ModelLokal->getUoZaIDVlasnika($this->session->userdata('idkor'));
+
+        foreach ($iduoList as $uo){
+            $this->podesavanja("podesavanja-spisakUO.php");
+        }
     }
 
     public function dodaj_uo(){
