@@ -67,7 +67,7 @@ public function UbaciSliku($br){
     $sl="slika".$br;
 
 
-    $config['upload_path'] = './img/';
+    $config['upload_path'] = './img/uo';
     $config['allowed_types'] = 'gif|jpg|jpeg|png';
     $config['max_size']    = '10000';
     $config['max_width']  = '102400';

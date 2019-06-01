@@ -1,5 +1,16 @@
 
+<!-- FUNKCIJA KOJA postavlja preview slike kada se klikne da se promeni-->
+<script>
+function previewImage(idslike,imefajla) {
+    document.getElementById(idslike).style.display = "block";
+    var oFReader = new FileReader();
+     oFReader.readAsDataURL(document.getElementById(imefajla).files[0]);
 
+    oFReader.onload = function(oFREvent) {
+      document.getElementById(idslike).src = oFREvent.target.result;
+    };
+  };
+</script>
 			<!-- OVDE IDE KOD ZA RAZLICITE STRANICE UNUTAR PODESAVANJA -->
 			<div class="my-5 mx-5">
 				<div class="h3 mt-5 mb-4">
