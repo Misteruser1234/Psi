@@ -7,7 +7,7 @@ class Gost extends CI_Controller {
 		$this->load->model("ModelKorisnik");
 		$this->load->model("ModelLokal");
 		$this->load->model("ModelKomentar");
-    
+		$this->load->model("ModelSearchKeywords");
 	}
 
 	// Dodavanje nove stranice:
@@ -272,6 +272,8 @@ class Gost extends CI_Controller {
         $this->load->view("rezultat_pretrage_postfix.php");
         $this->load->view("partials/footer.php");
 	}	
+
+
     public function ispis_komentara(){
 	   $query = $this->ModelKomentar->nadji_komentar(1);
 	   foreach($query->result() as $row){
@@ -281,19 +283,44 @@ class Gost extends CI_Controller {
 		   $data['komentar'] = $row->komentar;
 
 		   $this->load->view("partials/komentari.php", $data);
-	   }
-	//    //$this->load->view("partials/komentari.php");
-	//    $rez = $query->row();
-	//    $pom = $rez->Username;
-	//    echo $pom;
-
-	//    foreach ($query->result() as $row){
-	// 	   echo "$row->Username";
-	//    }$idkor = $result->row();
+		}
 	}
+
+
 	public function prosecna_ocena(){
 		$avg['ocena'] = $this->ModelKomentar->doh_avg_ocena(1);
 		//echo $avg;
 		$this->load->view("partials/komentari-prefix.php", $avg);
 	}
+
+	public function pretragaKeyWords(){
+		$data = $this->input->post('pretraga');
+		if (!$data) redirect(site_url());
+		$data = $this->ModelSearchKeywords->izbaciZnakoveInterpunkcije($data);
+		$words = $this->ModelSearchKeywords->podeliUReci($data);
+		$nizUO = $this->ModelSearchKeywords->dohvatiNizUOSaRecima($words);
+
+		$this->load->view("partials/header.php");
+		$this->load->view("rezultat_pretrage_prefix.php");
+
+		if ($nizUO){
+			foreach($nizUO as $key => $UO) {
+				$uoData = $this->ModelLokal->getUO($UO);
+				$tagovi = $this->ModelLokal->dohvatiTagoveUO($UO);
+				$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi));
+			}
+		}else $this->load->view("partials/pretraga-nema-rezultata.php");
+		
+		$this->load->view("rezultat_pretrage_postfix.php");
+		if (!$nizUO) $this->load->view("partials/gost_dp.php");
+        $this->load->view("partials/footer.php");
+	}
+
+	#POMOCNA FUNKCIJA ZA MANUELNO GENERISANJE KEYWORDS ZA UO KOJI SU VEC U BAZI, POZVATI MANUELNO PREKO URL U BROWSERU
+	public function generisiKeyWordsZaUO($IDUO=NULL){
+		if ($IDUO){
+			$this->ModelSearchKeywords->generisiKeywordsZaUO($IDUO);
+		}
+	}
+
 }

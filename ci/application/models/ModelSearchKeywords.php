@@ -179,7 +179,39 @@ class ModelSearchKeywords extends CI_Model {
 
 		#Dodaju u bazu key words ukoliko vec ne postoje i spaja odredjeni key word sa UO u tabeli sadrzi
 		$this->dodajKeywordsUBazu($keyWords, $IDUO);
-	}
+    }
+    
+    public function dohvatiNizUOSaRecima($words){
+        if ($words[0] == NULL) return NULL;
+        if (count($words) == 0) return NULL;
+
+        $queryStr = 'SELECT sadrzi.IDUO 
+                     FROM searchkeywords, sadrzi 
+                     WHERE searchKeywords.IDSearchKeywords = sadrzi.IDSearchKeywords AND searchKeywords.Word = "'. $words[0] .'"';
+
+        $query = $this->db->query($queryStr);
+        if ($query->num_rows() == 0) return NULL;
+        
+        $result = [];
+        for ($i=0; $i<$query->num_rows(); $i++) $result[] = $query->result()[$i]->IDUO;
+        
+        foreach ($words as $index => $word){
+            $queryStr = "SELECT sadrzi.IDUO 
+                         FROM searchkeywords, sadrzi 
+                         WHERE searchKeywords.IDSearchKeywords = sadrzi.IDSearchKeywords AND searchKeywords.Word = '$word'";
+
+            $query = $this->db->query($queryStr);
+            if ($query->num_rows() == 0) return NULL;
+
+            $temp = [];
+            for ($i=0; $i<$query->num_rows(); $i++) $temp[] = $query->result()[$i]->IDUO;
+
+            $result = array_intersect($result, $temp);
+            if (count($result) == 0) return NULL;
+        }
+
+        return $result;
+    }
 
 }
  
