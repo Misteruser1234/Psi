@@ -37,12 +37,28 @@ public $ostalo;
     }
     
     public function spisak_uo(){
+        // ucitavanje prefiksa 
+        $this->load->view("partials/header.php");
+        $this->load->view("podesavanja-prefix.php");
+        $this->load->view("partials/podesavanja-spisakUO-prefiks.php");
+
         // for each iz dohvacenog iz baze load view partial/single uo izlistan
         $uoList = $this->ModelLokal->getUoZaIDVlasnika($this->session->userdata('idkor'));
-
-        foreach ($iduoList as $uo){
-            $this->podesavanja("podesavanja-spisakUO.php");
+        foreach ($uoList as $uo){
+            $this->load->view("partials/podesavanja-spisakUO-single-uo.php", array ("data"=>$uo));
         }
+
+        //ucitavanje midfixa
+        $this->load->view("partials/podesavanja-spisakUO-midfix.php");
+
+        //foreach ispisivanje vidljivosti lokala
+        foreach($uoList as $uo){
+            $this->load->view("partials/podesavanja-spisakUO-single-status.php", array ("data"=>$uo));
+        }
+
+        //ucitavanje postfixa 
+        $this->load->view("podesavanja-postfix.php");
+        $this->load->view("partials/footer.php");
     }
 
     public function dodaj_uo(){
@@ -215,7 +231,7 @@ public function UbaciSlike(){
 
     }
 //BRISANJE UGOSTITELJSKOG OBJEKTA
-    public function brisi($iduo){
+    public function brisi_UO($iduo){
         $this->ModelLokal->deleteUO($iduo);
         redirect("Vlasnik/spisak_uo");
     }
