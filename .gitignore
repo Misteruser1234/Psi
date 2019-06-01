@@ -29,3 +29,5 @@ ci/user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-project
 /ci/tests/tests/
 /ci/tests/results/
+
+/ci/img/uo/
