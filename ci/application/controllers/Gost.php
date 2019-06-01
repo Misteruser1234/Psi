@@ -63,7 +63,7 @@ class Gost extends CI_Controller {
 			$passwordIspravan = $this->ModelKorisnik->ispravanPassword($this->input->post('password'));
 			if ($passwordIspravan){
 				$korisnik = $this->ModelKorisnik->korisnik;
-				
+				$this->session->set_userdata('idkor',$korisnik->IDKorisnik);
 				$this->session->set_userdata('username',$korisnik->Username);
 				$this->session->set_userdata('tip',$korisnik->Tip);
 				redirect("Gost");

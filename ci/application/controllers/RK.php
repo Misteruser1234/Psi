@@ -100,6 +100,7 @@ class RK extends CI_Controller {
     public function logout(){
         $this->session->unset_userdata("korisnik");// brise se podatak o autoru iz sesije
         $this->session->unset_userdata("username");
+        $this->session->unset_userdata("idkor");
         $this->session->unset_userdata("tip");
         $this->session->sess_destroy(); //brise se sesija
         redirect("Gost");//kako vise nije ulogovan, treba da se ponasa kao sto je definisano u kontroleru gost
