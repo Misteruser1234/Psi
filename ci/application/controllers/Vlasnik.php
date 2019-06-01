@@ -38,6 +38,8 @@ public $ostalo;
     
     public function spisak_uo(){
         $this->podesavanja("podesavanja-spisakUO.php");
+        $this->load->view("partials/podesavanja-UgostiteljskiObjekat.php");
+        $this->load->view("partials/podesavanja-spisakUO-postfix.php");
     }
 
     public function dodaj_uo(){
@@ -208,6 +210,11 @@ public function UbaciSlike(){
             redirect("Vlasnik/spisak_uo");
         }
 
+    }
+//BRISANJE UGOSTITELJSKOG OBJEKTA
+    public function brisi($iduo){
+        $this->ModelLokal->deleteUO($iduo);
+        redirect("Vlasnik/spisak_uo");
     }
 
 }
