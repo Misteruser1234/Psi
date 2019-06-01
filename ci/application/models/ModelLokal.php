@@ -52,6 +52,10 @@ class ModelLokal extends CI_Model {
         return $query->result();
     }
 
+    function updateOdobren($iduo){
+        $query=$this->db->query("UPDATE UO SET Odobren='1' where IDUO='".$iduo."'");
+    }
+
 
    #    VRACA STRING ARRAY TAGOVA UO SA DATIM $ID
    public function dohvatiTagoveUO($id){

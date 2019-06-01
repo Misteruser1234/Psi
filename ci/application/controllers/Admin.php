@@ -71,7 +71,8 @@ class Admin extends CI_Controller {
     }
 
     public function odobri_stranicu($iduo){
-        // TODO promena Odobrenja sa 0 na 1
+        $this->ModelLokal->updateOdobren($iduo);
+        redirect('Admin/stranice_na_cekanju');
     }
 
 }

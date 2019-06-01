@@ -240,8 +240,10 @@ class Gost extends CI_Controller {
 		$query = $this->ModelLokal->getRestorani();
 
 		foreach($query->result() as $uoData){
-			$tagovi = $this->ModelLokal->dohvatiTagoveUO($uoData->IDUO);
-			$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi));
+			if($uoData->Vidljivost == 1){
+				$tagovi = $this->ModelLokal->dohvatiTagoveUO($uoData->IDUO);
+				$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi));
+			}
 		}	
         $this->load->view("rezultat_pretrage_postfix.php");
         $this->load->view("partials/footer.php");
@@ -253,8 +255,10 @@ class Gost extends CI_Controller {
 
 		$query = $this->ModelLokal->getKafici();
 		foreach($query->result() as $uoData){
-			$tagovi = $this->ModelLokal->dohvatiTagoveUO($uoData->IDUO);
-			$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi));
+			if($uoData->Vidljivost == 1){
+				$tagovi = $this->ModelLokal->dohvatiTagoveUO($uoData->IDUO);
+				$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi));
+			}
 		}	
         $this->load->view("rezultat_pretrage_postfix.php");
         $this->load->view("partials/footer.php");
@@ -266,8 +270,10 @@ class Gost extends CI_Controller {
 
 		$query = $this->ModelLokal->getBrzaHrana();
 		foreach($query->result() as $uoData){
-			$tagovi = $this->ModelLokal->dohvatiTagoveUO($uoData->IDUO);
-			$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi));
+			if($uoData->Vidljivost == 1){
+				$tagovi = $this->ModelLokal->dohvatiTagoveUO($uoData->IDUO);
+				$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi));
+			}
 		}
         $this->load->view("rezultat_pretrage_postfix.php");
         $this->load->view("partials/footer.php");

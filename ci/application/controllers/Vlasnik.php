@@ -68,66 +68,51 @@ public $ostalo;
     public function dodaj_uo(){
         $this->podesavanja("podesavanja-FormaPodaciUO.php");
     }
-public function calculateInt($d1,$d2,$d3,$d4,$d5,$d6,$d7,$d8){
-                $sum=0;
-                if((int)$d1==1) $sum=$sum+1;
-                if((int)$d2==1) $sum=$sum+2;
-                if((int)$d3==1) $sum=$sum+4;
-                if((int)$d4==1) $sum=$sum+8;
-                if((int)$d5==1) $sum=$sum+16;
-                if((int)$d6==1) $sum=$sum+32;
-                if((int)$d7==1) $sum=$sum+64;
-                if((int)$d8==1) $sum=$sum+128;
-                return $sum;
-}
 
-public function odbaci(){
-    redirect("Vlasnik/spisak_uo");
-}
-
-public function UbaciSliku($br){
-     
-    $sl="slika".$br;
-
-
-    $config['upload_path'] = './img/uo';
-    $config['allowed_types'] = 'gif|jpg|jpeg|png';
-    $config['max_size']    = '10000';
-    $config['max_width']  = '102400';
-    $config['max_height']  = '76800';
-    $config['overwrite'] = false;
-
-    $this->load->library('upload', $config);
- 
-    if($this->upload->do_upload($sl)){
-
-    $fajldata=$this->upload->data();
- 
-     return $path=$fajldata['file_name'];
-
-   
-  
- 
-}
-else
-{
-    //ispisivanje greske u slucaju da nije ucitao
-}
-  
-
-}
-public function UbaciSlike(){
-    $data=array();
-    for ($i = 1; $i <= 9; $i++) {
-        $pom=$this->UbaciSliku($i);
-       if($pom) array_push($data,$pom);
+    public function calculateInt($d1,$d2,$d3,$d4,$d5,$d6,$d7,$d8){
+        $sum=0;
+        if((int)$d1==1) $sum=$sum+1;
+        if((int)$d2==1) $sum=$sum+2;
+        if((int)$d3==1) $sum=$sum+4;
+        if((int)$d4==1) $sum=$sum+8;
+        if((int)$d5==1) $sum=$sum+16;
+        if((int)$d6==1) $sum=$sum+32;
+        if((int)$d7==1) $sum=$sum+64;
+        if((int)$d8==1) $sum=$sum+128;
+        return $sum;
     }
-    return $data;
-}
 
+    public function odbaci(){
+        redirect("Vlasnik/spisak_uo");
+    }
 
+    public function UbaciSliku($br){
+        $sl="slika".$br;
+        $config['upload_path'] = './img/uo';
+        $config['allowed_types'] = 'gif|jpg|jpeg|png';
+        $config['max_size']    = '10000';
+        $config['max_width']  = '102400';
+        $config['max_height']  = '76800';
+        $config['overwrite'] = false;
 
+        $this->load->library('upload', $config);
+    
+        if($this->upload->do_upload($sl)){
+            $fajldata=$this->upload->data();
+            return $path=$fajldata['file_name'];
+        }else{
+        //ispisivanje greske u slucaju da nije ucitao
+        }
+    }
 
+    public function UbaciSlike(){
+        $data=array();
+        for ($i = 1; $i <= 9; $i++) {
+            $pom=$this->UbaciSliku($i);
+            if($pom) array_push($data,$pom);
+        }
+        return $data;
+    }
 
     public function ubaciUO(){
         if (isset($_POST['sacuvaj'])) {
