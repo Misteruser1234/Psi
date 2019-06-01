@@ -49,7 +49,6 @@ class ModelLokal extends CI_Model {
 
     public function getLokaliNaCekanju(){
         $query = $this->db->query("SELECT * FROM UO WHERE Odobren='0'");
-        $query = $this->db->query("SELECT U.IDUO, U.Naziv,U.Vidljivost FROM UO AS U, JeVlasnik AS JV WHERE JV.IDKorisnik='".$idkor."' AND U.IDUO=JV.IDUO");
         return $query->result();
     }
 
