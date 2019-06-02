@@ -9,10 +9,10 @@ class RK extends CI_Controller {
         if (($this->session->userdata('username')) == NULL) redirect("Gost");
 	}
 	
-    public function podesavanja($podStranica="podesavanja-PodaciKorisnika.php", $data = NULL){
+    public function podesavanja($podStranica="podesavanja-PodaciKorisnika.php", $data = NULL, $subMenu=0){
         $data = $this->getSlika();
 		$this->load->view("partials/header.php");
-        $this->load->view("podesavanja-prefix.php");
+        $this->load->view("podesavanja-prefix.php", array ("subMenu"=>$subMenu));
         $this->load->view($podStranica, array ("data"=>$data));
         $this->load->view("podesavanja-postfix.php");
         $this->load->view("partials/footer.php");
@@ -48,7 +48,7 @@ class RK extends CI_Controller {
     }    
 
     public function podaci_korisnika(){
-        $this->podesavanja("podesavanja-PodaciKorisnika.php");
+        $this->podesavanja("podesavanja-PodaciKorisnika.php", NULL, 1);
     }
 
     public function getSlika(){
@@ -61,7 +61,7 @@ class RK extends CI_Controller {
     }
 
     public function promeni_lozinku(){
-        $this->podesavanja("podesavanja-promenaLozinke");
+        $this->podesavanja("podesavanja-promenaLozinke", NULL, 3);
     }
 
     public function promeni_password(){

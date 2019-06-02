@@ -39,7 +39,7 @@ public $ostalo;
     public function spisak_uo(){
         // ucitavanje prefiksa 
         $this->load->view("partials/header.php");
-        $this->load->view("podesavanja-prefix.php");
+        $this->load->view("podesavanja-prefix.php", array("subMenu"=> 2));
         $this->load->view("partials/podesavanja-spisakUO-prefiks.php");
 
         // for each iz dohvacenog iz baze load view partial/single uo izlistan

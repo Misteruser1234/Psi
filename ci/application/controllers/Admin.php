@@ -27,7 +27,7 @@ class Admin extends CI_Controller {
     public function spisak_uo(){
         // ucitavanje prefiksa 
         $this->load->view("partials/header.php");
-        $this->load->view("podesavanja-prefix.php");
+        $this->load->view("podesavanja-prefix.php", array("subMenu"=> 2));
         $this->load->view("partials/podesavanja-spisakUO-prefiks.php");
 
         // for each iz dohvacenog iz baze load view partial/single uo izlistan
@@ -56,7 +56,7 @@ class Admin extends CI_Controller {
     public function stranice_na_cekanju(){
         // ucitavanje prefiksa 
         $this->load->view("partials/header.php");
-        $this->load->view("podesavanja-prefix.php");
+        $this->load->view("podesavanja-prefix.php", array("subMenu"=> 4));
         $this->load->view("partials/podesavanja-odobri-stranicu-prefix.php");
 
         $uonacekanju = $this->ModelLokal->getLokaliNaCekanju();
