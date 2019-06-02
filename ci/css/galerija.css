@@ -1,0 +1,23 @@
+.maska{
+    display:none;
+    position:fixed;
+    width:100vw;
+    height:100vh;
+    top:0;
+    left:0;
+    background-color:rgba(0,0,0,0.85);
+    z-index: 1031;
+}
+
+.sve-slike{
+    border: 1px solid red;
+    position: absolute;
+    height:30vh;
+    width: 100%;
+    bottom:0;
+}
+
+.glavna-slika{
+    position: fixed;
+    border: 10px solid white;
+}
