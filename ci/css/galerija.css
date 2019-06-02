@@ -9,8 +9,8 @@
     z-index: 1031;
 }
 
-.sve-slike{
-    border: 1px solid red;
+.slike-dole{
+    /* border: 1px solid red; */
     position: absolute;
     height:30vh;
     width: 100%;
@@ -19,5 +19,25 @@
 
 .glavna-slika{
     position: fixed;
-    border: 10px solid white;
+    border: 5px solid white;
+}
+
+.slicica{
+    cursor: pointer;
+    border: 3px solid #888;
+}
+
+.slicica:hover {
+    border: 3px solid white;
+}
+
+#strelica-levo, #strelica-desno {
+    color: #888;
+    position:fixed;
+    cursor: pointer;
+}
+
+#strelica-levo:hover, 
+#strelica-desno:hover {
+    color: white;
 }
