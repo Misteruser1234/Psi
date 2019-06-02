@@ -93,7 +93,12 @@ class Gost extends CI_Controller {
 		#Ucitavanje komentara
 		if ($IDUO != NULL){
 			$komentari = $this->ModelKomentar->dohvatiKomentareZaUO($IDUO);
-			foreach ( $komentari as $komentar ) $this->load->view("partials/komentar.php", (array) $komentar);
+			if($this->session->userdata("tip") == 'admin'){
+				foreach ( $komentari as $komentar ) $this->load->view("partials/komentar-admin.php", (array) $komentar);
+			}else{
+				foreach ( $komentari as $komentar ) $this->load->view("partials/komentar.php", (array) $komentar);
+
+			}
 		}
 	
 		#Ucitavanje forme za ostavljanje komentara
