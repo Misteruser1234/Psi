@@ -26,7 +26,7 @@ public $ostalo;
 	
     public function podesavanja($podStranica="podesavanja-PodaciKorisnika.php"){
 		$this->load->view("partials/header.php");
-        $this->load->view("podesavanja-prefix.php");
+        $this->load->view("podesavanja-prefix.php", array("subMenu"=> 2));
         $this->load->view($podStranica);
         $this->load->view("podesavanja-postfix.php");
         $this->load->view("partials/footer.php");
@@ -236,6 +236,7 @@ public $ostalo;
 
 //BRISANJE UGOSTITELJSKOG OBJEKTA
     public function brisi_UO($iduo){
+        $this->ModelSearchKeywords->obrisiKeyWordsZaUO($IDUO);
         $this->ModelLokal->deleteUO($iduo);
         redirect("Vlasnik/spisak_uo");
     }
