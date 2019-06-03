@@ -99,7 +99,7 @@ public $ostalo;
             //$querySlike=$this->ModelLokal->citajSlike($iduo);
             //$this->podesavanja("podesavanja-FormaPodaciUO.php", $data);
         }
-
+    }
     public function calculateInt($d1,$d2,$d3,$d4,$d5,$d6,$d7,$d8){
         $sum=0;
         if((int)$d1==1) $sum=$sum+1;
