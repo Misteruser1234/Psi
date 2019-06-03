@@ -372,11 +372,11 @@ function previewImage(idslike,imefajla) {
 							<label class="form-check-label" for="s4v2">Pet Frendly</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s4v3" name="parking"<?php if($data['id'] != NULL) echo $tag['ekstra'][2]==1?'checked':'';?> value="1">
+							<input type="checkbox" class="form-check-input" id="s4v3" name="parking" <?php if($data['id'] != NULL) echo $tag['ekstra'][2]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s4v3">Parking</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s4v4" name="baby"<?php if($data['id'] != NULL) echo $tag['ekstra'][3]==1?'checked':'';?> value="1">
+							<input type="checkbox" class="form-check-input" id="s4v4" name="baby" <?php if($data['id'] != NULL) echo $tag['ekstra'][3]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s4v4">Baby oprema</label>
 						</div>
 						<div class="form-check np-polje">

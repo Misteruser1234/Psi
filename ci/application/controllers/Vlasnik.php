@@ -86,7 +86,7 @@ public $ostalo;
             $tag['ambijent']=$tagovi[2];
             $tag['ekstra']=$tagovi[3];
 
-            //print_r($tagovi[2]);
+            //print_r($tagovi[3]);
            // print_r($data_uo);
             $this->load->view("partials/header.php");
             $this->load->view("podesavanja-prefix.php",array("subMenu"=> 2));
@@ -239,7 +239,7 @@ public $ostalo;
             $this->jela=$this->calculateInt($jela1,$jela2,$jela3,$jela4,$jela5,$jela6,$jela7,$jela8);
             $this->mesto=$this->calculateInt($mesto1,$mesto2,$mesto3,$mesto4,$mesto5,$mesto6,$mesto7,$mesto8);
             $this->ostalo=$this->calculateInt($ostalo1,$ostalo2,$ostalo3,$ostalo4,$ostalo5,$ostalo6,$ostalo7,$ostalo8);
-
+            
           
             if($newID==null){
                 $newID = $this->ModelLokal->insertUO($naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja, $this->pice,$this->jela,$this->mesto,$this->ostalo,$opis,$samenija,$razlike,$zasto);
