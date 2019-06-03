@@ -240,7 +240,7 @@ public $ostalo;
           
             if($newID==null){
                 $newID = $this->ModelLokal->insertUO($naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja, $this->pice,$this->jela,$this->mesto,$this->ostalo,$opis,$samenija,$razlike,$zasto);
-                echo $newID;
+                $this->ModelLokal->insertUoImg($this->UbaciSlike(),$newID);
             }
             else{
                 $this->ModelLokal->updateUO($newID,$naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja,$opis,$samenija,$razlike,$zasto,$this->pice,$this->jela,$this->mesto,$this->ostalo);
