@@ -9,13 +9,31 @@
 				<div id="carouselExampleControls" class="carousel slide  granica" data-ride="carousel" data-interval="false">
 					<div class="carousel-inner">
 						<div class="carousel-item active">
-							<img class="d-block w-100" src="<?php echo base_url('img/restoran.jpg');?>" alt="First slide">
+							<img class="d-block w-100" src="<?php if(count($slike) > 1 ) echo base_url('img/uo/'.$slike[0]->Path); else echo base_url('img/restoran.jpg');?>" alt="">
 						</div>
 						<div class="carousel-item">
-							<img class="d-block w-100" src="<?php echo base_url('img/restoran.jpg');?>" alt="Second slide">
+							<img class="d-block w-100" src="<?php if(count($slike) > 2 ) echo base_url('img/uo/'.$slike[1]->Path);  else echo base_url('img/restoran.jpg');?>" alt="">
 						</div>
 						<div class="carousel-item">
-							<img class="d-block w-100" src="<?php echo base_url('img/restoran.jpg');?>" alt="Third slide">
+							<img class="d-block w-100" src="<?php if(count($slike) > 3 ) echo base_url('img/uo/'.$slike[2]->Path);  else echo base_url('img/restoran.jpg');?>" alt="">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="<?php if(count($slike) > 4 ) echo base_url('img/uo/'.$slike[3]->Path);  else echo base_url('img/restoran.jpg');?>" alt="">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="<?php if(count($slike) > 5 ) echo base_url('img/uo/'.$slike[4]->Path);  else echo base_url('img/restoran.jpg');?>" alt="">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="<?php if(count($slike) > 6 ) echo base_url('img/uo/'.$slike[5]->Path);  else echo base_url('img/restoran.jpg');?>" alt="">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="<?php if(count($slike) > 7 ) echo base_url('img/uo/'.$slike[6]->Path);  else echo base_url('img/restoran.jpg');?>" alt="">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="<?php if(count($slike) > 8 ) echo base_url('img/uo/'.$slike[7]->Path);  else echo base_url('img/restoran.jpg');?>" alt="">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="<?php if(count($slike) > 9 ) echo base_url('img/uo/'.$slike[8]->Path);  else echo base_url('img/restoran.jpg');?>" alt="">
 						</div>
 					</div>
 					<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -95,15 +113,15 @@
 
 			<div class="container mt-3" style="border-top: 1px solid #aaa;">
 				<div class="row justify-content-between my-3">
-					<div class="col"><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-1"></div>
-					<div class="col"><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-2"></div>
-					<div class="col"><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-3"></div>
-					<div class="col"><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-4"></div>
-					<div class="col"><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-5"></div>
-					<div class="col"><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-6"></div>
-					<div class="col"><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-7"></div>
-					<div class="col"><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-8"></div>
-					<div class="col"><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-9"></div>
+					<div class="col"><img src="<?php if(count($slike) > 1 ) echo base_url('img/uo/'.$slike[0]->Path);  else echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-1"></div>
+					<div class="col"><img src="<?php if(count($slike) > 2 ) echo base_url('img/uo/'.$slike[1]->Path);  else echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-2"></div>
+					<div class="col"><img src="<?php if(count($slike) > 3 ) echo base_url('img/uo/'.$slike[2]->Path);  else echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-3"></div>
+					<div class="col"><img src="<?php if(count($slike) > 4 ) echo base_url('img/uo/'.$slike[3]->Path);  else echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-4"></div>
+					<div class="col"><img src="<?php if(count($slike) > 5 ) echo base_url('img/uo/'.$slike[4]->Path);  else echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-5"></div>
+					<div class="col"><img src="<?php if(count($slike) > 6 ) echo base_url('img/uo/'.$slike[5]->Path);  else echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-6"></div>
+					<div class="col"><img src="<?php if(count($slike) > 7 ) echo base_url('img/uo/'.$slike[6]->Path);  else echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-7"></div>
+					<div class="col"><img src="<?php if(count($slike) > 8 ) echo base_url('img/uo/'.$slike[7]->Path);  else echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-8"></div>
+					<div class="col"><img src="<?php if(count($slike) > 9 ) echo base_url('img/uo/'.$slike[8]->Path);  else echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-9"></div>
 				</div>
 				<!--END THUMBNAILOVI-->
 			</div>

@@ -21,7 +21,7 @@ public $ostalo;
 
         // PRISTUP DOZVOLJEN SAMO AKO JE USER TIP VLASNIK
         if (($this->session->userdata('username')) == NULL) redirect("Gost");
-        if (($this->session->userdata('tip')) != 'vlasnik') redirect("Gost");
+        if (($this->session->userdata('tip')) != 'vlasnik' && ($this->session->userdata('tip')) != 'admin') redirect("Gost");
 	}
 	
     public function podesavanja($podStranica="podesavanja-PodaciKorisnika.php"){
@@ -120,16 +120,18 @@ public $ostalo;
     public function UbaciSliku($br){
         $sl="slika".$br;
         $config['upload_path'] = './img/uo';
-        $config['allowed_types'] = 'gif|jpg|jpeg|png';
+        $config['allowed_types'] = 'gif|jpg|jpeg';
         $config['max_size']    = '10000';
         $config['max_width']  = '102400';
         $config['max_height']  = '76800';
         $config['overwrite'] = false;
 
         $this->load->library('upload', $config);
-    
+        
+
         if($this->upload->do_upload($sl)){
             $fajldata=$this->upload->data();
+            
             return $path=$fajldata['file_name'];
         }else{
         //ispisivanje greske u slucaju da nije ucitao
