@@ -6,7 +6,6 @@ class Admin extends CI_Controller {
         parent::__construct();
 
         $this->load->model("ModelLokal");
-        $this->load->model("ModelKomentar");
         
         // PRISTUP DOZVOLJEN SAMO AKO JE USER TIP VLASNIK
         if (($this->session->userdata('username')) == NULL) redirect("Gost");
@@ -28,7 +27,7 @@ class Admin extends CI_Controller {
     public function spisak_uo(){
         // ucitavanje prefiksa 
         $this->load->view("partials/header.php");
-        $this->load->view("podesavanja-prefix.php", array("subMenu"=> 2));
+        $this->load->view("podesavanja-prefix.php");
         $this->load->view("partials/podesavanja-spisakUO-prefiks.php");
 
         // for each iz dohvacenog iz baze load view partial/single uo izlistan
@@ -57,7 +56,7 @@ class Admin extends CI_Controller {
     public function stranice_na_cekanju(){
         // ucitavanje prefiksa 
         $this->load->view("partials/header.php");
-        $this->load->view("podesavanja-prefix.php", array("subMenu"=> 4));
+        $this->load->view("podesavanja-prefix.php");
         $this->load->view("partials/podesavanja-odobri-stranicu-prefix.php");
 
         $uonacekanju = $this->ModelLokal->getLokaliNaCekanju();
@@ -74,11 +73,6 @@ class Admin extends CI_Controller {
     public function odobri_stranicu($iduo){
         $this->ModelLokal->updateOdobren($iduo);
         redirect('Admin/stranice_na_cekanju');
-    }
-
-    public function obrisi_komentar($idkom, $iduo){
-        $this->ModelKomentar->deleteKomentar($idkom,$iduo);
-        redirect('Gost/stranica_lokala/'.$iduo);
     }
 
 }

@@ -9,11 +9,10 @@ class RK extends CI_Controller {
         if (($this->session->userdata('username')) == NULL) redirect("Gost");
 	}
 	
-    public function podesavanja($podStranica="podesavanja-PodaciKorisnika.php", $data = NULL, $subMenu=0){
-        $data = $this->getSlika();
+    public function podesavanja($podStranica="podesavanja-PodaciKorisnika.php", $data = NULL){
 		$this->load->view("partials/header.php");
-        $this->load->view("podesavanja-prefix.php", array ("subMenu"=>$subMenu));
-        $this->load->view($podStranica, array ("data"=>$data));
+        $this->load->view("podesavanja-prefix.php");
+        $this->load->view($podStranica,$data);
         $this->load->view("podesavanja-postfix.php");
         $this->load->view("partials/footer.php");
     }
@@ -22,24 +21,24 @@ class RK extends CI_Controller {
     public function promeni(){
 
 
-        $config['upload_path'] = './img/profil';
-        $config['allowed_types'] = 'gif|jpg|jpeg|png';
-        $config['max_size']    = '10000';
-        $config['max_width']  = '102400';
-        $config['max_height']  = '76800';
-        $config['overwrite'] = false;
+    $config['upload_path'] = './img/profil';
+    $config['allowed_types'] = 'gif|jpg|jpeg|png';
+    $config['max_size']    = '10000';
+    $config['max_width']  = '102400';
+    $config['max_height']  = '76800';
+    $config['overwrite'] = false;
 
-        $this->load->library('upload', $config);
-    
-        if($this->upload->do_upload("profilnasrc")){
+    $this->load->library('upload', $config);
+ 
+    if($this->upload->do_upload("profilnasrc")){
 
-        $fajldata=$this->upload->data();
-    
-        $path=$fajldata['file_name'];
-        $this->ModelKorisnik->updateProfil($path);
-        $this->podaci_korisnika();
-        
-        // Za brisanje stare slike ako budemo hteli unlink($file);
+    $fajldata=$this->upload->data();
+ 
+     $path=$fajldata['file_name'];
+     $this->ModelKorisnik->updateProfil($path);
+     $this->podesavanja("podesavanja-PodaciKorisnika.php");
+
+    // Za brisanje stare slike ako budemo hteli unlink($file);
     }
 }
 
@@ -48,20 +47,11 @@ class RK extends CI_Controller {
     }    
 
     public function podaci_korisnika(){
-        $this->podesavanja("podesavanja-PodaciKorisnika.php", NULL, 1);
-    }
-
-    public function getSlika(){
-        $slika = $this->ModelKorisnik->getSlikaKorisnik($this->session->userdata('idkor'));
-        if($slika[0]->AvatarPath != NULL){
-            return 'http://localhost/psi/ci/img/profil/'.$slika[0]->AvatarPath;
-        }else{
-            return 'http://localhost/psi/ci/img/profil/account.jpg';
-        }
+        $this->podesavanja("podesavanja-PodaciKorisnika.php");
     }
 
     public function promeni_lozinku(){
-        $this->podesavanja("podesavanja-promenaLozinke", NULL, 3);
+        $this->podesavanja("podesavanja-promenaLozinke");
     }
 
     public function promeni_password(){

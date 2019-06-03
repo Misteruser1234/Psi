@@ -165,9 +165,8 @@ class ModelSearchKeywords extends CI_Model {
     }
     
     public function dohvatiNizUOSaRecima($words){
-        if (count($words) == 0) return NULL;
         if ($words[0] == NULL) return NULL;
-        
+        if (count($words) == 0) return NULL;
 
         $queryStr = 'SELECT sadrzi.IDUO 
                      FROM searchkeywords, sadrzi 

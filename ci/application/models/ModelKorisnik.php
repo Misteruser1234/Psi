@@ -58,11 +58,6 @@ class ModelKorisnik extends CI_Model {
 
     }
 
-    public function getSlikaKorisnik($idkor){
-        $query=$this->db->query("SELECT AvatarPath FROM Korisnik WHERE IDKorisnik='".$idkor."'");
-        return $query->result();
-    }
-
     // public function dohvatiAutore(){
     //     return $this->db->get('autor')->result();
     // }

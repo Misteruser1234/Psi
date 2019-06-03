@@ -95,15 +95,15 @@
 
 			<div class="container mt-3" style="border-top: 1px solid #aaa;">
 				<div class="row justify-content-between my-3">
-					<div class="col"><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-1"></div>
-					<div class="col"><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-2"></div>
-					<div class="col"><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-3"></div>
-					<div class="col"><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-4"></div>
-					<div class="col"><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-5"></div>
-					<div class="col"><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-6"></div>
-					<div class="col"><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-7"></div>
-					<div class="col"><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-8"></div>
-					<div class="col"><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-9"></div>
+					<div class="col"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-4"></a></div>
+					<div class="col"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-5"></a></div>
+					<div class="col"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-6"></a></div>
+					<div class="col"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-7"></a></div>
+					<div class="col"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-8"></a></div>
+					<div class="col"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-8"></a></div>
+					<div class="col"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-8"></a></div>
+					<div class="col"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-8"></a></div>
+					<div class="col"><a href=""><img src="<?php echo base_url('img/restoran.jpg');?>" class="img-thumbnail img-fluid" alt="Cinque Terre" id="thumb-9"></a></div>
 				</div>
 				<!--END THUMBNAILOVI-->
 			</div>

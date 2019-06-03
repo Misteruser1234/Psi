@@ -1,6 +1,6 @@
 <!-- PROMENA LOZINKE -->
 <div class="my-10 mx-10">
-    <div class="h3 mt-5 mb-4 pl-5">Promena Lozinke: <i class="fas fa-key"></i></div>
+    <div class="h3 mt-5 mb-4">Promena Lozinke: </div>
     <form name="pass_change_form" action="<?php echo site_url('RK/promeni_password') ?>" method="post" >
         <div class="form-group row mb-1 mt-5">
         <label for="oldpass" class="col-sm-4 col-form-label text-right">Unesite staru lozinku:</label>

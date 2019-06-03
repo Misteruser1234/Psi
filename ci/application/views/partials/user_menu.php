@@ -8,7 +8,7 @@
 		<i class="fas fa-user-cog"></i>
 	</button>
 	<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-		<a class="dropdown-item" href=" <?php echo site_url('RK/podaci_korisnika'); ?> ">Podesavanja</a>
+		<a class="dropdown-item" href=" <?php echo site_url('RK/podesavanja'); ?> ">Podesavanja</a>
 		<div class="dropdown-divider"></div>
 		<a class="dropdown-item" href="<?php echo site_url('RK/logout'); ?>">Logout</a>
 	</div>
