@@ -77,7 +77,7 @@ public $ostalo;
         }else{
             
             $data_uo=array_merge($data_uo,$this->ModelLokal->citajUO($iduo));
-           // print_r($data_uo);
+           
             $querySlike=$this->ModelLokal->citajSlike($iduo);
 
             $tagovi = $this->ModelLokal->citajPHAE($iduo);
@@ -87,18 +87,12 @@ public $ostalo;
             $tag['ambijent']=$tagovi[2];
             $tag['ekstra']=$tagovi[3];
 
-            //print_r($tagovi[2]);
-           // print_r($data_uo['ponpet'][1]);
             $this->load->view("partials/header.php");
             $this->load->view("podesavanja-prefix.php");
             $this->load->view("podesavanja-FormaPodaciUO.php", array ("data"=>$data_uo, "tag"=>$tag));
             $this->load->view("podesavanja-postfix.php");
             $this->load->view("partials/footer.php");
            
-            //naziv, ponpet, sub, ned, opis, adresa, gmaps, info1, info2, info3, JeRestoran, JeKafic, JeBrzaHrana
-
-            //$querySlike=$this->ModelLokal->citajSlike($iduo);
-            //$this->podesavanja("podesavanja-FormaPodaciUO.php", $data);
         }
         
     }

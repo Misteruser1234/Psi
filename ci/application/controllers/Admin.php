@@ -75,4 +75,6 @@ class Admin extends CI_Controller {
         redirect('Admin/stranice_na_cekanju');
     }
 
+
+
 }
