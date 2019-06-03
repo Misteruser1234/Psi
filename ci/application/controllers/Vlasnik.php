@@ -77,7 +77,7 @@ public $ostalo;
         }else{
             
             $data_uo=array_merge($data_uo,$this->ModelLokal->citajUO($iduo));
-            print_r($data_uo);
+           // print_r($data_uo);
             $querySlike=$this->ModelLokal->citajSlike($iduo);
 
             $tagovi = $this->ModelLokal->citajPHAE($iduo);
@@ -88,7 +88,7 @@ public $ostalo;
             $tag['ekstra']=$tagovi[3];
 
             //print_r($tagovi[2]);
-           // print_r($data_uo);
+           // print_r($data_uo['ponpet'][1]);
             $this->load->view("partials/header.php");
             $this->load->view("podesavanja-prefix.php");
             $this->load->view("podesavanja-FormaPodaciUO.php", array ("data"=>$data_uo, "tag"=>$tag));
@@ -189,9 +189,9 @@ public function UbaciSlike(){
             $subota = $subOd. "-" . $subDo;
             $nedelja = $nedOd . "-" . $nedDo;
 
-            if($ponpet=="00-00") $ponpet=NULL;
-            if($subota=="00-00") $sub=NULL;
-            if($nedelja=="00-00") $ned=NULL;
+            //  if($ponpet=="00-00") $ponpet=NULL;
+            //  if($subota=="00-00") $sub=NULL;
+            //  if($nedelja=="00-00") $ned=NULL;
 
         
             $pice1 = $this->input->post('craft');

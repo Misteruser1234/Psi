@@ -148,9 +148,10 @@ public function citajUO($iduo){
     $data_uo['jerestoran']=$queryUO->row()->JeRestoran;
     $data_uo['jekafic']=$queryUO->row()->JeKafic;
     $data_uo['jebrzahrana']=$queryUO->row()->JeBrzaHrana;
-    $data_uo['ponpet']=explode("-",$queryUO->row()->ponpet);
-    $data_uo['sub']=explode("-",$queryUO->row()->sub);
-    $data_uo['ned']=explode("-",$queryUO->row()->ned);
+    if($queryUO->row()->ponpet != NULL) $data_uo['ponpet']=explode("-",$queryUO->row()->ponpet);
+    else $data_uo['ponpet']=$queryUO->row()->ponpet;
+    if($queryUO->row()->sub != NULL)$data_uo['sub']=explode("-",$queryUO->row()->sub);
+    if($queryUO->row()->ned != NULL)$data_uo['ned']=explode("-",$queryUO->row()->ned);
     return $data_uo;
 }
 public function citajSlike($iduo){
