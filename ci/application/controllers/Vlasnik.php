@@ -252,7 +252,7 @@ public $ostalo;
 
             #Generise keywords za dati UO i ubaci u bazu
             $this->ModelSearchKeywords->generisiKeywordsZaUO($newID);
-
+            if($this->session->userdata("tip") == 'admin') redirect("Admin/spisak_uo");
             redirect("Vlasnik/spisak_uo");
          }
 
