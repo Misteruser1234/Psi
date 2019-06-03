@@ -125,6 +125,57 @@ public function insertUoImg($data,$id){
 public function deleteUO($iduo){
     $query=$this->db->query("DELETE FROM UO where iduo='".$iduo."'");
 }
+
+public function updateUO($iduo,$naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja,$opis,$samenija,$razlike,$zasto,$pice,$jela,$mesto,$ostalo){
+    $this->db->query("UPDATE UO set Opis='".$opis."', PonPet='".$ponpet."', Sub='".$subota."' ,Ned='".$nedelja."', Adresa='".$adresa."', Gmaps='".$mapa."', Info1='".$samenija."', Info2='".$razlike."', Info3='".$zasto."', Naziv='".$naziv."', JeRestoran='".$restoran."', JeKafic='".$kafic."', JeBrzaHrana='".$brza."' where iduo='".$iduo."'");
+    $this->db->query("UPDATE PHAE set Pice='".$pice."', Hrana='".$jela."', Ambijent='".$mesto."', Ekstra='".$ostalo."' where iduo='".$iduo."'");
+//$newID,$naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja,$opis,$samenija,$razlike,$zasto
+}
+public function citajUO($iduo){
+    $queryUO=$this->db->query("SELECT naziv, ponpet, sub, ned, opis, adresa, gmaps, info1, info2, info3, JeRestoran, JeKafic, JeBrzaHrana FROM uo WHERE iduo='".$iduo."'");
+    $data_uo=[];
+    //array_push($res, $this->piceTagovi[$i]);
+    $data_uo['naziv']=$queryUO->row()->naziv;
+    $data_uo['ponpet']=$queryUO->row()->ponpet;
+    $data_uo['sub']=$queryUO->row()->sub;
+    $data_uo['ned']=$queryUO->row()->ned;
+    $data_uo['opis']=$queryUO->row()->opis;
+    $data_uo['adresa']=$queryUO->row()->adresa;
+    $data_uo['gmaps']=$queryUO->row()->gmaps;
+    $data_uo['info1']=$queryUO->row()->info1;
+    $data_uo['info2']=$queryUO->row()->info2;
+    $data_uo['info3']=$queryUO->row()->info3;
+    $data_uo['jerestoran']=$queryUO->row()->JeRestoran;
+    $data_uo['jekafic']=$queryUO->row()->JeKafic;
+    $data_uo['jebrzahrana']=$queryUO->row()->JeBrzaHrana;
+    $data_uo['ponpet']=explode("-",$queryUO->row()->ponpet);
+    $data_uo['sub']=explode("-",$queryUO->row()->sub);
+    $data_uo['ned']=explode("-",$queryUO->row()->ned);
+    return $data_uo;
+}
+public function citajSlike($iduo){
+    $query=$this->db->query("SELECT * from UOSlike where iduo='".$iduo."'");
+    return $query->result();
+}
+public function citajPHAE($iduo){
+    $query=$this->db->query("SELECT * from PHAE where iduo='".$iduo."'");
+    $pice=$query->row()->Pice;
+   // print_r($pice);
+    $hrana=$query->row()->Hrana;
+  //  print_r($hrana);
+    $ambijent=$query->row()->Ambijent;
+  //  print_r($ambijent);
+    $ekstra=$query->row()->Ekstra;
+  //  print_r($ekstra);
+    $rez=[];
+    array_push($rez, str_split(sprintf( "%08d", decbin( $pice ))));
+    array_push($rez, str_split(sprintf( "%08d", decbin( $hrana ))));
+    array_push($rez, str_split(sprintf( "%08d", decbin( $ambijent ))));
+    array_push($rez, str_split(sprintf( "%08d", decbin( $ekstra ))));
+
+    return $rez;
+
+}
 }
  
     

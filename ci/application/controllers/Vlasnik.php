@@ -65,56 +65,105 @@ public $ostalo;
         $this->load->view("partials/footer.php");
     }
 
-    public function dodaj_uo(){
-        $this->podesavanja("podesavanja-FormaPodaciUO.php");
-    }
-
-    public function calculateInt($d1,$d2,$d3,$d4,$d5,$d6,$d7,$d8){
-        $sum=0;
-        if((int)$d1==1) $sum=$sum+1;
-        if((int)$d2==1) $sum=$sum+2;
-        if((int)$d3==1) $sum=$sum+4;
-        if((int)$d4==1) $sum=$sum+8;
-        if((int)$d5==1) $sum=$sum+16;
-        if((int)$d6==1) $sum=$sum+32;
-        if((int)$d7==1) $sum=$sum+64;
-        if((int)$d8==1) $sum=$sum+128;
-        return $sum;
-    }
-
-    public function odbaci(){
-        redirect("Vlasnik/spisak_uo");
-    }
-
-    public function UbaciSliku($br){
-        $sl="slika".$br;
-        $config['upload_path'] = './img/uo';
-        $config['allowed_types'] = 'gif|jpg|jpeg|png';
-        $config['max_size']    = '10000';
-        $config['max_width']  = '102400';
-        $config['max_height']  = '76800';
-        $config['overwrite'] = false;
-
-        $this->load->library('upload', $config);
-    
-        if($this->upload->do_upload($sl)){
-            $fajldata=$this->upload->data();
-            return $path=$fajldata['file_name'];
+    public function dodaj_uo($iduo=NULL){
+        $data_uo['id']=$iduo;
+        $tag=[];
+        if($iduo == NULL){
+            $this->load->view("partials/header.php");
+            $this->load->view("podesavanja-prefix.php");
+            $this->load->view("podesavanja-FormaPodaciUO.php", array ("data"=>$data_uo, "tag"=>$tag));
+            $this->load->view("podesavanja-postfix.php");
+            $this->load->view("partials/footer.php");
         }else{
-        //ispisivanje greske u slucaju da nije ucitao
-        }
-    }
+            
+            $data_uo=array_merge($data_uo,$this->ModelLokal->citajUO($iduo));
+            print_r($data_uo);
+            $querySlike=$this->ModelLokal->citajSlike($iduo);
 
-    public function UbaciSlike(){
-        $data=array();
-        for ($i = 1; $i <= 9; $i++) {
-            $pom=$this->UbaciSliku($i);
-            if($pom) array_push($data,$pom);
-        }
-        return $data;
-    }
+            $tagovi = $this->ModelLokal->citajPHAE($iduo);
+            
+            $tag['pice']=$tagovi[0];
+            $tag['hrana']=$tagovi[1];
+            $tag['ambijent']=$tagovi[2];
+            $tag['ekstra']=$tagovi[3];
 
-    public function ubaciUO(){
+            //print_r($tagovi[2]);
+           // print_r($data_uo);
+            $this->load->view("partials/header.php");
+            $this->load->view("podesavanja-prefix.php");
+            $this->load->view("podesavanja-FormaPodaciUO.php", array ("data"=>$data_uo, "tag"=>$tag));
+            $this->load->view("podesavanja-postfix.php");
+            $this->load->view("partials/footer.php");
+           
+            //naziv, ponpet, sub, ned, opis, adresa, gmaps, info1, info2, info3, JeRestoran, JeKafic, JeBrzaHrana
+
+            //$querySlike=$this->ModelLokal->citajSlike($iduo);
+            //$this->podesavanja("podesavanja-FormaPodaciUO.php", $data);
+        }
+        
+    }
+public function calculateInt($d1,$d2,$d3,$d4,$d5,$d6,$d7,$d8){
+                $sum=0;
+                if((int)$d1==1) $sum=$sum+1;
+                if((int)$d2==1) $sum=$sum+2;
+                if((int)$d3==1) $sum=$sum+4;
+                if((int)$d4==1) $sum=$sum+8;
+                if((int)$d5==1) $sum=$sum+16;
+                if((int)$d6==1) $sum=$sum+32;
+                if((int)$d7==1) $sum=$sum+64;
+                if((int)$d8==1) $sum=$sum+128;
+                return $sum;
+}
+
+public function odbaci(){
+    redirect("Vlasnik/spisak_uo");
+}
+
+public function UbaciSliku($br){
+     
+    $sl="slika".$br;
+
+
+    $config['upload_path'] = './img/uo';
+    $config['allowed_types'] = 'gif|jpg|jpeg|png';
+    $config['max_size']    = '10000';
+    $config['max_width']  = '102400';
+    $config['max_height']  = '76800';
+    $config['overwrite'] = false;
+
+    $this->load->library('upload', $config);
+ 
+    if($this->upload->do_upload($sl)){
+
+    $fajldata=$this->upload->data();
+ 
+     return $path=$fajldata['file_name'];
+
+   
+  
+ 
+}
+else
+{
+    //ispisivanje greske u slucaju da nije ucitao
+}
+  
+
+}
+public function UbaciSlike(){
+    $data=array();
+    for ($i = 1; $i <= 9; $i++) {
+        $pom=$this->UbaciSliku($i);
+       if($pom) array_push($data,$pom);
+    }
+    return $data;
+}
+
+
+
+
+
+    public function ubaciUO($newID=NULL){
         if (isset($_POST['sacuvaj'])) {
             # Publish-button was clicked
 
@@ -129,7 +178,6 @@ public $ostalo;
 
             $ponpetOd = $this->input->post('ponpetOd');
             $ponpetDo = $this->input->post('ponpetDo');
-         
 
             $subOd = $this->input->post('subOd');
             $subDo = $this->input->post('subDo');
@@ -140,13 +188,10 @@ public $ostalo;
             $ponpet = $ponpetOd . "-" . $ponpetDo;
             $subota = $subOd. "-" . $subDo;
             $nedelja = $nedOd . "-" . $nedDo;
-      
-            if($ponpet=="00-00") $ponpet=NULL;
-  
-            if($subota=="00-00") $subota=NULL;
-            if($nedelja=="00-00") $nedelja=NULL;
 
-          
+            if($ponpet=="00-00") $ponpet=NULL;
+            if($subota=="00-00") $sub=NULL;
+            if($nedelja=="00-00") $ned=NULL;
 
         
             $pice1 = $this->input->post('craft');
@@ -207,8 +252,13 @@ public $ostalo;
             $this->mesto=$this->calculateInt($mesto1,$mesto2,$mesto3,$mesto4,$mesto5,$mesto6,$mesto7,$mesto8);
             $this->ostalo=$this->calculateInt($ostalo1,$ostalo2,$ostalo3,$ostalo4,$ostalo5,$ostalo6,$ostalo7,$ostalo8);
 
-          
-            $newID = $this->ModelLokal->insertUO($naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja, $this->pice,$this->jela,$this->mesto,$this->ostalo,$opis,$samenija,$razlike,$zasto);
+            if($newID==null){
+                $newID = $this->ModelLokal->insertUO($naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja, $this->pice,$this->jela,$this->mesto,$this->ostalo,$opis,$samenija,$razlike,$zasto);
+                echo $newID;
+            }
+            else{
+                $this->ModelLokal->updateUO($newID,$naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja,$opis,$samenija,$razlike,$zasto,$this->pice,$this->jela,$this->mesto,$this->ostalo);
+            }
             $this->ModelLokal->insertUoImg($this->UbaciSlike(),$newID);
      
 
@@ -223,17 +273,6 @@ public $ostalo;
         }
 
     }
-
-    public function postavi_vidljiva($iduo){
-        $this->ModelLokal->setVidljiva($iduo);
-        redirect('Vlasnik/spisak_uo');
-    }
-
-    public function postavi_privatna($iduo){
-        $this->ModelLokal->setPrivatna($iduo);
-        redirect('Vlasnik/spisak_uo');
-    }
-
 //BRISANJE UGOSTITELJSKOG OBJEKTA
     public function brisi_UO($iduo){
         $this->ModelLokal->deleteUO($iduo);

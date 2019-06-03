@@ -12,12 +12,13 @@ function previewImage(idslike,imefajla) {
 </script>
 <div class="my-5 mx-5">
 	<div class="h3 mt-5 mb-4">Podaci o ugostiteljskom objektu: </div>
-	<form method="post" name="UOform"  action=" <?php echo site_url('Vlasnik/ubaciUO'); ?> " enctype="multipart/form-data">
+	<form method="post" name="UOform"  action=" <?php if($data['id'] != NULL) echo site_url('Vlasnik/ubaciUO/'.$data['id']); else  echo site_url('Vlasnik/ubaciUO');?> " enctype="multipart/form-data">
 		<!-- NAZIV -->
 		<div class="form-group row mb-1">
 		<label for="naziv" class="col-sm-4 col-form-label text-right">Naziv:</label>
 		<div class="col-sm-4">
-			<input type="text" class="form-control uo-polje" id="naziv" name="naziv" value="" >
+			<input type="text" class="form-control uo-polje" id="naziv" name="naziv" value="<?php if($data['id'] != NULL) echo $data['naziv'];?>">
+		
 		</div>
 		</div>
 
@@ -25,7 +26,7 @@ function previewImage(idslike,imefajla) {
 		<div class="form-group row mb-1">
 			<label for="adresa" class="col-sm-4 col-form-label text-right">Adresa:</label>
 			<div class="col-sm-4">
-				<input type="text" class="form-control uo-polje" id="adresa" name="adresa" value="" >
+				<input type="text" class="form-control uo-polje" id="adresa" name="adresa" value="<?php if($data['id'] != NULL) echo $data['adresa'];?>" >
 			</div>
 		</div>
 
@@ -33,7 +34,7 @@ function previewImage(idslike,imefajla) {
 		<div class="form-group row mb-1">
 			<label for="gmaps" class="col-sm-4 col-form-label text-right">Google maps:</label>
 			<div class="col-sm-4">
-				<input type="text" class="form-control uo-polje" id="gmaps"  name="mapa" value="" >
+				<input type="text" class="form-control uo-polje" id="gmaps"  name="mapa" value="<?php if($data['id'] != NULL) echo $data['gmaps'];?>" >
 			</div>
 		</div>
 
@@ -42,15 +43,15 @@ function previewImage(idslike,imefajla) {
 			<div class="h5 col-sm-4">Tip ugostiteljskog objekta: </div>
 			<div class="col-sm-8">
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" id="restoran"  name="restoran" value="1">
+					<input class="form-check-input" type="checkbox" id="restoran"  name="restoran"<?php if($data['id'] != NULL) echo $data['jerestoran']==1?'checked':'' ?> value="1">
 					<label class="form-check-label" for="restoran">Restoran</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" id="kafic" name="kafic" value="1">
+					<input class="form-check-input" type="checkbox" id="kafic" name="kafic" <?php if($data['id'] != NULL) echo $data['jekafic']==1?'checked':'' ?> value="1">
 					<label class="form-check-label" for="kafic">Kafic</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" id="brza-hrana"  name="brza" value="1">
+					<input class="form-check-input" type="checkbox" id="brza-hrana"  name="brza" <?php if($data['id'] != NULL) echo $data['jebrzahrana']==1?'checked':'' ?> value="1">
 					<label class="form-check-label" for="brza-hrana">Brza hrana</label>
 				</div>
 			</div>
@@ -64,60 +65,60 @@ function previewImage(idslike,imefajla) {
 				<div class="col-sm-4">
 					<div class="row justify-content-center">
 						<label for="nesto" class=" col-sm-1 col-form-label text-right mr-3">od: </label>
-							<select class="form-control col-sm-3" name="ponpetOd" id="exampleFormControlSelect1">
-									<option>00</option>
-									<option>01</option>
-									<option>02</option>
-									<option>03</option>
-									<option>04</option>
-									<option>05</option>
-									<option>06</option>
-									<option>07</option>
-									<option>08</option>
-									<option>09</option>
-									<option>10</option>
-									<option>11</option>
-									<option>12</option>
-									<option>13</option>
-									<option>14</option>
-									<option>15</option>
-									<option>16</option>
-									<option>17</option>
-									<option>18</option>
-									<option>19</option>
-									<option>20</option>
-									<option>21</option>
-									<option>22</option>
-									<option>23</option>
-									<option>24</option>
+							<select class="form-control col-sm-3" name="ponpetOd" id="exampleFormControlSelect1" value="">
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='00'?'selected':''; ?> >00</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='01'?'selected':''; ?> >01</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='02'?'selected':''; ?> >02</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='03'?'selected':''; ?> >03</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='04'?'selected':''; ?> >04</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='05'?'selected':''; ?> >05</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='06'?'selected':''; ?> >06</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='07'?'selected':''; ?> >07</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='08'?'selected':''; ?> >08</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='09'?'selected':''; ?> >09</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='10'?'selected':''; ?> >10</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='11'?'selected':''; ?> >11</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='12'?'selected':''; ?> >12</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='13'?'selected':''; ?> >13</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='14'?'selected':''; ?> >14</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='15'?'selected':''; ?> >15</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='16'?'selected':''; ?> >16</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='17'?'selected':''; ?> >17</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='18'?'selected':''; ?> >18</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='19'?'selected':''; ?> >19</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='20'?'selected':''; ?> >20</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='21'?'selected':''; ?> >21</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='22'?'selected':''; ?> >22</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='23'?'selected':''; ?> >23</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][0]=='24'?'selected':''; ?> >24 </option>
 							</select>
 							<label for="nesto" class=" col-sm-1 col-form-label text-right mr-3">do: </label>
 						<select class="form-control col-sm-3 " name="ponpetDo" id="exampleFormControlSelect1">
-						<option>00</option>
-									<option>01</option>
-									<option>02</option>
-									<option>03</option>
-									<option>04</option>
-									<option>05</option>
-									<option>06</option>
-									<option>07</option>
-									<option>08</option>
-									<option>09</option>
-									<option>10</option>
-									<option>11</option>
-									<option>12</option>
-									<option>13</option>
-									<option>14</option>
-									<option>15</option>
-									<option>16</option>
-									<option>17</option>
-									<option>18</option>
-									<option>19</option>
-									<option>20</option>
-									<option>21</option>
-									<option>22</option>
-									<option>23</option>
-									<option>24</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='00'?'selected':''; ?> >00</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='01'?'selected':''; ?> >01</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='02'?'selected':''; ?> >02</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='03'?'selected':''; ?> >03</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='04'?'selected':''; ?> >04</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='05'?'selected':''; ?> >05</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='06'?'selected':''; ?> >06</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='07'?'selected':''; ?> >07</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='08'?'selected':''; ?> >08</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='09'?'selected':''; ?> >09</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='10'?'selected':''; ?> >10</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='11'?'selected':''; ?> >11</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='12'?'selected':''; ?> >12</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='13'?'selected':''; ?> >13</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='14'?'selected':''; ?> >14</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='15'?'selected':''; ?> >15</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='16'?'selected':''; ?> >16</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='17'?'selected':''; ?> >17</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='18'?'selected':''; ?> >18</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='19'?'selected':''; ?> >19</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='20'?'selected':''; ?> >20</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='21'?'selected':''; ?> >21</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='22'?'selected':''; ?> >22</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='23'?'selected':''; ?> >23</option>
+									<option <?php if($data['id'] != NULL) echo $data['ponpet'][1]=='24'?'selected':''; ?> >24 </option>
 						</select>
 					</div>
 				</div>
@@ -128,59 +129,59 @@ function previewImage(idslike,imefajla) {
 				<div class="row justify-content-center">
 						<label for="nesto" class=" col-sm-1 col-form-label text-right mr-3">od: </label>
 							<select class="form-control col-sm-3 " name="subOd" id="exampleFormControlSelect1">
-							<option>00</option>
-									<option>01</option>
-									<option>02</option>
-									<option>03</option>
-									<option>04</option>
-									<option>05</option>
-									<option>06</option>
-									<option>07</option>
-									<option>08</option>
-									<option>09</option>
-									<option>10</option>
-									<option>11</option>
-									<option>12</option>
-									<option>13</option>
-									<option>14</option>
-									<option>15</option>
-									<option>16</option>
-									<option>17</option>
-									<option>18</option>
-									<option>19</option>
-									<option>20</option>
-									<option>21</option>
-									<option>22</option>
-									<option>23</option>
-									<option>24</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='00'?'selected':''; ?> >00</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='01'?'selected':''; ?> >01</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='02'?'selected':''; ?> >02</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='03'?'selected':''; ?> >03</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='04'?'selected':''; ?> >04</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='05'?'selected':''; ?> >05</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='06'?'selected':''; ?> >06</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='07'?'selected':''; ?> >07</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='08'?'selected':''; ?> >08</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='09'?'selected':''; ?> >09</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='10'?'selected':''; ?> >10</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='11'?'selected':''; ?> >11</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='12'?'selected':''; ?> >12</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='13'?'selected':''; ?> >13</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='14'?'selected':''; ?> >14</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='15'?'selected':''; ?> >15</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='16'?'selected':''; ?> >16</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='17'?'selected':''; ?> >17</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='18'?'selected':''; ?> >18</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='19'?'selected':''; ?> >19</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='20'?'selected':''; ?> >20</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='21'?'selected':''; ?> >21</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='22'?'selected':''; ?> >22</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='23'?'selected':''; ?> >23</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][0]=='24'?'selected':''; ?> >24 </option>
 							</select>
 							<label for="nesto" class=" col-sm-1 col-form-label text-right mr-3">do: </label>
 						<select class="form-control col-sm-3 " name="subDo" id="exampleFormControlSelect1">
-						<option>00</option>
-									<option>01</option>
-									<option>02</option>
-									<option>03</option>
-									<option>04</option>
-									<option>05</option>
-									<option>06</option>
-									<option>07</option>
-									<option>08</option>
-									<option>09</option>
-									<option>10</option>
-									<option>11</option>
-									<option>12</option>
-									<option>13</option>
-									<option>14</option>
-									<option>15</option>
-									<option>16</option>
-									<option>17</option>
-									<option>18</option>
-									<option>19</option>
-									<option>20</option>
-									<option>21</option>
-									<option>22</option>
-									<option>23</option>
-									<option>24</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='00'?'selected':''; ?> >00</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='01'?'selected':''; ?> >01</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='02'?'selected':''; ?> >02</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='03'?'selected':''; ?> >03</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='04'?'selected':''; ?> >04</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='05'?'selected':''; ?> >05</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='06'?'selected':''; ?> >06</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='07'?'selected':''; ?> >07</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='08'?'selected':''; ?> >08</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='09'?'selected':''; ?> >09</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='10'?'selected':''; ?> >10</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='11'?'selected':''; ?> >11</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='12'?'selected':''; ?> >12</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='13'?'selected':''; ?> >13</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='14'?'selected':''; ?> >14</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='15'?'selected':''; ?> >15</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='16'?'selected':''; ?> >16</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='17'?'selected':''; ?> >17</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='18'?'selected':''; ?> >18</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='19'?'selected':''; ?> >19</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='20'?'selected':''; ?> >20</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='21'?'selected':''; ?> >21</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='22'?'selected':''; ?> >22</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='23'?'selected':''; ?> >23</option>
+									<option <?php if($data['id'] != NULL) echo $data['sub'][1]=='24'?'selected':''; ?> >24 </option>
 						</select>
 					</div>
 				</div>
@@ -191,59 +192,59 @@ function previewImage(idslike,imefajla) {
 				<div class="row justify-content-center">
 						<label for="nesto" class=" col-sm-1 col-form-label text-right mr-3">od: </label>
 							<select class="form-control col-sm-3 " name="nedOd" id="exampleFormControlSelect1">
-							<option>00</option>
-									<option>01</option>
-									<option>02</option>
-									<option>03</option>
-									<option>04</option>
-									<option>05</option>
-									<option>06</option>
-									<option>07</option>
-									<option>08</option>
-									<option>09</option>
-									<option>10</option>
-									<option>11</option>
-									<option>12</option>
-									<option>13</option>
-									<option>14</option>
-									<option>15</option>
-									<option>16</option>
-									<option>17</option>
-									<option>18</option>
-									<option>19</option>
-									<option>20</option>
-									<option>21</option>
-									<option>22</option>
-									<option>23</option>
-									<option>24</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='00'?'selected':''; ?> >00</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='01'?'selected':''; ?> >01</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='02'?'selected':''; ?> >02</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='03'?'selected':''; ?> >03</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='04'?'selected':''; ?> >04</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='05'?'selected':''; ?> >05</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='06'?'selected':''; ?> >06</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='07'?'selected':''; ?> >07</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='08'?'selected':''; ?> >08</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='09'?'selected':''; ?> >09</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='10'?'selected':''; ?> >10</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='11'?'selected':''; ?> >11</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='12'?'selected':''; ?> >12</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='13'?'selected':''; ?> >13</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='14'?'selected':''; ?> >14</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='15'?'selected':''; ?> >15</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='16'?'selected':''; ?> >16</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='17'?'selected':''; ?> >17</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='18'?'selected':''; ?> >18</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='19'?'selected':''; ?> >19</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='20'?'selected':''; ?> >20</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='21'?'selected':''; ?> >21</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='22'?'selected':''; ?> >22</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='23'?'selected':''; ?> >23</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][0]=='24'?'selected':''; ?> >24 </option>
 							</select>
 							<label for="nesto" class=" col-sm-1 col-form-label text-right mr-3">do: </label>
 						<select class="form-control col-sm-3 " name="nedDo" id="exampleFormControlSelect1">
-						<option>00</option>
-									<option>01</option>
-									<option>02</option>
-									<option>03</option>
-									<option>04</option>
-									<option>05</option>
-									<option>06</option>
-									<option>07</option>
-									<option>08</option>
-									<option>09</option>
-									<option>10</option>
-									<option>11</option>
-									<option>12</option>
-									<option>13</option>
-									<option>14</option>
-									<option>15</option>
-									<option>16</option>
-									<option>17</option>
-									<option>18</option>
-									<option>19</option>
-									<option>20</option>
-									<option>21</option>
-									<option>22</option>
-									<option>23</option>
-									<option>24</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='00'?'selected':''; ?> >00</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='01'?'selected':''; ?> >01</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='02'?'selected':''; ?> >02</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='03'?'selected':''; ?> >03</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='04'?'selected':''; ?> >04</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='05'?'selected':''; ?> >05</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='06'?'selected':''; ?> >06</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='07'?'selected':''; ?> >07</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='08'?'selected':''; ?> >08</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='09'?'selected':''; ?> >09</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='10'?'selected':''; ?> >10</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='11'?'selected':''; ?> >11</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='12'?'selected':''; ?> >12</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='13'?'selected':''; ?> >13</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='14'?'selected':''; ?> >14</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='15'?'selected':''; ?> >15</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='16'?'selected':''; ?> >16</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='17'?'selected':''; ?> >17</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='18'?'selected':''; ?> >18</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='19'?'selected':''; ?> >19</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='20'?'selected':''; ?> >20</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='21'?'selected':''; ?> >21</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='22'?'selected':''; ?> >22</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='23'?'selected':''; ?> >23</option>
+									<option <?php if($data['id'] != NULL) echo $data['ned'][1]=='24'?'selected':''; ?> >24 </option>
 						</select>
 					</div>
 				</div>
@@ -258,140 +259,140 @@ function previewImage(idslike,imefajla) {
 					<div class="col-lg-3 col-md-6 my-3">
 						<h1 class="h3">Pice:</h1>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s1v1" name="craft" value="1">
+							<input type="checkbox" class="form-check-input" id="s1v1" name="craft"<?php if($data['id'] != NULL) echo $tag['pice'][0]==1?'checked':'';?>  value="1">
 							<label class="form-check-label" for="s1v1">Craft pivo</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s1v2" name="kafaspec" value="1">
+							<input type="checkbox" class="form-check-input" id="s1v2" name="kafaspec"<?php if($data['id'] != NULL) echo $tag['pice'][1]==1?'checked':'';?>  value="1">
 							<label class="form-check-label" for="s1v2">Kafa special</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s1v3" name="zestina" value="1">
+							<input type="checkbox" class="form-check-input" id="s1v3" name="zestina"<?php if($data['id'] != NULL) echo $tag['pice'][2]==1?'checked':'';?>  value="1">
 							<label class="form-check-label" for="s1v3">Zestina</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s1v4" name="vina" value="1">
+							<input type="checkbox" class="form-check-input" id="s1v4" name="vina"<?php if($data['id'] != NULL) echo $tag['pice'][3]==1?'checked':'';?>  value="1">
 							<label class="form-check-label" for="s1v4">Vina</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s1v5" name="kokteli" value="1">
+							<input type="checkbox" class="form-check-input" id="s1v5" name="kokteli"<?php if($data['id'] != NULL) echo $tag['pice'][4]==1?'checked':'';?>  value="1">
 							<label class="form-check-label" for="s1v5">Kokteli</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s1v6" name="vitaminski" value="1">
+							<input type="checkbox" class="form-check-input" id="s1v6" name="vitaminski"<?php if($data['id'] != NULL) echo $tag['pice'][5]==1?'checked':'';?>  value="1">
 							<label class="form-check-label" for="s1v6">Vitaminski napici</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s1v7" name="likeri" value="1">
+							<input type="checkbox" class="form-check-input" id="s1v7" name="likeri"<?php if($data['id'] != NULL) echo $tag['pice'][6]==1?'checked':'';?>  value="1">
 							<label class="form-check-label" for="s1v7">Likeri</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s1v8" name="bezalkoholna" value="1">
+							<input type="checkbox" class="form-check-input" id="s1v8" name="bezalkoholna"<?php if($data['id'] != NULL) echo $tag['pice'][7]==1?'checked':'';?>  value="1">
 							<label class="form-check-label" for="s1v8">Bezalkoholna pica</label>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6 my-3">
 						<h1 class="h3">Hrana:</h1>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s2v1" name="kuvana" value="1">
+							<input type="checkbox" class="form-check-input" id="s2v1" name="kuvana"<?php if($data['id'] != NULL) echo $tag['hrana'][0]==1?'checked':'';?>  value="1">
 							<label class="form-check-label" for="s2v1">Kuvana jela</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s2v2" name="dnevni" value="1">
+							<input type="checkbox" class="form-check-input" id="s2v2" name="dnevni"<?php if($data['id'] != NULL) echo $tag['hrana'][1]==1?'checked':'';?>  value="1">
 							<label class="form-check-label" for="s2v2">Dnevni meni</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s2v3" name="rostilj" value="1">
+							<input type="checkbox" class="form-check-input" id="s2v3" name="rostilj"<?php if($data['id'] != NULL) echo $tag['hrana'][2]==1?'checked':'';?>  value="1">
 							<label class="form-check-label" for="s2v3">Rostilj</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s2v4" name="pizza" value="1">
+							<input type="checkbox" class="form-check-input" id="s2v4" name="pizza"<?php if($data['id'] != NULL) echo $tag['hrana'][3]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s2v4">Pizza</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s2v5" name="salate" value="1">
+							<input type="checkbox" class="form-check-input" id="s2v5" name="salate"<?php if($data['id'] != NULL) echo $tag['hrana'][4]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s2v5">Obrok salate</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s2v6" name="pecenje" value="1">
+							<input type="checkbox" class="form-check-input" id="s2v6" name="pecenje"<?php if($data['id'] != NULL) echo $tag['hrana'][5]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s2v6">Pecenje</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s2v7" name="sushi" value="1">
+							<input type="checkbox" class="form-check-input" id="s2v7" name="sushi"<?php if($data['id'] != NULL) echo $tag['hrana'][6]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s2v7">Sushi</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s2v8" name="sendvici" value="1">
+							<input type="checkbox" class="form-check-input" id="s2v8" name="sendvici"<?php if($data['id'] != NULL) echo $tag['hrana'][7]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s2v8">Sendvici</label>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6 my-3">
 						<h1 class="h3">Ambijent:</h1>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s3v1" name="basta" value="1">
+							<input type="checkbox" class="form-check-input" id="s3v1" name="basta"<?php if($data['id'] != NULL) echo $tag['ambijent'][0]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s3v1">Basta</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s3v2" name="pogled" value="1">
+							<input type="checkbox" class="form-check-input" id="s3v2" name="pogled"<?php if($data['id'] != NULL) echo $tag['ambijent'][1]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s3v2">Pogled</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s3v3" name="reka" value="1">
+							<input type="checkbox" class="form-check-input" id="s3v3" name="reka"<?php if($data['id'] != NULL) echo $tag['ambijent'][2]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s3v3">Reka</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s3v4" name="centar" value="1">
+							<input type="checkbox" class="form-check-input" id="s3v4" name="centar"<?php if($data['id'] != NULL) echo $tag['ambijent'][3]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s3v4">Centar</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s3v5" name="balkon" value="1">
+							<input type="checkbox" class="form-check-input" id="s3v5" name="balkon"<?php if($data['id'] != NULL) echo $tag['ambijent'][4]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s3v5">Balkon</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s3v6" name="svirka" value="1">
+							<input type="checkbox" class="form-check-input" id="s3v6" name="svirka"<?php if($data['id'] != NULL) echo $tag['ambijent'][5]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s3v6">Ziva svirka</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s3v7" name="chill" value="1">
+							<input type="checkbox" class="form-check-input" id="s3v7" name="chill"<?php if($data['id'] != NULL) echo $tag['ambijent'][6]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s3v7">Chill</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s3v8" name="splav" value="1">
+							<input type="checkbox" class="form-check-input" id="s3v8" name="splav"<?php if($data['id'] != NULL) echo $tag['ambijent'][7]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s3v8">Splav</label>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6 my-3">
 						<h1 class="h3">Extra:</h1>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s4v1" name="wifi" value="1">
+							<input type="checkbox" class="form-check-input" id="s4v1" name="wifi"<?php if($data['id'] != NULL) echo $tag['ekstra'][0]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s4v1">WiFi</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s4v2" name="pet" value="1">
+							<input type="checkbox" class="form-check-input" id="s4v2" name="pet"<?php if($data['id'] != NULL) echo $tag['ekstra'][1]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s4v2">Pet Frendly</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s4v3" name="parking" value="1">
+							<input type="checkbox" class="form-check-input" id="s4v3" name="parking"<?php if($data['id'] != NULL) echo $tag['ekstra'][2]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s4v3">Parking</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s4v4" name="baby" value="1">
+							<input type="checkbox" class="form-check-input" id="s4v4" name="baby"<?php if($data['id'] != NULL) echo $tag['ekstra'][3]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s4v4">Baby oprema</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s4v5" name="nosmoking" value="1">
+							<input type="checkbox" class="form-check-input" id="s4v5" name="nosmoking"<?php if($data['id'] != NULL) echo $tag['ekstra'][4]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s4v5">No Smoking zona</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s4v6" name="dostava" value="1">
+							<input type="checkbox" class="form-check-input" id="s4v6" name="dostava"<?php if($data['id'] != NULL) echo $tag['ekstra'][5]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s4v6">Dostava</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s4v7" name="happy" value="1">
+							<input type="checkbox" class="form-check-input" id="s4v7" name="happy"<?php if($data['id'] != NULL) echo $tag['ekstra'][6]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s4v7">Happy hour</label>
 						</div>
 						<div class="form-check np-polje">
-							<input type="checkbox" class="form-check-input" id="s4v8" name="tv" value="1">
+							<input type="checkbox" class="form-check-input" id="s4v8" name="tv"<?php if($data['id'] != NULL) echo $tag['ekstra'][7]==1?'checked':'';?> value="1">
 							<label class="form-check-label" for="s4v8">TV</label>
 						</div>
 					</div>
@@ -509,25 +510,25 @@ function previewImage(idslike,imefajla) {
 		<!-- OPIS -->
 		<div class="pt-5 pb-2">
 				<div class="h5 mb-3">Opis:</div>
-				<textarea class="w-100 ml-3"  id="opis" rows="10" name="opis"></textarea>
+				<textarea class="w-100 ml-3"  id="opis" rows="10" name="opis"><?php if($data['id'] != NULL) echo $data['opis']?></textarea>
 		</div>
 
 		<!-- IZDVAJAMO SA MENIA -->
 		<div class="pt-5 pb-2">
 			<div class="h5 mb-3">Izdvajamo sa menia:</div>
-			<textarea class="w-100 ml-3"  id="info1" rows="10" name="samenija"></textarea>
+			<textarea class="w-100 ml-3"  id="info1" rows="10" name="samenija"><?php if($data['id'] != NULL) echo $data['info1']?></textarea>
 		</div>
 
 		<!-- PO CEMU SE RAZLIKUJEMO OD DRUGIH -->
 		<div class="pt-5 pb-2">
 				<div class="h5 mb-3">Po cemu se razlikujemo od drugih:</div>
-				<textarea class="w-100 ml-3"  id="info2" rows="10" name="razlike"></textarea>
+				<textarea class="w-100 ml-3"  id="info2" rows="10" name="razlike" ><?php if($data['id'] != NULL) echo $data['info2']?></textarea>
 		</div>
 
 		<!-- ZASTO TREBA DA DODJETE KOD NAS -->
 		<div class="pt-5 pb-2">
 			<div class="h5 mb-3">Zasto treba da dodjete kod nas:</div>
-			<textarea class="w-100 ml-3"  id="info3" rows="10" name="zasto"></textarea>
+			<textarea class="w-100 ml-3"  id="info3" rows="10" name="zasto"><?php if($data['id'] != NULL) echo $data['info3']?></textarea>
 		</div>
 
 		<div class="row py-5">

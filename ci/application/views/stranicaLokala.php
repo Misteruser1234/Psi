@@ -48,7 +48,7 @@
 					<div class="col-sm-7">
 						<!-- ADRESA -->
 							<div class="row mb-2">
-								<div class="h6"><?php echo $data->Adresa ?></div>
+								<div class="h6"><i class='fas'>&#xf3c5;</i><?php echo $data->Adresa ?></div>
 							</div>	
 						<!-- END ADRESA -->
 
