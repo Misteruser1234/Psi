@@ -409,7 +409,7 @@ function previewImage(idslike,imefajla) {
 				<div class="col-md-4 mb-4">
 					<div class="row">
 						<div class="col-sm-12">
-							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="" id="slika1">
+							<img class= "img-fluid" src=" <?php echo base_url($slika[0]); ?>" alt="" id="slika1">
 						</div>
 						<div class="col-sm-12">
 								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika1"  onchange="previewImage('slika1','slika1src');" id="slika1src">
@@ -419,7 +419,7 @@ function previewImage(idslike,imefajla) {
 				<div class="col-md-4 mb-4">
 					<div class="row">
 						<div class="col-sm-12">
-							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="" id="slika2">
+							<img class= "img-fluid" src=" <?php echo base_url($slika[1]); ?> " alt="" id="slika2">
 						</div>
 						<div class="col-sm-12">
 								<input class="btn btn-primary py-2" type="file" style="width:inherit"  name="slika2" onchange="previewImage('slika2','slika2src');" id="slika2src">
@@ -429,7 +429,7 @@ function previewImage(idslike,imefajla) {
 				<div class="col-md-4 mb-4">
 					<div class="row">
 						<div class="col-sm-12">
-							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="" id="slika3">
+							<img class= "img-fluid" src=" <?php echo base_url($slika[2]); ?> " alt="" id="slika3">
 						</div>
 						<div class="col-sm-12">
 								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika3" onchange="previewImage('slika3','slika3src');" id="slika3src">
@@ -443,7 +443,7 @@ function previewImage(idslike,imefajla) {
 				<div class="col-md-4 mb-4">
 					<div class="row">
 						<div class="col-sm-12">
-							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="" id="slika4">
+							<img class= "img-fluid" src=" <?php echo base_url($slika[3]); ?> " alt="" id="slika4">
 						</div>
 						<div class="col-sm-12">
 								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika4" onchange="previewImage('slika4','slika4src');" id="slika4src">
@@ -453,7 +453,7 @@ function previewImage(idslike,imefajla) {
 				<div class="col-md-4 mb-4">
 					<div class="row">
 						<div class="col-sm-12">
-							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="" id="slika5">
+							<img class= "img-fluid" src=" <?php echo base_url($slika[4]); ?> " alt="" id="slika5">
 						</div>
 						<div class="col-sm-12">
 								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika5" onchange="previewImage('slika5','slika5src');" id="slika5src">
@@ -463,7 +463,7 @@ function previewImage(idslike,imefajla) {
 				<div class="col-md-4 mb-4">
 					<div class="row">
 						<div class="col-sm-12">
-							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="" id="slika6">
+							<img class= "img-fluid" src=" <?php echo base_url($slika[5]); ?> " alt="" id="slika6">
 						</div>
 						<div class="col-sm-12">
 								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika6" onchange="previewImage('slika6','slika6src');" id="slika6src">
@@ -477,7 +477,7 @@ function previewImage(idslike,imefajla) {
 				<div class="col-md-4 mb-4">
 					<div class="row">
 						<div class="col-sm-12">
-							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="" id="slika7">
+							<img class= "img-fluid" src=" <?php echo base_url($slika[6]); ?> " alt="" id="slika7">
 						</div>
 						<div class="col-sm-12">
 								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika7" onchange="previewImage('slika7','slika7src');" id="slika7src">
@@ -487,7 +487,7 @@ function previewImage(idslike,imefajla) {
 				<div class="col-md-4 mb-4">
 					<div class="row">
 						<div class="col-sm-12">
-							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="" id="slika8">
+							<img class= "img-fluid" src=" <?php echo base_url($slika[7]); ?> " alt="" id="slika8">
 						</div>
 						<div class="col-sm-12">
 								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika8" onchange="previewImage('slika8','slika8src');" id="slika8src">
@@ -497,7 +497,7 @@ function previewImage(idslike,imefajla) {
 				<div class="col-md-4 mb-4">
 					<div class="row">
 						<div class="col-sm-12">
-							<img class= "img-fluid" src=" <?php echo base_url('img/restoran.jpg') ?> " alt="" id="slika9">
+							<img class= "img-fluid" src=" <?php echo base_url($slika[8]); ?> " alt="" id="slika9">
 						</div>
 						<div class="col-sm-12">
 								<input class="btn btn-primary py-2" type="file" style="width:inherit" name="slika9" onchange="previewImage('slika9','slika9src');" id="slika9src">

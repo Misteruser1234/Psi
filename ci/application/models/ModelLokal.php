@@ -161,10 +161,11 @@ class ModelLokal extends CI_Model {
     public function citajSlike($iduo){
         $query=$this->db->query("SELECT Path from UOSlike where iduo='".$iduo."'");
         $rez = [];
+        for($i=0; $i<9; $i++)   $rez[$i]='img/restoran.jpg';
         $i=0;
         foreach($query->result() as $row)
-            $rez[$i++] = $row->Path;
-        //print_r($rez);
+            $rez[$i++] = 'img/uo/'.$row->Path;
+        print_r($rez);
         return $rez;
     }
     public function citajPHAE($iduo){

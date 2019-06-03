@@ -71,14 +71,14 @@ public $ostalo;
         if($iduo == NULL){
             $this->load->view("partials/header.php");
             $this->load->view("podesavanja-prefix.php",array("subMenu"=> 2));
-            $this->load->view("podesavanja-FormaPodaciUO.php", array ("data"=>$data_uo, "tag"=>$tag));
+            $this->load->view("podesavanja-FormaPodaciUO.php", array ("data"=>$data_uo, "tag"=>$tag,"slika"=>$slike ));
             $this->load->view("podesavanja-postfix.php");
             $this->load->view("partials/footer.php");
         }else{
             
             $data_uo=array_merge($data_uo,$this->ModelLokal->citajUO($iduo));
            /// print_r($data_uo);
-            $querySlike=$this->ModelLokal->citajSlike($iduo);
+            $slike=$this->ModelLokal->citajSlike($iduo);
             $tagovi = $this->ModelLokal->citajPHAE($iduo);
             
             $tag['pice']=$tagovi[0];
@@ -90,7 +90,7 @@ public $ostalo;
            // print_r($data_uo);
             $this->load->view("partials/header.php");
             $this->load->view("podesavanja-prefix.php",array("subMenu"=> 2));
-            $this->load->view("podesavanja-FormaPodaciUO.php", array ("data"=>$data_uo, "tag"=>$tag));
+            $this->load->view("podesavanja-FormaPodaciUO.php", array ("data"=>$data_uo, "tag"=>$tag, "slika"=>$slike));
             $this->load->view("podesavanja-postfix.php");
             $this->load->view("partials/footer.php");
            
