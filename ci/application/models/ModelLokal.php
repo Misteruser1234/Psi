@@ -180,7 +180,7 @@ class ModelLokal extends CI_Model {
     
         return $rez;
     
-
+    }
 
     public function dohvatiSlikeZaUO($IDUO){
         return $this->db->query("SELECT Path FROM UOSlike WHERE IDUO='".$IDUO."'")->result();

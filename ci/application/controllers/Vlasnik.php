@@ -64,7 +64,7 @@ public $ostalo;
         $this->load->view("podesavanja-postfix.php");
         $this->load->view("partials/footer.php");
     }
-
+    
     public function dodaj_uo($iduo=NULL){
         $data_uo['id']=$iduo;
         $tag=[];
