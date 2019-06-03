@@ -176,6 +176,9 @@ public function citajPHAE($iduo){
     return $rez;
 
 }
+    public function dohvatiIDSvihUO(){
+        return $this->db->query("SELECT IDUO FROM uo")->result();
+    }
 }
  
     

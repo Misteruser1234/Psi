@@ -29,7 +29,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				'lp.css',
 				'rezultatPretrage.css',
 				'border.css',
-				'stranica-lokala.css'
+				'stranica-lokala.css',
+				'galerija.css'
 			];
 
 			foreach ($css_fajlovi as $key => $value) {
@@ -38,6 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		?>
 		
+
 		<title>Click and Chill</title>
 	</head>
 	<body>

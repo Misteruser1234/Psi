@@ -79,6 +79,7 @@ class Gost extends CI_Controller {
 
 	public function stranica_lokala($IDUO=NULL){
 		$this->load->view("partials/header.php");
+		$this->load->view("galerija.php");
 		
 		if ( $IDUO!=NULL ){
 			#Ucitavanje podataka za prikaz na stranici
@@ -92,7 +93,12 @@ class Gost extends CI_Controller {
 		#Ucitavanje komentara
 		if ($IDUO != NULL){
 			$komentari = $this->ModelKomentar->dohvatiKomentareZaUO($IDUO);
-			foreach ( $komentari as $komentar ) $this->load->view("partials/komentar.php", (array) $komentar);
+			if($this->session->userdata("tip") == 'admin'){
+				foreach ( $komentari as $komentar ) $this->load->view("partials/komentar-admin.php", (array) $komentar);
+			}else{
+				foreach ( $komentari as $komentar ) $this->load->view("partials/komentar.php", (array) $komentar);
+
+			}
 		}
 	
 		#Ucitavanje forme za ostavljanje komentara
@@ -292,6 +298,23 @@ class Gost extends CI_Controller {
 		}
 	}
 
+	public function pretragaRestoraniAJAX(){
+		$restorani = $this->ModelLokal->getRestorani()->result();
+		header('Content-Type: application/json');
+    	echo json_encode( $restorani );
+	}
+
+	public function pretragaKaficiAJAX(){
+		$restorani = $this->ModelLokal->getKafici()->result();
+		header('Content-Type: application/json');
+    	echo json_encode( $restorani );
+	}
+
+	public function pretragaBrzaHranaAJAX(){
+		$restorani = $this->ModelLokal->getBrzaHrana()->result();
+		header('Content-Type: application/json');
+    	echo json_encode( $restorani );
+	}
 
 	public function prosecna_ocena(){
 		$avg['ocena'] = $this->ModelKomentar->doh_avg_ocena(1);
@@ -309,14 +332,19 @@ class Gost extends CI_Controller {
 		$this->load->view("partials/header.php");
 		$this->load->view("rezultat_pretrage_prefix.php");
 
+		$niJedan = true;
+
 		if ($nizUO){
 			foreach($nizUO as $key => $UO) {
 				$uoData = $this->ModelLokal->getUO($UO);
+				if (!$uoData->Vidljivost) continue;
+				$niJiedan = false;
 				$tagovi = $this->ModelLokal->dohvatiTagoveUO($UO);
 				$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi));
 			}
 		}else $this->load->view("partials/pretraga-nema-rezultata.php");
 		
+		if ($niJedan) $this->load->view("partials/pretraga-nema-rezultata.php");
 		$this->load->view("rezultat_pretrage_postfix.php");
 		if (!$nizUO) $this->load->view("partials/gost_dp.php");
         $this->load->view("partials/footer.php");
@@ -327,6 +355,12 @@ class Gost extends CI_Controller {
 		if ($IDUO){
 			$this->ModelSearchKeywords->generisiKeywordsZaUO($IDUO);
 		}
+	}
+
+	#POMOCNA FUNKCIJA ZA MANUELNO GENERISANJE KEYWORDS ZA SVE UO KOJI SU U BAZI
+	public function initKeywordsAll(){
+		$lokali = $this->ModelLokal->dohvatiIDSvihUO();
+		foreach ($lokali as $lokal) $this->ModelSearchKeywords->generisiKeywordsZaUO($lokal->IDUO);
 	}
 
 }

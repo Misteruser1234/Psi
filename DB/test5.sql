@@ -122,33 +122,9 @@ CREATE TABLE IF NOT EXISTS `searchkeywords` (
   `IDSearchKeywords` int(11) NOT NULL AUTO_INCREMENT,
   `Word` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`IDSearchKeywords`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `searchkeywords`
---
 
-INSERT INTO `searchkeywords` (`IDSearchKeywords`, `Word`) VALUES
-(1, 'bistro'),
-(2, 'ulica'),
-(3, 'prva'),
-(4, '123'),
-(5, 'ovo'),
-(6, 'opis'),
-(7, 'naseg'),
-(8, 'lokala'),
-(9, 'przeni'),
-(10, 'humus'),
-(11, 'kul'),
-(12, 'smo'),
-(13, 'jedete'),
-(14, 'govna'),
-(15, 'craft'),
-(16, 'pivo'),
-(17, 'kuvana'),
-(18, 'jela'),
-(19, 'restoran'),
-(20, 'kafic');
 
 -- --------------------------------------------------------
 
@@ -176,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `uo` (
   `JeKafic` tinyint(1) DEFAULT NULL,
   `JeBrzaHrana` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`IDUO`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
