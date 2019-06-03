@@ -77,7 +77,7 @@ public $ostalo;
         }else{
             
             $data_uo=array_merge($data_uo,$this->ModelLokal->citajUO($iduo));
-            print_r($data_uo);
+           /// print_r($data_uo);
             $querySlike=$this->ModelLokal->citajSlike($iduo);
             $tagovi = $this->ModelLokal->citajPHAE($iduo);
             
