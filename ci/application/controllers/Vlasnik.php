@@ -264,12 +264,20 @@ public $ostalo;
 
     public function postavi_vidljiva($iduo){
         $this->ModelLokal->setVidljiva($iduo);
-        redirect('Vlasnik/spisak_uo');
+        if($this->session->userdata('tip') == 'vlasnik'){
+            redirect('Vlasnik/spisak_uo');
+        }else{
+            redirect('Admin/spisak_uo');
+        }
     }
 
     public function postavi_privatna($iduo){
         $this->ModelLokal->setPrivatna($iduo);
-        redirect('Vlasnik/spisak_uo');
+        if($this->session->userdata('tip') == 'vlasnik'){
+            redirect('Vlasnik/spisak_uo');
+        }else{
+            redirect('Admin/spisak_uo');
+        }
     }
 
 //BRISANJE UGOSTITELJSKOG OBJEKTA

@@ -87,7 +87,6 @@ class Gost extends CI_Controller {
 			if($uoData == NULL) redirect(site_url());
 			$tagovi = $this->ModelLokal->dohvatiTagoveUO($IDUO);
 			$slike = $this->ModelLokal->dohvatiSlikeZaUO($IDUO);
-			print_r($slike);
 			$this->load->view("stranicaLokala.php", array ("data"=>$uoData, "tagovi"=>$tagovi, "slike"=>$slike));
 		}else $this->load->view("stranicaLokala.php");
 		
