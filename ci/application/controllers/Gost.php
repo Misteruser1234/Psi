@@ -298,6 +298,23 @@ class Gost extends CI_Controller {
 		}
 	}
 
+	public function pretragaRestoraniAJAX(){
+		$restorani = $this->ModelLokal->getRestorani()->result();
+		header('Content-Type: application/json');
+    	echo json_encode( $restorani );
+	}
+
+	public function pretragaKaficiAJAX(){
+		$restorani = $this->ModelLokal->getKafici()->result();
+		header('Content-Type: application/json');
+    	echo json_encode( $restorani );
+	}
+
+	public function pretragaBrzaHranaAJAX(){
+		$restorani = $this->ModelLokal->getBrzaHrana()->result();
+		header('Content-Type: application/json');
+    	echo json_encode( $restorani );
+	}
 
 	public function prosecna_ocena(){
 		$avg['ocena'] = $this->ModelKomentar->doh_avg_ocena(1);
