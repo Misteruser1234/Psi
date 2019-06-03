@@ -26,7 +26,7 @@ public $ostalo;
 	
     public function podesavanja($podStranica="podesavanja-PodaciKorisnika.php"){
 		$this->load->view("partials/header.php");
-        $this->load->view("podesavanja-prefix.php");
+        $this->load->view("podesavanja-prefix.php", array("subMenu"=> 2));
         $this->load->view($podStranica);
         $this->load->view("podesavanja-postfix.php");
         $this->load->view("partials/footer.php");
@@ -39,7 +39,7 @@ public $ostalo;
     public function spisak_uo(){
         // ucitavanje prefiksa 
         $this->load->view("partials/header.php");
-        $this->load->view("podesavanja-prefix.php");
+        $this->load->view("podesavanja-prefix.php", array("subMenu"=> 2));
         $this->load->view("partials/podesavanja-spisakUO-prefiks.php");
 
         // for each iz dohvacenog iz baze load view partial/single uo izlistan
@@ -70,7 +70,7 @@ public $ostalo;
         $tag=[];
         if($iduo == NULL){
             $this->load->view("partials/header.php");
-            $this->load->view("podesavanja-prefix.php");
+            $this->load->view("podesavanja-prefix.php", array("subMenu"=> 2));
             $this->load->view("podesavanja-FormaPodaciUO.php", array ("data"=>$data_uo, "tag"=>$tag));
             $this->load->view("podesavanja-postfix.php");
             $this->load->view("partials/footer.php");
@@ -88,7 +88,7 @@ public $ostalo;
             $tag['ekstra']=$tagovi[3];
 
             $this->load->view("partials/header.php");
-            $this->load->view("podesavanja-prefix.php");
+            $this->load->view("podesavanja-prefix.php", array("subMenu"=> 2));
             $this->load->view("podesavanja-FormaPodaciUO.php", array ("data"=>$data_uo, "tag"=>$tag));
             $this->load->view("podesavanja-postfix.php");
             $this->load->view("partials/footer.php");
@@ -269,6 +269,7 @@ public function UbaciSlike(){
     }
 //BRISANJE UGOSTITELJSKOG OBJEKTA
     public function brisi_UO($iduo){
+        $this->ModelSearchKeywords->obrisiKeyWordsZaUO($IDUO);
         $this->ModelLokal->deleteUO($iduo);
         redirect("Vlasnik/spisak_uo");
     }
