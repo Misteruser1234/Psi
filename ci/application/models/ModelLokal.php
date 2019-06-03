@@ -159,8 +159,13 @@ class ModelLokal extends CI_Model {
         return $data_uo;
     }
     public function citajSlike($iduo){
-        $query=$this->db->query("SELECT * from UOSlike where iduo='".$iduo."'");
-        return $query->result();
+        $query=$this->db->query("SELECT Path from UOSlike where iduo='".$iduo."'");
+        $rez = [];
+        $i=0;
+        foreach($query->result() as $row)
+            $rez[$i++] = $row->Path;
+        //print_r($rez);
+        return $rez;
     }
     public function citajPHAE($iduo){
         $query=$this->db->query("SELECT * from PHAE where iduo='".$iduo."'");
