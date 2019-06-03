@@ -64,8 +64,8 @@ class ModelLokal extends CI_Model {
         $this->db->query("UPDATE UO SET Vidljivost='0' WHERE IDUO='".$iduo."'");
     }
 
-   #    VRACA STRING ARRAY TAGOVA UO SA DATIM $ID
-   public function dohvatiTagoveUO($id){
+    #    VRACA STRING ARRAY TAGOVA UO SA DATIM $ID
+    public function dohvatiTagoveUO($id){
 
         #Dohvatanje reda iz PHAE tabele za UO sa id-jem -> $id
         $query = $this->db->get_where('phae', array('IDUO' => $id));
@@ -99,35 +99,42 @@ class ModelLokal extends CI_Model {
         for ($i=0; $i<8; $i++) if ($extraBinArray[$i])     array_push($res, $this->extraTagovi[$i]);
         
         return $res;        
-   }
-public function insertUO($naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja,$pice,$jela,$mesto,$ostalo,$opis,$samenija,$razlike,$zasto){
-    $pom=0;
-    $result=$this->db->query("SELECT * from Korisnik where Username='".$this->korisnik."'");
-    $idkor = $result->row();
-    $query=$this->db->query("INSERT into uo(Opis,PonPet,Sub,Ned,AvgOcena,Adresa,Gmaps,Odobren,Vidljivost,Info1,Info2,Info3,Naziv,JeRestoran,JeKafic,JeBrzaHrana) 
-    values ('".$opis."','".$ponpet."','".$subota."','".$nedelja."','".$pom."','".$adresa."','".$mapa."','".$pom."','".$pom."','".$samenija."','".$razlike."','".$zasto."','".$naziv."','".$restoran."','".$kafic."','".$brza."')");
-    $maxid = $this->db->query('SELECT MAX(IDUO) AS `maxid` FROM `uo`')->row()->maxid;
-    $query=$this->db->query("INSERT into phae(IDUO,Pice,Hrana,Ambijent,Ekstra) values ('".$maxid."','".$pice."','".$jela."','".$mesto."','".$ostalo."')");
-    $query=$this->db->query("INSERT into jevlasnik(IDKorisnik,IDUO) values ('".$idkor->IDKorisnik."','".$maxid."')");
-
-    return $maxid;
-}
-
-
-
-public function insertUoImg($data,$id){ 
-    foreach($data as $pod){
-        $this->db->set("IDUO", $id);
-        $this->db->set("Path", $pod);
-        $this->db->insert("uoslike");
     }
-}
-public function deleteUO($iduo){
-    $query=$this->db->query("DELETE FROM UO where iduo='".$iduo."'");
-}
+
+    public function insertUO($naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja,$pice,$jela,$mesto,$ostalo,$opis,$samenija,$razlike,$zasto){
+        $pom=0;
+        $result=$this->db->query("SELECT * from Korisnik where Username='".$this->korisnik."'");
+        $idkor = $result->row();
+        $query=$this->db->query("INSERT into uo(Opis,PonPet,Sub,Ned,AvgOcena,Adresa,Gmaps,Odobren,Vidljivost,Info1,Info2,Info3,Naziv,JeRestoran,JeKafic,JeBrzaHrana) 
+        values ('".$opis."','".$ponpet."','".$subota."','".$nedelja."','".$pom."','".$adresa."','".$mapa."','".$pom."','".$pom."','".$samenija."','".$razlike."','".$zasto."','".$naziv."','".$restoran."','".$kafic."','".$brza."')");
+        $maxid = $this->db->query('SELECT MAX(IDUO) AS `maxid` FROM `uo`')->row()->maxid;
+        $query=$this->db->query("INSERT into phae(IDUO,Pice,Hrana,Ambijent,Ekstra) values ('".$maxid."','".$pice."','".$jela."','".$mesto."','".$ostalo."')");
+        $query=$this->db->query("INSERT into jevlasnik(IDKorisnik,IDUO) values ('".$idkor->IDKorisnik."','".$maxid."')");
+
+        return $maxid;
+    }
+
+
+
+    public function insertUoImg($data,$id){ 
+        foreach($data as $pod){
+            $this->db->set("IDUO", $id);
+            $this->db->set("Path", $pod);
+            $this->db->insert("uoslike");
+        }
+    }
+
+    public function deleteUO($iduo){
+        $query=$this->db->query("DELETE FROM UO where iduo='".$iduo."'");
+    }
 
     public function dohvatiIDSvihUO(){
         return $this->db->query("SELECT IDUO FROM uo")->result();
+    }
+
+
+    public function dohvatiSlikeZaUO($IDUO){
+        return $this->db->query("SELECT Path FROM UOSlike WHERE IDUO='".$IDUO."'")->result();
     }
 }
  
