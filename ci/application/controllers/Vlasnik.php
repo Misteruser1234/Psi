@@ -147,7 +147,7 @@ public $ostalo;
         return $data;
     }
 
-    public function ubaciUO(){
+    public function ubaciUO($newID=NULL){
         if (isset($_POST['sacuvaj'])) {
             # Publish-button was clicked
 
