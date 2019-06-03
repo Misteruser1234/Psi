@@ -172,10 +172,10 @@ public $ostalo;
             $subota = $subOd. "-" . $subDo;
             $nedelja = $nedOd . "-" . $nedDo;
       
-            if($ponpet=="00-00") $ponpet=NULL;
+            // if($ponpet=="00-00") $ponpet=NULL;
   
-            if($subota=="00-00") $subota=NULL;
-            if($nedelja=="00-00") $nedelja=NULL;
+            // if($subota=="00-00") $subota=NULL;
+            // if($nedelja=="00-00") $nedelja=NULL;
 
           
 
@@ -239,8 +239,13 @@ public $ostalo;
             $this->ostalo=$this->calculateInt($ostalo1,$ostalo2,$ostalo3,$ostalo4,$ostalo5,$ostalo6,$ostalo7,$ostalo8);
 
           
-            $newID = $this->ModelLokal->insertUO($naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja, $this->pice,$this->jela,$this->mesto,$this->ostalo,$opis,$samenija,$razlike,$zasto);
-            $this->ModelLokal->insertUoImg($this->UbaciSlike(),$newID);
+            if($newID==null){
+                $newID = $this->ModelLokal->insertUO($naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja, $this->pice,$this->jela,$this->mesto,$this->ostalo,$opis,$samenija,$razlike,$zasto);
+                echo $newID;
+            }
+            else{
+                $this->ModelLokal->updateUO($newID,$naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja,$opis,$samenija,$razlike,$zasto,$this->pice,$this->jela,$this->mesto,$this->ostalo);
+            }
      
 
             #Generise keywords za dati UO i ubaci u bazu
