@@ -26,7 +26,7 @@ public $ostalo;
 	
     public function podesavanja($podStranica="podesavanja-PodaciKorisnika.php"){
 		$this->load->view("partials/header.php");
-        $this->load->view("podesavanja-prefix.php", array("subMenu"=> 2));
+        $this->load->view("podesavanja-prefix.php", array ("data"=>$data));
         $this->load->view($podStranica);
         $this->load->view("podesavanja-postfix.php");
         $this->load->view("partials/footer.php");
@@ -89,7 +89,7 @@ public $ostalo;
             //print_r($tagovi[2]);
            // print_r($data_uo);
             $this->load->view("partials/header.php");
-            $this->load->view("podesavanja-prefix.php");
+            $this->load->view("podesavanja-prefix.php",array ("data"=>$data));
             $this->load->view("podesavanja-FormaPodaciUO.php", array ("data"=>$data_uo, "tag"=>$tag));
             $this->load->view("podesavanja-postfix.php");
             $this->load->view("partials/footer.php");
