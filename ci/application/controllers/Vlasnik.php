@@ -179,9 +179,6 @@ public $ostalo;
             // if($subota=="00-00") $subota=NULL;
             // if($nedelja=="00-00") $nedelja=NULL;
 
-          
-
-        
             $pice1 = $this->input->post('craft');
             $pice2 = $this->input->post('kafaspec');
             $pice3 = $this->input->post('zestina');
