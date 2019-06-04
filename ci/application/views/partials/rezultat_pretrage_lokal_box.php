@@ -4,7 +4,7 @@
 				<div class="row">
 					<div class="col-md-3 slika">
 						<div class="col-sm-12  slika-korisnika">
-							<img class="img-fluid img-thumbnail w-100"  src="<?php if(array_key_exists(2,$slika)) echo base_url('img/uo/'.$slika[1]); else echo base_url('img/restoran.jpg');  ?>" alt>
+							<img class="img-fluid img-thumbnail w-100"  src="<?php if(array_key_exists(1,$slika)) echo base_url('img/uo/'.$slika[1]); else echo base_url('img/restoran.jpg');  ?>" alt>
 						</div>
 					</div>
 					<div class="col-md-9 mb-8 px">
