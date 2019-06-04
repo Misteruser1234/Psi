@@ -164,6 +164,7 @@ DROP TABLE IF EXISTS `uoslike`;
 CREATE TABLE IF NOT EXISTS `uoslike` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `IDUO` int(11) NOT NULL,
+  `rbr` int(11) NOT NULL,
   `Path` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `R_3` (`IDUO`)
