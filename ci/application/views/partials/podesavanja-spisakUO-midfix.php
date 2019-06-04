@@ -1,7 +1,7 @@
 <?php
 				if ($this->session->userdata('tip') == 'vlasnik'){
 					$linkDodajStranicuUo = site_url('Vlasnik/dodaj_uo');
-					echo '<div class="px-3">
+					echo '<div class="px-3 mb-5">
 					<a class ="btn btn-primary text-white w-100 text-center mt-5 py-2" href="'.$linkDodajStranicuUo.'"> 
 						<i class="fas fa-plus mx-3"></i>
 						Dodaj ugostiteljski objekat
