@@ -165,9 +165,10 @@ class Gost extends CI_Controller {
 		if ( $IDUO!=NULL ){
 			#Ucitavanje podataka za prikaz na stranici
 			$uoData = $this->ModelLokal->getUO($IDUO);
+			$slike = $this->ModelLokal->citajSlike($IDUO);
 			if($uoData == NULL) redirect(site_url());
 			$tagovi = $this->ModelLokal->dohvatiTagoveUO($IDUO);
-			$this->load->view("stranicaLokala.php", array ("data"=>$uoData, "tagovi"=>$tagovi));
+			$this->load->view("stranicaLokala.php", array ("data"=>$uoData, "tagovi"=>$tagovi , "slika"=>$slike));
 		}else $this->load->view("stranicaLokala.php");
 		
 		
