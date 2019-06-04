@@ -68,6 +68,7 @@ public $ostalo;
     public function dodaj_uo($iduo=NULL){
         $data_uo['id']=$iduo;
         $tag=[];
+        $slike=[];
         if($iduo == NULL){
             $this->load->view("partials/header.php");
             $this->load->view("podesavanja-prefix.php",array("subMenu"=> 2));
@@ -77,8 +78,9 @@ public $ostalo;
         }else{
             
             $data_uo=array_merge($data_uo,$this->ModelLokal->citajUO($iduo));
-           /// print_r($data_uo);
+        
             $slike=$this->ModelLokal->citajSlike($iduo);
+
             $tagovi = $this->ModelLokal->citajPHAE($iduo);
             
             $tag['pice']=$tagovi[0];
@@ -86,18 +88,12 @@ public $ostalo;
             $tag['ambijent']=$tagovi[2];
             $tag['ekstra']=$tagovi[3];
 
-            //print_r($tagovi[3]);
-           // print_r($data_uo);
             $this->load->view("partials/header.php");
             $this->load->view("podesavanja-prefix.php",array("subMenu"=> 2));
             $this->load->view("podesavanja-FormaPodaciUO.php", array ("data"=>$data_uo, "tag"=>$tag, "slika"=>$slike));
             $this->load->view("podesavanja-postfix.php");
             $this->load->view("partials/footer.php");
-           
-            //naziv, ponpet, sub, ned, opis, adresa, gmaps, info1, info2, info3, JeRestoran, JeKafic, JeBrzaHrana
-
-            //$querySlike=$this->ModelLokal->citajSlike($iduo);
-            //$this->podesavanja("podesavanja-FormaPodaciUO.php", $data);
+ 
         }
     }
     public function calculateInt($d1,$d2,$d3,$d4,$d5,$d6,$d7,$d8){
@@ -128,10 +124,8 @@ public $ostalo;
 
         $this->load->library('upload', $config);
         
-
         if($this->upload->do_upload($sl)){
-            $fajldata=$this->upload->data();
-            
+            $fajldata=$this->upload->data();            
             return $path=$fajldata['file_name'];
         }else{
         //ispisivanje greske u slucaju da nije ucitao
@@ -140,7 +134,7 @@ public $ostalo;
 
     public function UbaciSlike(){
         $data=array();
-        for ($i = 1; $i <= 9; $i++) {
+        for ($i = 0; $i < 9; $i++) {
             $pom=$this->UbaciSliku($i);
             if($pom) array_push($data,$pom);
         }
@@ -175,7 +169,6 @@ public $ostalo;
             $nedelja = $nedOd . "-" . $nedDo;
       
             // if($ponpet=="00-00") $ponpet=NULL;
-  
             // if($subota=="00-00") $subota=NULL;
             // if($nedelja=="00-00") $nedelja=NULL;
 
@@ -187,7 +180,6 @@ public $ostalo;
             $pice6 = $this->input->post('vitaminski');
             $pice7 = $this->input->post('likeri');
             $pice8 = $this->input->post('bezalkoholna');
-
 
             $jela1 = $this->input->post('kuvana');
             $jela2 = $this->input->post('dnevni');
@@ -231,22 +223,20 @@ public $ostalo;
             $razlike = $this->input->post('razlike');
             $zasto= $this->input->post('zasto');
           
-
             $this->pice=$this->calculateInt($pice1,$pice2,$pice3,$pice4,$pice5,$pice6,$pice7,$pice8);
             $this->jela=$this->calculateInt($jela1,$jela2,$jela3,$jela4,$jela5,$jela6,$jela7,$jela8);
             $this->mesto=$this->calculateInt($mesto1,$mesto2,$mesto3,$mesto4,$mesto5,$mesto6,$mesto7,$mesto8);
             $this->ostalo=$this->calculateInt($ostalo1,$ostalo2,$ostalo3,$ostalo4,$ostalo5,$ostalo6,$ostalo7,$ostalo8);
-            
-          
+                 
             if($newID==null){
                 $newID = $this->ModelLokal->insertUO($naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja, $this->pice,$this->jela,$this->mesto,$this->ostalo,$opis,$samenija,$razlike,$zasto);
                 $this->ModelLokal->insertUoImg($this->UbaciSlike(),$newID);
             }
             else{
                 $this->ModelLokal->updateUO($newID,$naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja,$opis,$samenija,$razlike,$zasto,$this->pice,$this->jela,$this->mesto,$this->ostalo);
+                $this->ModelLokal->update_uoslike($this->UbaciSlike(),$newID);
             }
      
-
             #Generise keywords za dati UO i ubaci u bazu
             $this->ModelSearchKeywords->generisiKeywordsZaUO($newID);
             if($this->session->userdata("tip") == 'admin') redirect("Admin/spisak_uo");
@@ -281,7 +271,11 @@ public $ostalo;
     public function brisi_UO($iduo){
         $this->ModelSearchKeywords->obrisiKeyWordsZaUO($IDUO);
         $this->ModelLokal->deleteUO($iduo);
-        redirect("Vlasnik/spisak_uo");
+        if($this->session->userdata('tip') == 'vlasnik'){
+            redirect('Vlasnik/spisak_uo');
+        }else{
+            redirect('Admin/spisak_uo');
+        }
     }
 
 }

@@ -114,8 +114,6 @@ class ModelLokal extends CI_Model {
         return $maxid;
     }
 
-
-
     public function insertUoImg($data,$id){ 
         foreach($data as $pod){
             $this->db->set("IDUO", $id);
@@ -161,11 +159,12 @@ class ModelLokal extends CI_Model {
     public function citajSlike($iduo){
         $query=$this->db->query("SELECT Path from UOSlike where iduo='".$iduo."'");
         $rez = [];
-        for($i=0; $i<9; $i++)   $rez[$i]='img/restoran.jpg';
+        // for($i=0; $i<9; $i++)   $rez[$i]='img/restoran.jpg';
         $i=0;
         foreach($query->result() as $row)
-            $rez[$i++] = 'img/uo/'.$row->Path;
-        print_r($rez);
+            $rez[$i++] = $row->Path;
+        for($i; $i<9; $i++) $rez[$i] = NULL;
+        //print_r($rez);
         return $rez;
     }
     public function citajPHAE($iduo){
@@ -190,6 +189,14 @@ class ModelLokal extends CI_Model {
 
     public function dohvatiSlikeZaUO($IDUO){
         return $this->db->query("SELECT Path FROM UOSlike WHERE IDUO='".$IDUO."'")->result();
+    }
+    public function update_uoslike($data,$id){
+        
+        foreach($data as $pod){
+            $this->db->set("IDUO", $id);
+            $this->db->set("Path", $pod);
+            $this->db->insert("uoslike");
+        }
     }
 }
  
