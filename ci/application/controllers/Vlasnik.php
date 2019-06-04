@@ -144,6 +144,7 @@ class Vlasnik extends CI_Controller {
             $this->load->view("partials/footer.php");
  
         }
+    }
 
     }
     /**
