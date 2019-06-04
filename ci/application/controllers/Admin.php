@@ -1,7 +1,16 @@
 <?php
-
+/**
+* Admin – kontroler klasa za izvrsavanje admin funkcijonalnosti
+*
+* @version 1.0
+*/
 class Admin extends CI_Controller {
 
+    /**
+    * Kreiranje nove instance
+    *
+    * @return void
+    */
 	public function __construct() {
         parent::__construct();
 
@@ -12,7 +21,15 @@ class Admin extends CI_Controller {
         if (($this->session->userdata('username')) == NULL) redirect("Gost");
         if (($this->session->userdata('tip')) != 'admin') redirect("Gost");
 	}
-	
+	/**
+    * Podesavanja funkcija koja koristi podstranicu
+    *
+    * @param String $podStranica String
+    *
+    * @return void
+    *
+    */
+
     public function podesavanja($podStranica="podesavanja-PodaciKorisnika.php"){
 		$this->load->view("partials/header.php");
         $this->load->view("podesavanja-prefix.php");
@@ -21,10 +38,26 @@ class Admin extends CI_Controller {
         $this->load->view("partials/footer.php");
     }
 
+    /**
+    * index funkcija koja redirektuje logovanog korisnika na landing page
+    *
+    *
+    * @return void
+    *
+    *
+    */
 	public function index(){
         redirect(Gost);
     }
-    
+
+    /**
+    * spisak_uo funkcija koja ucitava spisak svih ugostiteljskih objekata 
+    *
+    *
+    * @return void
+    *
+    *
+    */
     public function spisak_uo(){
         // ucitavanje prefiksa 
         $this->load->view("partials/header.php");
@@ -54,6 +87,14 @@ class Admin extends CI_Controller {
         $this->load->view("partials/footer.php");
     }
 
+    /**
+    * stranice_na_cekanju funkcija koja ucitava spisak svih uo koji cekaju odobrenje
+    *
+    *
+    * @return Response
+    *
+    *
+    */
     public function stranice_na_cekanju(){
         // ucitavanje prefiksa 
         $this->load->view("partials/header.php");
@@ -71,11 +112,30 @@ class Admin extends CI_Controller {
         $this->load->view("partials/footer.php");
     }
 
+    /**
+    * odobri_stranicu funkcija koja koristi iduo i u bazi setuje odobrenost na 1 
+    *
+    * @param Integer $iduo Integer
+    *
+    * @return void
+    *
+    *
+    */
     public function odobri_stranicu($iduo){
         $this->ModelLokal->updateOdobren($iduo);
         redirect('Admin/stranice_na_cekanju');
     }
 
+    /**
+    * obrisi_komentar funkcija koja koristi idkom i iduo za brisanje komentara 
+    *
+    * @param Integer $idkom Integer
+    * @param Integer $iduo Integer
+    *
+    * @return void
+    *
+    *
+    */
     public function obrisi_komentar($idkom, $iduo){
         $this->ModelKomentar->deleteKomentar($idkom,$iduo);
         redirect('Gost/stranica_lokala/'.$iduo);

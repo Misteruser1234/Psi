@@ -1,10 +1,26 @@
 <?php
-
+/**
+* Vlasnik – kontroler klasa za izvrsavanje vlasnik funkcijonalnosti
+*
+* @version 1.0
+*/
 class Vlasnik extends CI_Controller {
-public $pice;
-public $jela;
-public $mesto;
-public $ostalo;
+    /**
+     * @var Integer $pice 
+     * @var Integer $jela 
+     * @var Integer $mesto 
+     * @var Integer $ostalo 
+     */
+    public $pice;
+    public $jela;
+    public $mesto;
+    public $ostalo;
+
+    /**
+    * Kreiranje nove instance
+    *
+    * @return void
+    */
 	public function __construct() {
         parent::__construct();
 
@@ -23,7 +39,15 @@ public $ostalo;
         if (($this->session->userdata('username')) == NULL) redirect("Gost");
         if (($this->session->userdata('tip')) != 'vlasnik' && ($this->session->userdata('tip')) != 'admin') redirect("Gost");
 	}
-	
+    
+    /**
+    * Podesavanja funkcija koja koristi podstranicu
+    *
+    * @param String $podStranica String
+    *
+    * @return void
+    *
+    */
     public function podesavanja($podStranica="podesavanja-PodaciKorisnika.php"){
 		$this->load->view("partials/header.php");
         $this->load->view("podesavanja-prefix.php", array ("data"=>$data));
@@ -32,10 +56,26 @@ public $ostalo;
         $this->load->view("partials/footer.php");
     }
 
+    /**
+    * index funkcija koja redirektuje logovanog korisnika na landing page
+    *
+    *
+    * @return void
+    *
+    *
+    */
 	public function index(){
         redirect(Gost);
     }
     
+    /**
+    * spisak_uo funkcija koja ucitava spisak svih ugostiteljskih objekata ulogovanog vlasnika
+    *
+    *
+    * @return void
+    *
+    *
+    */
     public function spisak_uo(){
         // ucitavanje prefiksa 
         $this->load->view("partials/header.php");
@@ -65,11 +105,20 @@ public $ostalo;
         $this->load->view("partials/footer.php");
     }
 
+    /**
+    * dodaj_uo funkcija koja otvara stranicu sa formom za kreiranje uo i upadte uo. Ako je iduo postavljen radi update uo u suprotnom insert
+    *
+    * @param Intreger $iduo=NULL
+    * @return void
+    *
+    *
+    */
+
     public function dodaj_uo($iduo=NULL){
         $data_uo['id']=$iduo;
         $tag=[];
         $slike=[];
-        if($iduo == NULL){
+        if($iduo == NULL){           //insert uo
             $this->load->view("partials/header.php");
             $this->load->view("podesavanja-prefix.php",array("subMenu"=> 2));
             $this->load->view("podesavanja-FormaPodaciUO.php", array ("data"=>$data_uo, "tag"=>$tag,"slika"=>$slike ));
@@ -95,8 +144,23 @@ public $ostalo;
             $this->load->view("partials/footer.php");
  
         }
-    }
 
+
+    /**
+    * calculateInt funkcija koja izracunava int vrednost selektovanih tagova 
+    *
+    * @param Integer $d1
+    * @param Integer $d2
+    * @param Integer $d3
+    * @param Integer $d4
+    * @param Integer $d5
+    * @param Integer $d6
+    * @param Integer $d7
+    * @param Integer $d8
+    *
+    * @return Integer 
+    *
+    */
     public function calculateInt($d1,$d2,$d3,$d4,$d5,$d6,$d7,$d8){
         $sum=0;
         if((int)$d1==1) $sum=$sum+1;
@@ -110,10 +174,27 @@ public $ostalo;
         return $sum;
     }
 
+    /**
+    * odbaci funkcija koja odbacuje unete podatke u formi za kreiranje uo i vraca na stranicu spisak_uo 
+    *
+    *
+    * @return void
+    *
+    *
+    */
     public function odbaci(){
         redirect("Vlasnik/spisak_uo");
     }
 
+    /**
+    * UbaciSliku funkcija uploaduje sliku sa zadatim imenom na server 
+    *
+    * @param Integer $br
+    *
+    * @return String 
+    *
+    *
+    */
     public function UbaciSliku($br){
         $sl="slika".$br;
         $config['upload_path'] = './img/uo';
@@ -133,6 +214,14 @@ public $ostalo;
         }
     }
 
+    /**
+    * UbaciSlike funkcija koja vadi slike sa forme za kreiranje uo i poziva UbaciSliku za svaku 
+    *
+    *
+    * @return Array
+    *
+    *
+    */
     public function UbaciSlike(){
         $data=array();
         for ($i = 1; $i <= 9; $i++) {
@@ -142,6 +231,15 @@ public $ostalo;
         return $data;
     }
 
+    
+    /**
+    * ubaciUO funkcija koja ubacuje podatke u bazu sa forme za UO ili upadejtuje ako je prosledjen paramatar 
+    *
+    * @param Integer $newID=NULL
+    * @return void
+    *
+    *
+    */
     public function ubaciUO($newID=NULL){
         if (isset($_POST['sacuvaj'])) {
             # Publish-button was clicked
@@ -268,17 +366,43 @@ public $ostalo;
 
     }
 
+    /**
+    * postavi_vidljiva funkcija koja setuje polje JeVidljiva za UO u bazi na 1 
+    *
+    * @param Integer $iduo
+    *
+    * @return void
+    *
+    *
+    */
     public function postavi_vidljiva($iduo){
         $this->ModelLokal->setVidljiva($iduo);
         redirect('Vlasnik/spisak_uo');
     }
 
+    /**
+    * psotavi_privatna funkcija koja setuje polje JeVidljiva za Uo u bazi na 0 
+    *
+    * @param Integer $iduo
+    *
+    * @return void
+    *
+    *
+    */
     public function postavi_privatna($iduo){
         $this->ModelLokal->setPrivatna($iduo);
         redirect('Vlasnik/spisak_uo');
     }
 
-//BRISANJE UGOSTITELJSKOG OBJEKTA
+    /**
+    * brisi_UO funkcija koja brise ugostiteljki objekat iz baze 
+    *
+    * @param Integer $iduo
+    *
+    * @return void
+    *
+    *
+    */
     public function brisi_UO($iduo){
         $this->ModelSearchKeywords->obrisiKeyWordsZaUO($IDUO);
         $this->ModelLokal->deleteUO($iduo);
