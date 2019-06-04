@@ -375,7 +375,8 @@ class Gost extends CI_Controller {
 		foreach($query->result() as $uoData){
 			if($uoData->Vidljivost == 1){
 				$tagovi = $this->ModelLokal->dohvatiTagoveUO($uoData->IDUO);
-				$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi));
+				$slike = $this->ModelLokal->citajSlike($uoData->IDUO);
+				$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi, "slika"=>$slike));
 			}
 		}	
         $this->load->view("rezultat_pretrage_postfix.php");
@@ -397,7 +398,8 @@ class Gost extends CI_Controller {
 		foreach($query->result() as $uoData){
 			if($uoData->Vidljivost == 1){
 				$tagovi = $this->ModelLokal->dohvatiTagoveUO($uoData->IDUO);
-				$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi));
+				$slike = $this->ModelLokal->citajSlike($uoData->IDUO);
+				$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi, "slika"=>$slike));
 			}
 		}	
         $this->load->view("rezultat_pretrage_postfix.php");
