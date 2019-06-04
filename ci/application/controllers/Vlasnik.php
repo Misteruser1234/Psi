@@ -304,7 +304,7 @@ class Vlasnik extends CI_Controller {
             $ostalo2 = $this->input->post('pet');
             $ostalo3 = $this->input->post('parking');
             $ostalo4 = $this->input->post('baby');
-            $ostalo5 = $this->input->post('nonsmoking');
+            $ostalo5 = $this->input->post('nosmoking');
             $ostalo6 = $this->input->post('dostava');
             $ostalo7 = $this->input->post('happy');
             $ostalo8 = $this->input->post('tv');
