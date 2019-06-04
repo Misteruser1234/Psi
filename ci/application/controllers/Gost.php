@@ -1,7 +1,16 @@
 <?php
-
+/**
+* Gost – kontroler klasa za izvrsavanje funkcijonalnosti gost korisnika
+*
+* @version 1.0
+*/
 class Gost extends CI_Controller {
 
+	/**
+    * Kreiranje nove instance
+    *
+    * @return void
+    */
 	public function __construct() {
         parent::__construct();
 		$this->load->model("ModelKorisnik");
@@ -10,20 +19,27 @@ class Gost extends CI_Controller {
 		$this->load->model("ModelSearchKeywords");
 	}
 
-	// Dodavanje nove stranice:
-	// 1. Html fajl kopirati u views folder, obrisati header i footer i rename u .php
-	// 2. Ako postoji css fajl njega kopirati u psi/ci/css folder i dodati ime css fajla u 
-	//    niz css fajlova koji se nalazi u header fajlovima -> views/partials/head_...
-	// 3. U controleru (Gost i/ili RK) napraviti funkciju za prikaz
-	// 4. Dodati link gde treba (pogledati u header fajlovima nav linkove) 
-	
-	//pomocna metoda koja sluzi za ucitavanje stranice posto nam se svaka stranica sadrzi iz tri dela
+	/**
+    * prikazi funkcija koja koristi glavni deo stranice za ucitavanje
+    *
+    * @param String $glavniDeo 
+    * @param Data $data
+    *
+    * @return void
+    *
+    */
     private function prikazi($glavniDeo=NULL, $data=NULL){
         $this->load->view("partials/header.php");
 		if ($glavniDeo != NULL) $this->load->view($glavniDeo, $data);
         $this->load->view("partials/footer.php");
 	}
-
+	/**
+    * lp funkcija koja salje gosta na landing page
+    *
+    *
+    * @return void
+    *
+    */
 	public function lp(){
 		$this->load->view("partials/header_lp.php");
 		$this->load->view("lp.php");
@@ -31,31 +47,81 @@ class Gost extends CI_Controller {
 		$this->load->view("partials/footer.php");
 	}
 
+	/**
+    * index funkcija koja redirektuje logovanog korisnika na landing page
+    *
+    *
+    * @return void
+    *
+    *
+    */
 	public function index(){
 		$this->lp();
 	}
 
+	/**
+    * o_nama funkcija koja poziva funkciju prikazi za stranicu o nama
+    *
+    *
+    * @return void
+    *
+    */
 	public function o_nama(){
 		$this->prikazi("onama.php");
 	}
 
+	/**
+    * napredna_pretraga funkcija koja poziva funkciju prikazi za naprednu pretragu
+    *
+    *
+    * @return void
+    *
+    */
 	public function napredna_pretraga(){
 		$this->prikazi("naprednaPretraga.php");
 	}
 
+	/**
+    * login funkcija koja poziva funkciju prikazi za login formu
+    *
+    *
+    * @return void
+    *
+    */
 	public function login(){
 		$this->prikazi("login.php");
 	}
 	
+	/**
+    * kontakt funkcija koja poziva funkciju prikazi za kontakt stranicu
+    *
+    *
+    * @return void
+    *
+    */
 	public function kontakt(){
 		$this->prikazi("kontakt.php");
 	}
 
+	/**
+    * loginGreska funkcija koja setuje poruku o neispravnim podacima prilikom logina 
+    *
+    *
+    * @return void
+    *
+    */
 	public function loginGreska(){
 		$podaci['poruka'] = "Neispravni podaci!";
 		$this->prikazi('login.php',$podaci);
 	}
 
+	/**
+    * ulogujse funkcija koja vrsi logovanje korisnika na sistem
+    *
+    *
+    * @return void
+    *
+    */
 	public function ulogujse(){
 		$korisnikPostoji = $this->ModelKorisnik->korisnikPostoji($this->input->post('username'));
 		
@@ -72,11 +138,26 @@ class Gost extends CI_Controller {
 		$this->loginGreska();
 	}
 
+	/**
+    * rezultat_pretrage funkcija koja poziva stranicu rezultata pretrage
+    *
+    *
+    * @return void
+    *
+    */
 	public function rezultat_pretrage(){
         $this->prikazi("rezultatPretrage.php");
 	}
 
 
+	/**
+    * stranica_lokala funkcija koja otvara stranicu lokala za odredjeni iduo
+    *
+	* @param Integer $iduo
+	*
+    * @return void
+    *
+    */
 	public function stranica_lokala($IDUO=NULL){
 		$this->load->view("partials/header.php");
 		$this->load->view("galerija.php");
@@ -110,11 +191,27 @@ class Gost extends CI_Controller {
 
 	}
 
+	/**
+    * registracija funkcija koja otvara stranicu za registraciju korisnika
+    *
+    *
+    * @return void
+    *
+    */
 	public function registracija(){
 		$this->prikazi("register.php");
 	}
 
 
+	/**
+    * registerGreska funkcija koja proverava podatke pri registraciji
+    *
+	* @param String $tip
+	* @param Data $data
+	*
+    * @return void
+    *
+    */
 	public function registerGreska($tip, $data){
 		$podaci = [];
 		if (isset($tip['username'])){
@@ -132,6 +229,13 @@ class Gost extends CI_Controller {
 		$this->prikazi('register.php', array ('data'=>$data, 'poruka'=>$poruka));
 	}
 
+	/**
+    * reg funkcija koja vrsi validaciju forme za registraciju
+    *
+    *
+    * @return void
+    *
+    */
 	public function reg(){
 		// VALIDACIJA FORME
 		$error = [];
@@ -168,6 +272,13 @@ class Gost extends CI_Controller {
 		}
 	}
 	
+	/**
+    * naprednaPretraga funkcija ucitava stranicu sa rezultatima napredne pretrage
+    *
+    *
+    * @return void
+    *
+    */
 	public function naprednaPretraga(){
 		$this->load->view("partials/header.php");
 		$this->load->view("rezultat_pretrage_prefix.php");
@@ -193,6 +304,13 @@ class Gost extends CI_Controller {
         $this->load->view("partials/footer.php");
 	}
 
+	/**
+    * pokupiPodatke funkcija koja kupi podatke sa stranice za naprednu pretragu
+    *
+    *
+    * @return Array
+    *
+    */
 	public function pokupiPodatke(){
 		$pice1 = $this->input->post('s1v1');
         $pice2 = $this->input->post('s1v2');
@@ -239,6 +357,13 @@ class Gost extends CI_Controller {
 		
 	}
 
+	/**
+    * pretragaRestorani funkcija koja ucitava stranicu pretrage na restorane
+    *
+    *
+    * @return void
+    *
+    */
 	public function pretragaRestorani(){
 		$this->load->view("partials/header.php");
 		$this->load->view("rezultat_pretrage_prefix.php");
@@ -255,6 +380,13 @@ class Gost extends CI_Controller {
         $this->load->view("partials/footer.php");
 	}
 
+	/**
+    * pretragaKafici funkcija koja ucitava stranicu pretrage na kafice
+    *
+    *
+    * @return void
+    *
+    */
 	public function pretragaKafici(){
 		$this->load->view("partials/header.php");
 		$this->load->view("rezultat_pretrage_prefix.php");
@@ -270,6 +402,13 @@ class Gost extends CI_Controller {
         $this->load->view("partials/footer.php");
 	}
 
+	/**
+    * pretragaBrzaHrana funkcija koja ucitava stranicu pretrage na brzu hranu
+    *
+    *
+    * @return void
+    *
+    */
 	public function pretragaBrzaHrana(){
 		$this->load->view("partials/header.php");
 		$this->load->view("rezultat_pretrage_prefix.php");
@@ -286,6 +425,13 @@ class Gost extends CI_Controller {
 	}	
 
 
+	/**
+    * ispis_komentara funkcija koja ucitava komentare za neki uo
+    *
+    *
+    * @return void
+    *
+    */
     public function ispis_komentara(){
 	   $query = $this->ModelKomentar->nadji_komentar(1);
 	   foreach($query->result() as $row){
@@ -298,13 +444,26 @@ class Gost extends CI_Controller {
 		}
 	}
 
-
+	/**
+    * prosecna_ocena funkcija koja ucitava prosecnu ocenu za odredjeni lokal
+    *
+    *
+    * @return void
+    *
+    */
 	public function prosecna_ocena(){
 		$avg['ocena'] = $this->ModelKomentar->doh_avg_ocena(1);
 		//echo $avg;
 		$this->load->view("partials/komentari-prefix.php", $avg);
 	}
 
+	/**
+    * pretragaKeyWords funkcija koja pretrazuje ugostiteljski objekat za unete reci
+    *
+    *
+    * @return void
+    *
+    */
 	public function pretragaKeyWords(){
 		$data = $this->input->post('pretraga');
 		if (!$data) redirect(site_url());
@@ -333,14 +492,27 @@ class Gost extends CI_Controller {
         $this->load->view("partials/footer.php");
 	}
 
-	#POMOCNA FUNKCIJA ZA MANUELNO GENERISANJE KEYWORDS ZA UO KOJI SU VEC U BAZI, POZVATI MANUELNO PREKO URL U BROWSERU
+	/**
+    * generisiKeyWordsZaUo POMOCNA FUNKCIJA ZA MANUELNO GENERISANJE KEYWORDS ZA UO KOJI SU VEC U BAZI
+    *
+    *
+    * @return void
+    *
+    */
 	public function generisiKeyWordsZaUO($IDUO=NULL){
 		if ($IDUO){
 			$this->ModelSearchKeywords->generisiKeywordsZaUO($IDUO);
 		}
 	}
 
-	#POMOCNA FUNKCIJA ZA MANUELNO GENERISANJE KEYWORDS ZA SVE UO KOJI SU U BAZI
+	
+	/**
+    * initKeyWordsAll POMOCNA FUNKCIJA ZA MANUELNO GENERISANJE KEYWORDS ZA SVE UO KOJI SU U BAZI
+    *
+    *
+    * @return void
+    *
+    */
 	public function initKeywordsAll(){
 		$lokali = $this->ModelLokal->dohvatiIDSvihUO();
 		foreach ($lokali as $lokal) $this->ModelSearchKeywords->generisiKeywordsZaUO($lokal->IDUO);
