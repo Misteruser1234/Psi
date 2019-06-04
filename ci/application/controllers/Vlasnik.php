@@ -146,7 +146,7 @@ class Vlasnik extends CI_Controller {
         }
     }
 
-    }
+    
     /**
     * calculateInt funkcija koja izracunava int vrednost selektovanih tagova 
     *
