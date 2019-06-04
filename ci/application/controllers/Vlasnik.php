@@ -21,12 +21,12 @@ public $ostalo;
 
         // PRISTUP DOZVOLJEN SAMO AKO JE USER TIP VLASNIK
         if (($this->session->userdata('username')) == NULL) redirect("Gost");
-        if (($this->session->userdata('tip')) != 'vlasnik') redirect("Gost");
+        if (($this->session->userdata('tip')) != 'vlasnik' && ($this->session->userdata('tip')) != 'admin') redirect("Gost");
 	}
 	
     public function podesavanja($podStranica="podesavanja-PodaciKorisnika.php"){
 		$this->load->view("partials/header.php");
-        $this->load->view("podesavanja-prefix.php", array("subMenu"=> 2));
+        $this->load->view("podesavanja-prefix.php", array ("data"=>$data));
         $this->load->view($podStranica);
         $this->load->view("podesavanja-postfix.php");
         $this->load->view("partials/footer.php");
@@ -65,8 +65,36 @@ public $ostalo;
         $this->load->view("partials/footer.php");
     }
 
-    public function dodaj_uo(){
-        $this->podesavanja("podesavanja-FormaPodaciUO.php");
+    public function dodaj_uo($iduo=NULL){
+        $data_uo['id']=$iduo;
+        $tag=[];
+        $slike=[];
+        if($iduo == NULL){
+            $this->load->view("partials/header.php");
+            $this->load->view("podesavanja-prefix.php",array("subMenu"=> 2));
+            $this->load->view("podesavanja-FormaPodaciUO.php", array ("data"=>$data_uo, "tag"=>$tag,"slika"=>$slike ));
+            $this->load->view("podesavanja-postfix.php");
+            $this->load->view("partials/footer.php");
+        }else{
+            
+            $data_uo=array_merge($data_uo,$this->ModelLokal->citajUO($iduo));
+        
+            $slike=$this->ModelLokal->citajSlike($iduo);
+            //print_r($slike);
+            $tagovi = $this->ModelLokal->citajPHAE($iduo);
+            
+            $tag['pice']=$tagovi[0];
+            $tag['hrana']=$tagovi[1];
+            $tag['ambijent']=$tagovi[2];
+            $tag['ekstra']=$tagovi[3];
+
+            $this->load->view("partials/header.php");
+            $this->load->view("podesavanja-prefix.php",array("subMenu"=> 2));
+            $this->load->view("podesavanja-FormaPodaciUO.php", array ("data"=>$data_uo, "tag"=>$tag, "slika"=>$slike));
+            $this->load->view("podesavanja-postfix.php");
+            $this->load->view("partials/footer.php");
+ 
+        }
     }
 
     public function calculateInt($d1,$d2,$d3,$d4,$d5,$d6,$d7,$d8){
@@ -108,13 +136,13 @@ public $ostalo;
     public function UbaciSlike(){
         $data=array();
         for ($i = 1; $i <= 9; $i++) {
-            $pom=$this->UbaciSliku($i);
-            if($pom) array_push($data,$pom);
+            
+            if ($pom=$this->UbaciSliku($i)) $data[$i] = $pom;
         }
         return $data;
     }
 
-    public function ubaciUO(){
+    public function ubaciUO($newID=NULL){
         if (isset($_POST['sacuvaj'])) {
             # Publish-button was clicked
 
@@ -141,14 +169,10 @@ public $ostalo;
             $subota = $subOd. "-" . $subDo;
             $nedelja = $nedOd . "-" . $nedDo;
       
-            if($ponpet=="00-00") $ponpet=NULL;
-  
-            if($subota=="00-00") $subota=NULL;
-            if($nedelja=="00-00") $nedelja=NULL;
+            // if($ponpet=="00-00") $ponpet=NULL;
+            // if($subota=="00-00") $subota=NULL;
+            // if($nedelja=="00-00") $nedelja=NULL;
 
-          
-
-        
             $pice1 = $this->input->post('craft');
             $pice2 = $this->input->post('kafaspec');
             $pice3 = $this->input->post('zestina');
@@ -196,6 +220,19 @@ public $ostalo;
             $slika8 = $this->input->post('slika8');
             $slika9 = $this->input->post('slika9');
 
+            $slike=[];
+            array_push($slike, $slika1);
+            array_push($slike, $slika2);
+            array_push($slike, $slika3);
+            array_push($slike, $slika4);
+            array_push($slike, $slika5);
+            array_push($slike, $slika6);
+            array_push($slike, $slika7);
+            array_push($slike, $slika8);
+            array_push($slike, $slika9);
+            // print_r($slike);
+            // die();
+
             $opis = $this->input->post('opis');
             $samenija = $this->input->post('samenija');
             $razlike = $this->input->post('razlike');
@@ -207,14 +244,21 @@ public $ostalo;
             $this->mesto=$this->calculateInt($mesto1,$mesto2,$mesto3,$mesto4,$mesto5,$mesto6,$mesto7,$mesto8);
             $this->ostalo=$this->calculateInt($ostalo1,$ostalo2,$ostalo3,$ostalo4,$ostalo5,$ostalo6,$ostalo7,$ostalo8);
 
-          
-            $newID = $this->ModelLokal->insertUO($naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja, $this->pice,$this->jela,$this->mesto,$this->ostalo,$opis,$samenija,$razlike,$zasto);
-            $this->ModelLokal->insertUoImg($this->UbaciSlike(),$newID);
-     
+            if($newID==null){
+                $newID = $this->ModelLokal->insertUO($naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja, $this->pice,$this->jela,$this->mesto,$this->ostalo,$opis,$samenija,$razlike,$zasto);
+                $data=$this->UbaciSlike();
+
+                $this->ModelLokal->insertUoImg($this->UbaciSlike(),$newID);
+            }
+            else{
+                $this->ModelLokal->updateUO($newID,$naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja,$opis,$samenija,$razlike,$zasto,$this->pice,$this->jela,$this->mesto,$this->ostalo);
+                $this->ModelLokal->update_uoslike($this->UbaciSlike(),$newID);
+            }
 
             #Generise keywords za dati UO i ubaci u bazu
             $this->ModelSearchKeywords->generisiKeywordsZaUO($newID);
-
+         
+            if($this->session->userdata("tip") == 'admin') redirect("Admin/spisak_uo");
             redirect("Vlasnik/spisak_uo");
          }
 
