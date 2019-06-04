@@ -29,7 +29,10 @@ function galerijaInit(){
     // Dinamicki ucitava linkove slika na dnu galirije od slika sa stranice UO
     for (i=0; i<9; i++) $( $(".g-slika")[i] ).attr('src', $( $(".uo-slika")[i] ).attr('src') );
 
+    resizeGlavnaSlika();
+}
 
+function resizeGlavnaSlika(){
     // Postavlja width glavne slike u odnosu na dimenzije slike i dimenzije ekrana
     slikeDole = $(".slike-dole");
     slika = $(".glavna-slika"); //.width('30vw');
@@ -59,13 +62,13 @@ function galerijaInit(){
 
     levo.css({ "top": slikaTop + (slika.outerHeight() - levo.outerHeight())  / 2 + "px", "left": slikaLeft - 3.2*levo.outerWidth() + "px"});
     desno.css({"top": slikaTop + (slika.outerHeight() - desno.outerHeight()) / 2 + "px", "left": slikaLeft + slika.outerWidth() + 2*desno.outerWidth() + "px"});
-
 }
 
 // Postavlja src glavne slike da budi isti kao i src slike na dnu na koju je kliknuto
 $(".g-slika").click(function(){
     $(".glavna-slika").attr('src', $(this).attr('src') );
     $(".glavna-slika").attr('pos', $(this).attr('pos') );
+    resizeGlavnaSlika();
 });
 
 // Menja glavnu sliku u levo u odnosu na slilke na dnu
@@ -74,6 +77,7 @@ $("#strelica-desno").click(function(){
     pos = (pos + 1) % 9;
     $(".glavna-slika").attr('src', $( $(".uo-slika")[pos] ).attr('src') );
     $(".glavna-slika").attr('pos', pos);
+    resizeGlavnaSlika();
 });
 
 // Menja glavnu sliku u desno u odnosu na slilke na dnu
@@ -83,4 +87,5 @@ $("#strelica-levo").click(function(){
     if (pos == -1) pos = 8;
     $(".glavna-slika").attr('src', $( $(".uo-slika")[pos] ).attr('src') );
     $(".glavna-slika").attr('pos', pos);
+    resizeGlavnaSlika();
 });
