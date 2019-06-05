@@ -164,5 +164,6 @@ function uoGalerijaInit(){
         ratio = $(this).outerWidth() / $(this).outerHeight();
         $(this).outerHeight(height);
         $(this).outerWidth(height * ratio);
+        $(this).show();
     });
 }
