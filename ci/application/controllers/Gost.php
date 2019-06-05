@@ -489,7 +489,8 @@ class Gost extends CI_Controller {
 				if (!$uoData->Vidljivost) continue;
 				$niJiedan = false;
 				$tagovi = $this->ModelLokal->dohvatiTagoveUO($UO);
-				$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi));
+				$slike = $this->ModelLokal->citajSlike($uoData->IDUO);
+				$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi, "slika"=>$slike));
 			}
 		}else $this->load->view("partials/pretraga-nema-rezultata.php");
 		
