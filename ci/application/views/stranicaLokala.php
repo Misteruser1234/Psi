@@ -95,16 +95,16 @@
 			<!--THUMBNAILOVI-->
 
 			<div class="container mt-3" style="border-top: 1px solid #aaa;">
-				<div class="row justify-content-between my-3">
-					<div class="col"><img src="<?php if(array_key_exists(1,$slika)) echo base_url('img/uo/'.$slika[1]); else echo base_url('img/restoran.jpg');  ?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-1"></div>
-					<div class="col"><img src="<?php if(array_key_exists(2,$slika)) echo base_url('img/uo/'.$slika[2]); else echo base_url('img/restoran.jpg');  ?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-2"></div>
-					<div class="col"><img src="<?php if(array_key_exists(3,$slika)) echo base_url('img/uo/'.$slika[3]); else echo base_url('img/restoran.jpg');  ?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-3"></div>
-					<div class="col"><img src="<?php if(array_key_exists(4,$slika)) echo base_url('img/uo/'.$slika[4]); else echo base_url('img/restoran.jpg');  ?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-4"></div>
-					<div class="col"><img src="<?php if(array_key_exists(5,$slika)) echo base_url('img/uo/'.$slika[5]); else echo base_url('img/restoran.jpg');  ?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-5"></div>
-					<div class="col"><img src="<?php if(array_key_exists(6,$slika)) echo base_url('img/uo/'.$slika[6]); else echo base_url('img/restoran.jpg');  ?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-6"></div>
-					<div class="col"><img src="<?php if(array_key_exists(7,$slika)) echo base_url('img/uo/'.$slika[7]); else echo base_url('img/restoran.jpg');  ?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-7"></div>
-					<div class="col"><img src="<?php if(array_key_exists(8,$slika)) echo base_url('img/uo/'.$slika[8]); else echo base_url('img/restoran.jpg');  ?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-8"></div>
-					<div class="col"><img src="<?php if(array_key_exists(9,$slika)) echo base_url('img/uo/'.$slika[9]); else echo base_url('img/restoran.jpg');  ?>" class="img-thumbnail img-fluid uo-slika" alt="Cinque Terre" id="thumb-9"></div>
+				<div class="row y-3 uo-slika-container">
+					<img src="<?php if(array_key_exists(1,$slika)) echo base_url('img/uo/'.$slika[1]); else echo base_url('img/restoran.jpg');  ?>" class="uo-slika my-3" id="thumb-1">
+					<img src="<?php if(array_key_exists(2,$slika)) echo base_url('img/uo/'.$slika[2]); else echo base_url('img/restoran.jpg');  ?>" class="uo-slika my-3" id="thumb-2">
+					<img src="<?php if(array_key_exists(3,$slika)) echo base_url('img/uo/'.$slika[3]); else echo base_url('img/restoran.jpg');  ?>" class="uo-slika my-3" id="thumb-3">
+					<img src="<?php if(array_key_exists(4,$slika)) echo base_url('img/uo/'.$slika[4]); else echo base_url('img/restoran.jpg');  ?>" class="uo-slika my-3" id="thumb-4">
+					<img src="<?php if(array_key_exists(5,$slika)) echo base_url('img/uo/'.$slika[5]); else echo base_url('img/restoran.jpg');  ?>" class="uo-slika my-3" id="thumb-5">
+					<img src="<?php if(array_key_exists(6,$slika)) echo base_url('img/uo/'.$slika[6]); else echo base_url('img/restoran.jpg');  ?>" class="uo-slika my-3" id="thumb-6">
+					<img src="<?php if(array_key_exists(7,$slika)) echo base_url('img/uo/'.$slika[7]); else echo base_url('img/restoran.jpg');  ?>" class="uo-slika my-3" id="thumb-7">
+					<img src="<?php if(array_key_exists(8,$slika)) echo base_url('img/uo/'.$slika[8]); else echo base_url('img/restoran.jpg');  ?>" class="uo-slika my-3" id="thumb-8">
+					<img src="<?php if(array_key_exists(9,$slika)) echo base_url('img/uo/'.$slika[9]); else echo base_url('img/restoran.jpg');  ?>" class="uo-slika my-3" id="thumb-9">
 				</div>
 				<!--END THUMBNAILOVI-->
 			</div>

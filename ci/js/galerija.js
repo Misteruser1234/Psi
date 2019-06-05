@@ -3,7 +3,7 @@ var slika, slikaTop, hSpace, wSpace, wFrame;
 $(document).ready(function(){
     galerijaInit();
     streliceInit();
-    
+    uoGalerijaInit();
 });
 
 $("img.d-block.w-100").click(function(){
@@ -138,6 +138,29 @@ function slikeDoleResize(){
     console.log(totalWidth);
     height = height *  ratio;
     $(".g-slika").each(function(){
+        ratio = $(this).outerWidth() / $(this).outerHeight();
+        $(this).outerHeight(height);
+        $(this).outerWidth(height * ratio);
+    });
+}
+
+function uoGalerijaInit(){
+    maxWidth = $(".uo-slika-container").innerWidth();
+    maxHeight = 300//$(".slike-dole").height();
+    height = maxHeight;
+    totalWidth = 0;
+    $(".uo-slika").each(function(){
+        ratio = $(this).outerWidth() / $(this).outerHeight();
+        $(this).outerHeight(height);
+        $(this).outerWidth(height * ratio);
+
+        totalWidth += $(this).outerWidth();
+    });
+
+    ratio = maxWidth / totalWidth;
+    console.log(totalWidth);
+    height = height *  ratio;
+    $(".uo-slika").each(function(){
         ratio = $(this).outerWidth() / $(this).outerHeight();
         $(this).outerHeight(height);
         $(this).outerWidth(height * ratio);
