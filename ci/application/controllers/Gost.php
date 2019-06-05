@@ -487,16 +487,16 @@ class Gost extends CI_Controller {
 			foreach($nizUO as $key => $UO) {
 				$uoData = $this->ModelLokal->getUO($UO);
 				if (!$uoData->Vidljivost) continue;
-				$niJiedan = false;
+				$niJedan = false;
 				$tagovi = $this->ModelLokal->dohvatiTagoveUO($UO);
 				$slike = $this->ModelLokal->citajSlike($uoData->IDUO);
 				$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi, "slika"=>$slike));
 			}
 		}else $this->load->view("partials/pretraga-nema-rezultata.php");
 		
-		if ($niJedan) $this->load->view("partials/pretraga-nema-rezultata.php");
+		if ($nizUO && $niJedan) $this->load->view("partials/pretraga-nema-rezultata.php");
 		$this->load->view("rezultat_pretrage_postfix.php");
-		if (!$nizUO) $this->load->view("partials/gost_dp.php");
+		if (!$nizUO || $niJedan) $this->load->view("partials/gost_dp.php");
         $this->load->view("partials/footer.php");
 	}
 
