@@ -14,10 +14,27 @@ $("img.d-block.w-100").click(function(){
     slikeDoleResize();
 });
 
+$(".uo-slika").click(function(){
+    $("body").css({"overflow":"hidden", "margin-right":"15px"});
+    $(".maska").show();   
+    $(".glavna-slika").attr('src', $(this).attr('src') );
+    index = $(".uo-slika").index($(this));
+    $(".glavna-slika").attr('pos',  index);
+    resizeGlavnaSlika();
+    streliceInit();
+    slikeDoleResize();
+    $(".g-slika").each(function(){
+        $(this).removeClass("g-selected");
+    });
+    $($(".g-slika")[index]).addClass("g-selected");
+
+});
+
 $( window ).resize(function() {
     resizeGlavnaSlika();
     streliceInit();
     slikeDoleResize();
+    uoGalerijaInit();
 });
 
 $(".maska").click(function(){
@@ -124,7 +141,7 @@ $("#strelica-levo").click(function(){
 function slikeDoleResize(){
     maxWidth = $(".g-slika-container").innerWidth();
     maxHeight = $(".slike-dole").height();
-    height = maxHeight;
+    height = 300;
     totalWidth = 0;
     $(".g-slika").each(function(){
         ratio = $(this).outerWidth() / $(this).outerHeight();
@@ -135,7 +152,6 @@ function slikeDoleResize(){
     });
 
     ratio = maxWidth / totalWidth;
-    console.log(totalWidth);
     height = height *  ratio;
     $(".g-slika").each(function(){
         ratio = $(this).outerWidth() / $(this).outerHeight();
@@ -146,8 +162,7 @@ function slikeDoleResize(){
 
 function uoGalerijaInit(){
     maxWidth = $(".uo-slika-container").innerWidth();
-    maxHeight = 300//$(".slike-dole").height();
-    height = maxHeight;
+    height = 300;
     totalWidth = 0;
     $(".uo-slika").each(function(){
         ratio = $(this).outerWidth() / $(this).outerHeight();
@@ -158,7 +173,6 @@ function uoGalerijaInit(){
     });
 
     ratio = maxWidth / totalWidth;
-    console.log(totalWidth);
     height = height *  ratio;
     $(".uo-slika").each(function(){
         ratio = $(this).outerWidth() / $(this).outerHeight();
@@ -166,4 +180,6 @@ function uoGalerijaInit(){
         $(this).outerWidth(height * ratio);
         $(this).show();
     });
+
 }
+
