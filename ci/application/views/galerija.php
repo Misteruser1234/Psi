@@ -5,17 +5,17 @@
         <img src="" alt="" pos=0 class="img-fluid glavna-slika" >
     </div>
     <div class="slike-dole">
-        <div class="container mt-3" style="border-top: 1px solid #aaa;">
-            <div class="row my-3">
-                <div class="col"><img src="" pos="0" class="img-fluid g-slika" alt=""></div>
-                <div class="col"><img src="" pos="1" class="img-fluid g-slika" alt=""></div>
-                <div class="col"><img src="" pos="2" class="img-fluid g-slika" alt=""></div>
-                <div class="col"><img src="" pos="3" class="img-fluid g-slika" alt=""></div>
-                <div class="col"><img src="" pos="4" class="img-fluid g-slika" alt=""></div>
-                <div class="col"><img src="" pos="5" class="img-fluid g-slika" alt=""></div>
-                <div class="col"><img src="" pos="6" class="img-fluid g-slika" alt=""></div>
-                <div class="col"><img src="" pos="7" class="img-fluid g-slika" alt=""></div>
-                <div class="col"><img src="" pos="8" class="img-fluid g-slika" alt=""></div>
+        <div class="mt-3" style="border-top: 1px solid #aaa;">
+            <div class="row m-3 g-slika-container">
+                <img src="" pos="0" class="g-slika g-selected" alt="">
+                <img src="" pos="1" class="g-slika" alt="">
+                <img src="" pos="2" class="g-slika" alt="">
+                <img src="" pos="3" class="g-slika" alt="">
+                <img src="" pos="4" class="g-slika" alt="">
+                <img src="" pos="5" class="g-slika" alt="">
+                <img src="" pos="6" class="g-slika" alt="">
+                <img src="" pos="7" class="g-slika" alt="">
+                <img src="" pos="8" class="g-slika" alt="">
             </div>
             <!--END THUMBNAILOVI-->
         </div>
