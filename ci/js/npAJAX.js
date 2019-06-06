@@ -1,5 +1,9 @@
 $(document).ready(function(){
     executeAJAX();
+    naVrhInit();
+    $([document.documentElement, document.body]).animate({
+        scrollTop: 0
+    }, 1);
 });
 
 $(".np-checkbox").click(function(){
@@ -10,7 +14,7 @@ function collectData(){
     data = [];
     $(".np-checkbox").each(function(){
         if ($(this).prop("checked")){
-             data[$(this).attr('name')] = $(this).attr('value'); 
+             data[$(this).attr('name')] = $(this).attr('value');
         }
     });
     return data;
@@ -40,4 +44,22 @@ $("#pogledaj-rezultate").click(function() {
     $([document.documentElement, document.body]).animate({
         scrollTop: $("#np-rezultati").offset().top - $(".navbar").height()
     }, 1000);
+});
+
+function naVrhInit(){
+    $("#vrati-na-vrh").hide();
+    $("#vrati-na-vrh").css({"bottom" : $(".footer").outerHeight() , "right": $("#vrati-na-vrh").width()/4 });
+    
+}
+
+$("#vrati-na-vrh").click(function(){
+    $([document.documentElement, document.body]).animate({
+        scrollTop: 0
+    }, 500);
+});
+
+$(window).on("scroll", function() {
+    var scrollPosition = $(window).scrollTop();
+    if (scrollPosition >= $(window).innerHeight()) $("#vrati-na-vrh").fadeIn();
+    else $("#vrati-na-vrh").fadeOut();
 });

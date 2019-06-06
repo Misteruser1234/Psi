@@ -49,4 +49,5 @@
 			</div>
 	</div>
 </div>
+<div id="vrati-na-vrh" class="h1 text-primary"><i class="fas fa-arrow-circle-up"></i></div>		
 <div id="np-rezultati" style="min-height:100vh; disaply:none"></div>

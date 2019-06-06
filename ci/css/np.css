@@ -34,3 +34,7 @@ body{
     padding-top: 2%;
 }
 
+#vrati-na-vrh{
+    position:fixed;
+}
+
