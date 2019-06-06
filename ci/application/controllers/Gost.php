@@ -276,36 +276,39 @@ class Gost extends CI_Controller {
 	}
 	
 	/**
-    * naprednaPretraga funkcija ucitava stranicu sa rezultatima napredne pretrage
+	* naprednaPretraga funkcija nalazi ugostiteljske objekte koji odgovaraju parametrima pretage 
+	* i vraca JSON sa poljem za broj rezultata i poljem sa HTML-om za prikaz rezultata nadjenih UO
     *
     *
-    * @return void
+    * @return JOSN
     *
     */
 	public function naprednaPretraga(){
-		$this->load->view("partials/header.php");
-		$this->load->view("rezultat_pretrage_prefix.php");
-
 		$values = $this->pokupiPodatke();
+		
 		$pice = $values[0];
 		$hrana = $values[1];
 		$ambijent = $values[2];
 		$ekstra = $values[3];
+
+		$response = (object) array('count'=> 0, 'data' => '');
 
 		$query = $this->ModelLokal->naprednaPretragaLokala($pice,$hrana,$ambijent,$ekstra);
 		
 		foreach($query->result() as $uoData){
 			if( ($uoData->Pice & $pice) >= 0 || ($uoData->Hrana & $hrana) >= 0 || ($uoData->Ambijent & $ambijent) >= 0 || ($uoData->Ekstra & $ekstra) >= 0){
 				if($uoData->Vidljivost != 0){
+					$response->count++;
 					$tagovi = $this->ModelLokal->dohvatiTagoveUO($uoData->IDUO);
 					$slike = $this->ModelLokal->citajSlike($uoData->IDUO);
-					$this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi, "slika"=>$slike));
+					$response->data .= $this->load->view("partials/rezultat_pretrage_lokal_box.php", array ("data"=>$uoData, "tagovi"=>$tagovi, "slika"=>$slike), true);
 				}
 			}
 		}
-		
-        $this->load->view("rezultat_pretrage_postfix.php");
-        $this->load->view("partials/footer.php");
+		if ($response->count) {
+			$response->data = $this->load->view("rezultat_pretrage_prefix.php", '', true).$response->data.$this->load->view("rezultat_pretrage_postfix.php",'',true);
+		}
+		echo json_encode($response);
 	}
 
 	/**
