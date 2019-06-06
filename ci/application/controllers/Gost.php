@@ -280,7 +280,7 @@ class Gost extends CI_Controller {
 	* i vraca JSON sa poljem za broj rezultata i poljem sa HTML-om za prikaz rezultata nadjenih UO
     *
     *
-    * @return JOSN
+    * @return JSON
     *
     */
 	public function naprednaPretraga(){
