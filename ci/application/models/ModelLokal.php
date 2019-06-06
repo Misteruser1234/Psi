@@ -13,7 +13,14 @@ class ModelLokal extends CI_Model {
         $this->korisnik=$this->session->userdata("username");
     }
     public function naprednaPretragaLokala($data1,$data2,$data3,$data4){
-        $query2 = $this->db->query("SELECT * FROM UO as U, PHAE AS P  WHERE P.Pice>='".$data1."' AND P.Hrana>='".$data2."' AND P.Ambijent>='".$data3."' AND P.Ekstra>='".$data4."' AND P.IDUO = U.IDUO");
+        // $query2 = $this->db->query("SELECT * FROM UO as U, PHAE AS P  WHERE P.Pice>='".$data1."' AND P.Hrana>='".$data2."' AND P.Ambijent>='".$data3."' AND P.Ekstra>='".$data4."' AND P.IDUO = U.IDUO");
+        $query2 = $this->db->query(" SELECT * FROM UO, PHAE 
+                                     WHERE (PHAE.Pice        ^ $data1 & $data1) = 0
+                                     AND   (PHAE.Hrana       ^ $data2 & $data2) = 0
+                                     AND   (PHAE.Ambijent    ^ $data3 & $data3) = 0
+                                     AND   (PHAE.Ekstra      ^ $data4 & $data4) = 0
+                                     AND UO.IDUO = PHAE.IDUO;
+                                 ");
         return $query2;
     }
 
