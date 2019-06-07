@@ -1,5 +1,5 @@
 
-
+<!--Milos Stupar 0669/15,Viktor Galindo 0655/13-->
 <!-- END NAVIGACIJA -->
 
 <div id="np-content">

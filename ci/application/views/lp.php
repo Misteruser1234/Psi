@@ -1,4 +1,6 @@
+<!--Milos Stupar 0669/15-->
 <!-- LANDING PAGE -->
+
 
     <div class="col-md-5 ml-auto mr-auto mt-3 mb-3">
         <img class= "d-block w-100"  src=" <?php echo base_url('img/cc.png'); ?> " alt="">

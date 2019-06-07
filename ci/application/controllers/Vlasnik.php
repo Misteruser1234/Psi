@@ -1,5 +1,8 @@
 <?php
 /**
+ * 
+ * Lazar Ristic 0658/15,Milos Stupar 0669/15
+ * 
 * Vlasnik – kontroler klasa za izvrsavanje vlasnik funkcijonalnosti
 *
 * @version 1.0

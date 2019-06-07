@@ -1,3 +1,4 @@
+<!--Viktor Galindo 0655/13-->
 <!-- OVO JE DROPDOWN KOJI VIDE ULOGOVANI KORISNICI -->
 <div class="dropdown">
 	<button class="btn btn-outline-light my-sm-0" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

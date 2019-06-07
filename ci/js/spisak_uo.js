@@ -1,3 +1,4 @@
+//Lazar Ristic 0658/15
 $(document).ready(function(){
     fixHeight();
 });

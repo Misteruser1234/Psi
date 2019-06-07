@@ -1,5 +1,7 @@
 <?php
 /**
+ * Viktor Galindo 655/13
+ * 
 * ModelKorisnik – model klasa za pristup bazi i izvrsavanje RK funkcionalnosti
 *
 * @version 1.0

@@ -1,3 +1,4 @@
+//Viktor Galindo 0655/13
 $(document).ready(function(){
     executeAJAX();
     naVrhInit();

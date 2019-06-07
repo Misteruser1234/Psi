@@ -1,3 +1,4 @@
+<!--Viktor Galindo 0655/13-->
 <?php
 	$tagovi = array( 
 		array_reverse( array('Bezalkoholna pica', 'Likeri', 'Vitaminski napici', 'Kokteli', 'Vina', 'Zestina', 'Kafa special', 'Craft pivo' ) ),

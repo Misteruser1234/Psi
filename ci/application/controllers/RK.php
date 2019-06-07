@@ -1,5 +1,7 @@
 <?php
 /**
+ * Milica Soljaga 655/13,Vikor Galino 656/13
+ * 
 * RK – kontroler klasa za izvrsavanje funkcijonalnosti registrovanog korisnika
 *
 * @version 1.0

@@ -1,5 +1,7 @@
 <?php
 /**
+ * Milica Soljaga 656/13
+ * 
 * ModelKomentar – ModelKlasa klasa za izvrsavanje admin funkcijonalnosti
 *
 * @version 1.1

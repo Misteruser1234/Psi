@@ -1,3 +1,4 @@
+<!--Milos Stupar 0669/15-->
 <div class="container">
 	<div class="jumbotron px-0 py-1 my-4 mb-6">
 		<!-- GALERIJA -->

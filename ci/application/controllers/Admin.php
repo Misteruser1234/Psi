@@ -1,5 +1,7 @@
 <?php
 /**
+ * Lazar Ristic 0658/15
+ * 
 * Admin – kontroler klasa za izvrsavanje admin funkcijonalnosti
 *
 * @version 1.0

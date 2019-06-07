@@ -1,3 +1,4 @@
+<!--Lazar Ristic 0658/15,Milos Stupar 0669/15-->
 <input type="hidden" id="uoid" name="uoid" value="<?php $data->IDUO?>">
 <a href="<?php echo site_url('Gost/stranica_lokala/'.$data->IDUO);?>" class="a"> 
 			<div class="row rez-uo rez-form jumbotron py-3" >

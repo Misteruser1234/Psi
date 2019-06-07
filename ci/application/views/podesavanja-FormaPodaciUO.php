@@ -1,3 +1,4 @@
+<!--Lazar Ristic 0658/15,Milos Stupar 0669/15-->
 <!-- FUNKCIJA KOJA postavlja preview slike kada se klikne da se promeni-->
 <script>
 function previewImage(idslike,imefajla) {

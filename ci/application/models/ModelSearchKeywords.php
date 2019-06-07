@@ -1,5 +1,8 @@
 <?php
 /**
+ * 
+ * Milos Stupar 0669/15,Viktor Galindo 655/13
+ * 
 * ModelSearchKeywords – model klasa za pristup bazi i izvrsavanje gost funkcionalnosti
 *
 * @version 1.0

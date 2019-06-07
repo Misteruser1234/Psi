@@ -1,3 +1,4 @@
+//Milos Stupar 0669/15
 var slika, slikaTop, hSpace, wSpace, wFrame;
 
 $(document).ready(function(){

@@ -1,3 +1,4 @@
+<!--Lazar Ristic 0658/15-->
 <div class="row">
 	<div class="col-sm-2">
 		<img src="<?php echo base_url('img/restoran.jpg');?>" alt="..." class="img-thumbnail" id="userpic">

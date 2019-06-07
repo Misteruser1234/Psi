@@ -1,5 +1,7 @@
 <?php
 /**
+ * Stupar Milos 669/15,Viktor Galindo 655/13
+ * 
 * Gost – kontroler klasa za izvrsavanje funkcijonalnosti gost korisnika
 *
 * @version 1.0

@@ -1,3 +1,4 @@
+<!--Milos Stupar 0669/15,Milica Soljaga 0656/13-->
 <!-- FOOTER -->
 
 <footer class = "bg-primary text-white fixed-bottom footer">

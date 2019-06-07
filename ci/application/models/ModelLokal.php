@@ -1,7 +1,9 @@
 <?php
 /**
+ * Lazar Ristic 658/15,Milica Soljaga 655/13
+ * 
 * ModelLokal – model klasa za pristup bazi i izvrsavanje gost funkcionalnosti
-*
+*  
 * @version 1.0
 */
 
