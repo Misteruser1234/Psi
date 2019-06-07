@@ -121,7 +121,7 @@
          $this->db->join('korisnik','komiocena.IDKorisnik=korisnik.IDKorisnik');
          $this->db->where('IDUO',$IDUO);
          $query=$this->db->get();
-        print_r($query->result()[0]);
+  
        
         return $query->result();
     }
