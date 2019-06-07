@@ -13,7 +13,7 @@
 							?>
 						"
 				> 
-				Vidljiva svima
+				Javna
 				</span>
 			</a> 
 		</div>
