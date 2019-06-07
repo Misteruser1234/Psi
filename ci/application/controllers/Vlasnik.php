@@ -347,7 +347,7 @@ class Vlasnik extends CI_Controller {
                 $newID = $this->ModelLokal->insertUO($naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja, $this->pice,$this->jela,$this->mesto,$this->ostalo,$opis,$samenija,$razlike,$zasto);
                 $data=$this->UbaciSlike();
 
-                $this->ModelLokal->insertUoImg($this->UbaciSlike(),$newID);
+                $this->ModelLokal->insertUoImg($data,$newID);
             }
             else{
                 $this->ModelLokal->updateUO($newID,$naziv,$adresa,$mapa,$restoran,$kafic,$brza,$ponpet,$subota,$nedelja,$opis,$samenija,$razlike,$zasto,$this->pice,$this->jela,$this->mesto,$this->ostalo);

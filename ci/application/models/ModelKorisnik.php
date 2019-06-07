@@ -54,8 +54,19 @@ class ModelKorisnik extends CI_Model {
 
     function updateProfil($data){
         $username = $this->session->userdata("username");
+       
         $query=$this->db->query("update Korisnik SET AvatarPath='$data' where Username='".$username."'");
 
+    }
+
+    function deleteOldImg(){
+       
+        $username = $this->session->userdata("username");
+        $this->db->select('AvatarPath');
+        $query1=$this->db->get_where('Korisnik',array('Username'=>$username));
+        foreach($query1->result()as $row){
+            unlink("img/profil/".$row->AvatarPath);
+        }
     }
 
     public function getSlikaKorisnik($idkor){

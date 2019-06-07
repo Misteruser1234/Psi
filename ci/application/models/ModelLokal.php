@@ -141,6 +141,15 @@ public function insertUoImg($data,$id){
     // die();
 }
 public function deleteUO($iduo){
+
+    $query=$this->db->get_where('uoslike',array('iduo'=>$iduo));
+    foreach($query->result_array() as $row){
+       
+        unlink("img/uo/".$row['Path']);
+        
+    }
+
+
     $query=$this->db->query("DELETE FROM UO where iduo='".$iduo."'");
 }
 
@@ -195,6 +204,16 @@ public function deleteUO($iduo){
     
         return $rez;
     }
+
+    function deleteOldImg($rbr,$id){
+   
+        $this->db->select('Path');
+        $query1=$this->db->get_where('uoslike',array('rbr'=>$rbr,'IDUO'=>$id));
+        foreach($query1->result()as $row){
+            unlink("img/uo/".$row->Path);
+        }
+    }
+
     public function update_uoslike($data,$id){  
 
         foreach( $data as $rbr => $path){
@@ -207,6 +226,8 @@ public function deleteUO($iduo){
                 $this->db->insert("uoslike");
             }
             else{
+                 
+                $this->deleteOldImg($rbr,$id);
                 $this->db->query("UPDATE uoslike set iduo='".$id."', rbr='".$rbr."', path='".$path."' where id='".$novi->id."'");
             }
         }

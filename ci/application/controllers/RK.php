@@ -55,12 +55,15 @@ class RK extends CI_Controller {
         $this->load->library('upload', $config);
     
         if($this->upload->do_upload("profilnasrc")){
+          
+            $this->ModelKorisnik->deleteOldImg();
             $fajldata=$this->upload->data();
             $path=$fajldata['file_name'];
             $this->ModelKorisnik->updateProfil($path);
-            $this->podaci_korisnika();
+           
         // Za brisanje stare slike ako budemo hteli unlink($file);
         }
+        $this->podaci_korisnika();
     }
 
     /**
