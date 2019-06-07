@@ -1,13 +1,31 @@
 <?php
-
+/**
+* ModelKomentar – ModelKlasa klasa za izvrsavanje admin funkcijonalnosti
+*
+* @version 1.1
+*/
  class ModelKomentar extends CI_Model {
     public $korisnik;
-
+    /**
+    * Kreiranje nove instance
+    *
+    * @return void
+    */
     public function __construct() {
         parent::__construct();
         $this->korisnik = $this->session->userdata("username");
     }
-
+    /**
+    * dodaj_komentar funkcija koja dodaje komentar u bazu podataka
+    *
+    * @param String $kokmentar String
+    * @param String $ocena String
+    * @param Int $iduo Int
+    
+    *
+    * @return void
+    *
+    */
     public function dodaj_komentar($komentar,$ocena,$iduo){
 
         $result=$this->db->get_where('Korisnik',array('Username'=>$this->korisnik));
@@ -33,6 +51,16 @@
        $this->update('UO',$data);
         
     }
+    /**
+    * nadji_komentar funkcija koja dohvata komentar iz baze
+    *
+
+    * @param Int $iduo Int
+    
+    *
+    * @return void
+    *
+    */
     public function nadji_komentar($iduo){
         //$query=$this->db->query("SELECT * from Komiocena as ko, korisnik as k where ko.IDUO='".$iduo."' and ko.idkorisnik ='k.idkorisnik'");
         //$query=$this->db->query("SELECT * from pom where IDUO='".$iduo."'");
@@ -40,6 +68,16 @@
         return $query;
         
     }
+    /**
+    * avg_ocena funkcija koja izracunava prosecnu ocenu lokala
+    *
+   
+    * @param Int $iduo Int
+    
+    *
+    * @return int
+    *
+    */
     public function avg_ocena($iduo){
         //$query=$this->db->query("SELECT avg(ocena) as average from komiocena where IDUO='".$iduo."'");
         $query=$this->db->select_avg('ocena')->from('komiocena')->where('IDUO',$iduo);
@@ -47,6 +85,16 @@
         return $avg;
         
     }
+    /**
+    * doh_avg_ocena funkcija koja vraca prosecnu ocenu lokala iz baze
+    *
+   
+    * @param Int $iduo Int
+    
+    *
+    * @return Int 
+    *
+    */
 
     public function doh_avg_ocena($iduo){
         //$query=$this->db->query("SELECT avgocena from uo where IDUO='".$iduo."'");
@@ -54,24 +102,46 @@
         $avg = $query->row()->avgocena;
         return $avg;
     }
+   /**
+    * dohvatiKomentareZaUO funkcija koja ddohvata komentare zaddatog lokala
+    *
+   
+    * @param Int $iduo Int
+    
+    *
+    * @return array()
+    *
+    */
 
     public function dohvatiKomentareZaUO($IDUO){
-<<<<<<< Updated upstream
-        $query=$this->db->query("SELECT Username, Komentar, Ocena, IDKomiOcena, IDUO, AvatarPath from komiocena, korisnik where komiocena.IDKorisnik = korisnik.IDKorisnik and komiocena.IDUO=".$IDUO);
-=======
         //$query=$this->db->query("SELECT Username, Komentar, Ocena, IDKomiOcena, IDUO from komiocena, korisnik where komiocena.IDKorisnik = korisnik.IDKorisnik and komiocena.IDUO=".$IDUO);
-        $this->db->select('Username','Komentar','Ocena','IDKomiOcena','IDUO');//// ovde nisam znao!!!!!!!!!
+        $this->db->select('Username','Komentar','Ocena','IDKomiOcena','IDUO','AvatarPath');//// ovde nisam znao!!!!!!!!!
         $this->db->from('korisnik');
         $this->db->from('komiocena');
+        $this->db->where('komiocena.IDKorisnik','korisnik.IDKorisnik');
+        $this->db->where('komiocena.IDUO',$IDUO)
         $query=$this->db->get();
->>>>>>> Stashed changes
         return $query->result();
     }
+   /**
+    * deleteKomentar funkcija koja brise zaddati komentar za zaddati lokal
+    *
+   
+    * @param Int $iduo Int
+    * @param Int $idkom Int
+    *
+    * @return void
+    *
+    */
 
     public function deleteKomentar($idkom,$iduo){
-        $query = $this->db->query("DELETE FROM KomiOcena WHERE IDKomiOcena='".$idkom."'");
+        //$query = $this->db->query("DELETE FROM KomiOcena WHERE IDKomiOcena='".$idkom."'");
+        $query=$this->db->delete('KomiOcena',array('IDKomiOcena'=>$idkom));
         $avgOcena = $this->avg_ocena($iduo);
-        $query = $this->db->query("UPDATE UO SET AvgOcena='".$avgOcena."' WHERE iduo='".$iduo."'");
+
+        $data=array('AvgOcena'=>$avgOcena);
+        $this->db->where('iduo',$iduo);
+        $this->update('UO',$data);
     }
     
 }
