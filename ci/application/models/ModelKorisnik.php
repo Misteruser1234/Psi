@@ -31,7 +31,6 @@ class ModelKorisnik extends CI_Model {
         }
     }
 
-
     public function ispravanPassword($password){
         if ($this->korisnik->Password == $password) {
             return TRUE;
@@ -48,25 +47,24 @@ class ModelKorisnik extends CI_Model {
     }
 
     function updatePassword($username,$password){
-        $query=$this->db->query("update Korisnik SET Password='$password' where Username='".$username."'");
+        // $query=$this->db->query("update Korisnik SET Password='$password' where Username='".$username."'");
+        $data = array( 'Password' => $password );
+        $this->db->where('Username', $username);
+        $this->db->update('Korisnik', $data); 
     }
-
 
     function updateProfil($data){
         $username = $this->session->userdata("username");
-        $query=$this->db->query("update Korisnik SET AvatarPath='$data' where Username='".$username."'");
-
+        // $query=$this->db->query("update Korisnik SET AvatarPath='$data' where Username='".$username."'");
+        $data = array( 'AvatarPath' => $data );
+        $this->db->where('Username', $username);
+        $this->db->update('Korisnik', $data); 
     }
 
     public function getSlikaKorisnik($idkor){
-        $query=$this->db->query("SELECT AvatarPath FROM Korisnik WHERE IDKorisnik='".$idkor."'");
+        // $query=$this->db->query("SELECT AvatarPath FROM Korisnik WHERE IDKorisnik='".$idkor."'");
+        $query=$this->db->select('AvatarPath')->from('Korisnik')->where('IDKorisnik',$idkor)->get();
         return $query->result();
     }
-
-    // public function dohvatiAutore(){
-    //     return $this->db->get('autor')->result();
-    // }
-//     $sql = "INSERT INTO MyGuests (firstname, lastname, email)
-// VALUES ('John', 'Doe', 'john@example.com')";
     
 }
