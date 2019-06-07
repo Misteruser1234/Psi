@@ -21,6 +21,10 @@
 			if ( strpos($_SERVER['REQUEST_URI'], "/napredna_pretraga") !== false )  {
 				echo '<script src="'.base_url('js/npAJAX.js').'"></script>';
 			}
+
+			if ( strpos($_SERVER['REQUEST_URI'], "/spisak_uo") !== false )  {
+				echo '<script src="'.base_url('js/spisak_uo.js').'"></script>';
+			}
 		?>
 	</body>
 </html>

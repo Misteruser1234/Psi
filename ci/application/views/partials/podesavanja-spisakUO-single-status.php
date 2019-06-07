@@ -1,4 +1,4 @@
-<div class="row px-3 pt-4">
+<div class="row px-3 py-0 mt-4 uo-vidljivost">
 		<div class="col">
 			<a class="a" href="<?php echo site_url('Vlasnik/postavi_vidljiva/'.$data->IDUO);?>">
 				<span   
