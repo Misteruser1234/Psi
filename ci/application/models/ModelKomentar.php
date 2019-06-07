@@ -48,7 +48,7 @@
        
        $data=array('AvgOcena'=>$avg);
        $this->db->where('iduo',$iduo);
-       $this->update('UO',$data);
+       $this->db->update('UO',$data);
         
     }
     /**
@@ -81,7 +81,8 @@
     public function avg_ocena($iduo){
         //$query=$this->db->query("SELECT avg(ocena) as average from komiocena where IDUO='".$iduo."'");
         $query=$this->db->select_avg('ocena')->from('komiocena')->where('IDUO',$iduo);
-        $avg = $query->row()->ocena;
+        $query = $this->db->get();
+        $avg=$query->result()[0]->ocena;
         return $avg;
         
     }
@@ -114,13 +115,14 @@
     */
 
     public function dohvatiKomentareZaUO($IDUO){
-        //$query=$this->db->query("SELECT Username, Komentar, Ocena, IDKomiOcena, IDUO from komiocena, korisnik where komiocena.IDKorisnik = korisnik.IDKorisnik and komiocena.IDUO=".$IDUO);
-        $this->db->select('Username','Komentar','Ocena','IDKomiOcena','IDUO','AvatarPath');//// ovde nisam znao!!!!!!!!!
-        $this->db->from('korisnik');
-        $this->db->from('komiocena');
-        $this->db->where('komiocena.IDKorisnik','korisnik.IDKorisnik');
-        $this->db->where('komiocena.IDUO',$IDUO)
-        $query=$this->db->get();
+        //$query=$this->db->query("SELECT Username, Komentar, Ocena, IDKomiOcena,AvatarPath IDUO from komiocena, korisnik where komiocena.IDKorisnik = korisnik.IDKorisnik and komiocena.IDUO=".$IDUO);
+         $this->db->select();
+         $this->db->from('komiocena');
+         $this->db->join('korisnik','komiocena.IDKorisnik=korisnik.IDKorisnik');
+         $this->db->where('IDUO',$IDUO);
+         $query=$this->db->get();
+        print_r($query->result()[0]);
+       
         return $query->result();
     }
    /**
