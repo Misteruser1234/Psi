@@ -178,10 +178,13 @@ class Gost extends CI_Controller {
 		if ($IDUO != NULL){
 			$komentari = $this->ModelKomentar->dohvatiKomentareZaUO($IDUO);
 			if($this->session->userdata("tip") == 'admin'){
-				foreach ( $komentari as $komentar ) $this->load->view("partials/komentar-admin.php", (array) $komentar);
+				foreach ( $komentari as $komentar ) {
+					$this->load->view("partials/komentar-admin.php", (array)$komentar);
+				}
 			}else{
-				foreach ( $komentari as $komentar ) $this->load->view("partials/komentar.php", (array) $komentar);
-
+				foreach ( $komentari as $komentar ){
+					$this->load->view("partials/komentar.php",  (array)$komentar);
+				}
 			}
 		}
 	

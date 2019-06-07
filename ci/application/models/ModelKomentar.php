@@ -41,7 +41,7 @@
     }
 
     public function dohvatiKomentareZaUO($IDUO){
-        $query=$this->db->query("SELECT Username, Komentar, Ocena, IDKomiOcena, IDUO from komiocena, korisnik where komiocena.IDKorisnik = korisnik.IDKorisnik and komiocena.IDUO=".$IDUO);
+        $query=$this->db->query("SELECT Username, Komentar, Ocena, IDKomiOcena, IDUO, AvatarPath from komiocena, korisnik where komiocena.IDKorisnik = korisnik.IDKorisnik and komiocena.IDUO=".$IDUO);
         return $query->result();
     }
 
@@ -50,6 +50,7 @@
         $avgOcena = $this->avg_ocena($iduo);
         $query = $this->db->query("UPDATE UO SET AvgOcena='".$avgOcena."' WHERE iduo='".$iduo."'");
     }
+    
 }
 
     // ne treba da pise idkom i ocena, popraviti kad se sredi autoinc

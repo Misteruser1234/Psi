@@ -2,7 +2,7 @@
 <div class="container jumbotron rez-form">
     <div class="row">
             <div class="col-sm-2">
-                <img src="<?php echo base_url('img/restoran.jpg');?>" alt="..." class="img-thumbnail" id="userpic">
+                <img src="<?php if($AvatarPath != NULL) echo base_url('img/profil/'.$AvatarPath); else echo base_url('img/profil/account.jpg')?>" alt="..." class="img-thumbnail" id="userpic">
             </div>
             
             <div class="col-sm-8">

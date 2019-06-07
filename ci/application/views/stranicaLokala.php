@@ -149,5 +149,5 @@
 <!-- END IZDVAJAMO SA MENIA - PO CEMU SE RAZLIKUJEMO OD DRUGIH - ZASTO DA DODJETE KOD NAS -->	
 		
 	<div class="container my-4 mb-5 pt-4">
-		<div class="h2 mb-4" ><?php echo $komentari!=NULL?' Komentari:':'<i>Trenutno ne postoji nijedan komentar...</i>'; ?></div>
+		<div class="h2 mb-4" ><?php echo $komentari!=NULL?' Komentari:':'<center><i>Trenutno ne postoji nijedan komentar...</i></center>'; ?></div>
 	</div>
