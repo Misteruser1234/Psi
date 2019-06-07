@@ -362,6 +362,7 @@ class Vlasnik extends CI_Controller {
          }
 
         elseif (isset($_POST['odbaci'])) {
+            if($this->session->userdata("tip") == 'admin') redirect("Admin/spisak_uo");
             redirect("Vlasnik/spisak_uo");
         }
 
@@ -378,6 +379,7 @@ class Vlasnik extends CI_Controller {
     */
     public function postavi_vidljiva($iduo){
         $this->ModelLokal->setVidljiva($iduo);
+        if($this->session->userdata("tip") == 'admin') redirect("Admin/spisak_uo");
         redirect('Vlasnik/spisak_uo');
     }
 
@@ -392,6 +394,7 @@ class Vlasnik extends CI_Controller {
     */
     public function postavi_privatna($iduo){
         $this->ModelLokal->setPrivatna($iduo);
+        if($this->session->userdata("tip") == 'admin') redirect("Admin/spisak_uo");
         redirect('Vlasnik/spisak_uo');
     }
 
@@ -407,6 +410,7 @@ class Vlasnik extends CI_Controller {
     public function brisi_UO($iduo){
         $this->ModelSearchKeywords->obrisiKeyWordsZaUO($IDUO);
         $this->ModelLokal->deleteUO($iduo);
+        if($this->session->userdata("tip") == 'admin') redirect("Admin/spisak_uo");
         redirect("Vlasnik/spisak_uo");
     }
 
