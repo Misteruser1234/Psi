@@ -56,15 +56,11 @@
     }
 
     public function dohvatiKomentareZaUO($IDUO){
-<<<<<<< Updated upstream
-        $query=$this->db->query("SELECT Username, Komentar, Ocena, IDKomiOcena, IDUO, AvatarPath from komiocena, korisnik where komiocena.IDKorisnik = korisnik.IDKorisnik and komiocena.IDUO=".$IDUO);
-=======
         //$query=$this->db->query("SELECT Username, Komentar, Ocena, IDKomiOcena, IDUO from komiocena, korisnik where komiocena.IDKorisnik = korisnik.IDKorisnik and komiocena.IDUO=".$IDUO);
-        $this->db->select('Username','Komentar','Ocena','IDKomiOcena','IDUO');//// ovde nisam znao!!!!!!!!!
+        $this->db->select('Username','Komentar','Ocena','IDKomiOcena','IDUO','AvatarPath');//// ovde nisam znao!!!!!!!!!
         $this->db->from('korisnik');
         $this->db->from('komiocena');
         $query=$this->db->get();
->>>>>>> Stashed changes
         return $query->result();
     }
 
