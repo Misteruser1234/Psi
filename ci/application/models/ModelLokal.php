@@ -168,7 +168,7 @@ class ModelLokal extends CI_Model {
     *
     * @param Integer $iduo
     *
-    * @return Array
+    * @return Data
     *
     */
     public function dohvatiTagoveUO($id){

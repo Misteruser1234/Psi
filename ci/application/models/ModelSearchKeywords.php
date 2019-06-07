@@ -1,12 +1,27 @@
 <?php
-
+/**
+* ModelSearchKeywords – model klasa za pristup bazi i izvrsavanje gost funkcionalnosti
+*
+* @version 1.0
+*/
 class ModelSearchKeywords extends CI_Model {
-
+	/**
+    * Kreiranje nove instance
+    *
+    * @return void
+    */
     public function __construct() {
         parent::__construct();
         $this->load->model("ModelLokal");
     }
-   
+    /**
+    * izbaciZnakoveInterpunkcije funkcija koja brise znakove interpunkcije iz zadatog stringa
+    *
+    * @param String $data
+    *
+    * @return String
+    *
+    */
     function izbaciZnakoveInterpunkcije($data){
 
         $data = str_replace(". ", " ", $data);
@@ -16,7 +31,14 @@ class ModelSearchKeywords extends CI_Model {
 
         return $data;
     }
-
+    /**
+    * podeliUReci funkcija koja deli zadati string na razmake i vraca niz reci
+    *
+    * @param String $data
+    *
+    * @return Array
+    *
+    */
     function podeliUReci($data){
         $words = explode(" ", $data);
         foreach ($words as $index => $word) {
@@ -24,7 +46,15 @@ class ModelSearchKeywords extends CI_Model {
         }
         return $words;
     }
-
+    /**
+    * dodajUnikatneReci funkcija koja dodaje samo nove reci u niz
+    *
+    * @param String $allWords
+    * @param String  $data
+    *
+    * @return Array
+    *
+    */
     function dodajUnikatneReci($allWords, $data){
         $data = $this->izbaciZnakoveInterpunkcije($data);
         $words = $this->podeliUReci($data);
@@ -45,7 +75,14 @@ class ModelSearchKeywords extends CI_Model {
 
         return $allWords;
     }
-
+    /**
+    * dohvatiWordID funkcija koja vraca id zadate reci
+    *
+    * @param String $word
+    *
+    * @return Integer
+    *
+    */
     # Ukoliko rec postoji u tabeli vraca njen ID u suprotnom dodaje rec u tabelu i vraca ID
     function dohvatiWordID($word=NULL){
         if ($word==NULL) return;
@@ -71,7 +108,15 @@ class ModelSearchKeywords extends CI_Model {
         return $wordID;
 
     }
-
+    /**
+    * dodajKeywordsUBazu funkcija koja unosi rec u bazu
+    *
+    * @param String $allWords=NULL
+    * @param Integer $IDUO=NULL
+    *
+    * @return void
+    *
+    */
     public function dodajKeywordsUBazu($allWords=NULL, $IDUO=NULL){
         if ($allWords==NULL) return;
         if ($IDUO==NULL) return;
@@ -89,7 +134,14 @@ class ModelSearchKeywords extends CI_Model {
         }
 
     }
-
+    /**
+    * izvuciKeywordsZaUO funkcija koja vraca niz reci da odredjen uo
+    *
+    * @param Integer $IDUO=0
+    *
+    * @return Array
+    *
+    */
     public function izvuciKeywordsZaUO($IDUO=0){
         $allWords = NULL;
 
@@ -123,7 +175,14 @@ class ModelSearchKeywords extends CI_Model {
 
         return $allWords;
     }
-
+    /**
+    * obrisiKeyWordsZaUO funkcija koja brise iz baze reci koje su vezane samo za zadati uo
+    *
+    * @param Integer $IDUO=NULL
+    *
+    * @return void
+    *
+    */
     public function obrisiKeyWordsZaUO($IDUO=NULL){
         if ($IDUO == NULL) return;
 
@@ -150,7 +209,14 @@ class ModelSearchKeywords extends CI_Model {
         }
         
     }
-
+    /**
+    * generisiKeywordsZaUO funkcija koja unosi u bazu kljucne reci zadatog uo
+    *
+    * @param Integer $IDUO
+    *
+    * @return void
+    *
+    */
     public function generisiKeywordsZaUO($IDUO=NULL){
 		if ($IDUO==NULL) return;
 
@@ -163,18 +229,22 @@ class ModelSearchKeywords extends CI_Model {
 		#Dodaju u bazu key words ukoliko vec ne postoje i spaja odredjeni key word sa UO u tabeli sadrzi
 		$this->dodajKeywordsUBazu($keyWords, $IDUO);
     }
-    
+    /**
+    * dohvatiNizUOSaRecima funkcija koja vraca sve uo koji poseduju zadatu rez
+    *
+    * @param String $word
+    *
+    * @return Array
+    *
+    */   
     public function dohvatiNizUOSaRecima($words){
         if (count($words) == 0) return NULL;
         if ($words[0] == NULL) return NULL;
-        
-
         // $queryStr = 'SELECT sadrzi.IDUO 
         //              FROM searchkeywords, sadrzi 
         //              WHERE searchKeywords.IDSearchKeywords = sadrzi.IDSearchKeywords AND searchKeywords.Word = "'. $words[0] .'"';
 
-        // $query = $this->db->query($queryStr);
-
+        // $query = $this->db->query($queryStr);z 
         $this->db->select('sadrzi.IDUO');
         $this->db->from('sadrzi');
         $this->db->join('searchkeywords', 'searchKeywords.IDSearchKeywords = sadrzi.IDSearchKeywords');
