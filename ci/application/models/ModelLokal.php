@@ -445,7 +445,7 @@ class ModelLokal extends CI_Model {
     
         return $rez;
     }
-/**
+    /**
     * deleteOldImg funkcija koja brise iz baze sliku za zadati uo i poziciju slike
     *
     * @param Integer $rbr
@@ -462,7 +462,7 @@ class ModelLokal extends CI_Model {
             unlink("img/uo/".$row->Path);
         }
     }
-/**
+    /**
     * update_uoslike funkcija koja menja slike u baze zadati uo, ako postoje ili insertuje ako ne postoje na zadatom mestu
     *
     * @param Data $data
