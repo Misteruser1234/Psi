@@ -98,7 +98,7 @@
 										</div>
 										<div class="row">
 											<p>
-                                            <?php echo $data->Opis;?>
+                                            <?php echo (substr($data->Opis,0,180)).'...';?>
 											</p>
 										</div>
 									</div>
