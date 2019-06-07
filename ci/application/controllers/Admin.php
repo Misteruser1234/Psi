@@ -16,6 +16,7 @@ class Admin extends CI_Controller {
 
         $this->load->model("ModelLokal");
         $this->load->model("ModelKomentar");
+        $this->load->model("ModelSearchKeywords");
         
         // PRISTUP DOZVOLJEN SAMO AKO JE USER TIP VLASNIK
         if (($this->session->userdata('username')) == NULL) redirect("Gost");
@@ -164,9 +165,15 @@ class Admin extends CI_Controller {
     *
     */
 	public function initKeywordsAll(){
-        $this->ModelSearchKeywords->obrsisSVE();
+        echo '<br>initKeywordsAll() : STATUS<br><br>';
+        $this->ModelSearchKeywords->obrsiSVE();
+        echo "Obrisani svi KeyWords i veze za sve UO iz baze.<br><br>";
 		$lokali = $this->ModelLokal->dohvatiIDSvihUO();
-		foreach ($lokali as $lokal) $this->ModelSearchKeywords->generisiKeywordsZaUO($lokal->IDUO);
+        foreach ($lokali as $lokal) {
+            echo "Generisani KeyWords i veze sa UO za IDUO = ".$lokal->IDUO."<br>";
+            $this->ModelSearchKeywords->generisiKeywordsZaUO($lokal->IDUO);
+        }
+        echo "<br>All done...";
 	}
 
 }

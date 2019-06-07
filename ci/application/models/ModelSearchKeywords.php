@@ -287,7 +287,7 @@ class ModelSearchKeywords extends CI_Model {
     * @return void
     *
     */ 
-    public function obrsisSVE(){
+    public function obrsiSVE(){
         $this->db->empty_table('sadrzi');
         $this->db->empty_table('searchkeywords'); 
     }
