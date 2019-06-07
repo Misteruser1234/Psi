@@ -119,7 +119,7 @@
         $this->db->from('korisnik');
         $this->db->from('komiocena');
         $this->db->where('komiocena.IDKorisnik','korisnik.IDKorisnik');
-        $this->db->where('komiocena.IDUO',$IDUO)
+        $this->db->where('komiocena.IDUO',$IDUO);
         $query=$this->db->get();
         return $query->result();
     }
