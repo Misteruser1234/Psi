@@ -141,4 +141,32 @@ class Admin extends CI_Controller {
         redirect('Gost/stranica_lokala/'.$iduo);
     }
 
+	/**
+    * generisiKeyWordsZaUo POMOCNA FUNKCIJA ZA MANUELNO GENERISANJE KEYWORDS ZA UO KOJI SU VEC U BAZI
+    *
+    * @param Integer $IDUO Integer
+    *
+    * @return void
+    *
+    */
+	public function generisiKeyWordsZaUO($IDUO=NULL){
+		if ($IDUO){
+			$this->ModelSearchKeywords->generisiKeywordsZaUO($IDUO);
+		}
+	}
+
+	
+	/**
+    * initKeyWordsAll POMOCNA FUNKCIJA ZA MANUELNO GENERISANJE KEYWORDS ZA SVE UO KOJI SU U BAZI
+    *
+    *
+    * @return void
+    *
+    */
+	public function initKeywordsAll(){
+        $this->ModelSearchKeywords->obrsisSVE();
+		$lokali = $this->ModelLokal->dohvatiIDSvihUO();
+		foreach ($lokali as $lokal) $this->ModelSearchKeywords->generisiKeywordsZaUO($lokal->IDUO);
+	}
+
 }

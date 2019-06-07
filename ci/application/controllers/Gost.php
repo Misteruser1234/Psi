@@ -506,30 +506,4 @@ class Gost extends CI_Controller {
         $this->load->view("partials/footer.php");
 	}
 
-	/**
-    * generisiKeyWordsZaUo POMOCNA FUNKCIJA ZA MANUELNO GENERISANJE KEYWORDS ZA UO KOJI SU VEC U BAZI
-    *
-    *
-    * @return void
-    *
-    */
-	public function generisiKeyWordsZaUO($IDUO=NULL){
-		if ($IDUO){
-			$this->ModelSearchKeywords->generisiKeywordsZaUO($IDUO);
-		}
-	}
-
-	
-	/**
-    * initKeyWordsAll POMOCNA FUNKCIJA ZA MANUELNO GENERISANJE KEYWORDS ZA SVE UO KOJI SU U BAZI
-    *
-    *
-    * @return void
-    *
-    */
-	public function initKeywordsAll(){
-		$lokali = $this->ModelLokal->dohvatiIDSvihUO();
-		foreach ($lokali as $lokal) $this->ModelSearchKeywords->generisiKeywordsZaUO($lokal->IDUO);
-	}
-
 }

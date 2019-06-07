@@ -280,6 +280,18 @@ class ModelSearchKeywords extends CI_Model {
         return $result;
     }
 
+    /**
+    * Brise sve iz tabele sadrzi i tabele searchkeywords
+    *
+    *
+    * @return void
+    *
+    */ 
+    public function obrsisSVE(){
+        $this->db->empty_table('sadrzi');
+        $this->db->empty_table('searchkeywords'); 
+    }
+
 }
  
     
