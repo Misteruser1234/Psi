@@ -31,3 +31,4 @@ ci/user_guide_src/cilexer/pycilexer.egg-info/*
 /ci/tests/results/
 
 /ci/img/uo/
+/ci/img/profil/*
