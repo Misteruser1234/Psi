@@ -61,13 +61,12 @@ class ModelLokal extends CI_Model {
 
     public function getAllUO(){
         // $query = $this->db->query("SELECT * FROM UO");
-        $query = $this->db->select('*')->form('UO')->get();
-        return $query->result();
+        return $this->db->get('UO')->result();
     }
 
     public function getLokaliNaCekanju(){
         // $query = $this->db->query("SELECT * FROM UO WHERE Odobren='0'");
-        $query = $this->db->select('*')->form('UO')->where('Odobren',0)->get();
+        $query = $this->db->select('*')->from('UO')->where('Odobren',0)->get();
         return $query->result();
     }
 
