@@ -128,8 +128,8 @@ class ModelSearchKeywords extends CI_Model {
         if ($IDUO == NULL) return;
 
         #Dohvata ID svih reci koje se koriste za UO sa ID -> $IDUO
-        $results = $this->db->query("SELECT IDSearchKeywords FROM sadrzi WHERE IDUO = $IDUO;")->result();
-
+        // $results = $this->db->query("SELECT IDSearchKeywords FROM sadrzi WHERE IDUO = $IDUO;")->result();
+        $results = $this->db->select('IDSearchKeywords')->from('sadrzi')->where('IDUO', $IDUO)->get()->result();
         $WordIDzaIDUO = [];
 
         #Filtrira rezultat query-ja i stavlja samo ID reci u niz $WordIDzaIDUO
@@ -169,22 +169,35 @@ class ModelSearchKeywords extends CI_Model {
         if ($words[0] == NULL) return NULL;
         
 
-        $queryStr = 'SELECT sadrzi.IDUO 
-                     FROM searchkeywords, sadrzi 
-                     WHERE searchKeywords.IDSearchKeywords = sadrzi.IDSearchKeywords AND searchKeywords.Word = "'. $words[0] .'"';
+        // $queryStr = 'SELECT sadrzi.IDUO 
+        //              FROM searchkeywords, sadrzi 
+        //              WHERE searchKeywords.IDSearchKeywords = sadrzi.IDSearchKeywords AND searchKeywords.Word = "'. $words[0] .'"';
 
-        $query = $this->db->query($queryStr);
+        // $query = $this->db->query($queryStr);
+
+        $this->db->select('sadrzi.IDUO');
+        $this->db->from('sadrzi');
+        $this->db->join('searchkeywords', 'searchKeywords.IDSearchKeywords = sadrzi.IDSearchKeywords');
+        $this->db->where('searchKeywords.Word', $words[0]);
+        $query = $this->db->get();
+
         if ($query->num_rows() == 0) return NULL;
         
         $result = [];
         for ($i=0; $i<$query->num_rows(); $i++) $result[] = $query->result()[$i]->IDUO;
         
         foreach ($words as $index => $word){
-            $queryStr = "SELECT sadrzi.IDUO 
-                         FROM searchkeywords, sadrzi 
-                         WHERE searchKeywords.IDSearchKeywords = sadrzi.IDSearchKeywords AND searchKeywords.Word = '$word'";
+            // $queryStr = "SELECT sadrzi.IDUO 
+            //              FROM searchkeywords, sadrzi 
+            //              WHERE searchKeywords.IDSearchKeywords = sadrzi.IDSearchKeywords AND searchKeywords.Word = '$word'";
 
-            $query = $this->db->query($queryStr);
+            // $query = $this->db->query($queryStr);
+            $this->db->select('sadrzi.IDUO');
+            $this->db->from('sadrzi');
+            $this->db->join('searchkeywords', 'searchKeywords.IDSearchKeywords = sadrzi.IDSearchKeywords');
+            $this->db->where('searchKeywords.Word', $word);
+            $query = $this->db->get();
+            
             if ($query->num_rows() == 0) return NULL;
 
             $temp = [];
