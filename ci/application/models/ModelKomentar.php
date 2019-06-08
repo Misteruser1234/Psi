@@ -145,7 +145,7 @@
 
         $data=array('AvgOcena'=>$avgOcena);
         $this->db->where('iduo',$iduo);
-        $this->update('UO',$data);
+        $this->db->update('UO',$data);
     }
     
 }
