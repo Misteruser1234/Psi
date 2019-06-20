@@ -504,6 +504,24 @@ class ModelLokal extends CI_Model {
             }
         }
     }
+    /**
+    * je_vlasnik funkcija koja proverava u bazi da li je korisnik vlasnik datog uo
+    *
+    * @param Integer $iduo
+    * @param String $username
+    *
+    * @return Integer
+    *
+    */
+    public function je_vlasnik($iduo,$username){
+        $this->db->select('*');
+        $this->db->from('Korisnik');
+        $this->db->join('JeVlasnik','JeVlasnik.IDKorisnik = Korisnik.IDKorisnik');
+        $this->db->where('Korisnik.Username',$username);
+        $this->db->where('JeVlasnik.IDUO',$iduo);
+        return $this->db->get()->num_rows();
+
+    }
 }
  
     

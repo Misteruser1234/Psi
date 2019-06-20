@@ -128,7 +128,8 @@ class Vlasnik extends CI_Controller {
             $this->load->view("podesavanja-postfix.php");
             $this->load->view("partials/footer.php");
         }else{
-            
+            $je_vlasnik=$this->ModelLokal->je_vlasnik($iduo,$this->session->userdata('username'));
+            if(!$je_vlasnik && $this->session->userdata('tip') != 'admin' ) redirect("Gost");
             $data_uo=array_merge($data_uo,$this->ModelLokal->citajUO($iduo));
         
             $slike=$this->ModelLokal->citajSlike($iduo);
