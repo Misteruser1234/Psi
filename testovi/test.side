@@ -1,0 +1,321 @@
+{
+  "id": "952938b6-8b8d-4dd2-8ed9-73d8e7889151",
+  "version": "2.0",
+  "name": "test",
+  "url": "http://localhost/psi/ci/index.php/RK/logout",
+  "tests": [{
+    "id": "c7b50f4f-8440-420b-acd3-e240c893dae1",
+    "name": "opcijaRestorani",
+    "commands": [{
+      "id": "7901e22e-e98e-4e77-a378-9343c8331871",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/psi/ci/index.php/Gost",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fa7a935f-0edd-49ed-a3cf-555699d8e69b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9fbc177c-cac0-4606-9781-995391045107",
+      "comment": "",
+      "command": "click",
+      "target": "css=.jumbotron:nth-child(1) .d-block",
+      "targets": [
+        ["css=.jumbotron:nth-child(1) .d-block", "css:finder"],
+        ["xpath=//img[contains(@src,'http://localhost/psi/ci/img/restoran-ico.jpg')]", "xpath:img"],
+        ["xpath=//a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c84f5341-b124-4129-bbd2-4a09343869eb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.naslov",
+      "targets": [
+        ["css=.naslov", "css:finder"],
+        ["xpath=//div[@id='np-content']/div/div", "xpath:idRelative"],
+        ["xpath=//div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9603f977-ecda-4a55-ae48-bf9a8bb0f11a",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.naslov",
+      "targets": [
+        ["css=.naslov", "css:finder"],
+        ["xpath=//div[@id='np-content']/div/div", "xpath:idRelative"],
+        ["xpath=//div/div/div", "xpath:position"]
+      ],
+      "value": "Rezultat pretrege:"
+    }]
+  }, {
+    "id": "54d71ea1-80a8-4931-a339-7021b2fab1ec",
+    "name": "opcijaKafici",
+    "commands": [{
+      "id": "d311919b-a198-47b6-a89f-0ebeb63460fe",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/psi/ci/index.php/Gost",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d7d5b466-82e7-4bf0-8c04-37f54f0baae5",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fe03b808-5567-4fde-8748-931be8818e3c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.jumbotron:nth-child(2) .d-block",
+      "targets": [
+        ["css=.jumbotron:nth-child(2) .d-block", "css:finder"],
+        ["xpath=//img[contains(@src,'http://localhost/psi/ci/img/kafa.jpg')]", "xpath:img"],
+        ["xpath=//div[2]/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "26c6d447-b777-4bf7-ab14-c9a949439b9c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.naslov",
+      "targets": [
+        ["css=.naslov", "css:finder"],
+        ["xpath=//div[@id='np-content']/div/div", "xpath:idRelative"],
+        ["xpath=//div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ac3faec1-c71f-4865-ab7d-c3526f3dc103",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.naslov",
+      "targets": [
+        ["css=.naslov", "css:finder"],
+        ["xpath=//div[@id='np-content']/div/div", "xpath:idRelative"],
+        ["xpath=//div/div/div", "xpath:position"]
+      ],
+      "value": "Rezultat pretrege:"
+    }]
+  }, {
+    "id": "10e61e4a-a021-4c81-8980-c99c45b50d5a",
+    "name": "promeniUO",
+    "commands": [{
+      "id": "b2e55136-d7cb-4e3c-9b62-a74d8755b232",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/psi/ci/index.php/Gost",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ff0a9dbc-11d4-458d-8575-dab9f437c3bc",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "54789eb6-bcd9-479b-ba62-a423f4e5b211",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Login",
+      "targets": [
+        ["linkText=Login", "linkText"],
+        ["css=.btn-success", "css:finder"],
+        ["xpath=//a[contains(text(),'Login')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, ' http://localhost/psi/ci/index.php/Gost/login ')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c72bfc5f-3edc-454e-bfa3-413d79e02f0f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[5]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ebb5df36-cc8e-4c9e-ae5e-d18774459d23",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mr-2",
+      "targets": [
+        ["css=.mr-2", "css:finder"],
+        ["xpath=//button[@id='navbarDropdown']/span", "xpath:idRelative"],
+        ["xpath=//div[2]/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1abcc57b-91b5-4f99-920c-ba4bc6d26223",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Podesavanja",
+      "targets": [
+        ["linkText=Podesavanja", "linkText"],
+        ["css=.dropdown-item:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Podesavanja')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/div[2]/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, ' http://localhost/psi/ci/index.php/RK/podaci_korisnika ')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Podesavanja')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8e2720f9-b640-4a9a-81eb-c833277820da",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Ugostiteljski objekti",
+      "targets": [
+        ["linkText=Ugostiteljski objekti", "linkText"],
+        ["css=.col-lg-12:nth-child(2) > .sub-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Ugostiteljski objekti')]", "xpath:link"],
+        ["xpath=//a[contains(@href, ' http://localhost/psi/ci/index.php/Vlasnik/spisak_uo ')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Ugostiteljski objekti')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0b21bab9-d6a6-4cb6-8bbf-7a94ef2c5f1f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(2) .fa-edit",
+      "targets": [
+        ["css=.row:nth-child(2) .fa-edit", "css:finder"],
+        ["xpath=//div[3]/a/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc1a5136-0db8-4b37-a0bb-edca50899b95",
+      "comment": "",
+      "command": "click",
+      "target": "id=adresa",
+      "targets": [
+        ["id=adresa", "id"],
+        ["name=adresa", "name"],
+        ["css=#adresa", "css:finder"],
+        ["xpath=//input[@id='adresa']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "69898333-8f46-4766-b011-d7f4bb42a125",
+      "comment": "",
+      "command": "click",
+      "target": "id=adresa",
+      "targets": [
+        ["id=adresa", "id"],
+        ["name=adresa", "name"],
+        ["css=#adresa", "css:finder"],
+        ["xpath=//input[@id='adresa']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1da4bc01-afed-484b-aa5b-29cb3314bc96",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "id=adresa",
+      "targets": [
+        ["id=adresa", "id"],
+        ["name=adresa", "name"],
+        ["css=#adresa", "css:finder"],
+        ["xpath=//input[@id='adresa']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "275ee2fd-143d-4559-b46d-16a649bac55e",
+      "comment": "",
+      "command": "click",
+      "target": "id=adresa",
+      "targets": [
+        ["id=adresa", "id"],
+        ["name=adresa", "name"],
+        ["css=#adresa", "css:finder"],
+        ["xpath=//input[@id='adresa']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "df78c8e0-3ecd-4591-b214-d20f4f481109",
+      "comment": "",
+      "command": "type",
+      "target": "id=adresa",
+      "targets": [
+        ["id=adresa", "id"],
+        ["name=adresa", "name"],
+        ["css=#adresa", "css:finder"],
+        ["xpath=//input[@id='adresa']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "Karadjordjeva 43, Beograd"
+    }, {
+      "id": "5c1a20df-049e-4018-b245-b117582cf3df",
+      "comment": "",
+      "command": "click",
+      "target": "name=sacuvaj",
+      "targets": [
+        ["name=sacuvaj", "name"],
+        ["css=.col-md-6:nth-child(1) > .btn", "css:finder"],
+        ["xpath=//button[@name='sacuvaj']", "xpath:attributes"],
+        ["xpath=//div[12]/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "21efc958-a1f3-41e0-a0e5-0baaf6bc4d1a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(2) .fa-eye",
+      "targets": [
+        ["css=.row:nth-child(2) .fa-eye", "css:finder"],
+        ["xpath=//a/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6544dd6c-2cd4-4606-925c-151b203a7343",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(1) > .h6",
+      "targets": [
+        ["css=.row:nth-child(1) > .h6", "css:finder"],
+        ["xpath=//div[2]/div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "29f555d7-c4e9-48aa-b53a-db46a0d8dd27",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.row:nth-child(1) > .h6",
+      "targets": [
+        ["css=.row:nth-child(1) > .h6", "css:finder"],
+        ["xpath=//div[2]/div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": "Karadjordjeva 43, Beograd"
+    }]
+  }],
+  "suites": [{
+    "id": "750ee712-8c5f-4f8b-8b94-8965d67c7e74",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["c7b50f4f-8440-420b-acd3-e240c893dae1"]
+  }],
+  "urls": ["http://localhost/psi/ci/index.php/RK/logout"],
+  "plugins": []
+}
