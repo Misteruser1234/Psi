@@ -30,16 +30,17 @@ class Test extends CI_Controller {
 
 
         #Milica Soljaga 2013/0656
-
+        $this->test_kafici();
 
 
 
         #Viktor Galindo 2013/0655
-        
-        
+        //$this->test_promeniPassword();
         
         
         #Lazar Ristic 2015/0658
+        $this->test_avgOcena();
+
     }
 
 
@@ -62,5 +63,33 @@ class Test extends CI_Controller {
         echo $this->unit->run($adminPostoji, FALSE, "Test za ModelKorisnik->korisnikPostoji() - Neuspesan");
     }
 
+    public function test_kafici(){
+        $kafici = $this->ModelLokal->getKafici()->result();
+        $testProsao = 1;
+        foreach($kafici as $kafic) $testProsao *= $kafic->JeKafic;
+        echo $this->unit->run($testProsao, 1, "Test za ModelLokal->getKafici()");
+    }
+
+    public function test_promeniUO(){
+
+    }
+
+    public function test_avgOcena(){
+        $avgOcena=$this->ModelKomentar->doh_avg_ocena(59);
+        echo $this->unit->run($avgOcena,5,"Test za ModelLokal->dohProsOcena()");
+
+    }
+    public function test_logout(){
+        
+    }
+
+    public function test_promeniPassword(){
+        $this->ModelKorisnik->updatePassword("admin","adminpass");
+        $result=$this->db->where('username',"admin")->get('korisnik');
+        $korisnik=$result->row();
+        $testProsao = 0;
+        if($korisnik->password == "adminpass") $testProsao = 1;
+        $this->unit->run($testProsao,1,"Test za ModelKorisnik->updatePassword()");
+    }
 
 }
