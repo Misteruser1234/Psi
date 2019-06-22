@@ -1,0 +1,120 @@
+Running 'opcijaKafici'
+14:26:19
+1.
+open on http://localhost/psi/ci/index.php/RK/logout OK
+14:26:19
+2.
+setWindowSize on 1536x824 OK
+14:26:19
+3.
+click on css=.jumbotron:nth-child(2) .d-block OK
+14:26:19
+4.
+click on css=.naslov OK
+14:26:20
+5.
+assertText on css=.naslov with value Rezultat pretrege: OK
+14:26:20
+'opcijaKafici' completed successfully
+14:26:20
+Running 'opcijaRestorani'
+14:26:21
+1.
+open on http://localhost/psi/ci/index.php/RK/logout OK
+14:26:21
+2.
+setWindowSize on 1536x824 OK
+14:26:21
+3.
+click on css=.jumbotron:nth-child(1) .d-block OK
+14:26:21
+4.
+click on css=.naslov OK
+14:26:22
+5.
+assertText on css=.naslov with value Rezultat pretrege: OK
+14:26:22
+'opcijaRestorani' completed successfully
+14:26:23
+Running 'promeniUO'
+14:26:23
+1.
+open on http://localhost/psi/ci/index.php/Gost OK
+14:26:24
+2.
+setWindowSize on 1536x824 OK
+14:26:24
+3.
+click on linkText=Login OK
+14:26:24
+4.
+click on id=username OK
+14:26:24
+5.
+type on id=username OK
+14:26:25
+6.
+click on name=loginform OK
+14:26:25
+7.
+click on id=password OK
+14:26:25
+8.
+doubleClick on id=password OK
+14:26:25
+9.
+type on id=password OK
+14:26:26
+10.
+click on css=.text-center:nth-child(4) OK
+14:26:26
+11.
+click on id=username OK
+14:26:26
+12.
+type on id=username with value anaana OK
+14:26:26
+13.
+click on name=loginform OK
+14:26:26
+14.
+click on id=password OK
+14:26:27
+15.
+type on id=password with value anaana OK
+14:26:27
+16.
+click on css=.btn-primary OK
+14:26:27
+17.
+click on id=navbarDropdown OK
+14:26:27
+18.
+click on linkText=Podesavanja OK
+14:26:28
+19.
+click on linkText=Ugostiteljski objekti OK
+14:26:28
+20.
+click on css=.row:nth-child(2) .fa-edit OK
+14:26:28
+21.
+click on id=adresa OK
+14:26:29
+22.
+type on id=adresa with value Karadjordjeva 43, Beograd OK
+14:26:29
+23.
+click on name=sacuvaj OK
+14:26:29
+24.
+click on css=.row:nth-child(2) .fa-eye OK
+14:26:29
+25.
+click on css=.mb-2:nth-child(1) OK
+14:26:31
+26.
+assertText on css=.row:nth-child(1) > .h6 with value Karadjordjeva 43, Beograd OK
+14:26:32
+'promeniUO' completed successfully
+14:26:32
