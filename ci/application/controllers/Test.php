@@ -21,7 +21,7 @@ class Test extends CI_Controller {
     }
 
     //Ovde treba dodati sve test funkcije
-    public function test(){
+    public function index(){
         #Stupar Milos 2015/0669
         $this->test_restorani();
         $this->test_korisnikPostoji();
