@@ -10,7 +10,7 @@
       "id": "7901e22e-e98e-4e77-a378-9343c8331871",
       "comment": "",
       "command": "open",
-      "target": "http://localhost/psi/ci/index.php/Gost",
+      "target": "http://localhost/psi/ci/index.php/RK/logout",
       "targets": [],
       "value": ""
     }, {
@@ -61,7 +61,7 @@
       "id": "d311919b-a198-47b6-a89f-0ebeb63460fe",
       "comment": "",
       "command": "open",
-      "target": "http://localhost/psi/ci/index.php/Gost",
+      "target": "http://localhost/psi/ci/index.php/RK/logout",
       "targets": [],
       "value": ""
     }, {
@@ -112,7 +112,7 @@
       "id": "b2e55136-d7cb-4e3c-9b62-a74d8755b232",
       "comment": "",
       "command": "open",
-      "target": "http://localhost/psi/ci/index.php/Gost",
+      "target": "http://localhost/psi/ci/index.php/RK/logout",
       "targets": [],
       "value": ""
     }, {
