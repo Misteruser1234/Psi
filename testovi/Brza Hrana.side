@@ -1,0 +1,58 @@
+{
+  "id": "b4fa7c1f-9b03-4089-b3a3-5a5bda594597",
+  "version": "2.0",
+  "name": "Brza Hrana",
+  "url": "http://localhost",
+  "tests": [{
+    "id": "7ceb9af2-a10d-4515-819b-4ece497053a0",
+    "name": "Brza hrana",
+    "commands": [{
+      "id": "8c454ceb-8cf9-43fc-9fb0-c064ca054822",
+      "comment": "",
+      "command": "open",
+      "target": "/psi/ci/index.php/Gost/lp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6049e6e4-9505-4df9-b356-82765c703693",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "502ed960-cd32-4291-b516-006cdf25756e",
+      "comment": "",
+      "command": "click",
+      "target": "css=form",
+      "targets": [
+        ["css=form", "css:finder"],
+        ["xpath=//form[@action='http://localhost/psi/ci/index.php/Gost/pretragaKeyWords']", "xpath:attributes"],
+        ["xpath=//form", "xpath:position"],
+        ["xpath=//form[contains(.,'Pretrazi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5eb28ce-ce65-4618-9866-4684d740f404",
+      "comment": "",
+      "command": "click",
+      "target": "css=.jumbotron:nth-child(3) .d-block",
+      "targets": [
+        ["css=.jumbotron:nth-child(3) .d-block", "css:finder"],
+        ["xpath=//img[contains(@src,'http://localhost/psi/ci/img/fast.jpg')]", "xpath:img"],
+        ["xpath=//div[3]/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "60f7b14b-f5b3-4fa0-8bb7-eb63bbb063fb",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["7ceb9af2-a10d-4515-819b-4ece497053a0"]
+  }],
+  "urls": ["http://localhost/"],
+  "plugins": []
+}

@@ -1,0 +1,68 @@
+{
+  "id": "cd70cc12-70c1-4871-8c4e-4b2efd5f81d4",
+  "version": "2.0",
+  "name": "Detaljan opis",
+  "url": "http://localhost/psi/ci/index.php",
+  "tests": [{
+    "id": "8e682431-1103-4ddb-ab12-12b4436d5f62",
+    "name": "Is page there",
+    "commands": [{
+      "id": "61f59b0d-6d35-491c-9896-a786c5e2a065",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/psi/ci/index.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "db0f3c0b-905e-4ee7-a8f5-263d806740e0",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c7d922c5-efc8-41c6-81e0-aeb10a114ef7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.jumbotron:nth-child(1) .d-block",
+      "targets": [
+        ["css=.jumbotron:nth-child(1) .d-block", "css:finder"],
+        ["xpath=//img[contains(@src,'http://localhost/psi/ci/img/restoran-ico.jpg')]", "xpath:img"],
+        ["xpath=//a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1642dae-90ca-4884-a224-2da6c7ebedd5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.a:nth-child(3) .img-fluid",
+      "targets": [
+        ["css=.a:nth-child(3) .img-fluid", "css:finder"],
+        ["xpath=//img[contains(@src,'http://localhost/psi/ci/img/uo/017.jpg')]", "xpath:img"],
+        ["xpath=//div[@id='np-content']/div/a/div/div/div/div/img", "xpath:idRelative"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0e9783f9-8c9d-4d0f-8d80-a792884ab7f4",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.col-sm-7 .h5",
+      "targets": [
+        ["css=.col-sm-7 .h5", "css:finder"],
+        ["xpath=//div[3]/div", "xpath:position"]
+      ],
+      "value": "Radno vreme:"
+    }]
+  }],
+  "suites": [{
+    "id": "5a36e8e9-7f21-4750-aa68-dc5d2f43315b",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost/"],
+  "plugins": []
+}

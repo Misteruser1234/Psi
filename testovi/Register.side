@@ -1,0 +1,585 @@
+{
+  "id": "adc20db1-9a2c-498d-a193-4314968052b6",
+  "version": "2.0",
+  "name": "Register",
+  "url": "http://localhost/psi/ci/index.php/Gost/registracija",
+  "tests": [{
+    "id": "048bc786-bd82-4a51-a183-66a96c530fef",
+    "name": "Uspesna registracija",
+    "commands": [{
+      "id": "c4c2ca50-37d0-4f35-9974-62faf649ccfd",
+      "comment": "",
+      "command": "open",
+      "target": "/psi/ci/index.php/Gost/registracija",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "539f28d8-6a15-449f-8041-a4aa3c04c7dc",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0c97c829-ba25-48ee-aa79-1cbc733a1773",
+      "comment": "",
+      "command": "click",
+      "target": "id=user",
+      "targets": [
+        ["id=user", "id"],
+        ["name=username", "name"],
+        ["css=#user", "css:finder"],
+        ["xpath=//input[@id='user']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "41fad545-e0bf-4470-a283-c11eab1cb676",
+      "comment": "",
+      "command": "type",
+      "target": "id=user",
+      "targets": [
+        ["id=user", "id"],
+        ["name=username", "name"],
+        ["css=#user", "css:finder"],
+        ["xpath=//input[@id='user']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Petar"
+    }, {
+      "id": "dceee17c-e134-4b20-9cd6-769a13da9894",
+      "comment": "",
+      "command": "click",
+      "target": "id=lozinka",
+      "targets": [
+        ["id=lozinka", "id"],
+        ["name=password", "name"],
+        ["css=#lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "942df822-ed02-40d3-8023-a9c180c431ab",
+      "comment": "",
+      "command": "type",
+      "target": "id=lozinka",
+      "targets": [
+        ["id=lozinka", "id"],
+        ["name=password", "name"],
+        ["css=#lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "Petar123"
+    }, {
+      "id": "2cc53711-02f0-4770-9d15-376f223cce1e",
+      "comment": "",
+      "command": "click",
+      "target": "id=potvrda",
+      "targets": [
+        ["id=potvrda", "id"],
+        ["name=passwordconfirm", "name"],
+        ["css=#potvrda", "css:finder"],
+        ["xpath=//input[@id='potvrda']", "xpath:attributes"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2062d551-b58b-47ea-966e-7ddccaba7ca3",
+      "comment": "",
+      "command": "type",
+      "target": "id=potvrda",
+      "targets": [
+        ["id=potvrda", "id"],
+        ["name=passwordconfirm", "name"],
+        ["css=#potvrda", "css:finder"],
+        ["xpath=//input[@id='potvrda']", "xpath:attributes"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": "Petar123"
+    }, {
+      "id": "21dac5f0-b749-4746-a83f-00186afa4561",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[9]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Register')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "b409e3a4-cfcf-4181-9816-717d9b8081dd",
+    "name": "Neuspesna registracija_vec_postoji",
+    "commands": [{
+      "id": "1163b7fa-3267-4d9a-89cb-ff293a4ba449",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/psi/ci/index.php/Gost/registracija",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "55e0f605-cad6-4b55-bce0-19df874ddf5d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bd606e9b-feb9-46f1-b16d-8680a8ec47af",
+      "comment": "",
+      "command": "click",
+      "target": "id=user",
+      "targets": [
+        ["id=user", "id"],
+        ["name=username", "name"],
+        ["css=#user", "css:finder"],
+        ["xpath=//input[@id='user']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b1f80ab-28b8-44e9-bea9-926db29af1e5",
+      "comment": "",
+      "command": "type",
+      "target": "id=user",
+      "targets": [
+        ["id=user", "id"],
+        ["name=username", "name"],
+        ["css=#user", "css:finder"],
+        ["xpath=//input[@id='user']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Petar"
+    }, {
+      "id": "f26a0097-861f-46ce-bdca-6ffbedef2595",
+      "comment": "",
+      "command": "click",
+      "target": "id=lozinka",
+      "targets": [
+        ["id=lozinka", "id"],
+        ["name=password", "name"],
+        ["css=#lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2766b489-0aec-4f58-9ed3-65c92dee17ed",
+      "comment": "",
+      "command": "type",
+      "target": "id=lozinka",
+      "targets": [
+        ["id=lozinka", "id"],
+        ["name=password", "name"],
+        ["css=#lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "Petar123"
+    }, {
+      "id": "5fc84f05-a1e3-41d6-83f2-2f5ec1a6ce17",
+      "comment": "",
+      "command": "click",
+      "target": "id=potvrda",
+      "targets": [
+        ["id=potvrda", "id"],
+        ["name=passwordconfirm", "name"],
+        ["css=#potvrda", "css:finder"],
+        ["xpath=//input[@id='potvrda']", "xpath:attributes"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e31f78ac-e1f1-4f0e-a76a-8af651625e02",
+      "comment": "",
+      "command": "type",
+      "target": "id=potvrda",
+      "targets": [
+        ["id=potvrda", "id"],
+        ["name=passwordconfirm", "name"],
+        ["css=#potvrda", "css:finder"],
+        ["xpath=//input[@id='potvrda']", "xpath:attributes"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": "Petar123"
+    }, {
+      "id": "62f7dd89-9815-4f59-9fa2-cf2bbc55029a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[9]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Register')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f4b888f7-fa5e-4988-9697-e191fad33980",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-center:nth-child(3)",
+      "targets": [
+        ["css=.text-center:nth-child(3)", "css:finder"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ca1f00d4-0d49-4b79-a9b0-cee3362d8e44",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.text-center:nth-child(3)",
+      "targets": [
+        ["css=.text-center:nth-child(3)", "css:finder"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": "Korisnik sa unetim username vec postoji!"
+    }]
+  }, {
+    "id": "3f80ea66-5ced-4d0d-a1fe-e29cea7c3f3e",
+    "name": "Neupsesna registracija prazno ime",
+    "commands": [{
+      "id": "e1b31518-6022-4f2e-8c0b-793db7e13011",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/psi/ci/index.php/Gost/registracija",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "52df2cd0-5d57-448c-9379-ec542f6217ed",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c1769c2b-7fcc-48fc-97ea-91e43478bdd7",
+      "comment": "",
+      "command": "click",
+      "target": "id=user",
+      "targets": [
+        ["id=user", "id"],
+        ["name=username", "name"],
+        ["css=#user", "css:finder"],
+        ["xpath=//input[@id='user']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f794a019-fad1-4628-867a-d700d045eeba",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row",
+      "targets": [
+        ["css=.row", "css:finder"],
+        ["xpath=//div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7a85f7cd-bfd1-4579-8e99-0d82c1db4b12",
+      "comment": "",
+      "command": "click",
+      "target": "id=lozinka",
+      "targets": [
+        ["id=lozinka", "id"],
+        ["name=password", "name"],
+        ["css=#lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "df342f33-a595-4fdd-a55d-da20d93ba30f",
+      "comment": "",
+      "command": "type",
+      "target": "id=lozinka",
+      "targets": [
+        ["id=lozinka", "id"],
+        ["name=password", "name"],
+        ["css=#lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "asdd"
+    }, {
+      "id": "5317ad99-e4cb-4636-beb4-65b8c6d195cc",
+      "comment": "",
+      "command": "click",
+      "target": "id=potvrda",
+      "targets": [
+        ["id=potvrda", "id"],
+        ["name=passwordconfirm", "name"],
+        ["css=#potvrda", "css:finder"],
+        ["xpath=//input[@id='potvrda']", "xpath:attributes"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "726db1e9-447e-4c26-a0a4-91f74d88c7b7",
+      "comment": "",
+      "command": "type",
+      "target": "id=potvrda",
+      "targets": [
+        ["id=potvrda", "id"],
+        ["name=passwordconfirm", "name"],
+        ["css=#potvrda", "css:finder"],
+        ["xpath=//input[@id='potvrda']", "xpath:attributes"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": "asd"
+    }, {
+      "id": "410c4771-1f4f-4b90-abd0-1b0b80e2f77c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[9]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Register')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f9047c94-275f-4002-8d70-3aa7429d45e2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-center:nth-child(3)",
+      "targets": [
+        ["css=.text-center:nth-child(3)", "css:finder"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "00717e93-8e0e-4b1e-a170-3f73ad5f3a71",
+      "comment": "",
+      "command": "click",
+      "target": "id=user",
+      "targets": [
+        ["id=user", "id"],
+        ["name=username", "name"],
+        ["css=#user", "css:finder"],
+        ["xpath=//input[@id='user']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "47d5c982-2678-4577-b95c-1d822a245fa8",
+    "name": "Neuspesna registracija prazno ime",
+    "commands": [{
+      "id": "45421511-651f-4aca-ad0e-732dbb5039ad",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/psi/ci/index.php/Gost/registracija",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7bddb389-c846-42b1-9ce7-d5f475780c15",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "672e0d92-26cb-4475-9222-325fcae48616",
+      "comment": "",
+      "command": "click",
+      "target": "id=user",
+      "targets": [
+        ["id=user", "id"],
+        ["name=username", "name"],
+        ["css=#user", "css:finder"],
+        ["xpath=//input[@id='user']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4b4eabdc-32a4-4af9-89b6-93ec883ac5ee",
+      "comment": "",
+      "command": "click",
+      "target": "css=.register-content",
+      "targets": [
+        ["css=.register-content", "css:finder"],
+        ["xpath=//body/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "023c1049-ba83-4983-9b6d-9087a121fe5d",
+      "comment": "",
+      "command": "click",
+      "target": "id=lozinka",
+      "targets": [
+        ["id=lozinka", "id"],
+        ["name=password", "name"],
+        ["css=#lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "04752014-cbd2-4b26-8695-6d97004a1493",
+      "comment": "",
+      "command": "type",
+      "target": "id=lozinka",
+      "targets": [
+        ["id=lozinka", "id"],
+        ["name=password", "name"],
+        ["css=#lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "asf"
+    }, {
+      "id": "eb711118-5b3e-4b14-be2b-57c84dd00dbc",
+      "comment": "",
+      "command": "click",
+      "target": "id=potvrda",
+      "targets": [
+        ["id=potvrda", "id"],
+        ["name=passwordconfirm", "name"],
+        ["css=#potvrda", "css:finder"],
+        ["xpath=//input[@id='potvrda']", "xpath:attributes"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "be8c5d22-0f3b-4534-a859-d17b375b71f3",
+      "comment": "",
+      "command": "type",
+      "target": "id=potvrda",
+      "targets": [
+        ["id=potvrda", "id"],
+        ["name=passwordconfirm", "name"],
+        ["css=#potvrda", "css:finder"],
+        ["xpath=//input[@id='potvrda']", "xpath:attributes"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": "asf"
+    }, {
+      "id": "0a4aac10-0a73-4b1f-a8f6-8df630e6cf8c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[9]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Register')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4cf0cd02-9469-4d63-a97e-4f0692f90895",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.text-center:nth-child(3)",
+      "targets": [
+        ["css=.text-center:nth-child(3)", "css:finder"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": "Polje ne sme biti prazno!"
+    }]
+  }, {
+    "id": "c2ba9121-db64-4a00-9f9a-2cc34a2900fd",
+    "name": "Neuspesna registracija sifra prazna",
+    "commands": [{
+      "id": "a71c7179-5885-4325-8cdd-8760295e6777",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/psi/ci/index.php/Gost/registracija",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "228acc10-ed53-4cad-bc48-e40f3c259e4a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7445702d-2734-439d-a9b2-c79a7b4d2c80",
+      "comment": "",
+      "command": "click",
+      "target": "id=user",
+      "targets": [
+        ["id=user", "id"],
+        ["name=username", "name"],
+        ["css=#user", "css:finder"],
+        ["xpath=//input[@id='user']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ef80b7dd-e2b6-4838-8b70-12168fc48ad3",
+      "comment": "",
+      "command": "type",
+      "target": "id=user",
+      "targets": [
+        ["id=user", "id"],
+        ["name=username", "name"],
+        ["css=#user", "css:finder"],
+        ["xpath=//input[@id='user']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "asdd"
+    }, {
+      "id": "2d98c529-eeeb-49e1-bb00-278d529cd2cd",
+      "comment": "",
+      "command": "click",
+      "target": "id=lozinka",
+      "targets": [
+        ["id=lozinka", "id"],
+        ["name=password", "name"],
+        ["css=#lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "962daf23-8b66-4e5b-9968-f4ac9c517b01",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row",
+      "targets": [
+        ["css=.row", "css:finder"],
+        ["xpath=//div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4c9bac03-675a-41c7-919f-2b3df3f72f92",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[9]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Register')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "241b3bd7-022e-4725-9cfe-b43187795009",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.text-center:nth-child(5)",
+      "targets": [
+        ["css=.text-center:nth-child(5)", "css:finder"],
+        ["xpath=//div[5]", "xpath:position"]
+      ],
+      "value": "Polje ne sme biti prazno!"
+    }]
+  }],
+  "suites": [{
+    "id": "82600b99-b184-400f-aaee-331fac4bc599",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["048bc786-bd82-4a51-a183-66a96c530fef"]
+  }],
+  "urls": ["http://localhost/", "http://localhost/psi/ci/index.php/Gost/registracija"],
+  "plugins": []
+}
