@@ -18,7 +18,7 @@ function previewImage(idslike,imefajla) {
 		<div class="form-group row mb-1">
 		<label for="naziv" class="col-sm-4 col-form-label text-right">Naziv:</label>
 		<div class="col-sm-4">
-			<input type="text" class="form-control uo-polje" id="naziv" name="naziv" value="<?php if($data['id'] != NULL) echo $data['naziv'];?>">
+			<input type="text" class="form-control uo-polje" required id="naziv" name="naziv" value="<?php if($data['id'] != NULL) echo $data['naziv'];?>">
 		
 		</div>
 		</div>
@@ -27,7 +27,7 @@ function previewImage(idslike,imefajla) {
 		<div class="form-group row mb-1">
 			<label for="adresa" class="col-sm-4 col-form-label text-right">Adresa:</label>
 			<div class="col-sm-4">
-				<input type="text" class="form-control uo-polje" id="adresa" name="adresa" value="<?php if($data['id'] != NULL) echo $data['adresa'];?>" >
+				<input type="text" class="form-control uo-polje" required id="adresa" name="adresa" value="<?php if($data['id'] != NULL) echo $data['adresa'];?>" >
 			</div>
 		</div>
 
