@@ -1,0 +1,441 @@
+Running 'Podesavanja Admin'
+14:35:26
+1.
+open on http://localhost/psi/ci/index.php/RK/logout OK
+14:35:26
+2.
+setWindowSize on 1366x768 OK
+14:35:26
+3.
+click on linkText=Login OK
+14:35:26
+4.
+click on id=username OK
+14:35:27
+5.
+type on id=username with value admin OK
+14:35:27
+6.
+type on id=password with value test123 OK
+14:35:27
+7.
+sendKeys on id=password with value ${KEY_ENTER} OK
+14:35:27
+8.
+assertText on css=span.mr-2 with value Admin OK
+14:35:28
+9.
+click on id=navbarDropdown OK
+14:35:28
+10.
+click on linkText=Podesavanja OK
+14:35:29
+11.
+assertElementPresent on linkText=Podaci korisnika with value Podaci korisnika OK
+14:35:29
+12.
+assertElementPresent on linkText=Ugostiteljski objekti with value Ugostiteljski objekti OK
+14:35:29
+13.
+assertElementPresent on linkText=Promeni lozinku with value Promeni lozinku OK
+14:35:29
+14.
+assertElementPresent on linkText=Odobri stranicu with value Odobri stranicu OK
+14:35:29
+'Podesavanja Admin' completed successfully
+14:35:30
+Running 'Podesavanja Korisnik'
+14:35:30
+1.
+open on http://localhost/psi/ci/index.php/RK/logout OK
+14:35:30
+2.
+setWindowSize on 1366x768 OK
+14:35:30
+3.
+click on linkText=Login OK
+14:35:30
+4.
+click on id=username OK
+14:35:31
+5.
+type on id=username with value korisnik OK
+14:35:31
+6.
+type on id=password with value test123 OK
+14:35:31
+7.
+sendKeys on id=password with value ${KEY_ENTER} OK
+14:35:31
+8.
+assertText on css=span.mr-2 with value Korisnik OK
+14:35:32
+9.
+click on id=navbarDropdown OK
+14:35:32
+10.
+click on linkText=Podesavanja OK
+14:35:33
+11.
+assertElementPresent on linkText=Podaci korisnika with value Podaci korisnika OK
+14:35:33
+12.
+assertElementNotPresent on linkText=Ugostiteljski objekti with value Ugostiteljski objekti OK
+14:35:33
+13.
+assertElementPresent on linkText=Promeni lozinku with value Promeni lozinku OK
+14:35:33
+14.
+assertElementNotPresent on linkText=Odobri stranicu with value Odobri stranicu OK
+14:35:33
+'Podesavanja Korisnik' completed successfully
+14:35:33
+Running 'Podesavanja Vlasnik'
+14:35:33
+1.
+open on http://localhost/psi/ci/index.php/RK/logout OK
+14:35:34
+2.
+setWindowSize on 1366x768 OK
+14:35:34
+3.
+click on linkText=Login OK
+14:35:34
+4.
+click on id=username OK
+14:35:35
+5.
+type on id=username with value vlasnik OK
+14:35:35
+6.
+type on id=password with value test123 OK
+14:35:35
+7.
+sendKeys on id=password with value ${KEY_ENTER} OK
+14:35:35
+8.
+assertText on css=span.mr-2 with value Vlasnik OK
+14:35:36
+9.
+click on id=navbarDropdown OK
+14:35:36
+10.
+click on linkText=Podesavanja OK
+14:35:36
+11.
+assertElementPresent on linkText=Podaci korisnika with value Podaci korisnika OK
+14:35:36
+12.
+assertElementPresent on linkText=Ugostiteljski objekti with value Ugostiteljski objekti OK
+14:35:37
+13.
+assertElementPresent on linkText=Promeni lozinku with value Promeni lozinku OK
+14:35:37
+14.
+assertElementNotPresent on linkText=Odobri stranicu with value Odobri stranicu OK
+14:35:37
+'Podesavanja Vlasnik' completed successfully
+14:35:37
+Running 'PregledUO od Admina'
+14:35:37
+1.
+open on http://localhost/psi/ci/index.php/RK/logout OK
+14:35:38
+2.
+waitForElementPresent on linkText=Login with value 1000 OK
+14:35:38
+3.
+setWindowSize on 1536x824 OK
+14:35:39
+4.
+click on linkText=Login OK
+14:35:39
+5.
+click on id=username OK
+14:35:39
+6.
+type on id=username with value admin OK
+14:35:39
+7.
+click on id=password OK
+14:35:39
+8.
+type on id=password with value test123 OK
+14:35:40
+9.
+click on css=.btn-primary OK
+14:35:40
+10.
+click on id=navbarDropdown OK
+14:35:40
+11.
+click on linkText=Podesavanja OK
+14:35:40
+12.
+click on linkText=Ugostiteljski objekti OK
+14:35:40
+13.
+click on css=.row:nth-child(2) > .col-9 OK
+14:35:41
+14.
+assertText on css=.row:nth-child(2) > .col-9 with value Jazz Basta OK
+14:35:41
+15.
+click on css=.row:nth-child(3) > .col-9 OK
+14:35:41
+16.
+doubleClick on css=.row:nth-child(3) > .col-9 OK
+14:35:41
+17.
+click on css=.row:nth-child(3) > .col-9 OK
+14:35:42
+18.
+assertText on css=.row:nth-child(3) > .col-9 with value LE PETIT BISTRO OK
+14:35:42
+19.
+click on css=.row:nth-child(4) > .col-9 OK
+14:35:42
+20.
+doubleClick on css=.row:nth-child(4) > .col-9 OK
+14:35:42
+21.
+click on css=.row:nth-child(4) > .col-9 OK
+14:35:42
+22.
+assertText on css=.row:nth-child(4) > .col-9 with value Lorenzo & Kakalamba OK
+14:35:42
+'PregledUO od Admina' completed successfully
+14:35:43
+Running 'PregledUO od Vlasnika'
+14:35:43
+1.
+open on http://localhost/psi/ci/index.php/RK/logout OK
+14:35:43
+2.
+waitForElementPresent on linkText=Login with value 1000 OK
+14:35:43
+3.
+setWindowSize on 1536x824 OK
+14:35:44
+4.
+click on linkText=Login OK
+14:35:44
+5.
+click on id=username OK
+14:35:44
+6.
+type on id=username with value anaana OK
+14:35:45
+7.
+click on id=password OK
+14:35:45
+8.
+type on id=password with value anaana OK
+14:35:45
+9.
+click on css=.btn-primary OK
+14:35:45
+10.
+click on id=navbarDropdown OK
+14:35:45
+11.
+click on linkText=Podesavanja OK
+14:35:45
+12.
+click on linkText=Ugostiteljski objekti OK
+14:35:46
+13.
+click on css=.row:nth-child(2) > .col-9 OK
+14:35:46
+14.
+assertText on css=.row:nth-child(2) > .col-9 with value Jazz Basta OK
+14:35:46
+15.
+click on css=.row:nth-child(3) > .col-9 OK
+14:35:46
+16.
+doubleClick on css=.row:nth-child(3) > .col-9 OK
+14:35:46
+17.
+click on css=.row:nth-child(3) > .col-9 OK
+14:35:47
+18.
+assertText on css=.row:nth-child(3) > .col-9 with value LE PETIT BISTRO OK
+14:35:47
+19.
+click on css=.row:nth-child(4) > .col-9 OK
+14:35:47
+20.
+doubleClick on css=.row:nth-child(4) > .col-9 OK
+14:35:47
+21.
+click on css=.row:nth-child(4) > .col-9 OK
+14:35:47
+22.
+assertText on css=.row:nth-child(4) > .col-9 with value Lorenzo & Kakalamba OK
+14:35:47
+'PregledUO od Vlasnika' completed successfully
+14:35:48
+Running 'TestDodajUO'
+14:35:48
+1.
+open on http://localhost/psi/ci/index.php/RK/logout OK
+14:35:48
+2.
+waitForElementPresent on linkText=Login with value 1000 OK
+14:35:49
+3.
+setWindowSize on 1536x824 OK
+14:35:49
+4.
+click on linkText=Login OK
+14:35:49
+5.
+click on id=username OK
+14:35:49
+6.
+type on id=username with value vlasnik OK
+14:35:49
+7.
+click on id=password OK
+14:35:50
+8.
+type on id=password with value test123 OK
+14:35:50
+9.
+click on css=.btn-primary OK
+14:35:50
+10.
+open on /psi/ci/index.php/Vlasnik/spisak_uo OK
+14:35:50
+11.
+setWindowSize on 1552x840 OK
+14:35:50
+12.
+click on linkText=Dodaj ugostiteljski objekat OK
+14:35:51
+13.
+click on id=naziv OK
+14:35:51
+14.
+type on id=naziv with value NazivLokalaTesta OK
+14:35:51
+15.
+type on id=adresa with value Prva 3 OK
+14:35:51
+16.
+click on id=restoran OK
+14:35:52
+17.
+click on id=kafic OK
+14:35:52
+18.
+click on id=exampleFormControlSelect1 OK
+14:35:52
+19.
+select on id=exampleFormControlSelect1 with value label=09 OK
+14:35:52
+20.
+click on id=exampleFormControlSelect1 OK
+14:35:52
+21.
+click on name=ponpetDo OK
+14:35:53
+22.
+select on name=ponpetDo with value label=22 OK
+14:35:53
+23.
+click on name=ponpetDo OK
+14:35:53
+24.
+click on id=s1v1 OK
+14:35:53
+25.
+click on id=s3v3 OK
+14:35:53
+26.
+click on id=s2v4 OK
+14:35:54
+27.
+click on id=opis OK
+14:35:54
+28.
+type on id=opis with value Opis ovog lokala ovoga OK
+14:35:54
+29.
+click on id=info1 OK
+14:35:54
+30.
+type on id=info1 with value Izdvajamo sve sto imamo OK
+14:35:54
+31.
+click on id=info2 OK
+14:35:55
+32.
+type on id=info2 with value Unikatnosi OK
+14:35:55
+33.
+click on id=info3 OK
+14:35:55
+34.
+type on id=info3 with value Volimo svoje klijente OK
+14:35:55
+35.
+click on name=sacuvaj OK
+14:35:55
+36.
+click on css=.col-9 OK
+14:35:56
+37.
+assertText on css=.col-9 with value NazivLokalaTesta OK
+14:35:56
+38.
+click on css=.far OK
+14:35:56
+'TestDodajUO' completed successfully
+14:35:57
+Running 'TestDodajUO prazna polja'
+14:35:57
+1.
+open on http://localhost/psi/ci/index.php/RK/logout OK
+14:35:58
+2.
+waitForElementPresent on linkText=Login with value 1000 OK
+14:35:58
+3.
+setWindowSize on 1536x824 OK
+14:35:58
+4.
+click on linkText=Login OK
+14:35:58
+5.
+click on id=username OK
+14:35:58
+6.
+type on id=username with value vlasnik OK
+14:35:59
+7.
+click on id=password OK
+14:35:59
+8.
+type on id=password with value test123 OK
+14:35:59
+9.
+click on css=.btn-primary OK
+14:35:59
+10.
+open on /psi/ci/index.php/Vlasnik/spisak_uo OK
+14:35:59
+11.
+setWindowSize on 1552x840 OK
+14:36:00
+12.
+click on linkText=Dodaj ugostiteljski objekat OK
+14:36:00
+13.
+assertElementPresent on css=#naziv:required OK
+14:36:00
+14.
+assertElementPresent on css=#adresa:required OK
+14:36:00
+'TestDodajUO prazna polja' completed successfully
