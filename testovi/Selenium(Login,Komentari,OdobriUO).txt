@@ -1,0 +1,519 @@
+Running 'Login Admin'
+14:21:25
+1.
+open on http://localhost/psi/ci/index.php/RK/logout OK
+14:21:26
+2.
+setWindowSize on 1366x768 OK
+14:21:26
+3.
+click on linkText=Login OK
+14:21:26
+4.
+click on id=username OK
+14:21:27
+5.
+type on id=username with value admin OK
+14:21:27
+6.
+type on id=password with value test123 OK
+14:21:27
+7.
+sendKeys on id=password with value ${KEY_ENTER} OK
+14:21:28
+8.
+assertText on css=span.mr-2 with value Admin OK
+14:21:28
+'Login Admin' completed successfully
+14:21:28
+Running 'Login Korisnik'
+14:21:29
+1.
+open on http://localhost/psi/ci/index.php/RK/logout OK
+14:21:29
+2.
+setWindowSize on 1366x768 OK
+14:21:29
+3.
+click on linkText=Login OK
+14:21:29
+4.
+click on id=username OK
+14:21:30
+5.
+sendKeys on id=username with value korisnik OK
+14:21:31
+6.
+type on id=password with value test123 OK
+14:21:31
+7.
+sendKeys on id=password with value ${KEY_ENTER} OK
+14:21:31
+8.
+assertText on css=span.mr-2 with value Korisnik OK
+14:21:32
+'Login Korisnik' completed successfully
+14:21:32
+Running 'Login Neispravan password'
+14:21:32
+1.
+open on http://localhost/psi/ci/index.php/RK/logout OK
+14:21:33
+2.
+setWindowSize on 1366x768 OK
+14:21:33
+3.
+click on linkText=Login OK
+14:21:33
+4.
+click on id=username OK
+14:21:34
+5.
+type on id=username with value vlasnik OK
+14:21:34
+6.
+type on id=password with value test1234 OK
+14:21:34
+7.
+sendKeys on id=password with value ${KEY_ENTER} OK
+14:21:34
+8.
+assertText on css=.text-center:nth-child(4) with value Neispravni podaci! OK
+14:21:35
+'Login Neispravan password' completed successfully
+14:21:35
+Running 'Login Neispravan username'
+14:21:35
+1.
+open on http://localhost/psi/ci/index.php/RK/logout OK
+14:21:36
+2.
+setWindowSize on 1366x768 OK
+14:21:36
+3.
+click on linkText=Login OK
+14:21:36
+4.
+click on id=username OK
+14:21:37
+5.
+type on id=username with value vlasnik2 OK
+14:21:37
+6.
+type on id=password with value test123 OK
+14:21:38
+7.
+sendKeys on id=password with value ${KEY_ENTER} OK
+14:21:38
+8.
+assertText on css=.text-center:nth-child(4) with value Neispravni podaci! OK
+14:21:38
+'Login Neispravan username' completed successfully
+14:21:39
+Running 'Login Vlasnik'
+14:21:39
+1.
+open on http://localhost/psi/ci/index.php/RK/logout OK
+14:21:39
+2.
+setWindowSize on 1366x768 OK
+14:21:39
+3.
+click on linkText=Login OK
+14:21:40
+4.
+click on id=username OK
+14:21:40
+5.
+type on id=username with value vlasnik OK
+14:21:41
+6.
+type on id=password with value test123 OK
+14:21:41
+7.
+sendKeys on id=password with value ${KEY_ENTER} OK
+14:21:41
+8.
+assertText on css=span.mr-2 with value Vlasnik OK
+14:21:42
+'Login Vlasnik' completed successfully
+14:21:42
+Running 'Login polja required'
+14:21:42
+1.
+open on http://localhost/psi/ci/index.php/RK/logout OK
+14:21:43
+2.
+setWindowSize on 1366x768 OK
+14:21:43
+3.
+click on linkText=Login OK
+14:21:43
+4.
+assertElementPresent on css=#username:required OK
+14:21:44
+5.
+assertElementPresent on css=#password:required OK
+14:21:44
+'Login polja required' completed successfully
+14:21:44
+Running 'Odobri UO'
+14:21:44
+1.
+open on http://localhost/psi/ci/index.php/RK/logout OK
+14:21:46
+2.
+waitForElementPresent on linkText=Login with value 1000 OK
+14:21:46
+3.
+setWindowSize on 1536x824 OK
+14:21:47
+4.
+click on linkText=Login OK
+14:21:47
+5.
+click on id=username OK
+14:21:47
+6.
+type on id=username with value vlasnik OK
+14:21:48
+7.
+click on id=password OK
+14:21:48
+8.
+type on id=password with value test123 OK
+14:21:48
+9.
+click on css=.btn-primary OK
+14:21:48
+10.
+open on /psi/ci/index.php/Vlasnik/spisak_uo OK
+14:21:49
+11.
+setWindowSize on 1552x840 OK
+14:21:49
+12.
+click on linkText=Dodaj ugostiteljski objekat OK
+14:21:49
+13.
+click on id=naziv OK
+14:21:49
+14.
+type on id=naziv with value NazivLokalaTesta OK
+14:21:51
+15.
+type on id=adresa with value Prva 3 OK
+14:21:51
+16.
+click on id=restoran OK
+14:21:51
+17.
+click on id=kafic OK
+14:21:51
+18.
+click on id=exampleFormControlSelect1 OK
+14:21:52
+19.
+select on id=exampleFormControlSelect1 with value label=09 OK
+14:21:52
+20.
+click on id=exampleFormControlSelect1 OK
+14:21:52
+21.
+click on name=ponpetDo OK
+14:21:53
+22.
+select on name=ponpetDo with value label=22 OK
+14:21:53
+23.
+click on name=ponpetDo OK
+14:21:53
+24.
+click on id=s1v1 OK
+14:21:53
+25.
+click on id=s3v3 OK
+14:21:54
+26.
+click on id=s2v4 OK
+14:21:54
+27.
+click on id=opis OK
+14:21:54
+28.
+type on id=opis with value Opis ovog lokala ovoga OK
+14:21:55
+29.
+click on id=info1 OK
+14:21:55
+30.
+type on id=info1 with value Izdvajamo sve sto imamo OK
+14:21:55
+31.
+click on id=info2 OK
+14:21:55
+32.
+type on id=info2 with value Unikatnosi OK
+14:21:56
+33.
+click on id=info3 OK
+14:21:56
+34.
+type on id=info3 with value Volimo svoje klijente OK
+14:21:56
+35.
+click on name=sacuvaj OK
+14:21:56
+36.
+click on css=.col-9 OK
+14:21:57
+37.
+assertText on css=.col-9 with value NazivLokalaTesta OK
+14:21:58
+38.
+click on id=navbarDropdown OK
+14:21:58
+39.
+click on css=.col-lg-9 OK
+14:21:58
+40.
+click on css=.font-weight-bold OK
+14:21:58
+41.
+assertText on css=.px-3 > i with value Stranica ceka odobrenje Admina. OK
+14:21:59
+42.
+click on id=navbarDropdown OK
+14:21:59
+43.
+click on linkText=Logout OK
+14:21:59
+44.
+click on linkText=Login OK
+14:22:00
+45.
+click on id=username OK
+14:22:00
+46.
+type on id=username with value admin OK
+14:22:00
+47.
+type on id=password with value test123 OK
+14:22:00
+48.
+sendKeys on id=password with value ${KEY_ENTER} OK
+14:22:01
+49.
+click on css=.mr-2 OK
+14:22:02
+50.
+click on linkText=Podesavanja OK
+14:22:02
+51.
+click on linkText=Odobri stranicu OK
+14:22:02
+52.
+click on css=.col-9 OK
+14:22:03
+53.
+assertText on css=.col-9 with value NazivLokalaTesta OK
+14:22:03
+54.
+click on css=.fa-check OK
+14:22:03
+55.
+click on css=.fas OK
+14:22:03
+56.
+click on linkText=Logout OK
+14:22:04
+57.
+click on linkText=Login OK
+14:22:04
+58.
+click on id=username OK
+14:22:05
+59.
+type on id=username with value vlasnik OK
+14:22:05
+60.
+type on id=password with value test123 OK
+14:22:05
+61.
+sendKeys on id=password with value ${KEY_ENTER} OK
+14:22:05
+62.
+click on css=.mr-2 OK
+14:22:06
+63.
+click on linkText=Podesavanja OK
+14:22:06
+64.
+click on linkText=Ugostiteljski objekti OK
+14:22:07
+65.
+assertText on id=radio11 with value Javna OK
+14:22:07
+66.
+click on css=.far OK
+14:22:07
+'Odobri UO' completed successfully
+14:22:08
+Running 'TestKomentar'
+14:22:08
+1.
+open on http://localhost/psi/ci/index.php/RK/logout OK
+14:22:09
+2.
+waitForElementPresent on linkText=Login with value 1000 OK
+14:22:09
+3.
+setWindowSize on 1552x840 OK
+14:22:10
+4.
+click on linkText=Login OK
+14:22:10
+5.
+click on id=username OK
+14:22:11
+6.
+type on id=username with value korisnik OK
+14:22:11
+7.
+click on id=password OK
+14:22:11
+8.
+type on id=password with value test123 OK
+14:22:11
+9.
+click on css=.btn-primary OK
+14:22:12
+10.
+click on css=.jumbotron:nth-child(1) .d-block OK
+14:22:12
+11.
+click on css=.a:nth-child(3) .img-fluid OK
+14:22:12
+12.
+click on id=comment OK
+14:22:13
+13.
+type on id=comment with value Testiramo postavljanje komentara na stranicu i postavljanje ocene OK
+14:22:13
+14.
+click on id=exampleFormControlSelect1 OK
+14:22:13
+15.
+select on id=exampleFormControlSelect1 with value label=4 OK
+14:22:14
+16.
+click on id=exampleFormControlSelect1 OK
+14:22:14
+17.
+click on css=.btn-primary OK
+14:22:14
+18.
+click on css=.container:nth-child(10) #komentar OK
+14:22:14
+19.
+assertText on css=.container:nth-child(9) #komentar with value Testiramo postavljanje komentara na stranicu i postavljanje ocene OK
+14:22:15
+20.
+click on css=.text-capitalize OK
+14:22:15
+21.
+click on linkText=Logout OK
+14:22:15
+22.
+click on linkText=Login OK
+14:22:16
+23.
+click on id=username OK
+14:22:16
+24.
+type on id=username with value admin OK
+14:22:16
+25.
+type on id=password with value test123 OK
+14:22:16
+26.
+sendKeys on id=password with value ${KEY_ENTER} OK
+14:22:17
+27.
+mouseDownAt on css=.jumbotron:nth-child(1) .d-block with value 94,79.671875 OK
+14:22:17
+28.
+mouseMoveAt on css=.jumbotron:nth-child(1) .d-block with value 94,79.671875 OK
+14:22:18
+29.
+mouseUpAt on css=.jumbotron:nth-child(1) .d-block with value 94,79.671875 OK
+14:22:18
+30.
+click on css=.jumbotron:nth-child(1) .d-block OK
+14:22:18
+31.
+click on css=.a:nth-child(3) .img-fluid OK
+14:22:18
+32.
+click on css=.container:nth-child(9) .fas OK
+14:22:19
+33.
+click on css=.text-capitalize OK
+14:22:19
+34.
+click on linkText=Logout OK
+14:22:20
+'TestKomentar' completed successfully
+14:22:20
+Running 'TestKomentar prazno polje za komentar'
+14:22:20
+1.
+open on http://localhost/psi/ci/index.php/RK/logout OK
+14:22:21
+2.
+waitForElementPresent on linkText=Login with value 1000 OK
+14:22:21
+3.
+setWindowSize on 1552x840 OK
+14:22:22
+4.
+click on linkText=Login OK
+14:22:22
+5.
+click on id=username OK
+14:22:23
+6.
+type on id=username with value korisnik OK
+14:22:23
+7.
+click on id=password OK
+14:22:23
+8.
+type on id=password with value test123 OK
+14:22:23
+9.
+click on css=.btn-primary OK
+14:22:24
+10.
+click on css=.jumbotron:nth-child(1) .d-block OK
+14:22:24
+11.
+click on css=.a:nth-child(3) .img-fluid OK
+14:22:24
+12.
+click on id=comment OK
+14:22:25
+14.
+click on id=exampleFormControlSelect1 OK
+14:22:25
+15.
+select on id=exampleFormControlSelect1 with value label=4 OK
+14:22:25
+16.
+click on id=exampleFormControlSelect1 OK
+14:22:26
+19.
+assertElementPresent on css=#comment:required OK
+14:22:26
+'TestKomentar prazno polje za komentar' completed successfully
+14:22:26
